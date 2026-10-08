@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html class="s4u-auth-pending" lang="en">
+<head><style id="s4u-preauth-style">@keyframes s4uAuthSpin{to{transform:rotate(360deg)}}html.s4u-auth-pending body>:not(#s4u-auth-blocking-error):not(#s4u-auth-loading){visibility:hidden!important}html.s4u-auth-pending #s4u-auth-blocking-error,html.s4u-auth-pending #s4u-auth-loading{visibility:visible!important}</style>
+  <meta charset="UTF-8">
+  <meta name="theme-color" content="#24467f">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Course Engagement | screenings4u Management Portal</title>
+<link href="images/fav.png" rel="icon" type="image/png"/>
+  <link rel="stylesheet" href="assets/css/admin-lms.css"><link rel="stylesheet" href="assets/css/lms-ui-modals.css?v=20260917-brandmodal">
+  <link rel="stylesheet" href="assets/css/admin-lms-course-engagement.css?v=20260831-1">
+<link rel="stylesheet" href="assets/css/enterprise-portal.css?v=20260924-design-v5">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/brand-system.css?v=20260918-dashboard-fix-v1">
+<link rel="stylesheet" href="assets/css/enterprise-management-system.css?v=20260924-design-v5"></head>
+
+<body class="admin-lms-course-engagement-page" data-s4u-portal="admin"><div id="s4u-auth-loading" role="status" aria-live="polite" style="position:fixed;inset:0;z-index:2147483000;display:grid;place-items:center;background:#f4f7fc;font-family:Inter,Arial,sans-serif;color:#24467f"><div style="text-align:center"><div style="width:34px;height:34px;margin:0 auto 14px;border:3px solid #dbe5f1;border-top-color:#24467f;border-radius:50%;animation:s4uAuthSpin .7s linear infinite"></div><strong style="font-size:14px">Loading secure workspace…</strong></div></div>
+  <div class="admin-lms-app">
+
+    <div id="admin-lms-sidebar-target"></div>
+
+    <main class="admin-lms-main">
+
+      <!-- ==========================================================
+           SHARED ADMIN TOPBAR
+           ========================================================== -->
+
+      <header class="admin-lms-topbar">
+        <div class="admin-lms-topbar-left">
+
+          <button
+            type="button"
+            class="admin-lms-sidebar-collapse"
+            data-admin-sidebar-collapse
+            aria-label="Collapse sidebar"
+            aria-expanded="true"
+          >
+            <svg viewBox="0 0 24 24">
+              <path d="M15 18l-6-6 6-6"></path>
+            </svg>
+          </button>
+
+          <div class="admin-lms-page-context">
+            <small>Training</small>
+            <strong>Course Management</strong>
+          </div>
+
+        </div>
+
+        <div class="admin-lms-topbar-right">
+
+          <a
+            href="admin-notifications.html"
+            class="admin-lms-icon-button"
+            aria-label="Notifications"
+          >
+            <svg viewBox="0 0 24 24">
+              <path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9"></path>
+              <path d="M10 21h4"></path>
+            </svg>
+          </a>
+
+        </div>
+      </header>
+
+
+      <!-- ==========================================================
+           ENGAGEMENT WORKSPACE
+           ========================================================== -->
+
+      <section class="engagement-workspace">
+
+        <nav class="engagement-breadcrumbs" aria-label="Breadcrumb">
+          <a href="admin-lms-courses.html">Programs</a>
+          <span aria-hidden="true">›</span>
+          <span id="engagementBreadcrumbCourse">Course</span>
+        </nav>
+
+
+        <header class="engagement-course-header">
+
+          <div class="engagement-title-row">
+
+            <a
+              href="admin-lms-courses.html"
+              class="engagement-back"
+              aria-label="Back to courses"
+            >
+              ‹
+            </a>
+
+            <div>
+              <h1 id="engagementCourseTitle">Course</h1>
+
+              <div class="engagement-status-row">
+                <span
+                  class="engagement-status-badge"
+                  id="engagementCourseStatus"
+                >
+                  Draft
+                </span>
+
+                <span
+                  class="engagement-status-badge active"
+                  id="engagementAccessStatus"
+                >
+                  Active
+                </span>
+              </div>
+            </div>
+
+          </div>
+
+
+          <div class="engagement-header-actions">
+
+            <button
+              type="button"
+              class="engagement-circle-button"
+              id="engagementRefreshButton"
+              aria-label="Refresh engagement data"
+              title="Refresh"
+            >
+              ↻
+            </button>
+
+            <a
+              class="engagement-pill secondary"
+              id="engagementPreviewButton"
+              href="admin-lms-course-preview.html"
+            >
+              Preview
+            </a>
+
+            <button
+              type="button"
+              class="engagement-pill primary"
+              id="engagementMessageButton"
+            >
+              Message Participants
+            </button>
+
+          </div>
+
+        </header>
+
+
+        <!-- COURSE TABS -->
+
+        <nav class="engagement-course-tabs" aria-label="Course sections">
+          <a href="admin-lms-course-overview.html" data-course-tab="overview">Overview</a>
+          <a href="admin-lms-course-builder.html" data-course-tab="content">Content</a>
+          <a href="admin-lms-course-participants.html" data-course-tab="participants">Participants</a>
+          <a href="admin-lms-course-settings.html" data-course-tab="settings">Settings</a>
+          <a href="admin-lms-course-engagement.html" data-course-tab="engagement" class="active">Engagement</a>
+        </nav>
+
+
+        <div
+          class="engagement-toast"
+          id="engagementToast"
+          role="status"
+          aria-live="polite"
+        ></div>
+
+
+        <div
+          class="engagement-loading"
+          id="engagementLoading"
+        >
+          Loading engagement data...
+        </div>
+
+
+        <div
+          class="engagement-content"
+          id="engagementContent"
+          hidden
+        >
+
+
+          <!-- ======================================================
+               METRICS
+               ====================================================== -->
+
+          <section class="engagement-metric-grid">
+
+            <article class="engagement-metric">
+              <span class="engagement-metric-icon">♙</span>
+              <div>
+                <small>Active participants</small>
+                <strong id="metricActiveParticipants">0</strong>
+              </div>
+            </article>
+
+
+            <article class="engagement-metric">
+              <span class="engagement-metric-icon">◔</span>
+              <div>
+                <small>Avg. progress</small>
+                <strong id="metricAverageProgress">0%</strong>
+              </div>
+            </article>
+
+
+            <article class="engagement-metric">
+              <span class="engagement-metric-icon">✓</span>
+              <div>
+                <small>Completion rate</small>
+                <strong id="metricCompletionRate">0%</strong>
+              </div>
+            </article>
+
+
+            <article class="engagement-metric">
+              <span class="engagement-metric-icon">◎</span>
+              <div>
+                <small>Quiz pass rate</small>
+                <strong id="metricQuizPassRate">—</strong>
+              </div>
+            </article>
+
+          </section>
+
+
+          <!-- ======================================================
+               AUTOMATIONS + COMMUNICATIONS
+               ====================================================== -->
+
+          <section class="engagement-two-column">
+
+            <article class="engagement-card">
+
+              <header class="engagement-card-header">
+                <div>
+                  <h2>Automations</h2>
+                  <p>Keep learners moving with reminders and course-triggered messages.</p>
+                </div>
+
+                <a
+                  href="admin-email-marketing.html"
+                  id="engagementAutomationManageButton"
+                  class="engagement-small-button"
+                >
+                  Manage
+                </a>
+              </header>
+
+
+              <div class="engagement-automation-list">
+
+                <div class="engagement-automation-row">
+                  <span class="engagement-automation-icon">✉</span>
+                  <div>
+                    <strong>Enrollment welcome</strong>
+                    <small>Send a welcome message when a participant joins.</small>
+                  </div>
+                  <span class="engagement-state ready">Ready</span>
+                </div>
+
+
+                <div class="engagement-automation-row">
+                  <span class="engagement-automation-icon">◔</span>
+                  <div>
+                    <strong>Inactive learner reminder</strong>
+                    <small>Follow up with participants who have stopped progressing.</small>
+                  </div>
+                  <span class="engagement-state ready">Ready</span>
+                </div>
+
+
+                <div class="engagement-automation-row">
+                  <span class="engagement-automation-icon">✓</span>
+                  <div>
+                    <strong>Course completion</strong>
+                    <small>Send completion and certificate messaging.</small>
+                  </div>
+                  <span class="engagement-state ready">Ready</span>
+                </div>
+
+              </div>
+
+            </article>
+
+
+            <article class="engagement-card">
+
+              <header class="engagement-card-header">
+                <div>
+                  <h2>Communications</h2>
+                  <p>Reach this course's participants through the existing admin communication tools.</p>
+                </div>
+              </header>
+
+
+              <div class="engagement-communication-actions">
+
+                <button
+                  type="button"
+                  class="engagement-communication-button"
+                  id="sendCourseEmailButton"
+                >
+                  <span>✉</span>
+                  <div>
+                    <strong>Send Email</strong>
+                    <small>Email course participants</small>
+                  </div>
+                </button>
+
+
+                <button
+                  type="button"
+                  class="engagement-communication-button"
+                  id="openCourseMessagesButton"
+                >
+                  <span>□</span>
+                  <div>
+                    <strong>Messages</strong>
+                    <small>Open participant messaging</small>
+                  </div>
+                </button>
+
+
+                <button
+                  type="button"
+                  class="engagement-communication-button"
+                  id="viewCourseNotificationsButton"
+                >
+                  <span>♢</span>
+                  <div>
+                    <strong>Notifications</strong>
+                    <small>Review platform notifications</small>
+                  </div>
+                </button>
+
+              </div>
+
+            </article>
+
+          </section>
+
+
+          <!-- ======================================================
+               LEARNER ENGAGEMENT
+               ====================================================== -->
+
+          <section class="engagement-card">
+
+            <header class="engagement-card-header engagement-card-header-tools">
+
+              <div>
+                <h2>Learner Engagement</h2>
+                <p>Participants who may need attention based on recent activity and progress.</p>
+              </div>
+
+
+              <div class="engagement-filter-group">
+
+                <select id="engagementActivityFilter">
+                  <option value="all">All participants</option>
+                  <option value="active">Recently active</option>
+                  <option value="inactive">Needs attention</option>
+                  <option value="completed">Completed</option>
+                </select>
+
+                <input
+                  type="search"
+                  id="engagementSearch"
+                  placeholder="Search participant..."
+                >
+
+              </div>
+
+            </header>
+
+
+            <div class="engagement-table-wrap">
+
+              <table class="engagement-table">
+                <thead>
+                  <tr>
+                    <th>Participant</th>
+                    <th>Progress</th>
+                    <th>Last activity</th>
+                    <th>Engagement</th>
+                    <th>Quiz activity</th>
+                    <th></th>
+                  </tr>
+                </thead>
+
+                <tbody id="engagementTableBody"></tbody>
+              </table>
+
+            </div>
+
+
+            <div
+              class="engagement-empty"
+              id="engagementEmpty"
+              hidden
+            >
+              No participant activity matches the current filters.
+            </div>
+
+          </section>
+
+
+          <!-- ======================================================
+               ASSESSMENT PERFORMANCE
+               ====================================================== -->
+
+          <section class="engagement-two-column">
+
+            <article class="engagement-card">
+
+              <header class="engagement-card-header">
+                <div>
+                  <h2>Quiz Performance</h2>
+                  <p>Performance from quiz attempts tied to this course's enrollments.</p>
+                </div>
+
+                <a
+                  href="admin-lms-quizzes.html"
+                  id="engagementAssessmentsButton"
+                  class="engagement-small-button"
+                >
+                  Quizzes
+                </a>
+              </header>
+
+
+              <div class="engagement-performance-grid">
+
+                <div>
+                  <span>Total attempts</span>
+                  <strong id="quizTotalAttempts">0</strong>
+                </div>
+
+                <div>
+                  <span>Passed</span>
+                  <strong id="quizPassedAttempts">0</strong>
+                </div>
+
+                <div>
+                  <span>Failed</span>
+                  <strong id="quizFailedAttempts">0</strong>
+                </div>
+
+                <div>
+                  <span>Average score</span>
+                  <strong id="quizAverageScore">—</strong>
+                </div>
+
+              </div>
+
+            </article>
+
+
+            <article class="engagement-card">
+
+              <header class="engagement-card-header">
+                <div>
+                  <h2>Course Momentum</h2>
+                  <p>Quick health indicators based on enrollment activity.</p>
+                </div>
+              </header>
+
+
+              <div class="engagement-momentum-list">
+
+                <div>
+                  <span>Not started</span>
+                  <strong id="momentumNotStarted">0</strong>
+                </div>
+
+                <div>
+                  <span>In progress</span>
+                  <strong id="momentumInProgress">0</strong>
+                </div>
+
+                <div>
+                  <span>Needs attention</span>
+                  <strong id="momentumNeedsAttention">0</strong>
+                </div>
+
+                <div>
+                  <span>Completed</span>
+                  <strong id="momentumCompleted">0</strong>
+                </div>
+
+              </div>
+
+            </article>
+
+          </section>
+
+        </div>
+
+      </section>
+
+    </main>
+  </div>
+
+
+  <!-- MESSAGE PARTICIPANTS MODAL -->
+
+  <div
+    class="engagement-modal-backdrop"
+    id="engagementMessageModal"
+    hidden
+  >
+    <section class="engagement-modal">
+
+      <header>
+        <div>
+          <small>COMMUNICATIONS</small>
+          <h2>Message Participants</h2>
+        </div>
+
+        <button
+          type="button"
+          data-close-engagement-modal
+          aria-label="Close"
+        >
+          ×
+        </button>
+      </header>
+
+
+      <div class="engagement-modal-body">
+
+        <div class="engagement-message-choice">
+
+          <button type="button" id="messageViaEmail">
+            <span>✉</span>
+            <strong>Email</strong>
+            <small>Open the admin email system for course communication.</small>
+          </button>
+
+
+          <button type="button" id="messageViaMessaging">
+            <span>□</span>
+            <strong>Message</strong>
+            <small>Open the admin messaging system.</small>
+          </button>
+
+        </div>
+
+      </div>
+
+    </section>
+  </div>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="assets/js/supabase-config.js?v=20260925-fast-auth"></script>
+<script src="assets/js/core-auth.js?v=20260925-fast-auth"></script>
+<script src="assets/js/session-security.js?v=20260925-fast-auth"></script>
+<script src="assets/js/portal-auth-guard.js?v=20260925-fast-auth"></script>
+<script src="assets/js/admin-auth-guard.js?v=20260925-fast-auth"></script>
+  <script src="assets/js/enterprise-management-system.js?v=20260924-design-v5"></script>
+  
+  <script src="assets/js/ui.js?v=20260918-modal-fix-1"></script>
+  
+  
+  
+  <script src="assets/js/admin-lms-course-engagement.js?v=20260927-step13"></script>
+<script src="assets/js/enterprise-portal.js?v=20260927-step13-nav1"></script>
+
+<!-- screenings4u universal portal security -->
+</body>
+</html>

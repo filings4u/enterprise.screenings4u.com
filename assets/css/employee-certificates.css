@@ -1,0 +1,431 @@
+/* ============================================================
+   SCREENINGS4U — EMPLOYEE CERTIFICATES
+   Uses the employee dashboard template and shared shell.
+   ============================================================ */
+
+.employee-certificates-content{
+  max-width:1600px;
+  margin:0 auto;
+  padding:30px;
+}
+
+.employee-certificates-welcome-card{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:30px;
+  padding:28px 30px;
+  margin-bottom:22px;
+  border:1px solid #dce4ef;
+  border-radius:18px;
+  background:linear-gradient(135deg,#ffffff 0%,#f3f7ff 100%);
+}
+
+.employee-certificates-eyebrow{
+  display:block;
+  color:#ff6b00;
+  font-size:12px;
+  font-weight:900;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+}
+
+.employee-certificates-welcome-card h1{
+  margin:8px 0;
+  color:#2d405a;
+  font-size:30px;
+}
+
+.employee-certificates-welcome-card p{
+  max-width:720px;
+  margin:0;
+  color:#536174;
+  font-size:16px;
+  line-height:1.65;
+}
+
+.employee-certificates-welcome-actions{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+}
+
+.employee-certificates-primary-action,
+.employee-certificates-secondary-action{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:46px;
+  padding:0 16px;
+  border-radius:9px;
+  font:inherit;
+  font-size:15px;
+  font-weight:800;
+  text-decoration:none;
+  cursor:pointer;
+}
+
+.employee-certificates-primary-action{
+  border:1px solid #24467f;
+  background:#24467f;
+  color:#fff;
+}
+
+.employee-certificates-primary-action:hover{
+  border-color:#24467f;
+  background:#24467f;
+}
+
+.employee-certificates-secondary-action{
+  border:1px solid #d7e0eb;
+  background:#fff;
+  color:#24467f;
+}
+
+.employee-certificates-secondary-action:hover{
+  background:#f7f9fc;
+}
+
+.employee-certificates-stat-grid{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:16px;
+  margin-bottom:20px;
+}
+
+.employee-certificates-stat-card{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  padding:20px;
+  border:1px solid #dce4ed;
+  border-radius:15px;
+  background:#fff;
+}
+
+.employee-certificates-stat-icon{
+  width:44px;
+  height:44px;
+  display:grid;
+  place-items:center;
+  flex:0 0 44px;
+  border-radius:12px;
+  font-size:14px;
+  font-weight:900;
+}
+
+.certificate-icon{background:#eaf8f1;color:#21865c}
+.recent-icon{background:#edf3ff;color:#24467f}
+.completed-icon{background:#fff3e9;color:#ff6b00}
+
+.employee-certificates-stat-card span{
+  display:block;
+  margin-bottom:5px;
+  color:#667085;
+  font-size:14px;
+}
+
+.employee-certificates-stat-card strong{
+  display:block;
+  color:#34475f;
+  font-size:26px;
+  line-height:1;
+}
+
+.employee-certificates-stat-card small{
+  display:block;
+  margin-top:6px;
+  color:#667085;
+  font-size:13px;
+}
+
+.employee-certificates-panel{
+  padding:22px;
+  border:1px solid #dce4ed;
+  border-radius:16px;
+  background:#fff;
+}
+
+.employee-certificates-panel-heading{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:20px;
+  margin-bottom:20px;
+}
+
+.employee-certificates-panel-heading h2{
+  margin:6px 0 0;
+  color:#34475f;
+  font-size:20px;
+}
+
+.employee-certificates-panel-heading p{
+  margin:5px 0 0;
+  color:#536174;
+  font-size:15px;
+  line-height:1.55;
+}
+
+.employee-certificates-search-wrap{
+  width:min(320px,100%);
+}
+
+.employee-certificates-search-wrap input{
+  width:100%;
+  min-height:44px;
+  padding:0 12px;
+  border:1px solid #dce4ed;
+  border-radius:9px;
+  background:#fff;
+  color:#172033;
+  font:inherit;
+  font-size:15px;
+  outline:0;
+}
+
+.employee-certificates-search-wrap input:focus{
+  border-color:#9db3d7;
+  box-shadow:0 0 0 3px rgba(50,90,163,.08);
+}
+
+.employee-certificates-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:15px;
+}
+
+.employee-certificate-card{
+  padding:20px;
+  border:1px solid #e3e9f0;
+  border-radius:12px;
+  background:#fff;
+}
+
+.employee-certificate-card-top{
+  display:flex;
+  gap:14px;
+  align-items:flex-start;
+}
+
+.employee-certificate-card-icon{
+  display:grid;
+  place-items:center;
+  width:48px;
+  height:48px;
+  flex:0 0 48px;
+  border-radius:10px;
+  background:#fff3e9;
+  color:#ff6b00;
+  font-weight:900;
+}
+
+.employee-certificate-card-title{
+  min-width:0;
+  flex:1;
+}
+
+.employee-certificate-card-title h3{
+  margin:0;
+  color:#34475f;
+  font-size:17px;
+  line-height:1.45;
+}
+
+.employee-certificate-card-title p{
+  margin:5px 0 0;
+  color:#667085;
+  font-size:14px;
+  line-height:1.5;
+}
+
+.employee-certificate-meta{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:10px;
+  margin-top:17px;
+  padding-top:14px;
+  border-top:1px solid #e8edf3;
+}
+
+.employee-certificate-meta small{
+  display:block;
+  color:#667085;
+  font-size:12px;
+  font-weight:900;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+}
+
+.employee-certificate-meta strong{
+  display:block;
+  margin-top:4px;
+  color:#34475f;
+  font-size:14px;
+  word-break:break-word;
+}
+
+.employee-certificate-actions{
+  display:flex;
+  gap:8px;
+  margin-top:17px;
+}
+
+.employee-certificate-view,
+.employee-certificate-download{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:44px;
+  padding:0 14px;
+  border-radius:8px;
+  font:inherit;
+  font-size:14px;
+  font-weight:800;
+  cursor:pointer;
+}
+
+.employee-certificate-view{
+  border:1px solid #24467f;
+  background:#24467f;
+  color:#fff;
+}
+
+.employee-certificate-download{
+  border:1px solid #dce4ed;
+  background:#fff;
+  color:#24467f;
+}
+
+.employee-certificate-view:hover{
+  background:#24467f;
+  border-color:#24467f;
+}
+
+.employee-certificate-download:hover{
+  background:#f7f9fc;
+}
+
+.employee-certificates-empty{
+  padding:56px 20px;
+  text-align:center;
+}
+
+.employee-certificates-empty-icon{
+  display:grid;
+  place-items:center;
+  width:46px;
+  height:46px;
+  margin:0 auto;
+  border-radius:50%;
+  background:#eaf8f1;
+  color:#21865c;
+  font-weight:900;
+}
+
+.employee-certificates-empty h2{
+  margin:12px 0 0;
+  color:#34475f;
+  font-size:20px;
+}
+
+.employee-certificates-empty p{
+  max-width:520px;
+  margin:8px auto 0;
+  color:#536174;
+  font-size:15px;
+  line-height:1.6;
+}
+
+.employee-certificates-modal[hidden]{
+  display:none!important;
+}
+
+.employee-certificates-modal{
+  position:fixed;
+  z-index:20000;
+  inset:0;
+  display:grid;
+  place-items:center;
+  padding:20px;
+}
+
+.employee-certificates-modal-backdrop{
+  position:absolute;
+  inset:0;
+  background:rgba(23,32,51,.5);
+}
+
+.employee-certificates-modal-card{
+  position:relative;
+  width:min(100%,430px);
+  padding:26px;
+  border-radius:15px;
+  background:#fff;
+  box-shadow:0 22px 65px rgba(23,32,51,.25);
+}
+
+.employee-certificates-modal-card h2{
+  margin:0;
+  color:#34475f;
+  font-size:22px;
+}
+
+.employee-certificates-modal-card p{
+  margin:10px 0 20px;
+  color:#536174;
+  font-size:15px;
+  line-height:1.6;
+}
+
+@media(max-width:900px){
+  .employee-certificates-grid{
+    grid-template-columns:1fr;
+  }
+}
+
+@media(max-width:800px){
+  .employee-certificates-content{
+    padding:22px 18px;
+  }
+
+  .employee-certificates-welcome-card{
+    align-items:flex-start;
+    flex-direction:column;
+  }
+
+  .employee-certificates-stat-grid{
+    grid-template-columns:1fr;
+  }
+
+  .employee-certificates-panel-heading{
+    flex-direction:column;
+  }
+
+  .employee-certificates-search-wrap{
+    width:100%;
+  }
+}
+
+@media(max-width:560px){
+  .employee-certificates-welcome-card{
+    padding:22px;
+  }
+
+  .employee-certificates-welcome-actions,
+  .employee-certificate-actions{
+    width:100%;
+    flex-direction:column;
+  }
+
+  .employee-certificates-primary-action,
+  .employee-certificates-secondary-action,
+  .employee-certificate-view,
+  .employee-certificate-download{
+    width:100%;
+  }
+
+  .employee-certificate-meta{
+    grid-template-columns:1fr;
+  }
+}

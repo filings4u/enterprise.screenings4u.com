@@ -1,0 +1,38 @@
+/* SCREENINGS4U — EMPLOYEE CONTACT EMPLOYER */
+.employee-contact-content{max-width:1600px;margin:0 auto;padding:30px}
+.employee-contact-welcome-card{display:flex;justify-content:space-between;gap:30px;align-items:center;padding:28px 30px;border-radius:18px;background:linear-gradient(135deg,#fff 0%,#f3f7ff 100%);border:1px solid #dce4ef;margin-bottom:22px}
+.employee-contact-eyebrow{display:block;font-size:12px;font-weight:900;letter-spacing:.12em;color:#ff6b00;text-transform:uppercase}
+.employee-contact-welcome-card h1{margin:8px 0;color:#2d405a;font-size:30px}
+.employee-contact-welcome-card p{margin:0;max-width:760px;color:#536174;font-size:16px;line-height:1.65}
+.employee-contact-welcome-actions{display:flex;gap:10px;flex-wrap:wrap}
+.employee-contact-primary-action,.employee-contact-secondary-action{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:0 16px;border-radius:9px;font:inherit;font-size:15px;font-weight:800;text-decoration:none;cursor:pointer}
+.employee-contact-primary-action{border:1px solid #24467f;background:#24467f;color:#fff}
+.employee-contact-secondary-action{border:1px solid #d7e0eb;background:#fff;color:#24467f}
+.employee-contact-grid{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:20px}
+.employee-contact-panel,.employee-contact-side-card{border:1px solid #dce4ed;border-radius:16px;background:#fff}
+.employee-contact-panel-heading{padding:22px 24px;border-bottom:1px solid #e8edf3}
+.employee-contact-panel-heading h2,.employee-contact-side-card h2{margin:6px 0 0;color:#34475f;font-size:20px}
+.employee-contact-panel-heading p,.employee-contact-side-card p{margin:7px 0 0;color:#536174;font-size:15px;line-height:1.6}
+.employee-contact-form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;padding:24px}
+.employee-contact-form-grid label{display:flex;flex-direction:column;gap:7px;color:#172033;font-size:14px;font-weight:800}
+.employee-contact-form-grid select,.employee-contact-form-grid textarea{width:100%;box-sizing:border-box;border:1px solid #cfd7e3;border-radius:8px;padding:11px;background:#fff;color:#172033;font:inherit;font-size:16px;outline:0}
+.employee-contact-form-grid select{min-height:46px}.employee-contact-form-grid textarea{resize:vertical;min-height:170px}
+.employee-contact-form-grid select:focus,.employee-contact-form-grid textarea:focus{border-color:#9db3d7;box-shadow:0 0 0 3px rgba(50,90,163,.08)}
+.full{grid-column:1/-1}
+.employee-contact-form-actions{display:flex;justify-content:flex-end;gap:9px;padding:20px 24px;border-top:1px solid #e8edf3}
+.employee-contact-side{display:grid;gap:15px;align-content:start}
+.employee-contact-side-card{padding:20px}
+.employee-contact-details{display:grid;gap:13px;margin-top:18px}
+.employee-contact-details div{padding-top:12px;border-top:1px solid #e8edf3}
+.employee-contact-details small{display:block;color:#667085;font-size:12px;font-weight:900;letter-spacing:.06em}
+.employee-contact-details strong{display:block;margin-top:5px;color:#34475f;font-size:14px;word-break:break-word}
+.employee-contact-side-card ul{margin:11px 0 0;padding-left:20px;color:#536174;font-size:15px;line-height:1.9}
+.employee-contact-muted{background:#fbfcfe}
+.employee-contact-modal[hidden]{display:none!important}
+.employee-contact-modal{position:fixed;z-index:20000;inset:0;display:grid;place-items:center;padding:20px}
+.employee-contact-modal-backdrop{position:absolute;inset:0;background:rgba(23,32,51,.5)}
+.employee-contact-modal-card{position:relative;width:min(100%,430px);padding:26px;border-radius:15px;background:#fff;box-shadow:0 22px 65px rgba(23,32,51,.25)}
+.employee-contact-modal-card h2{margin:0;color:#34475f;font-size:22px}
+.employee-contact-modal-card p{margin:10px 0 20px;color:#536174;font-size:15px;line-height:1.6}
+@media(max-width:850px){.employee-contact-content{padding:22px 18px}.employee-contact-welcome-card{align-items:flex-start;flex-direction:column}.employee-contact-grid{grid-template-columns:1fr}.employee-contact-side{grid-template-columns:repeat(2,1fr)}.employee-contact-side-card:first-child{grid-column:1/-1}}
+@media(max-width:600px){.employee-contact-form-grid,.employee-contact-side{grid-template-columns:1fr}.full{grid-column:auto}.employee-contact-form-actions{flex-direction:column-reverse}.employee-contact-primary-action,.employee-contact-secondary-action{width:100%}.employee-contact-welcome-card{padding:22px}}

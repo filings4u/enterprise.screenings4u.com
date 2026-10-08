@@ -1,0 +1,1436 @@
+/* ============================================================
+   screenings4u — EMPLOYER USERS
+   Matches the Management Portal dashboard structure.
+   ============================================================ */
+
+:root {
+    --employer-users-blue: #24467f;
+    --employer-users-blue-light: #24467f;
+    --employer-users-orange: #f05a00;
+    --employer-users-bg: #f6f8fb;
+    --employer-users-card: #ffffff;
+    --employer-users-line: #e1e7ef;
+    --employer-users-muted: #617087;
+    --employer-users-text: #172033;
+}
+
+
+/* ============================================================
+   PAGE
+   ============================================================ */
+
+.admin-employer-users-page {
+    padding: 28px;
+    min-width: 0;
+}
+
+
+/* ============================================================
+   HEADER
+   ============================================================ */
+
+.employer-users-heading {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 24px;
+    margin-bottom: 24px;
+}
+
+.employer-users-kicker {
+    margin-bottom: 8px;
+
+    color: var(--employer-users-orange);
+
+    font-size: 11px;
+    font-weight: 900;
+
+    letter-spacing: 0.1em;
+}
+
+.employer-users-heading h1 {
+    margin: 0 0 8px;
+
+    color: var(--employer-users-blue);
+
+    font-size: 38px;
+    line-height: 1.05;
+    font-weight: 900;
+
+    letter-spacing: -0.04em;
+}
+
+.employer-users-heading p {
+    margin: 0;
+
+    color: var(--employer-users-muted);
+
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+
+/* ============================================================
+   BUTTONS
+   ============================================================ */
+
+.employer-users-primary-button,
+.employer-users-secondary-button,
+.employer-users-action-button {
+    appearance: none;
+
+    border: 0;
+
+    font: inherit;
+
+    font-weight: 800;
+
+    cursor: pointer;
+
+    transition:
+        background 0.18s ease,
+        border-color 0.18s ease,
+        color 0.18s ease,
+        transform 0.18s ease;
+}
+
+.employer-users-primary-button {
+    padding: 11px 17px;
+
+    border-radius: 8px;
+
+    background: var(--employer-users-orange);
+
+    color: #ffffff;
+}
+
+.employer-users-primary-button:hover {
+    transform: translateY(-1px);
+
+    background: #d94f00;
+}
+
+.employer-users-secondary-button {
+    height: 42px;
+
+    padding: 0 14px;
+
+    border: 1px solid var(--employer-users-line);
+
+    border-radius: 8px;
+
+    background: #ffffff;
+
+    color: var(--employer-users-blue);
+}
+
+.employer-users-secondary-button:hover {
+    background: #f4f7fb;
+}
+
+.employer-users-secondary-button:disabled {
+    opacity: 0.6;
+    cursor: wait;
+}
+
+
+/* ============================================================
+   METRICS
+   ============================================================ */
+
+.employer-users-metrics {
+    display: grid;
+
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+
+    gap: 16px;
+
+    margin-bottom: 22px;
+}
+
+.employer-users-metric-card {
+    padding: 19px;
+
+    border: 1px solid var(--employer-users-line);
+    border-radius: 10px;
+
+    background: var(--employer-users-card);
+
+    box-shadow: 0 4px 14px rgba(20, 48, 82, 0.04);
+}
+
+.employer-users-metric-card span {
+    display: block;
+
+    color: var(--employer-users-muted);
+
+    font-size: 12px;
+    font-weight: 800;
+}
+
+.employer-users-metric-card strong {
+    display: block;
+
+    margin-top: 8px;
+
+    color: var(--employer-users-blue);
+
+    font-size: 31px;
+    line-height: 1;
+    font-weight: 900;
+}
+
+
+/* ============================================================
+   PANEL
+   ============================================================ */
+
+.employer-users-panel {
+    overflow: hidden;
+
+    border: 1px solid var(--employer-users-line);
+    border-radius: 10px;
+
+    background: var(--employer-users-card);
+}
+
+
+/* ============================================================
+   TOOLBAR
+   ============================================================ */
+
+.employer-users-toolbar {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    padding: 16px;
+
+    border-bottom: 1px solid var(--employer-users-line);
+}
+
+.employer-users-search {
+    flex: 1;
+    min-width: 180px;
+}
+
+.employer-users-search input,
+.employer-users-toolbar select {
+    width: 100%;
+    height: 42px;
+
+    box-sizing: border-box;
+
+    padding: 0 12px;
+
+    border: 1px solid #d9e1eb;
+    border-radius: 8px;
+
+    outline: none;
+
+    background: #ffffff;
+
+    color: var(--employer-users-text);
+
+    font: inherit;
+    font-size: 12px;
+}
+
+.employer-users-toolbar select {
+    width: 170px;
+}
+
+#employerUserRoleFilter {
+    width: 185px;
+}
+
+#employerUserStatusFilter {
+    width: 140px;
+}
+
+.employer-users-search input:focus,
+.employer-users-toolbar select:focus {
+    border-color: var(--employer-users-blue-light);
+
+    box-shadow: 0 0 0 3px rgba(50, 90, 163, 0.1);
+}
+
+
+/* ============================================================
+   TABLE
+   ============================================================ */
+
+.employer-users-table-wrap {
+    width: 100%;
+
+    overflow-x: auto;
+}
+
+.employer-users-table {
+    width: 100%;
+    min-width: 1050px;
+
+    border-collapse: collapse;
+}
+
+.employer-users-table th,
+.employer-users-table td {
+    padding: 15px 16px;
+
+    border-bottom: 1px solid #edf0f4;
+
+    text-align: left;
+
+    vertical-align: middle;
+}
+
+.employer-users-table th {
+    color: #6b778b;
+
+    font-size: 10px;
+    font-weight: 900;
+
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+.employer-users-table td {
+    color: var(--employer-users-text);
+
+    font-size: 12px;
+}
+
+.employer-users-table td strong {
+    display: block;
+
+    color: var(--employer-users-blue);
+
+    font-size: 13px;
+    font-weight: 800;
+}
+
+.employer-users-table td small {
+    display: block;
+
+    margin-top: 3px;
+
+    color: var(--employer-users-muted);
+
+    font-size: 11px;
+}
+
+
+/* ============================================================
+   ROLE
+   ============================================================ */
+
+.employer-user-role {
+    display: inline-flex;
+
+    padding: 5px 9px;
+
+    border-radius: 999px;
+
+    background: #edf3fb;
+
+    color: var(--employer-users-blue);
+
+    font-size: 10px;
+    font-weight: 900;
+}
+
+
+/* ============================================================
+   STATUS
+   ============================================================ */
+
+.employer-user-status {
+    display: inline-flex;
+
+    align-items: center;
+
+    padding: 5px 9px;
+
+    border-radius: 999px;
+
+    font-size: 10px;
+    font-weight: 900;
+}
+
+.employer-user-status.active {
+    background: #e9f8ef;
+    color: #16804d;
+}
+
+.employer-user-status.inactive {
+    background: #f1f3f6;
+    color: #687486;
+}
+
+
+/* ============================================================
+   ACTION BUTTON
+   ============================================================ */
+
+.employer-users-action-button {
+    padding: 7px 10px;
+
+    border: 1px solid var(--employer-users-line);
+    border-radius: 6px;
+
+    background: #ffffff;
+
+    color: var(--employer-users-blue);
+
+    font-size: 11px;
+}
+
+.employer-users-action-button:hover {
+    background: #edf3fb;
+}
+
+
+/* ============================================================
+   EMPTY / LOADING
+   ============================================================ */
+
+.employer-users-loading,
+.employer-users-empty {
+    padding: 36px !important;
+
+    color: var(--employer-users-muted);
+
+    text-align: center !important;
+}
+
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+
+.employer-users-footer {
+    padding: 13px 16px;
+
+    color: var(--employer-users-muted);
+
+    font-size: 12px;
+}
+/* ============================================================
+   screenings4u — EMPLOYER USERS
+   Matches the Management Portal dashboard structure.
+   ============================================================ */
+
+:root {
+    --employer-users-blue: #24467f;
+    --employer-users-blue-light: #24467f;
+    --employer-users-orange: #f05a00;
+    --employer-users-bg: #f6f8fb;
+    --employer-users-card: #ffffff;
+    --employer-users-line: #e1e7ef;
+    --employer-users-muted: #617087;
+    --employer-users-text: #172033;
+}
+
+
+/* ============================================================
+   PAGE
+   ============================================================ */
+
+.admin-employer-users-page {
+    padding: 28px;
+    min-width: 0;
+}
+
+
+/* ============================================================
+   HEADER
+   ============================================================ */
+
+.employer-users-heading {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 24px;
+    margin-bottom: 24px;
+}
+
+.employer-users-kicker {
+    margin-bottom: 8px;
+
+    color: var(--employer-users-orange);
+
+    font-size: 11px;
+    font-weight: 900;
+
+    letter-spacing: 0.1em;
+}
+
+.employer-users-heading h1 {
+    margin: 0 0 8px;
+
+    color: var(--employer-users-blue);
+
+    font-size: 38px;
+    line-height: 1.05;
+    font-weight: 900;
+
+    letter-spacing: -0.04em;
+}
+
+.employer-users-heading p {
+    margin: 0;
+
+    color: var(--employer-users-muted);
+
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+
+/* ============================================================
+   BUTTONS
+   ============================================================ */
+
+.employer-users-primary-button,
+.employer-users-secondary-button,
+.employer-users-action-button {
+    appearance: none;
+
+    border: 0;
+
+    font: inherit;
+
+    font-weight: 800;
+
+    cursor: pointer;
+
+    transition:
+        background 0.18s ease,
+        border-color 0.18s ease,
+        color 0.18s ease,
+        transform 0.18s ease;
+}
+
+.employer-users-primary-button {
+    padding: 11px 17px;
+
+    border-radius: 8px;
+
+    background: var(--employer-users-orange);
+
+    color: #ffffff;
+}
+
+.employer-users-primary-button:hover {
+    transform: translateY(-1px);
+
+    background: #d94f00;
+}
+
+.employer-users-secondary-button {
+    height: 42px;
+
+    padding: 0 14px;
+
+    border: 1px solid var(--employer-users-line);
+
+    border-radius: 8px;
+
+    background: #ffffff;
+
+    color: var(--employer-users-blue);
+}
+
+.employer-users-secondary-button:hover {
+    background: #f4f7fb;
+}
+
+.employer-users-secondary-button:disabled {
+    opacity: 0.6;
+    cursor: wait;
+}
+
+
+/* ============================================================
+   METRICS
+   ============================================================ */
+
+.employer-users-metrics {
+    display: grid;
+
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+
+    gap: 16px;
+
+    margin-bottom: 22px;
+}
+
+.employer-users-metric-card {
+    padding: 19px;
+
+    border: 1px solid var(--employer-users-line);
+    border-radius: 10px;
+
+    background: var(--employer-users-card);
+
+    box-shadow: 0 4px 14px rgba(20, 48, 82, 0.04);
+}
+
+.employer-users-metric-card span {
+    display: block;
+
+    color: var(--employer-users-muted);
+
+    font-size: 12px;
+    font-weight: 800;
+}
+
+.employer-users-metric-card strong {
+    display: block;
+
+    margin-top: 8px;
+
+    color: var(--employer-users-blue);
+
+    font-size: 31px;
+    line-height: 1;
+    font-weight: 900;
+}
+
+
+/* ============================================================
+   PANEL
+   ============================================================ */
+
+.employer-users-panel {
+    overflow: hidden;
+
+    border: 1px solid var(--employer-users-line);
+    border-radius: 10px;
+
+    background: var(--employer-users-card);
+}
+
+
+/* ============================================================
+   TOOLBAR
+   ============================================================ */
+
+.employer-users-toolbar {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    padding: 16px;
+
+    border-bottom: 1px solid var(--employer-users-line);
+}
+
+.employer-users-search {
+    flex: 1;
+    min-width: 180px;
+}
+
+.employer-users-search input,
+.employer-users-toolbar select {
+    width: 100%;
+    height: 42px;
+
+    box-sizing: border-box;
+
+    padding: 0 12px;
+
+    border: 1px solid #d9e1eb;
+    border-radius: 8px;
+
+    outline: none;
+
+    background: #ffffff;
+
+    color: var(--employer-users-text);
+
+    font: inherit;
+    font-size: 12px;
+}
+
+.employer-users-toolbar select {
+    width: 170px;
+}
+
+#employerUserRoleFilter {
+    width: 185px;
+}
+
+#employerUserStatusFilter {
+    width: 140px;
+}
+
+.employer-users-search input:focus,
+.employer-users-toolbar select:focus {
+    border-color: var(--employer-users-blue-light);
+
+    box-shadow: 0 0 0 3px rgba(50, 90, 163, 0.1);
+}
+
+
+/* ============================================================
+   TABLE
+   ============================================================ */
+
+.employer-users-table-wrap {
+    width: 100%;
+
+    overflow-x: auto;
+}
+
+.employer-users-table {
+    width: 100%;
+    min-width: 1050px;
+
+    border-collapse: collapse;
+}
+
+.employer-users-table th,
+.employer-users-table td {
+    padding: 15px 16px;
+
+    border-bottom: 1px solid #edf0f4;
+
+    text-align: left;
+
+    vertical-align: middle;
+}
+
+.employer-users-table th {
+    color: #6b778b;
+
+    font-size: 10px;
+    font-weight: 900;
+
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+.employer-users-table td {
+    color: var(--employer-users-text);
+
+    font-size: 12px;
+}
+
+.employer-users-table td strong {
+    display: block;
+
+    color: var(--employer-users-blue);
+
+    font-size: 13px;
+    font-weight: 800;
+}
+
+.employer-users-table td small {
+    display: block;
+
+    margin-top: 3px;
+
+    color: var(--employer-users-muted);
+
+    font-size: 11px;
+}
+
+
+/* ============================================================
+   ROLE
+   ============================================================ */
+
+.employer-user-role {
+    display: inline-flex;
+
+    padding: 5px 9px;
+
+    border-radius: 999px;
+
+    background: #edf3fb;
+
+    color: var(--employer-users-blue);
+
+    font-size: 10px;
+    font-weight: 900;
+}
+
+
+/* ============================================================
+   STATUS
+   ============================================================ */
+
+.employer-user-status {
+    display: inline-flex;
+
+    align-items: center;
+
+    padding: 5px 9px;
+
+    border-radius: 999px;
+
+    font-size: 10px;
+    font-weight: 900;
+}
+
+.employer-user-status.active {
+    background: #e9f8ef;
+    color: #16804d;
+}
+
+.employer-user-status.inactive {
+    background: #f1f3f6;
+    color: #687486;
+}
+
+
+/* ============================================================
+   ACTION BUTTON
+   ============================================================ */
+
+.employer-users-action-button {
+    padding: 7px 10px;
+
+    border: 1px solid var(--employer-users-line);
+    border-radius: 6px;
+
+    background: #ffffff;
+
+    color: var(--employer-users-blue);
+
+    font-size: 11px;
+}
+
+.employer-users-action-button:hover {
+    background: #edf3fb;
+}
+
+
+/* ============================================================
+   EMPTY / LOADING
+   ============================================================ */
+
+.employer-users-loading,
+.employer-users-empty {
+    padding: 36px !important;
+
+    color: var(--employer-users-muted);
+
+    text-align: center !important;
+}
+
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+
+.employer-users-footer {
+    padding: 13px 16px;
+
+    color: var(--employer-users-muted);
+
+    font-size: 12px;
+}
+
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+
+@media (max-width: 1100px) {
+
+    .employer-users-metrics {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .employer-users-toolbar {
+        flex-wrap: wrap;
+    }
+
+    .employer-users-search {
+        flex-basis: 100%;
+    }
+
+}
+
+
+@media (max-width: 700px) {
+
+    .admin-employer-users-page {
+        padding: 18px;
+    }
+
+    .employer-users-heading {
+        align-items: flex-start;
+
+        flex-direction: column;
+    }
+
+    .employer-users-primary-button {
+        width: 100%;
+    }
+
+    .employer-users-metrics {
+        grid-template-columns: 1fr;
+    }
+
+    .employer-users-toolbar select,
+    #employerUserRoleFilter,
+    #employerUserStatusFilter {
+        width: 100%;
+    }
+
+    .employer-users-secondary-button {
+        width: 100%;
+    }
+
+}
+
+/* ============================================================
+   SCREENINGS4U — SHARED MODAL SYSTEM
+   Matches ui.js exactly
+   Brand: Blue #24467f | Orange #ff6b00
+   ============================================================ */
+
+#s4uModalRoot {
+    position: fixed;
+    inset: 0;
+    z-index: 10000;
+
+    pointer-events: none;
+}
+
+
+.s4u-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 10001;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 24px;
+
+    pointer-events: auto;
+}
+
+
+/* ============================================================
+   BACKDROP
+   ============================================================ */
+
+.s4u-modal-backdrop {
+    position: absolute;
+    inset: 0;
+
+    background:
+        rgba(23, 61, 120, 0.38);
+
+    backdrop-filter: blur(2px);
+}
+
+
+/* ============================================================
+   MODAL PANEL
+   ============================================================ */
+
+.s4u-modal-panel {
+    position: relative;
+    z-index: 1;
+
+    width: min(720px, calc(100vw - 48px));
+    max-height: calc(100vh - 48px);
+
+    overflow-y: auto;
+
+    background: #ffffff;
+
+    border: 1px solid #dce4ef;
+    border-radius: 16px;
+
+    box-shadow:
+        0 28px 80px rgba(23, 61, 120, 0.24);
+
+    animation:
+        s4uModalIn 0.2s ease-out;
+}
+
+
+.s4u-form-modal-panel {
+    width: min(760px, calc(100vw - 48px));
+}
+
+
+@keyframes s4uModalIn {
+
+    from {
+        opacity: 0;
+        transform: translateY(12px) scale(0.98);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+
+}
+
+
+/* ============================================================
+   MODAL CONTENT
+   ============================================================ */
+
+.s4u-modal-content {
+    padding: 30px 30px 10px;
+
+    box-sizing: border-box;
+}
+
+
+.s4u-modal-content h2 {
+    margin: 0 0 8px;
+
+    color: #24467f;
+
+    font-size: 26px;
+    font-weight: 800;
+    line-height: 1.2;
+}
+
+
+.s4u-modal-content p {
+    margin: 0 0 24px;
+
+    color: #617087;
+
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+
+/* ============================================================
+   FORM
+   ============================================================ */
+
+.s4u-form-modal-form {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 18px;
+
+    width: 100%;
+
+    padding: 0 30px 30px;
+
+    box-sizing: border-box;
+}
+
+
+.s4u-form-modal-field {
+    display: flex;
+    flex-direction: column;
+
+    min-width: 0;
+
+    gap: 7px;
+}
+
+
+.s4u-form-modal-field span {
+    color: #30435f;
+
+    font-size: 12px;
+    font-weight: 700;
+}
+
+
+.s4u-form-modal-field input,
+.s4u-form-modal-field select,
+.s4u-form-modal-field textarea {
+    width: 100%;
+    min-width: 0;
+
+    min-height: 44px;
+
+    padding: 10px 13px;
+
+    box-sizing: border-box;
+
+    border: 1px solid #d5dfeb;
+    border-radius: 8px;
+
+    background: #ffffff;
+
+    color: #172033;
+
+    font: inherit;
+
+    transition:
+        border-color 0.18s ease,
+        box-shadow 0.18s ease;
+}
+
+
+.s4u-form-modal-field textarea {
+    min-height: 110px;
+
+    resize: vertical;
+}
+
+
+.s4u-form-modal-field input:focus,
+.s4u-form-modal-field select:focus,
+.s4u-form-modal-field textarea:focus {
+    outline: none;
+
+    border-color: #24467f;
+
+    box-shadow:
+        0 0 0 3px
+        rgba(50, 90, 163, 0.12);
+}
+
+
+/* ============================================================
+   ACTIONS
+   ============================================================ */
+
+.s4u-modal-actions {
+    grid-column: 1 / -1;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    gap: 10px;
+
+    margin-top: 6px;
+    padding-top: 20px;
+
+    border-top: 1px solid #e8edf3;
+}
+
+
+/* ============================================================
+   MODAL BUTTONS
+   ============================================================ */
+
+.s4u-modal-button {
+    appearance: none;
+
+    min-height: 44px;
+
+    padding: 10px 18px;
+
+    border-radius: 8px;
+
+    font: inherit;
+    font-size: 13px;
+    font-weight: 800;
+
+    cursor: pointer;
+
+    transition:
+        background 0.18s ease,
+        border-color 0.18s ease,
+        transform 0.18s ease;
+}
+
+
+.s4u-modal-button:hover {
+    transform: translateY(-1px);
+}
+
+
+.s4u-modal-button.secondary {
+    border: 1px solid #cfd9e5;
+
+    background: #ffffff;
+
+    color: #24467f;
+}
+
+
+.s4u-modal-button.secondary:hover {
+    background: #f4f7fb;
+
+    border-color: #24467f;
+}
+
+
+.s4u-modal-button.primary {
+    border: 1px solid #ff6b00;
+
+    background: #ff6b00;
+
+    color: #ffffff;
+
+    box-shadow:
+        0 6px 14px
+        rgba(255, 107, 0, 0.18);
+}
+
+
+.s4u-modal-button.primary:hover {
+    border-color: #e86000;
+
+    background: #e86000;
+}
+
+
+.s4u-modal-button:disabled {
+    opacity: 0.65;
+
+    cursor: wait;
+
+    transform: none;
+}
+
+
+/* ============================================================
+   MOBILE
+   ============================================================ */
+
+@media (max-width: 700px) {
+
+    .s4u-modal {
+        align-items: flex-start;
+
+        padding: 16px;
+    }
+
+
+    .s4u-modal-panel,
+    .s4u-form-modal-panel {
+        width: 100%;
+
+        max-height:
+            calc(100vh - 32px);
+
+        border-radius: 12px;
+    }
+
+
+    .s4u-modal-content {
+        padding:
+            24px 20px 8px;
+    }
+
+
+    .s4u-form-modal-form {
+        grid-template-columns: 1fr;
+
+        padding:
+            0 20px 24px;
+    }
+
+
+    .s4u-modal-actions {
+        flex-direction: column-reverse;
+    }
+
+
+    .s4u-modal-button {
+        width: 100%;
+    }
+
+}
+
+
+/* ============================================================
+   SCREENINGS4U — ADMIN DESKTOP TYPOGRAPHY NORMALIZATION
+   Canonical sizing source: customer-dashboard.css
+   Added 2026-08-31
+   Layout, colors, spacing, borders, and responsive rules above
+   remain unchanged.
+   ============================================================ */
+
+@media (min-width: 901px) {
+
+  /* Page titles */
+  :is(
+    .s4u-dashboard-heading,
+    .customers-heading,
+    .employees-heading,
+    .admin-employers-heading,
+    .employer-users-heading,
+    .enterprise-page-title,
+    .admin-module-heading,
+    .operations-page-title,
+    .admin-lms-page-heading,
+    .admin-lms-heading,
+    .s4u-page-heading,
+    .page-heading
+  ) h1 {
+    font-size: clamp(1.8rem, 3vw, 2.55rem);
+  }
+
+  /* Page descriptions */
+  :is(
+    .s4u-dashboard-heading,
+    .customers-heading,
+    .employees-heading,
+    .admin-employers-heading,
+    .employer-users-heading,
+    .enterprise-page-title,
+    .admin-module-heading,
+    .operations-page-title,
+    .admin-lms-page-heading,
+    .admin-lms-heading,
+    .s4u-page-heading,
+    .page-heading
+  ) p {
+    font-size: 0.98rem;
+  }
+
+  /* Eyebrows / kickers */
+  :is(
+    .s4u-dashboard-kicker,
+    .page-eyebrow,
+    .panel-eyebrow,
+    .employees-kicker,
+    .admin-employers-kicker,
+    .employer-users-kicker,
+    .s4u-page-kicker,
+    .admin-module-kicker,
+    .admin-lms-kicker,
+    .page-kicker
+  ) {
+    font-size: 0.72rem;
+  }
+
+  /* Primary and secondary action text */
+  :is(
+    .s4u-button,
+    .btn,
+    .employees-primary-button,
+    .employees-secondary-button,
+    .employees-action-button,
+    .admin-employers-primary-button,
+    .employer-users-primary-button,
+    .employer-users-secondary-button,
+    .employer-users-action-button,
+    .operations-btn,
+    .admin-lms-button,
+    .admin-lms-primary-button,
+    .admin-lms-secondary-button
+  ) {
+    font-size: 0.9rem;
+  }
+
+  /* Section / panel headings */
+  :is(
+    .s4u-section-header,
+    .enterprise-section-header,
+    .admin-module-section-header,
+    .operations-panel-header,
+    .admin-lms-panel-header,
+    .panel-header,
+    .section-header
+  ) h2 {
+    font-size: 1.05rem;
+  }
+
+  /* Section / panel supporting text */
+  :is(
+    .s4u-section-header,
+    .enterprise-section-header,
+    .admin-module-section-header,
+    .operations-panel-header,
+    .admin-lms-panel-header,
+    .panel-header,
+    .section-header
+  ) p {
+    font-size: 0.78rem;
+  }
+
+  /* KPI / metric values */
+  :is(
+    .s4u-dashboard-metric-card,
+    .metric-card,
+    .employees-metric-card,
+    .admin-employer-metric-card,
+    .employer-users-metric-card,
+    .admin-module-kpi,
+    .operations-kpi-card,
+    .s4u-stat,
+    .admin-lms-stat-card,
+    .admin-lms-metric-card
+  ) strong,
+  .admin-employer-metric-value,
+  .s4u-stat-value {
+    font-size: 1.85rem;
+  }
+
+  /* KPI / metric labels */
+  :is(
+    .s4u-dashboard-metric-card,
+    .metric-card,
+    .employees-metric-card,
+    .admin-employer-metric-card,
+    .employer-users-metric-card,
+    .admin-module-kpi,
+    .operations-kpi-card,
+    .s4u-stat,
+    .admin-lms-stat-card,
+    .admin-lms-metric-card
+  ) > span:first-child,
+  .metric-label,
+  .admin-employer-metric-label,
+  .admin-module-kpi-label,
+  .operations-kpi-label,
+  .s4u-stat-label {
+    font-size: 0.72rem;
+  }
+
+  /* Tables */
+  :is(
+    .s4u-table,
+    .enterprise-table,
+    .admin-module-table,
+    .operations-table,
+    .admin-lms-table,
+    table
+  ) {
+    font-size: 0.78rem;
+  }
+
+  :is(
+    .s4u-table,
+    .enterprise-table,
+    .admin-module-table,
+    .operations-table,
+    .admin-lms-table,
+    table
+  ) th {
+    font-size: 0.72rem;
+  }
+
+  :is(
+    .s4u-table,
+    .enterprise-table,
+    .admin-module-table,
+    .operations-table,
+    .admin-lms-table,
+    table
+  ) td {
+    font-size: 0.78rem;
+  }
+
+  /* Form controls */
+  :is(
+    input,
+    select,
+    textarea
+  ) {
+    font-size: 0.9rem;
+  }
+}

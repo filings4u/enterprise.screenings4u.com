@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en" class="s4u-auth-pending">
+<head><style id="s4u-preauth-style">html.s4u-auth-pending body{visibility:hidden!important}html.s4u-auth-pending #s4u-auth-blocking-error{visibility:visible!important}</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#24467f">
+
+  <title>Notifications | screenings4u</title>
+<link href="images/fav.png" rel="icon" type="image/png"/>
+  <link rel="stylesheet" href="assets/css/employee-portal.css">
+  <link rel="stylesheet" href="assets/css/employee-notifications.css">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/lms-ui-modals.css?v=20260918-modal-fix-1">
+<link rel="stylesheet" href="assets/css/brand-system.css?v=20260918-brand-repair-v2">
+</head>
+<body class="employee-notifications-page" data-page-title="Notifications" data-page-subtitle="View training, certificate, employer, and account updates." data-s4u-portal="employee">
+<div id="employee-portal-sidebar"></div>
+<main class="employee-portal-main">
+  <div id="employee-portal-header"></div>
+  <div class="employee-notifications-content">
+    <section class="employee-notifications-welcome-card">
+      <div>
+        <span class="employee-notifications-eyebrow">MY ACTIVITY</span>
+        <h1>Notifications</h1>
+        <p>Stay up to date with assigned training, certificates, employer activity, and important account messages.</p>
+      </div>
+      <div class="employee-notifications-welcome-actions">
+        <button id="refresh-notifications" class="employee-notifications-secondary-action" type="button">Refresh</button>
+        <button id="mark-all-read" class="employee-notifications-primary-action" type="button">Mark All Read</button>
+      </div>
+    </section>
+
+    <section class="employee-notifications-stat-grid">
+      <article class="employee-notifications-stat-card">
+        <div class="employee-notifications-stat-icon all-icon">N</div>
+        <div><span>All Notifications</span><strong id="count-all">0</strong><small>Total activity</small></div>
+      </article>
+      <article class="employee-notifications-stat-card">
+        <div class="employee-notifications-stat-icon unread-icon">!</div>
+        <div><span>Unread</span><strong id="count-unread">0</strong><small>Needs your attention</small></div>
+      </article>
+      <article class="employee-notifications-stat-card">
+        <div class="employee-notifications-stat-icon training-icon">T</div>
+        <div><span>Training</span><strong id="count-training">0</strong><small>Course and learning updates</small></div>
+      </article>
+      <article class="employee-notifications-stat-card">
+        <div class="employee-notifications-stat-icon certificate-icon">✓</div>
+        <div><span>Certificates</span><strong id="count-certificates">0</strong><small>Credential updates</small></div>
+      </article>
+    </section>
+
+    <section class="employee-notifications-panel">
+      <div class="employee-notifications-panel-heading">
+        <div>
+          <span class="employee-notifications-eyebrow">RECENT ACTIVITY</span>
+          <h2>Your Notifications</h2>
+          <p>Messages and updates connected to your employee account.</p>
+        </div>
+        <select id="notification-filter">
+          <option value="all">All Types</option>
+          <option value="unread">Unread</option>
+          <option value="training">Training</option>
+          <option value="certificates">Certificates</option>
+          <option value="employer">Employer</option>
+          <option value="account">Account</option>
+        </select>
+      </div>
+      <div id="notifications-loading" class="employee-notifications-empty">Loading notifications...</div>
+      <div id="notifications-list" class="employee-notifications-list" hidden></div>
+      <div id="notifications-empty" class="employee-notifications-empty" hidden>
+        <div class="employee-notifications-empty-icon">N</div>
+        <h2>No notifications found</h2>
+        <p>New training and account activity will appear here.</p>
+      </div>
+    </section>
+  </div>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+
+<script src="assets/js/ui.js?v=20260918-modal-fix-1"></script>
+
+
+<script src="assets/js/employee-portal.js"></script>
+<script src="assets/js/employee-notifications.js"></script>
+
+<!-- screenings4u universal portal security -->
+<script src="assets/js/supabase-config.js?v=20260925-lockdown"></script>
+<script src="assets/js/core-auth.js?v=20260925-lockdown"></script>
+<script src="assets/js/session-security.js?v=20260925-lockdown"></script>
+<script src="assets/js/portal-auth-guard.js?v=20260925-lockdown"></script>
+<script src="assets/js/employee-auth-guard.js?v=20260925-lockdown"></script>
+</body>
+</html>

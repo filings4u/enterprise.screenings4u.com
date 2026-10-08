@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en" class="s4u-auth-pending">
+<head><style id="s4u-preauth-style">@keyframes s4uAuthSpin{to{transform:rotate(360deg)}}html.s4u-auth-pending body>:not(#s4u-auth-blocking-error):not(#s4u-auth-loading){visibility:hidden!important}html.s4u-auth-pending #s4u-auth-blocking-error,html.s4u-auth-pending #s4u-auth-loading{visibility:visible!important}</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#24467f">
+
+  <title>Quiz Management | screenings4u Learning Center</title>
+<link href="images/fav.png" rel="icon" type="image/png"/>
+  <link rel="stylesheet" href="assets/css/admin-lms.css"><link rel="stylesheet" href="assets/css/lms-ui-modals.css?v=20260917-brandmodal">
+  <link rel="stylesheet" href="assets/css/admin-lms-quizzes.css?v=20260901-2">
+<link rel="stylesheet" href="assets/css/enterprise-portal.css?v=20260924-design-v5">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/brand-system.css?v=20260918-dashboard-fix-v1">
+<link rel="stylesheet" href="assets/css/enterprise-management-system.css?v=20260924-design-v5"></head>
+
+<body class="admin-lms-quizzes-page" data-s4u-portal="admin"><div id="s4u-auth-loading" role="status" aria-live="polite" style="position:fixed;inset:0;z-index:2147483000;display:grid;place-items:center;background:#f4f7fc;font-family:Inter,Arial,sans-serif;color:#24467f"><div style="text-align:center"><div style="width:34px;height:34px;margin:0 auto 14px;border:3px solid #dbe5f1;border-top-color:#24467f;border-radius:50%;animation:s4uAuthSpin .7s linear infinite"></div><strong style="font-size:14px">Loading secure workspace…</strong></div></div>
+  <div class="admin-lms-app">
+    <div id="admin-lms-sidebar-target"></div>
+
+    <main class="admin-lms-main">
+      <header class="admin-lms-topbar">
+        <div class="admin-lms-topbar-left">
+          <button
+            type="button"
+            class="admin-lms-sidebar-collapse"
+            data-admin-sidebar-collapse
+            aria-label="Collapse sidebar"
+            aria-expanded="true"
+          >
+            <svg viewBox="0 0 24 24">
+              <path d="M15 18l-6-6 6-6"></path>
+            </svg>
+          </button>
+
+          <div class="admin-lms-page-context">
+            <small>Training</small>
+            <strong>Quiz Management</strong>
+          </div>
+        </div>
+      </header>
+
+      <section class="quiz-management-shell">
+        <nav class="quiz-breadcrumbs" aria-label="Breadcrumb">
+          <a href="admin-lms-dashboard.html">Learning Center</a>
+          <span>›</span>
+          <span>Quiz Management</span>
+        </nav>
+
+        <header class="quiz-page-header">
+          <div>
+            <span class="quiz-page-eyebrow">KNOWLEDGE CHECKS</span>
+            <h1>Quiz Management</h1>
+            <p>
+              Create, organize, and edit lesson quizzes across your courses.
+              Questions and answer choices are managed in the Quiz Builder.
+            </p>
+          </div>
+
+          <div class="quiz-page-actions">
+            <a
+              class="quiz-button secondary"
+              href="admin-lms-course-builder.html"
+            >
+              Open Course Builder
+            </a>
+
+            <button
+              type="button"
+              class="quiz-button primary"
+              id="createQuizButton"
+            >
+              + Create Quiz
+            </button>
+          </div>
+        </header>
+
+        <div
+          class="quiz-toast"
+          id="quizToast"
+          role="status"
+          aria-live="polite"
+        ></div>
+
+        <section class="quiz-stats" aria-label="Quiz summary">
+          <article class="quiz-stat">
+            <span>Total Quizzes</span>
+            <strong id="quizStatTotal">0</strong>
+            <small>Across all courses</small>
+          </article>
+
+          <article class="quiz-stat">
+            <span>Required</span>
+            <strong id="quizStatRequired">0</strong>
+            <small>Required for completion</small>
+          </article>
+
+          <article class="quiz-stat">
+            <span>Unlimited Attempts</span>
+            <strong id="quizStatUnlimited">0</strong>
+            <small>No attempt limit</small>
+          </article>
+
+          <article class="quiz-stat">
+            <span>Questions</span>
+            <strong id="quizStatQuestions">0</strong>
+            <small>Total quiz questions</small>
+          </article>
+        </section>
+
+        <section class="quiz-panel">
+          <header class="quiz-panel-head">
+            <div>
+              <h2>Course Quizzes</h2>
+              <p id="quizCount">Loading quizzes...</p>
+            </div>
+
+            <div class="quiz-filters">
+              <div class="quiz-search">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <circle cx="11" cy="11" r="6"></circle>
+                  <path d="m16 16 4 4"></path>
+                </svg>
+
+                <input
+                  id="quizSearch"
+                  type="search"
+                  placeholder="Search quizzes..."
+                  aria-label="Search quizzes"
+                >
+              </div>
+
+              <select id="courseFilter" aria-label="Filter by course">
+                <option value="all">All Courses</option>
+              </select>
+
+              <select id="quizTypeFilter" aria-label="Filter quizzes">
+                <option value="all">All Quizzes</option>
+                <option value="required">Required</option>
+                <option value="optional">Optional</option>
+                <option value="unlimited">Unlimited Attempts</option>
+                <option value="limited">Limited Attempts</option>
+                <option value="empty">No Questions</option>
+              </select>
+
+              <button
+                type="button"
+                class="quiz-filter-refresh"
+                id="quizRefresh"
+              >
+                Refresh
+              </button>
+            </div>
+          </header>
+
+          <div class="quiz-table-head" aria-hidden="true">
+            <span>Quiz</span>
+            <span>Course / Lesson</span>
+            <span>Questions</span>
+            <span>Passing</span>
+            <span>Attempts</span>
+            <span>Actions</span>
+          </div>
+
+          <div class="quiz-loading" id="quizLoading">
+            Loading quizzes...
+          </div>
+
+          <div class="quiz-list" id="quizList" hidden></div>
+
+          <div class="quiz-empty" id="quizEmpty" hidden>
+            <strong>No quizzes found</strong>
+            <span>No quizzes match the current search or filters.</span>
+          </div>
+        </section>
+      </section>
+    </main>
+  </div>
+
+
+  <!-- CREATE QUIZ -->
+  <div class="quiz-modal" id="quizCreateModal" hidden>
+    <div class="quiz-modal-backdrop" data-close-create-quiz></div>
+
+    <section
+      class="quiz-modal-card"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="quizCreateModalTitle"
+    >
+      <header>
+        <div>
+          <span>NEW QUIZ</span>
+          <h2 id="quizCreateModalTitle">Create Quiz</h2>
+          <p>
+            Attach the quiz to a lesson, then build the questions in the Quiz Builder.
+          </p>
+        </div>
+
+        <button
+          type="button"
+          class="quiz-modal-close"
+          data-close-create-quiz
+          aria-label="Close"
+        >×</button>
+      </header>
+
+      <div class="quiz-modal-body">
+        <label class="quiz-field">
+          <span>Course</span>
+          <select id="newQuizCourse">
+            <option value="">Select a course</option>
+          </select>
+        </label>
+
+        <label class="quiz-field">
+          <span>Lesson</span>
+          <select id="newQuizLesson" disabled>
+            <option value="">Select a course first</option>
+          </select>
+          <small>
+            The quiz is attached to this lesson.
+          </small>
+        </label>
+
+        <label class="quiz-field">
+          <span>Quiz Title</span>
+          <input
+            id="newQuizTitle"
+            type="text"
+            maxlength="180"
+            placeholder="e.g. Module 1 Knowledge Check"
+          >
+        </label>
+
+        <label class="quiz-field">
+          <span>Instructions</span>
+          <textarea
+            id="newQuizDescription"
+            rows="4"
+            placeholder="Optional learner instructions"
+          ></textarea>
+        </label>
+
+        <div class="quiz-create-grid">
+          <label class="quiz-field">
+            <span>Passing Score (%)</span>
+            <input
+              id="newQuizPassingScore"
+              type="number"
+              min="0"
+              max="100"
+              step="1"
+              value="80"
+            >
+          </label>
+
+          <label class="quiz-field">
+            <span>Maximum Attempts</span>
+            <input
+              id="newQuizAttemptLimit"
+              type="number"
+              min="0"
+              step="1"
+              value="0"
+            >
+            <small>0 = unlimited</small>
+          </label>
+        </div>
+
+        <label class="quiz-check">
+          <input
+            id="newQuizRequired"
+            type="checkbox"
+            checked
+          >
+          <span>Required quiz</span>
+        </label>
+
+        <div
+          class="quiz-modal-error"
+          id="quizCreateError"
+          hidden
+        ></div>
+      </div>
+
+      <footer>
+        <button
+          type="button"
+          class="quiz-button secondary"
+          data-close-create-quiz
+        >
+          Cancel
+        </button>
+
+        <button
+          type="button"
+          class="quiz-button primary"
+          id="saveNewQuizButton"
+        >
+          Create Quiz
+        </button>
+      </footer>
+    </section>
+  </div>
+
+
+  <!-- DELETE QUIZ -->
+  <div class="quiz-modal" id="quizDeleteModal" hidden>
+    <div class="quiz-modal-backdrop" data-close-delete-quiz></div>
+
+    <section
+      class="quiz-modal-card compact"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="quizDeleteModalTitle"
+    >
+      <header>
+        <div>
+          <span>DELETE QUIZ</span>
+          <h2 id="quizDeleteModalTitle">Delete Quiz?</h2>
+          <p>
+            This removes the quiz questions and answer choices from the LMS.
+          </p>
+        </div>
+
+        <button
+          type="button"
+          class="quiz-modal-close"
+          data-close-delete-quiz
+          aria-label="Close"
+        >×</button>
+      </header>
+
+      <div class="quiz-modal-body">
+        <div class="quiz-delete-warning">
+          <strong id="quizDeleteName">Quiz</strong>
+          <span>
+            The lesson itself will remain in the course.
+          </span>
+        </div>
+      </div>
+
+      <footer>
+        <button
+          type="button"
+          class="quiz-button secondary"
+          data-close-delete-quiz
+        >
+          Cancel
+        </button>
+
+        <button
+          type="button"
+          class="quiz-button danger"
+          id="confirmDeleteQuizButton"
+        >
+          Delete Quiz
+        </button>
+      </footer>
+    </section>
+  </div>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="assets/js/supabase-config.js?v=20260925-fast-auth"></script>
+<script src="assets/js/core-auth.js?v=20260925-fast-auth"></script>
+<script src="assets/js/session-security.js?v=20260925-fast-auth"></script>
+<script src="assets/js/portal-auth-guard.js?v=20260925-fast-auth"></script>
+<script src="assets/js/admin-auth-guard.js?v=20260925-fast-auth"></script>
+  <script src="assets/js/enterprise-management-system.js?v=20260924-design-v5"></script>
+  
+  <script src="assets/js/ui.js?v=20260918-modal-fix-1"></script>
+  
+  
+  
+  <script src="assets/js/admin-lms-quizzes.js?v=20260901-2"></script>
+<script src="assets/js/enterprise-portal.js?v=20260927-step13-nav1"></script>
+
+<!-- screenings4u universal portal security -->
+</body>
+</html>

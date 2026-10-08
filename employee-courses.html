@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en" class="s4u-auth-pending">
+<head><style id="s4u-preauth-style">html.s4u-auth-pending body{visibility:hidden!important}html.s4u-auth-pending #s4u-auth-blocking-error{visibility:visible!important}</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>My Courses | screenings4u</title>
+  <meta name="theme-color" content="#24467f">
+
+<link href="images/fav.png" rel="icon" type="image/png"/>
+  <link rel="stylesheet" href="assets/css/employee-portal.css">
+  <link rel="stylesheet" href="assets/css/employee-courses.css">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/lms-ui-modals.css?v=20260918-modal-fix-1">
+<link rel="stylesheet" href="assets/css/brand-system.css?v=20260918-brand-repair-v2">
+</head>
+
+<body class="employee-courses-page"
+      data-page-title="My Courses"
+      data-page-subtitle="View and continue training assigned by your employer." data-s4u-portal="employee">
+
+  <div id="employee-portal-sidebar"></div>
+
+  <main class="employee-portal-main">
+    <div id="employee-portal-header"></div>
+
+    <div class="employee-courses-content">
+
+      <section class="employee-courses-welcome-card">
+        <div>
+          <span class="employee-courses-eyebrow">MY TRAINING</span>
+          <h1>My Courses</h1>
+          <p>Access the training courses assigned to you by your employer and continue where you left off.</p>
+        </div>
+
+        <div class="employee-courses-welcome-actions">
+          <a href="employee-training-progress.html" class="employee-courses-secondary-action">Training Progress</a>
+          <a href="employee-certificates.html" class="employee-courses-primary-action">Certificates</a>
+        </div>
+      </section>
+
+      <section class="employee-courses-stat-grid">
+        <button class="employee-courses-stat-card active" type="button" data-filter="all">
+          <div class="employee-courses-stat-icon all-icon">C</div>
+          <div>
+            <span>All Courses</span>
+            <strong id="count-all">0</strong>
+            <small>Total assigned training</small>
+          </div>
+        </button>
+
+        <button class="employee-courses-stat-card" type="button" data-filter="in_progress">
+          <div class="employee-courses-stat-icon progress-icon">P</div>
+          <div>
+            <span>In Progress</span>
+            <strong id="count-progress">0</strong>
+            <small>Courses underway</small>
+          </div>
+        </button>
+
+        <button class="employee-courses-stat-card" type="button" data-filter="available">
+          <div class="employee-courses-stat-icon available-icon">N</div>
+          <div>
+            <span>Not Started</span>
+            <strong id="count-available">0</strong>
+            <small>Ready to begin</small>
+          </div>
+        </button>
+
+        <button class="employee-courses-stat-card" type="button" data-filter="completed">
+          <div class="employee-courses-stat-icon completed-icon">✓</div>
+          <div>
+            <span>Completed</span>
+            <strong id="count-completed">0</strong>
+            <small>Finished training</small>
+          </div>
+        </button>
+      </section>
+
+      <section class="employee-courses-panel">
+        <div class="employee-courses-panel-heading">
+          <div>
+            <span class="employee-courses-eyebrow">ASSIGNED TRAINING</span>
+            <h2>Your Courses</h2>
+            <p>Search and filter the courses currently assigned to your employee account.</p>
+          </div>
+
+          <div class="employee-courses-toolbar">
+            <div class="employee-courses-search-wrap">
+              <input id="course-search" type="search" placeholder="Search my courses...">
+            </div>
+
+            <div class="employee-courses-filter-wrap">
+              <select id="course-filter">
+                <option value="all">All Courses</option>
+                <option value="in_progress">In Progress</option>
+                <option value="available">Not Started</option>
+                <option value="completed">Completed</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div id="courses-grid" class="employee-courses-grid"></div>
+
+        <div id="courses-empty" class="employee-courses-empty" hidden>
+          <div class="employee-courses-empty-icon">C</div>
+          <h2>No courses found</h2>
+          <p>You do not currently have any courses matching this view.</p>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <div class="employee-courses-modal" id="courses-modal" hidden>
+    <div class="employee-courses-modal-backdrop"></div>
+
+    <div class="employee-courses-modal-card">
+      <h2 id="courses-modal-title"></h2>
+      <p id="courses-modal-message"></p>
+      <button class="employee-courses-primary-action" id="courses-modal-close" type="button">Done</button>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+  
+  
+  <script src="assets/js/ui.js?v=20260918-modal-fix-1"></script>
+  
+  
+
+  <script src="assets/js/employee-portal.js"></script>
+  <script src="assets/js/employee-courses.js"></script>
+
+<!-- screenings4u universal portal security -->
+<script src="assets/js/supabase-config.js?v=20260925-lockdown"></script>
+<script src="assets/js/core-auth.js?v=20260925-lockdown"></script>
+<script src="assets/js/session-security.js?v=20260925-lockdown"></script>
+<script src="assets/js/portal-auth-guard.js?v=20260925-lockdown"></script>
+<script src="assets/js/employee-auth-guard.js?v=20260925-lockdown"></script>
+</body>
+</html>

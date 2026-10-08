@@ -1,0 +1,40 @@
+<!doctype html>
+<html class="s4u-auth-pending" lang="en">
+<head>
+  <style id="s4u-preauth-style">@keyframes s4uAuthSpin{to{transform:rotate(360deg)}}html.s4u-auth-pending body>:not(#s4u-auth-blocking-error):not(#s4u-auth-loading){visibility:hidden!important}html.s4u-auth-pending #s4u-auth-blocking-error,html.s4u-auth-pending #s4u-auth-loading{visibility:visible!important}html:not(.s4u-auth-pending) #s4u-auth-loading{display:none!important;pointer-events:none!important}</style>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#24467f">
+  <title>Form Builder | screenings4u Enterprise</title><link rel="icon" href="images/fav.png">
+  <link rel="stylesheet" href="assets/css/admin-lms.css">
+  <link rel="stylesheet" href="assets/css/enterprise-portal.css?v=20260926-forms-v2">
+  <link rel="stylesheet" href="assets/css/enterprise-control-plane.css?v=20260926-forms-v2">
+  <link rel="stylesheet" href="assets/css/brand-system.css?v=20260926-forms-v2">
+  <link rel="stylesheet" href="assets/css/enterprise-management-system.css?v=20260926-forms-v2">
+  <link rel="stylesheet" href="assets/css/enterprise-forms-management.css?v=20260926-forms-v2">
+</head>
+<body data-s4u-portal="admin" data-forms-page="editor">
+<div id="s4u-auth-loading" role="status" aria-live="polite" style="position:fixed;inset:0;z-index:2147483000;display:grid;place-items:center;background:#f4f7fc;font-family:Inter,Arial,sans-serif;color:#24467f"><div style="text-align:center"><div style="width:34px;height:34px;margin:0 auto 14px;border:3px solid #dbe5f1;border-top-color:#24467f;border-radius:50%;animation:s4uAuthSpin .7s linear infinite"></div><strong style="font-size:14px">Loading secure workspace…</strong></div></div>
+<div class="admin-lms-app"><div id="admin-lms-sidebar-target"></div><main class="admin-lms-main"><header class="admin-lms-topbar"></header>
+<section class="ecp-page">
+  <div class="ecp-head"><div><div class="fm-link-actions" style="margin-bottom:10px"><a class="ecp-btn" href="admin-forms.html">← Forms Management</a><a class="ecp-btn" id="submissionsLink" href="admin-form-submissions.html" hidden>Submissions</a></div><h1 id="pageTitle">Form Builder</h1><p id="pageSubtitle">Create or edit a standalone public form.</p></div><div class="ecp-actions fm-toolbar"><button class="ecp-btn" id="previewBtn" type="button">Public Preview</button><button class="ecp-btn" id="duplicateBtn" type="button">Duplicate Form</button><button class="ecp-btn primary" type="submit" form="formBuilder">Save Form</button></div></div>
+  <div id="pageMessage"></div>
+  <form id="formBuilder"><input type="hidden" id="formId"><div class="fm-page-grid">
+    <div class="fm-stack">
+      <section class="fm-panel"><h2>Form Settings</h2><div class="ecp-form-grid">
+        <div class="ecp-field full"><label>Internal form name</label><input id="formName" required></div><div class="ecp-field full"><label>Public title</label><input id="formTitle" required></div>
+        <div class="ecp-field"><label>Business owner</label><select id="formBusiness"><option value="enterprise">Enterprise</option><option value="testing">Testing</option><option value="training">Training</option><option value="workforce">NON-DOT Workforce</option><option value="dot">DOT</option><option value="finance">Finance</option></select></div><div class="ecp-field"><label>Status</label><select id="formStatus"><option value="draft">Draft</option><option value="published">Published</option><option value="paused">Paused</option><option value="archived">Archived</option></select></div>
+        <div class="ecp-field full"><label>URL slug</label><input id="formSlug" required><small id="publicUrlPreview" class="fm-url"></small></div><div class="ecp-field full"><label>Eyebrow</label><input id="formEyebrow" placeholder="SYSTEM · DATA COLLECTION"></div><div class="ecp-field full"><label>Description</label><textarea id="formDescription" rows="4"></textarea></div><div class="ecp-field full"><label>Top notice / instructions</label><textarea id="noticeHtml" rows="4"></textarea></div><div class="ecp-field full"><label>Submit button label</label><input id="submitLabel" value="Submit Form"></div><div class="ecp-field full"><label>Success message</label><textarea id="successMessage" rows="3"></textarea></div><div class="ecp-field full"><label>Success redirect URL</label><input id="successRedirect" type="url" placeholder="https://screenings4u.com/thank-you.html"></div><div class="ecp-field full"><label>Submission notification emails</label><input id="notificationEmails" placeholder="support@screenings4u.com, ops@screenings4u.com"><small class="fm-help">Comma-separated.</small></div>
+      </div></section>
+      <section class="fm-panel"><h2>Branding</h2><div class="ecp-form-grid"><div class="ecp-field full"><label>Logo URL / path</label><input id="brandLogo" value="images/logo.png"></div><div class="ecp-field"><label>Primary</label><input id="brandPrimary" type="color" value="#173d78"></div><div class="ecp-field"><label>Secondary</label><input id="brandSecondary" type="color" value="#24467f"></div><div class="ecp-field"><label>Accent</label><input id="brandAccent" type="color" value="#ff6b00"></div><div class="ecp-field"><label>Page background</label><input id="brandBackground" type="color" value="#f5f7fa"></div></div></section>
+      <section class="fm-panel"><h2>Security & Behavior</h2><div class="fm-checkline"><label><input type="checkbox" id="requireTurnstile" checked> Require bot verification</label><label><input type="checkbox" id="allowAnonymous" checked> Allow public submissions</label></div></section>
+    </div>
+    <div class="fm-stack">
+      <section class="fm-panel"><div class="ecp-card-head" style="padding:0 0 12px;border:0"><div><h2>Sections & Fields</h2><span>Build the public form without writing HTML.</span></div><button class="ecp-btn" type="button" id="addSectionBtn">+ Add Section</button></div><div id="sectionsEditor"></div></section>
+      <section class="fm-panel"><div class="ecp-card-head" style="padding:0 0 12px;border:0"><div><h2>Live Preview</h2><span>Preview the current editor state before publishing.</span></div></div><div class="fm-preview" id="livePreview"></div></section>
+    </div>
+  </div><div class="fm-sticky-actions"><a class="ecp-btn" href="admin-forms.html">Back to Forms</a><button class="ecp-btn primary" type="submit">Save Form</button></div></form>
+</section>
+</main></div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="assets/js/supabase-config.js?v=20260925-fast-auth"></script><script src="assets/js/core-auth.js?v=20260925-fast-auth"></script><script src="assets/js/session-security.js?v=20260925-fast-auth"></script><script src="assets/js/portal-auth-guard.js?v=20260925-fast-auth"></script><script src="assets/js/admin-auth-guard.js?v=20260925-fast-auth"></script>
+<script src="assets/js/enterprise-management-system.js?v=20260926-forms-v2"></script><script src="assets/js/ui.js"></script><script src="assets/js/enterprise-portal.js?v=20260927-business-architecture1"></script><script src="assets/js/enterprise-forms-management.js?v=20260926-forms-v2"></script>
+</body></html>

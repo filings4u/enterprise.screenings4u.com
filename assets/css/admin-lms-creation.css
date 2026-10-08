@@ -1,0 +1,535 @@
+/* ============================================================
+   SCREENINGS4U — ADMIN LMS COURSE CREATION
+   4-step course creation wizard
+   ============================================================ */
+
+:root{
+  --creation-blue:#24467f;
+  --creation-blue-dark:#18345f;
+  --creation-text:#071a3d;
+  --creation-muted:#65738c;
+  --creation-line:#cbdcff;
+  --creation-soft:#f7faff;
+  --creation-bg:#f4f6f9;
+  --creation-green:#22b573;
+  --creation-danger:#c33a32;
+}
+
+.admin-lms-creation-page{
+  background:var(--creation-bg);
+}
+
+.creation-shell{
+  min-height:calc(100vh - 72px);
+  padding:28px 34px 36px;
+  background:var(--creation-bg);
+}
+
+.creation-wizard{
+  width:min(1080px,100%);
+  min-height:calc(100vh - 136px);
+  margin:0 auto;
+  background:#fff;
+  border:1px solid #e1e6ee;
+  border-radius:16px;
+  box-shadow:0 10px 30px rgba(17,24,39,.05);
+  display:flex;
+  flex-direction:column;
+  overflow:hidden;
+}
+
+.creation-header{
+  padding:28px 54px 0;
+}
+
+.creation-back-courses,
+.creation-top-link{
+  color:var(--creation-blue);
+  text-decoration:none;
+  font-weight:700;
+  font-size:13px;
+}
+
+.creation-progress-copy{
+  text-align:center;
+  max-width:800px;
+  margin:12px auto 20px;
+}
+
+.creation-eyebrow{
+  display:block;
+  color:var(--creation-blue);
+  font-size:11px;
+  font-weight:900;
+  letter-spacing:.12em;
+  margin-bottom:8px;
+}
+
+.creation-progress-copy h1{
+  margin:0;
+  color:var(--creation-text);
+  font-size:32px;
+  line-height:1.2;
+  font-weight:800;
+}
+
+.creation-progress-copy p{
+  margin:6px 0 0;
+  color:var(--creation-text);
+  font-size:15px;
+}
+
+.creation-progress-track{
+  height:4px;
+  background:#edf2f8;
+  border-radius:999px;
+  overflow:hidden;
+}
+
+.creation-progress-fill{
+  display:block;
+  width:25%;
+  height:100%;
+  background:var(--creation-blue);
+  border-radius:inherit;
+  transition:width .2s ease;
+}
+
+.creation-message{
+  display:none;
+  margin:18px 54px 0;
+  padding:12px 14px;
+  border-radius:10px;
+  font-size:13px;
+  font-weight:700;
+}
+
+.creation-message.show{display:block}
+.creation-message.error{
+  background:#fff4f3;
+  color:#a52a24;
+  border:1px solid #f2c4c0;
+}
+.creation-message.success{
+  background:#effaf5;
+  color:#176d49;
+  border:1px solid #bee6d3;
+}
+
+#creationForm{
+  flex:1;
+  display:flex;
+  min-height:470px;
+}
+
+.creation-step{
+  display:none;
+  width:100%;
+}
+
+.creation-step.active{
+  display:flex;
+}
+
+.creation-step-content{
+  width:min(800px,calc(100% - 48px));
+  margin:0 auto;
+  padding:54px 0 60px;
+}
+
+.creation-step-narrow{
+  width:min(800px,calc(100% - 48px));
+  padding-top:78px;
+}
+
+.creation-label-row{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:16px;
+  margin-bottom:5px;
+  color:#34425a;
+  font-size:13px;
+}
+
+.creation-label-row label span{
+  color:var(--creation-blue);
+}
+
+#courseName{
+  width:100%;
+  height:44px;
+  padding:0 13px;
+  border:1px solid #9fc2ff;
+  border-radius:7px;
+  outline:none;
+  font:15px Arial,sans-serif;
+  color:var(--creation-text);
+}
+
+#courseName:focus{
+  border-color:var(--creation-blue);
+  box-shadow:0 0 0 3px rgba(15,111,255,.16);
+}
+
+.creation-help{
+  margin:9px 0 0;
+  color:var(--creation-muted);
+  font-size:12px;
+}
+
+.creation-choice-stack{
+  display:grid;
+  gap:18px;
+}
+
+.creation-choice-card{
+  min-height:132px;
+  width:100%;
+  display:grid;
+  grid-template-columns:72px 1fr 28px;
+  align-items:center;
+  gap:20px;
+  padding:28px 34px;
+  border:1px solid var(--creation-line);
+  border-radius:7px;
+  background:#fff;
+  color:var(--creation-text);
+  text-align:left;
+  cursor:pointer;
+  position:relative;
+  transition:.15s ease;
+}
+
+.creation-choice-card:hover,
+.creation-price-card:hover{
+  border-color:#7dadff;
+  box-shadow:0 4px 15px rgba(15,111,255,.06);
+}
+
+.creation-choice-card.selected,
+.creation-price-card.selected{
+  border:2px solid var(--creation-blue);
+  padding:27px 33px;
+}
+
+.creation-choice-copy{
+  display:grid;
+  gap:5px;
+}
+
+.creation-choice-copy strong{
+  font-size:16px;
+}
+
+.creation-choice-copy small{
+  font-size:15px;
+  color:var(--creation-text);
+}
+
+.creation-choice-icon{
+  width:56px;
+  height:56px;
+  display:grid;
+  place-items:center;
+  font-size:24px;
+  font-weight:900;
+  color:var(--creation-blue);
+  background:#edf5ff;
+  border-radius:13px;
+}
+
+.creation-icon-calendar{
+  border-radius:8px;
+}
+
+.creation-choice-check{
+  width:19px;
+  height:19px;
+  border-radius:50%;
+  background:var(--creation-blue);
+  color:#fff;
+  display:none;
+  place-items:center;
+  font-size:12px;
+  font-weight:900;
+}
+
+.selected .creation-choice-check{
+  display:grid;
+}
+
+.creation-subpanel{
+  margin-top:18px;
+  padding:18px 20px;
+  border:1px solid #dbe5f3;
+  border-radius:9px;
+  background:var(--creation-soft);
+}
+
+.creation-subpanel h3{
+  margin:0 0 6px;
+  color:var(--creation-text);
+  font-size:15px;
+}
+
+.creation-subpanel p{
+  margin:0;
+  color:var(--creation-muted);
+  font-size:13px;
+  line-height:1.55;
+}
+
+.creation-subpanel label{
+  display:block;
+  margin-bottom:7px;
+  color:var(--creation-text);
+  font-size:13px;
+  font-weight:800;
+}
+
+.creation-subpanel input{
+  width:180px;
+  height:42px;
+  padding:0 12px;
+  border:1px solid #b9cbe4;
+  border-radius:7px;
+  font-size:14px;
+  outline:none;
+}
+
+.creation-price-choice-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:16px;
+}
+
+.creation-price-card{
+  min-height:132px;
+  display:grid;
+  grid-template-columns:70px 1fr 24px;
+  align-items:center;
+  gap:16px;
+  padding:28px 34px;
+  border:1px solid var(--creation-line);
+  border-radius:7px;
+  background:#fff;
+  color:var(--creation-text);
+  text-align:left;
+  cursor:pointer;
+  position:relative;
+}
+
+.creation-price-card.selected{
+  padding:27px 33px;
+}
+
+.creation-price-icon{
+  font-size:40px;
+  line-height:1;
+}
+
+.creation-price-card strong{
+  font-size:16px;
+}
+
+.creation-payment-panel{
+  margin-top:30px;
+}
+
+.creation-payment-panel h2{
+  margin:0 0 16px;
+  color:var(--creation-text);
+  font-size:20px;
+}
+
+.creation-payment-row,
+.creation-plan-row{
+  display:grid;
+  grid-template-columns:1fr 230px;
+  gap:24px;
+  align-items:center;
+  padding:18px 0 24px;
+  border-bottom:1px solid #e5eaf0;
+}
+
+.creation-plan-row{
+  grid-template-columns:1fr;
+  padding-top:26px;
+  border-bottom:0;
+}
+
+.creation-payment-row > div,
+.creation-plan-row > div{
+  display:grid;
+  gap:4px;
+}
+
+.creation-payment-row strong,
+.creation-plan-row strong{
+  font-size:14px;
+  color:var(--creation-text);
+}
+
+.creation-payment-row span,
+.creation-plan-row span{
+  font-size:13px;
+  color:#30405d;
+}
+
+.creation-money-input{
+  height:42px;
+  display:flex;
+  align-items:center;
+  gap:7px;
+  padding:0 12px;
+  border:1px solid var(--creation-line);
+  border-radius:7px;
+}
+
+.creation-money-input span{
+  color:#74839b;
+}
+
+.creation-money-input input{
+  width:100%;
+  border:0;
+  outline:0;
+  font-size:14px;
+  color:var(--creation-text);
+}
+
+.creation-connect-plans{
+  height:48px;
+  border:1px dashed var(--creation-blue);
+  border-radius:7px;
+  background:#fff;
+  color:var(--creation-blue);
+  font-weight:700;
+  opacity:.55;
+  cursor:not-allowed;
+}
+
+.creation-review-card{
+  margin-top:26px;
+  padding:18px 20px;
+  border:1px solid #e1e8f2;
+  border-radius:9px;
+  background:#fafcff;
+}
+
+.creation-review-card > span{
+  display:block;
+  margin-bottom:10px;
+  color:var(--creation-blue);
+  font-size:10px;
+  font-weight:900;
+  letter-spacing:.1em;
+}
+
+.creation-review-card dl{
+  margin:0;
+}
+
+.creation-review-card dl div{
+  display:flex;
+  justify-content:space-between;
+  gap:20px;
+  padding:9px 0;
+  border-bottom:1px solid #edf1f6;
+}
+
+.creation-review-card dl div:last-child{
+  border-bottom:0;
+}
+
+.creation-review-card dt{
+  color:var(--creation-muted);
+  font-size:12px;
+}
+
+.creation-review-card dd{
+  margin:0;
+  color:var(--creation-text);
+  font-size:12px;
+  font-weight:800;
+  text-align:right;
+}
+
+.creation-footer{
+  min-height:92px;
+  padding:20px 54px;
+  border-top:1px solid #dfe5ec;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:20px;
+  background:#fff;
+}
+
+.creation-footer-right{
+  display:flex;
+  gap:10px;
+}
+
+.creation-nav-back{
+  border:0;
+  background:transparent;
+  color:var(--creation-blue);
+  font-weight:700;
+  font-size:14px;
+  cursor:pointer;
+}
+
+.creation-nav-next,
+.creation-nav-create{
+  min-width:100px;
+  height:38px;
+  padding:0 20px;
+  border:0;
+  border-radius:999px;
+  color:#fff;
+  font-size:14px;
+  font-weight:800;
+  cursor:pointer;
+}
+
+.creation-nav-next{
+  background:var(--creation-blue);
+}
+
+.creation-nav-next:disabled{
+  background:#b8bfca;
+  cursor:not-allowed;
+}
+
+.creation-nav-create{
+  background:var(--creation-blue);
+}
+
+.creation-nav-create:disabled{
+  opacity:.55;
+  cursor:wait;
+}
+
+@media(max-width:900px){
+  .creation-shell{padding:16px}
+  .creation-header{padding:22px 24px 0}
+  .creation-message{margin-left:24px;margin-right:24px}
+  .creation-progress-copy h1{font-size:27px}
+  .creation-step-content{padding:34px 0 42px}
+  .creation-choice-card{grid-template-columns:58px 1fr 24px;padding:22px}
+  .creation-choice-card.selected{padding:21px}
+  .creation-price-choice-grid{grid-template-columns:1fr}
+  .creation-payment-row{grid-template-columns:1fr}
+  .creation-footer{padding:18px 24px}
+}
+
+@media(max-width:600px){
+  .creation-wizard{border-radius:10px}
+  .creation-progress-copy h1{font-size:24px}
+  .creation-choice-copy small{font-size:13px}
+  .creation-choice-icon{width:48px;height:48px}
+  .creation-price-card{padding:22px}
+  .creation-price-card.selected{padding:21px}
+}

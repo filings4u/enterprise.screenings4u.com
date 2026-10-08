@@ -1,0 +1,39 @@
+/* SCREENINGS4U — EMPLOYEE NOTIFICATIONS */
+.employee-notifications-content{max-width:1600px;margin:0 auto;padding:30px}
+.employee-notifications-welcome-card{display:flex;justify-content:space-between;gap:30px;align-items:center;padding:28px 30px;border-radius:18px;background:linear-gradient(135deg,#fff 0%,#f3f7ff 100%);border:1px solid #dce4ef;margin-bottom:22px}
+.employee-notifications-eyebrow{display:block;font-size:12px;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:#ff6b00}
+.employee-notifications-welcome-card h1{margin:8px 0;color:#2d405a;font-size:30px}
+.employee-notifications-welcome-card p{margin:0;max-width:760px;color:#536174;font-size:16px;line-height:1.65}
+.employee-notifications-welcome-actions{display:flex;gap:10px;flex-wrap:wrap}
+.employee-notifications-primary-action,.employee-notifications-secondary-action{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:0 16px;border-radius:9px;font:inherit;font-size:15px;font-weight:800;cursor:pointer}
+.employee-notifications-primary-action{border:1px solid #24467f;background:#24467f;color:#fff}
+.employee-notifications-secondary-action{border:1px solid #d7e0eb;background:#fff;color:#24467f}
+.employee-notifications-stat-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-bottom:20px}
+.employee-notifications-stat-card{display:flex;gap:14px;align-items:center;padding:20px;border:1px solid #dce4ed;border-radius:15px;background:#fff}
+.employee-notifications-stat-icon{width:44px;height:44px;display:grid;place-items:center;flex:0 0 44px;border-radius:12px;font-size:14px;font-weight:900}
+.all-icon{background:#edf3ff;color:#24467f}.unread-icon{background:#fff3e9;color:#ff6b00}.training-icon{background:#f2efff;color:#6c57b8}.certificate-icon{background:#eaf8f1;color:#21865c}
+.employee-notifications-stat-card span{display:block;color:#667085;font-size:14px;margin-bottom:5px}
+.employee-notifications-stat-card strong{display:block;color:#34475f;font-size:26px;line-height:1}
+.employee-notifications-stat-card small{display:block;margin-top:6px;color:#667085;font-size:13px}
+.employee-notifications-panel{padding:22px;border:1px solid #dce4ed;border-radius:16px;background:#fff}
+.employee-notifications-panel-heading{display:flex;justify-content:space-between;gap:20px;align-items:flex-start;margin-bottom:20px}
+.employee-notifications-panel-heading h2{margin:6px 0 0;color:#34475f;font-size:20px}
+.employee-notifications-panel-heading p{margin:5px 0 0;color:#536174;font-size:15px;line-height:1.55}
+.employee-notifications-panel-heading select{width:210px;min-height:44px;padding:0 12px;border:1px solid #dce4ed;border-radius:9px;background:#fff;color:#172033;font:inherit;font-size:15px}
+.employee-notifications-list{display:grid;gap:10px}
+.employee-notification-item{display:grid;grid-template-columns:42px minmax(0,1fr) auto;gap:14px;align-items:flex-start;padding:16px;border:1px solid #e3e9f0;border-radius:11px;background:#fff}
+.employee-notification-item.unread{border-left:4px solid #24467f;background:#fbfcff}
+.employee-notification-icon{width:42px;height:42px;display:grid;place-items:center;border-radius:10px;background:#edf3ff;color:#24467f;font-size:13px;font-weight:900}
+.employee-notification-copy h3{margin:0;color:#34475f;font-size:16px;line-height:1.4}
+.employee-notification-copy p{margin:6px 0 0;color:#536174;font-size:14px;line-height:1.55}
+.employee-notification-meta{display:flex;gap:8px;align-items:center;margin-top:9px;color:#667085;font-size:13px}
+.employee-notification-actions{display:flex;gap:8px;align-items:center}
+.employee-notification-actions button,.employee-notification-actions a{min-height:38px;display:inline-flex;align-items:center;justify-content:center;padding:0 12px;border-radius:8px;font:inherit;font-size:13px;font-weight:800;text-decoration:none;cursor:pointer}
+.employee-notification-actions button{border:1px solid #d7e0eb;background:#fff;color:#24467f}
+.employee-notification-actions a{border:1px solid #24467f;background:#24467f;color:#fff}
+.employee-notifications-empty{padding:50px 20px;text-align:center;color:#536174;font-size:15px}
+.employee-notifications-empty-icon{display:grid;place-items:center;width:46px;height:46px;margin:0 auto;border-radius:50%;background:#edf3ff;color:#24467f;font-weight:900}
+.employee-notifications-empty h2{margin:12px 0 0;color:#34475f;font-size:20px}.employee-notifications-empty p{margin:8px 0 0}
+@media(max-width:1050px){.employee-notifications-stat-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:800px){.employee-notifications-content{padding:22px 18px}.employee-notifications-welcome-card{flex-direction:column;align-items:flex-start}.employee-notifications-panel-heading{flex-direction:column}.employee-notifications-panel-heading select{width:100%}.employee-notification-item{grid-template-columns:42px 1fr}.employee-notification-actions{grid-column:2;justify-content:flex-start}}
+@media(max-width:560px){.employee-notifications-stat-grid{grid-template-columns:1fr}.employee-notifications-welcome-actions{width:100%;flex-direction:column}.employee-notifications-primary-action,.employee-notifications-secondary-action{width:100%}.employee-notifications-welcome-card{padding:22px}}

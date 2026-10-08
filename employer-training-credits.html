@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en" class="s4u-auth-pending">
+<head><style id="s4u-preauth-style">html.s4u-auth-pending body{visibility:hidden!important}html.s4u-auth-pending #s4u-auth-blocking-error{visibility:visible!important}</style>
+  <meta charset="UTF-8">
+  <meta name="theme-color" content="#24467f">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Training Credits | screenings4u Employer Portal</title>
+<link href="images/fav.png" rel="icon" type="image/png"/>
+  <link rel="stylesheet" href="assets/css/employer-portal.css?v=20260831-0610">
+  <link rel="stylesheet" href="assets/css/employer-training-credits.css?v=20260831-0610">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/lms-ui-modals.css?v=20260918-modal-fix-1">
+<link rel="stylesheet" href="assets/css/brand-system.css?v=20260918-brand-repair-v2">
+</head>
+
+<body class="employer-training-credits-page"
+      data-page-title="Training & Credits"
+      data-page-subtitle="Manage training credits, course seats, and purchase history." data-s4u-portal="employer">
+
+  <div id="employer-portal-sidebar"></div>
+
+  <main class="employer-portal-main">
+    <div id="employer-portal-header"></div>
+
+    <div class="employer-dashboard-content">
+
+      <section class="training-credits-hero">
+        <div>
+          <span class="training-credits-eyebrow">WORKFORCE LEARNING</span>
+          <h1>Training & Credits</h1>
+          <p>Manage training credit balance, available packages, course access, and purchase history.</p>
+        </div>
+
+        <div class="training-credits-hero-actions">
+          <a class="training-credits-secondary-btn" href="employer-training-management.html">Training Management</a>
+          <a class="training-credits-primary-btn" href="employer-catalog.html?category=training">Training Marketplace</a>
+        </div>
+      </section>
+
+      <div id="message"></div>
+
+      <section class="training-credits-summary-grid">
+        <article class="training-credits-summary-card">
+          <span>Available Credits</span>
+          <strong id="balance">0</strong>
+          <small>Ready for employee or staff assignments</small>
+        </article>
+
+        <article class="training-credits-summary-card">
+          <span>Lifetime Purchased</span>
+          <strong id="purchased">0</strong>
+          <small>Total credits added to your organization</small>
+        </article>
+
+        <article class="training-credits-summary-card">
+          <span>Credits Used</span>
+          <strong id="used">0</strong>
+          <small>Credits consumed by course assignments</small>
+        </article>
+
+        <article class="training-credits-summary-card">
+          <span>Course Seats</span>
+          <strong id="seats">0</strong>
+          <small>Available directly purchased course seats</small>
+        </article>
+      </section>
+
+      <section class="training-credits-panel">
+        <div class="training-credits-panel-header">
+          <span class="training-credits-eyebrow">CREDIT PACKAGES</span>
+          <h2>Training Credit Packages</h2>
+          <p>Review package details before continuing to secure checkout.</p>
+        </div>
+
+        <div id="packages" class="training-credits-package-grid"></div>
+      </section>
+
+      <section class="training-credits-panel">
+        <div class="training-credits-panel-header">
+          <span class="training-credits-eyebrow">DIRECT PURCHASES</span>
+          <h2>Course Access</h2>
+          <p>Directly purchased training seats available to your company.</p>
+        </div>
+
+        <div class="training-credits-table-wrap">
+          <table class="training-credits-table">
+            <thead>
+              <tr>
+                <th>Course</th>
+                <th>Purchased</th>
+                <th>Used</th>
+                <th>Available</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody id="access"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="training-credits-panel">
+        <div class="training-credits-panel-header">
+          <span class="training-credits-eyebrow">ACCOUNT ACTIVITY</span>
+          <h2>Credit Activity</h2>
+          <p>Your company's training-credit ledger.</p>
+        </div>
+
+        <div class="training-credits-table-wrap">
+          <table class="training-credits-table">
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Activity</th>
+                <th>Credits</th>
+                <th>Balance</th>
+              </tr>
+            </thead>
+            <tbody id="transactions"></tbody>
+          </table>
+        </div>
+      </section>
+
+    </div>
+  </main>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  
+  
+  <script src="assets/js/ui.js?v=20260918-modal-fix-1"></script>
+  
+  
+  <script src="assets/js/employer-portal.js"></script>
+  <script src="assets/js/employer-training-credits.js?v=20260831-0610"></script>
+
+<!-- screenings4u universal portal security -->
+<script src="assets/js/supabase-config.js?v=20260925-lockdown"></script>
+<script src="assets/js/core-auth.js?v=20260925-lockdown"></script>
+<script src="assets/js/session-security.js?v=20260925-lockdown"></script>
+<script src="assets/js/portal-auth-guard.js?v=20260925-lockdown"></script>
+<script src="assets/js/employer-auth-guard.js?v=20260925-lockdown"></script>
+</body>
+</html>

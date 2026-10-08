@@ -1,0 +1,71 @@
+:root{--blue:#24467f;--blue-dark:#24467f;--orange:#ff6b00;--bg:#f5f7fb;--line:#d9e2ec;--text:#172033;--muted:#536174}
+.employer-support-page{background:var(--bg);color:var(--text)}.employer-support-content{padding:28px;max-width:1500px;margin:auto}.support-hero{display:flex;justify-content:space-between;align-items:center;gap:24px;margin-bottom:18px;padding:25px;border:1px solid var(--line);border-radius:15px;background:#fff}.eyebrow{display:block;color:var(--orange);font-size:12px;font-weight:900;letter-spacing:.1em}.support-hero h1{margin:6px 0;font-size:30px;color:var(--blue-dark)}.support-hero p,.thread-empty p{margin:0;color:var(--muted);font-size:16px;line-height:1.55}.primary-btn,.secondary-btn{min-height:44px;padding:0 17px;border-radius:9px;font:inherit;font-size:15px;font-weight:800;cursor:pointer}.primary-btn{border:1px solid var(--blue);background:var(--blue);color:#fff}.secondary-btn{border:1px solid var(--line);background:#fff;color:var(--blue-dark)}.wide{width:100%;margin-top:14px}.support-summary{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:18px}.support-summary article{padding:19px;border:1px solid var(--line);border-radius:13px;background:#fff}.support-summary strong,.support-summary span,.support-summary small{display:block}.support-summary strong{font-size:30px;color:var(--blue-dark)}.support-summary span{margin-top:7px;font-size:15px;font-weight:800}.support-summary small{margin-top:5px;color:var(--muted);font-size:14px}.support-workspace{display:grid;grid-template-columns:360px minmax(0,1fr);min-height:570px;border:1px solid var(--line);border-radius:15px;background:#fff;overflow:hidden}.support-list-pane{padding:17px;border-right:1px solid var(--line)}.support-tabs{display:flex;gap:6px;margin-bottom:14px}.support-tabs button{flex:1;min-height:40px;border:0;border-radius:8px;background:#eef2f7;color:var(--muted);font-size:14px;font-weight:800;cursor:pointer}.support-tabs button.active{background:#edf3ff;color:var(--blue)}.support-conversations{display:grid;gap:8px}.support-conversation{width:100%;padding:13px;border:1px solid var(--line);border-radius:10px;background:#fff;text-align:left;cursor:pointer}.support-conversation.active{border-color:var(--blue);background:#f4f7ff}.support-conversation div{display:flex;justify-content:space-between;color:var(--muted);font-size:12px}.support-conversation strong,.support-conversation small{display:block;margin-top:5px}.support-conversation strong{font-size:15px;color:var(--text)}.support-conversation small{font-size:13px;color:var(--muted)}.support-thread{padding:24px}.thread-empty{display:grid;place-content:center;height:100%;text-align:center}.thread-empty h2,.thread-header h2{color:var(--blue-dark);font-size:22px}.thread-header{padding-bottom:15px;border-bottom:1px solid var(--line)}.thread-header span{color:var(--orange);font-size:12px;font-weight:900}.thread-header h2{margin:5px 0}.thread-header p{margin:0;color:var(--muted);font-size:14px}.support-messages{height:350px;overflow:auto;padding:18px 0}.support-message{margin-bottom:15px}.support-message.mine{text-align:right}.support-message .author{margin-bottom:5px;color:var(--muted);font-size:13px;font-weight:800}.support-message .bubble{display:inline-block;max-width:75%;padding:11px 14px;border-radius:12px;background:#eef2f7;font-size:15px;line-height:1.5;text-align:left}.support-message.mine .bubble{background:#edf3ff;color:var(--blue-dark)}.support-message time{display:block;margin-top:4px;color:#7b8794;font-size:12px}.support-reply{border-top:1px solid var(--line);padding-top:16px}.support-reply textarea,.modal-card input,.modal-card select,.modal-card textarea{width:100%;box-sizing:border-box;padding:11px;border:1px solid var(--line);border-radius:8px;background:#fff;color:var(--text);font:inherit;font-size:16px}.support-reply>div{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:10px}.support-reply small{color:var(--muted);font-size:13px}.empty{padding:25px;text-align:center;color:var(--muted);font-size:14px}.support-modal[hidden]{display:none}.support-modal{position:fixed;z-index:10000;inset:0;display:grid;place-items:center;padding:20px}.modal-backdrop{position:absolute;inset:0;background:rgba(23,32,51,.5)}.modal-card{position:relative;width:min(100%,590px);padding:25px;border-radius:15px;background:#fff}.modal-card h2{margin:6px 0 20px;color:var(--blue-dark);font-size:23px}.modal-card label{display:grid;gap:7px;margin-bottom:14px;color:var(--text);font-size:14px;font-weight:800}.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.modal-close{position:absolute;right:15px;top:12px;border:0;background:transparent;font-size:28px;cursor:pointer}.modal-actions{display:flex;justify-content:flex-end;gap:9px;margin-top:18px}@media(max-width:850px){.employer-support-content{padding:18px}.support-hero{align-items:flex-start;flex-direction:column}.support-summary{grid-template-columns:1fr}.support-workspace{grid-template-columns:1fr}.support-list-pane{border-right:0;border-bottom:1px solid var(--line)}.form-grid{grid-template-columns:1fr}}
+
+
+/* ============================================================
+   SUPPORT THREAD VISIBILITY / CHAT COMPOSER FIX
+   The .thread-empty display:grid rule was overriding the HTML
+   hidden attribute, so the empty-state stayed visible even after
+   a conversation was selected.
+   ============================================================ */
+
+.thread-empty[hidden],
+#support-thread-view[hidden] {
+  display: none !important;
+}
+
+.support-thread {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+#support-thread-view {
+  width: 100%;
+  min-height: 520px;
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+}
+
+.thread-header {
+  flex: 0 0 auto;
+}
+
+.support-messages {
+  flex: 1 1 auto;
+  min-height: 280px;
+  height: auto;
+  overflow-y: auto;
+}
+
+.support-reply {
+  flex: 0 0 auto;
+  background: #ffffff;
+}
+
+.support-reply textarea {
+  display: block;
+  width: 100%;
+  min-height: 110px;
+  resize: vertical;
+  position: relative;
+  z-index: 1;
+  pointer-events: auto;
+  cursor: text;
+}
+
+.support-reply > div {
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 850px) {
+  #support-thread-view {
+    min-height: 480px;
+  }
+
+  .support-messages {
+    min-height: 240px;
+  }
+}

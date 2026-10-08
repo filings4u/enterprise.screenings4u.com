@@ -1,0 +1,1249 @@
+/* ============================================================
+   SCREENINGS4U — BASIC COURSE SETTINGS MODAL
+   COMPLETE CORRECTED VERSION
+   ============================================================ */
+
+
+/* ============================================================
+   BRAND VARIABLES
+   ============================================================ */
+
+:root {
+    --preview-blue: #325aa3;
+    --preview-blue-dark: #24467f;
+    --preview-blue-soft: rgba(50, 90, 163, 0.08);
+
+    --preview-orange: #ff6b00;
+    --preview-orange-hover: #e66000;
+
+    --preview-bg: var(--admin-bg, #f5f7fa);
+    --preview-card: var(--admin-card, #ffffff);
+    --preview-border: var(--admin-border, #dfe5ec);
+
+    --preview-text: var(--admin-text, #172033);
+    --preview-muted: var(--admin-muted, #687386);
+
+    --preview-shadow:
+        0 18px 46px rgba(23, 32, 51, 0.18);
+}
+
+
+/* ============================================================
+   MODAL BACKDROP
+   ============================================================ */
+
+#basicSettingsModal {
+    position: fixed;
+    inset: 0;
+
+    z-index: 11000;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 14px 18px;
+
+    overflow: hidden;
+
+    background: rgba(23, 32, 51, 0.56);
+
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
+
+    box-sizing: border-box;
+}
+
+#basicSettingsModal *,
+#basicSettingsModal *::before,
+#basicSettingsModal *::after {
+    box-sizing: border-box;
+}
+
+#basicSettingsModal[hidden] {
+    display: none !important;
+}
+
+
+/* ============================================================
+   MODAL SHELL
+   ============================================================ */
+
+#basicSettingsModal .settings-modal {
+    position: relative;
+
+    width: min(960px, 100%);
+    max-width: 960px;
+
+    height: auto;
+    max-height: min(760px, calc(100dvh - 28px));
+
+    margin: 0;
+
+    display: flex;
+    flex-direction: column;
+
+    overflow: hidden;
+
+    border: 1px solid var(--preview-border);
+    border-radius: 16px;
+
+    background: var(--preview-card);
+
+    color: var(--preview-text);
+
+    box-shadow:
+        0 30px 75px rgba(23, 32, 51, 0.30),
+        0 10px 28px rgba(23, 32, 51, 0.14);
+}
+
+
+/* ============================================================
+   BRAND STRIPE
+   ============================================================ */
+
+#basicSettingsModal .settings-modal::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+    right: 0;
+
+    height: 4px;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--preview-blue-dark) 0%,
+            var(--preview-blue-dark) 72%,
+            var(--preview-orange) 72%,
+            var(--preview-orange) 100%
+        );
+
+    z-index: 20;
+}
+
+
+/* ============================================================
+   HEADER
+   ============================================================ */
+
+#basicSettingsModal .settings-modal > header,
+#basicSettingsModal .settings-modal-header {
+    position: relative;
+
+    z-index: 10;
+
+    flex: 0 0 78px;
+
+    min-height: 78px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 20px;
+
+    padding: 17px 20px 13px;
+
+    border-bottom: 1px solid var(--preview-border);
+
+    background: var(--preview-card);
+}
+
+#basicSettingsModal .settings-modal > header > div:first-child,
+#basicSettingsModal .settings-modal-header > div:first-child {
+    min-width: 0;
+}
+
+
+/* ============================================================
+   HEADER EYEBROW
+   ============================================================ */
+
+#basicSettingsModal .settings-modal > header small,
+#basicSettingsModal .settings-modal > header .eyebrow,
+#basicSettingsModal .settings-modal-header small,
+#basicSettingsModal .settings-modal-header .eyebrow {
+    display: block;
+
+    margin: 0 0 4px;
+
+    color: var(--preview-orange);
+
+    font-size: 10px;
+    font-weight: 900;
+
+    line-height: 1.2;
+
+    letter-spacing: 0.08em;
+
+    text-transform: uppercase;
+}
+
+
+/* ============================================================
+   HEADER TITLE
+   ============================================================ */
+
+#basicSettingsModal .settings-modal > header h1,
+#basicSettingsModal .settings-modal > header h2,
+#basicSettingsModal .settings-modal > header h3,
+#basicSettingsModal .settings-modal > header h4,
+#basicSettingsModal .settings-modal-header h1,
+#basicSettingsModal .settings-modal-header h2,
+#basicSettingsModal .settings-modal-header h3,
+#basicSettingsModal .settings-modal-header h4 {
+    margin: 0;
+
+    color: var(--preview-blue-dark);
+
+    font-size: 20px;
+    font-weight: 800;
+
+    line-height: 1.15;
+}
+
+
+/* ============================================================
+   CLOSE BUTTON
+   ============================================================ */
+
+#basicSettingsModal .settings-modal > header > button[data-close-settings-modal],
+#basicSettingsModal .settings-modal-close {
+    width: 34px;
+    height: 34px;
+
+    flex: 0 0 34px;
+
+    display: grid;
+    place-items: center;
+
+    padding: 0;
+
+    border: 1px solid transparent;
+    border-radius: 8px;
+
+    background: transparent;
+
+    color: var(--preview-muted);
+
+    font: inherit;
+    font-size: 20px;
+    font-weight: 500;
+
+    line-height: 1;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.15s ease,
+        border-color 0.15s ease,
+        color 0.15s ease;
+}
+
+#basicSettingsModal .settings-modal > header > button[data-close-settings-modal]:hover,
+#basicSettingsModal .settings-modal-close:hover {
+    border-color: var(--preview-border);
+
+    background: var(--preview-blue-soft);
+
+    color: var(--preview-blue-dark);
+}
+
+
+/* ============================================================
+   MODAL BODY
+   ONLY THIS AREA SCROLLS
+   ============================================================ */
+
+#basicSettingsModal .settings-modal-body {
+    position: relative;
+
+    width: 100%;
+
+    min-width: 0;
+    min-height: 0;
+
+    flex: 1 1 auto;
+
+    display: grid;
+
+    grid-template-columns: minmax(0, 1fr);
+
+    align-content: start;
+
+    gap: 10px;
+
+    padding: 14px 20px 22px;
+
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    overscroll-behavior: contain;
+
+    background: var(--preview-card);
+
+    scrollbar-gutter: stable;
+
+    scrollbar-width: thin;
+    scrollbar-color:
+        var(--preview-blue)
+        #edf1f6;
+}
+
+#basicSettingsModal .settings-modal-body > * {
+    width: 100%;
+
+    min-width: 0;
+    max-width: 100%;
+
+    grid-column: 1 / -1;
+}
+
+
+/* ============================================================
+   BODY SCROLLBAR
+   ============================================================ */
+
+#basicSettingsModal .settings-modal-body::-webkit-scrollbar {
+    width: 9px;
+}
+
+#basicSettingsModal .settings-modal-body::-webkit-scrollbar-track {
+    background: #edf1f6;
+}
+
+#basicSettingsModal .settings-modal-body::-webkit-scrollbar-thumb {
+    border: 2px solid #edf1f6;
+
+    border-radius: 999px;
+
+    background: var(--preview-blue);
+
+    background-clip: padding-box;
+}
+
+#basicSettingsModal .settings-modal-body::-webkit-scrollbar-thumb:hover {
+    background: var(--preview-blue-dark);
+
+    background-clip: padding-box;
+}
+
+
+/* ============================================================
+   FORM LABELS
+   ============================================================ */
+
+#basicSettingsModal .settings-modal-body label {
+    display: block;
+
+    margin: 0;
+
+    color: #52627a;
+
+    font-size: 12px;
+    font-weight: 800;
+
+    line-height: 1.3;
+}
+
+#basicSettingsModal .settings-modal-body label > span:first-child {
+    display: block;
+
+    margin-bottom: 4px;
+}
+
+
+/* ============================================================
+   FORM CONTROLS
+   ============================================================ */
+
+#basicSettingsModal .settings-modal-body input:not([type]),
+#basicSettingsModal .settings-modal-body input[type="text"],
+#basicSettingsModal .settings-modal-body input[type="url"],
+#basicSettingsModal .settings-modal-body input[type="number"],
+#basicSettingsModal .settings-modal-body input[type="email"],
+#basicSettingsModal .settings-modal-body input[type="search"],
+#basicSettingsModal .settings-modal-body select,
+#basicSettingsModal .settings-modal-body textarea {
+    display: block;
+
+    width: 100%;
+
+    margin: 0;
+
+    border: 1px solid #cbd7e6;
+    border-radius: 8px;
+
+    outline: none;
+
+    background: #ffffff;
+
+    color: var(--preview-text);
+
+    font: inherit;
+    font-size: 13px;
+
+    transition:
+        border-color 0.15s ease,
+        box-shadow 0.15s ease,
+        background-color 0.15s ease;
+}
+
+
+/* ============================================================
+   NORMAL INPUT HEIGHT
+   ============================================================ */
+
+#basicSettingsModal .settings-modal-body input:not([type]),
+#basicSettingsModal .settings-modal-body input[type="text"],
+#basicSettingsModal .settings-modal-body input[type="url"],
+#basicSettingsModal .settings-modal-body input[type="number"],
+#basicSettingsModal .settings-modal-body input[type="email"],
+#basicSettingsModal .settings-modal-body input[type="search"],
+#basicSettingsModal .settings-modal-body select {
+    height: 40px;
+    min-height: 40px;
+
+    padding: 0 11px;
+}
+
+
+/* ============================================================
+   DESCRIPTION
+   ============================================================ */
+
+#basicSettingsModal .settings-modal-body textarea {
+    height: 92px;
+    min-height: 92px;
+    max-height: 170px;
+
+    padding: 9px 11px;
+
+    line-height: 1.45;
+
+    resize: vertical;
+}
+
+
+/* ============================================================
+   FORM FOCUS
+   ============================================================ */
+
+#basicSettingsModal .settings-modal-body input:focus,
+#basicSettingsModal .settings-modal-body select:focus,
+#basicSettingsModal .settings-modal-body textarea:focus {
+    border-color: var(--preview-blue);
+
+    box-shadow:
+        0 0 0 3px rgba(50, 90, 163, 0.10);
+
+    background: #ffffff;
+}
+
+
+/* ============================================================
+   COURSE IMAGE MANAGER
+
+   IMPORTANT:
+   NO FIXED HEIGHT.
+   NO MIN HEIGHT.
+   CONTENT DEFINES HEIGHT.
+   ============================================================ */
+
+#basicSettingsModal .settings-course-image-manager {
+    width: 100%;
+
+    min-width: 0;
+    max-width: 100%;
+
+    height: auto;
+    min-height: 0;
+    max-height: none;
+
+    margin: 0;
+
+    overflow: visible;
+
+    border: 1px solid var(--preview-border);
+    border-radius: 11px;
+
+    background: var(--preview-card);
+}
+
+
+/* ============================================================
+   IMAGE MANAGER HEADING
+   ============================================================ */
+
+#basicSettingsModal .settings-image-heading {
+    width: 100%;
+
+    padding: 9px 14px;
+
+    border-bottom: 1px solid var(--preview-border);
+
+    border-radius: 10px 10px 0 0;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--preview-blue-soft) 0%,
+            rgba(255, 107, 0, 0.035) 100%
+        );
+}
+
+#basicSettingsModal .settings-image-heading > div {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    align-items: baseline;
+
+    gap: 4px 8px;
+}
+
+#basicSettingsModal .settings-image-heading > div > span {
+    color: var(--preview-orange);
+
+    font-size: 9px;
+    font-weight: 900;
+
+    line-height: 1.2;
+
+    letter-spacing: 0.08em;
+
+    text-transform: uppercase;
+}
+
+#basicSettingsModal .settings-image-heading strong {
+    color: var(--preview-blue-dark);
+
+    font-size: 14px;
+    font-weight: 800;
+}
+
+#basicSettingsModal .settings-image-heading small {
+    flex: 1 1 360px;
+
+    min-width: 220px;
+
+    color: var(--preview-muted);
+
+    font-size: 9px;
+
+    line-height: 1.4;
+}
+
+
+/* ============================================================
+   IMAGE GRID
+   ============================================================ */
+
+#basicSettingsModal .settings-image-grid {
+    width: 100%;
+
+    min-width: 0;
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1fr)
+        minmax(0, 1fr);
+
+    gap: 14px;
+
+    padding: 10px 14px 14px;
+
+    align-items: start;
+
+    overflow: visible;
+}
+
+
+/* ============================================================
+   CURRENT IMAGE COLUMN
+   ============================================================ */
+
+#basicSettingsModal .settings-image-current {
+    width: 100%;
+
+    min-width: 0;
+
+    display: flex;
+
+    flex-direction: column;
+
+    overflow: visible;
+}
+
+
+/* ============================================================
+   CURRENT IMAGE LABEL
+   ============================================================ */
+
+#basicSettingsModal .settings-image-label {
+    display: block;
+
+    margin: 0 0 5px;
+
+    color: var(--preview-text);
+
+    font-size: 9px;
+    font-weight: 800;
+
+    line-height: 1.2;
+}
+
+
+/* ============================================================
+   CURRENT IMAGE PREVIEW
+   ============================================================ */
+
+#basicSettingsModal .settings-image-preview {
+    width: 100%;
+
+    aspect-ratio: 16 / 9;
+    height: auto;
+    min-height: 0;
+
+    overflow: hidden;
+
+    border: 1px solid var(--preview-border);
+    border-radius: 9px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(50, 90, 163, 0.08),
+            rgba(255, 107, 0, 0.06)
+        );
+}
+
+#basicSettingsModal .settings-image-preview img {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    max-width: 100%;
+
+    object-fit: contain;
+    object-position: center;
+
+    background: #ffffff;
+}
+
+
+/* ============================================================
+   IMAGE ACTION ROW
+   ============================================================ */
+
+#basicSettingsModal .settings-image-current-actions {
+    width: 100%;
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    align-items: center;
+
+    gap: 7px;
+
+    margin: 8px 0 0;
+
+    padding: 0;
+
+    overflow: visible;
+}
+
+
+/* ============================================================
+   IMAGE ACTION BUTTONS
+   ============================================================ */
+
+#basicSettingsModal .settings-image-button {
+    min-height: 32px;
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 0 11px;
+
+    border: 1px solid #b8c4d3;
+    border-radius: 7px;
+
+    background: #ffffff;
+
+    color: var(--preview-blue-dark);
+
+    font: inherit;
+
+    font-size: 9px;
+    font-weight: 800;
+
+    line-height: 1;
+
+    white-space: nowrap;
+
+    cursor: pointer;
+
+    transition:
+        border-color 0.15s ease,
+        background-color 0.15s ease,
+        color 0.15s ease;
+}
+
+#basicSettingsModal .settings-image-button:hover {
+    border-color: var(--preview-blue);
+
+    background: var(--preview-blue-soft);
+
+    color: var(--preview-blue);
+}
+
+
+/* ============================================================
+   UPLOAD DROPZONE
+   Height matches complete left side:
+   label + preview + buttons
+   ============================================================ */
+
+#basicSettingsModal .settings-image-dropzone {
+    position: relative;
+
+    width: 100%;
+
+    min-width: 0;
+
+    aspect-ratio: 16 / 9;
+    height: auto;
+    min-height: 0;
+
+    display: flex !important;
+
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 4px !important;
+
+    padding: 14px;
+
+    overflow: hidden;
+
+    border: 2px dashed rgba(50, 90, 163, 0.35);
+
+    border-radius: 9px;
+
+    background: rgba(50, 90, 163, 0.035);
+
+    text-align: center;
+
+    cursor: pointer;
+
+    transition:
+        border-color 0.15s ease,
+        background-color 0.15s ease,
+        box-shadow 0.15s ease;
+}
+
+#basicSettingsModal .settings-image-dropzone:hover {
+    border-color: var(--preview-blue);
+
+    background: var(--preview-blue-soft);
+
+    box-shadow:
+        inset 0 0 0 1px rgba(50, 90, 163, 0.04);
+}
+
+
+/* ============================================================
+   FILE INPUT
+   ============================================================ */
+
+#basicSettingsModal .settings-image-dropzone input {
+    position: absolute !important;
+
+    width: 1px !important;
+    height: 1px !important;
+
+    min-width: 1px !important;
+    min-height: 1px !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    border: 0 !important;
+
+    opacity: 0;
+
+    pointer-events: none;
+}
+
+
+/* ============================================================
+   UPLOAD ICON
+   ============================================================ */
+
+#basicSettingsModal .settings-image-upload-icon {
+    width: 38px;
+    height: 38px;
+
+    flex: 0 0 38px;
+
+    display: grid;
+
+    place-items: center;
+
+    margin: 0 0 3px;
+
+    border-radius: 9px;
+
+    background: rgba(255, 107, 0, 0.12);
+
+    color: var(--preview-orange);
+
+    font-size: 18px !important;
+    font-weight: 900;
+
+    line-height: 1;
+}
+
+
+/* ============================================================
+   UPLOAD TEXT
+   ============================================================ */
+
+#basicSettingsModal .settings-image-dropzone strong {
+    display: block;
+
+    margin: 0;
+
+    color: var(--preview-blue-dark);
+
+    font-size: 11px;
+    font-weight: 800;
+
+    line-height: 1.3;
+}
+
+#basicSettingsModal
+.settings-image-dropzone
+> span:not(.settings-image-upload-icon) {
+    display: block;
+
+    margin: 0;
+
+    color: var(--preview-muted);
+
+    font-size: 9px;
+
+    line-height: 1.35;
+}
+
+#basicSettingsModal .settings-image-dropzone small {
+    display: block;
+
+    max-width: 310px;
+
+    margin: 0;
+
+    color: var(--preview-muted);
+
+    font-size: 8px;
+
+    line-height: 1.35;
+}
+
+
+/* ============================================================
+   IMAGE PROGRESS
+   ============================================================ */
+
+#basicSettingsModal .settings-image-progress {
+    width: auto;
+
+    margin: 0 14px 10px;
+
+    padding: 8px 10px;
+
+    border: 1px solid var(--preview-border);
+    border-radius: 8px;
+
+    background: var(--preview-blue-soft);
+
+    color: var(--preview-blue-dark);
+
+    font-size: 9px;
+    font-weight: 700;
+}
+
+
+/* ============================================================
+   IMAGE STATUS
+   ============================================================ */
+
+#basicSettingsModal .settings-image-status {
+    width: auto;
+
+    margin: 0 14px 12px;
+
+    color: var(--preview-muted);
+
+    font-size: 9px;
+
+    line-height: 1.4;
+}
+
+
+/* ============================================================
+   FOOTER
+   ALWAYS VISIBLE
+   ============================================================ */
+
+#basicSettingsModal .settings-modal > footer,
+#basicSettingsModal .settings-modal-footer {
+    position: relative;
+
+    z-index: 10;
+
+    width: 100%;
+
+    flex: 0 0 62px;
+
+    min-height: 62px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: flex-end;
+
+    gap: 10px;
+
+    padding: 11px 18px;
+
+    border-top: 1px solid var(--preview-border);
+
+    background: #ffffff;
+}
+
+
+/* ============================================================
+   FOOTER BUTTONS
+   ============================================================ */
+
+#basicSettingsModal .settings-modal > footer button,
+#basicSettingsModal .settings-modal-footer button {
+    min-width: 82px;
+    min-height: 38px;
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 0 17px;
+
+    border-radius: 999px;
+
+    font: inherit;
+
+    font-size: 13px;
+    font-weight: 800;
+
+    line-height: 1;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.15s ease,
+        border-color 0.15s ease,
+        color 0.15s ease,
+        box-shadow 0.15s ease,
+        transform 0.15s ease;
+}
+
+#basicSettingsModal .settings-modal > footer button:hover,
+#basicSettingsModal .settings-modal-footer button:hover {
+    transform: translateY(-1px);
+}
+
+
+/* ============================================================
+   CANCEL BUTTON
+   Actual HTML: <footer><button class="settings-pill secondary"
+   data-close-settings-modal>Cancel</button>...
+   ============================================================ */
+
+#basicSettingsModal .settings-modal > footer > button[data-close-settings-modal],
+#basicSettingsModal .settings-modal-footer .settings-cancel-button,
+#basicSettingsModal .settings-modal-footer button:not([type="submit"]):not(:last-child) {
+    border: 1px solid var(--preview-border) !important;
+
+    background: #ffffff !important;
+
+    color: var(--preview-blue-dark) !important;
+
+    box-shadow: none !important;
+}
+
+#basicSettingsModal .settings-modal > footer > button[data-close-settings-modal]:hover,
+#basicSettingsModal .settings-modal-footer .settings-cancel-button:hover,
+#basicSettingsModal .settings-modal-footer button:not([type="submit"]):not(:last-child):hover {
+    border-color: var(--preview-blue) !important;
+
+    background: var(--preview-blue-soft) !important;
+
+    color: var(--preview-blue) !important;
+}
+
+
+/* ============================================================
+   SAVE BUTTON
+   Actual HTML button is #saveBasicSettings and has no type=submit.
+   Force Screenings4u orange over admin-lms.css .settings-pill.primary.
+   ============================================================ */
+
+#basicSettingsModal #saveBasicSettings,
+#basicSettingsModal .settings-modal > footer > button:last-child,
+#basicSettingsModal .settings-modal-footer button[type="submit"],
+#basicSettingsModal .settings-modal-footer .settings-save-button,
+#basicSettingsModal .settings-modal-footer button:last-child {
+    border: 1px solid var(--preview-orange) !important;
+
+    background: var(--preview-orange) !important;
+
+    color: #ffffff !important;
+
+    box-shadow:
+        0 5px 14px rgba(255, 107, 0, 0.22) !important;
+}
+
+#basicSettingsModal #saveBasicSettings:hover,
+#basicSettingsModal .settings-modal > footer > button:last-child:hover,
+#basicSettingsModal .settings-modal-footer button[type="submit"]:hover,
+#basicSettingsModal .settings-modal-footer .settings-save-button:hover,
+#basicSettingsModal .settings-modal-footer button:last-child:hover {
+    border-color: var(--preview-orange-hover) !important;
+
+    background: var(--preview-orange-hover) !important;
+
+    color: #ffffff !important;
+
+    box-shadow:
+        0 7px 18px rgba(255, 107, 0, 0.25) !important;
+}
+
+
+/* ============================================================
+   DISABLED BUTTON
+   ============================================================ */
+
+#basicSettingsModal button:disabled {
+    opacity: 0.55;
+
+    cursor: not-allowed;
+
+    transform: none !important;
+
+    box-shadow: none !important;
+}
+
+
+/* ============================================================
+   SHORTER DESKTOP / LAPTOP SCREENS
+   ============================================================ */
+
+@media (max-height: 820px) and (min-width: 701px) {
+
+    #basicSettingsModal {
+        padding-top: 8px;
+        padding-bottom: 8px;
+    }
+
+    #basicSettingsModal .settings-modal {
+        height: auto;
+
+        max-height: calc(100dvh - 16px);
+    }
+
+    #basicSettingsModal .settings-modal > header,
+    #basicSettingsModal .settings-modal-header {
+        flex-basis: 76px;
+
+        min-height: 76px;
+
+        padding-top: 15px;
+        padding-bottom: 12px;
+    }
+
+    #basicSettingsModal .settings-modal-body {
+        padding-top: 14px;
+
+        padding-bottom: 20px;
+    }
+
+    #basicSettingsModal .settings-modal > footer,
+    #basicSettingsModal .settings-modal-footer {
+        flex-basis: 62px;
+
+        min-height: 62px;
+    }
+}
+
+
+/* ============================================================
+   TABLET
+   ============================================================ */
+
+@media (max-width: 900px) {
+
+    #basicSettingsModal {
+        padding: 12px;
+    }
+
+    #basicSettingsModal .settings-modal {
+        width: 100%;
+
+        max-width: 860px;
+
+        height: auto;
+
+        max-height: calc(100dvh - 24px);
+    }
+}
+
+
+/* ============================================================
+   MOBILE
+   ============================================================ */
+
+@media (max-width: 700px) {
+
+    #basicSettingsModal {
+        padding: 7px;
+    }
+
+    #basicSettingsModal .settings-modal {
+        width: 100%;
+
+        max-width: none;
+
+        height: auto;
+
+        max-height: calc(100dvh - 14px);
+
+        border-radius: 13px;
+    }
+
+    #basicSettingsModal .settings-modal > header,
+    #basicSettingsModal .settings-modal-header {
+        flex-basis: 70px;
+
+        min-height: 70px;
+
+        padding: 14px 14px 11px;
+    }
+
+    #basicSettingsModal .settings-modal > header h1,
+    #basicSettingsModal .settings-modal > header h2,
+    #basicSettingsModal .settings-modal > header h3,
+    #basicSettingsModal .settings-modal > header h4,
+    #basicSettingsModal .settings-modal-header h1,
+    #basicSettingsModal .settings-modal-header h2,
+    #basicSettingsModal .settings-modal-header h3,
+    #basicSettingsModal .settings-modal-header h4 {
+        font-size: 18px;
+    }
+
+    #basicSettingsModal .settings-modal-body {
+        gap: 10px;
+
+        padding: 12px 14px 20px;
+    }
+
+    #basicSettingsModal .settings-modal-body textarea {
+        height: 105px;
+
+        min-height: 105px;
+    }
+
+    #basicSettingsModal .settings-image-grid {
+        grid-template-columns: 1fr;
+
+        gap: 12px;
+    }
+
+    #basicSettingsModal .settings-image-preview,
+    #basicSettingsModal .settings-image-dropzone {
+        aspect-ratio: 16 / 9;
+        height: auto;
+        min-height: 0;
+    }
+
+    #basicSettingsModal .settings-modal > footer,
+    #basicSettingsModal .settings-modal-footer {
+        flex-basis: 60px;
+
+        min-height: 60px;
+
+        padding: 10px 14px;
+    }
+}
+
+
+/* ============================================================
+   SMALL MOBILE
+   ============================================================ */
+
+@media (max-width: 480px) {
+
+    #basicSettingsModal {
+        padding: 4px;
+    }
+
+    #basicSettingsModal .settings-modal {
+        height: auto;
+
+        max-height: calc(100dvh - 8px);
+
+        border-radius: 11px;
+    }
+
+    #basicSettingsModal .settings-modal-body {
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+
+    #basicSettingsModal .settings-image-heading {
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+
+    #basicSettingsModal .settings-image-heading small {
+        flex-basis: 100%;
+
+        min-width: 100%;
+    }
+
+    #basicSettingsModal .settings-image-grid {
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+
+    #basicSettingsModal .settings-modal > footer button,
+#basicSettingsModal .settings-modal-footer button {
+        min-width: 76px;
+
+        min-height: 37px;
+
+        padding-inline: 14px;
+    }
+}

@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en" class="s4u-auth-pending">
+<head><style id="s4u-preauth-style">html.s4u-auth-pending body{visibility:hidden!important}html.s4u-auth-pending #s4u-auth-blocking-error{visibility:visible!important}</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#24467f">
+
+  <title>Employees | screenings4u Employer Portal</title>
+<link href="images/fav.png" rel="icon" type="image/png"/>
+
+  <link rel="stylesheet" href="assets/css/employer-portal.css">
+  <link rel="stylesheet" href="assets/css/employer-employees.css">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/lms-ui-modals.css?v=20260918-modal-fix-1">
+<link rel="stylesheet" href="assets/css/brand-system.css?v=20260918-brand-repair-v2">
+</head>
+
+<body
+  class="employer-employees-page"
+  data-page-title="Employees"
+  data-page-subtitle="Manage your workforce and employee access."
+ data-s4u-portal="employer">
+
+  <div id="employer-portal-sidebar"></div>
+
+  <main class="employer-portal-main">
+    <div id="employer-portal-header"></div>
+
+    <div class="employer-employees-content">
+
+      <section class="employer-employees-hero">
+        <div>
+          <span class="employer-eyebrow">WORKFORCE MANAGEMENT</span>
+          <h1>Employees</h1>
+          <p>
+            Add, manage, and organize your employees from one central location.
+          </p>
+        </div>
+
+        <button
+          type="button"
+          class="employer-add-employee-btn"
+          id="employer-add-employee-btn"
+        >
+          <span>+</span>
+          Add Employee
+        </button>
+      </section>
+
+
+      <section class="employer-employee-stats">
+
+        <article class="employer-employee-stat-card">
+          <span>Total Employees</span>
+          <strong id="employee-total-count">—</strong>
+          <small>All employee records</small>
+        </article>
+
+        <article class="employer-employee-stat-card">
+          <span>Active Employees</span>
+          <strong id="employee-active-count">—</strong>
+          <small>Currently active</small>
+        </article>
+
+        <article class="employer-employee-stat-card">
+          <span>Training Assigned</span>
+          <strong id="employee-training-count">—</strong>
+          <small>Employees with active training</small>
+        </article>
+
+        <article class="employer-employee-stat-card">
+          <span>Needs Attention</span>
+          <strong id="employee-attention-count">—</strong>
+          <small>Records requiring follow-up</small>
+        </article>
+
+      </section>
+
+
+      <section class="employer-employees-panel">
+
+        <div class="employer-employees-toolbar">
+
+          <div class="employer-employee-search">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="11" cy="11" r="6"></circle>
+              <path d="m16 16 4 4"></path>
+            </svg>
+
+            <input
+              type="search"
+              id="employee-search"
+              placeholder="Search employees by name or email..."
+              autocomplete="off"
+            >
+          </div>
+
+
+          <div class="employer-employee-filters">
+
+            <select id="employee-status-filter">
+              <option value="all">All Statuses</option>
+              <option value="active">Active</option>
+              <option value="inactive">Inactive</option>
+            </select>
+
+            <select id="employee-training-filter">
+              <option value="all">All Training</option>
+              <option value="assigned">Training Assigned</option>
+              <option value="none">No Training</option>
+            </select>
+
+          </div>
+
+        </div>
+
+
+        <div class="employer-employee-table-wrap">
+
+          <table class="employer-employee-table">
+
+            <thead>
+              <tr>
+                <th>Employee</th>
+                <th>Contact</th>
+                <th>Status</th>
+                <th>Training</th>
+                <th>Added</th>
+                <th aria-label="Actions"></th>
+              </tr>
+            </thead>
+
+            <tbody id="employee-table-body">
+              <tr>
+                <td colspan="6">
+                  <div class="employer-table-empty">
+                    Employee records will appear here once connected to your organization.
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+
+          </table>
+
+        </div>
+
+
+        <div class="employer-employees-footer">
+
+          <span id="employee-results-count">
+            0 employees
+          </span>
+
+          <div class="employer-pagination" id="employee-pagination">
+            <!-- Pagination is generated when data is wired. -->
+          </div>
+
+        </div>
+
+      </section>
+
+    </div>
+  </main>
+
+
+  <!-- ADD / EDIT EMPLOYEE MODAL -->
+  <div
+    class="employer-employee-modal"
+    id="employee-modal"
+    hidden
+  >
+
+    <div
+      class="employer-employee-modal-backdrop"
+      id="employee-modal-backdrop"
+    ></div>
+
+
+    <div
+      class="employer-employee-modal-card"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="employee-modal-title"
+    >
+
+      <div class="employer-employee-modal-header">
+
+        <div>
+          <span class="employer-eyebrow">EMPLOYEE</span>
+          <h2 id="employee-modal-title">
+            Add Employee
+          </h2>
+          <p>
+            Create an employee record for your organization.
+          </p>
+        </div>
+
+        <button
+          type="button"
+          class="employer-modal-close"
+          id="employee-modal-close"
+          aria-label="Close"
+        >
+          ×
+        </button>
+
+      </div>
+
+
+      <form
+        id="employee-form"
+        class="employer-employee-form"
+      >
+
+        <input
+          type="hidden"
+          id="employee-id"
+        >
+
+
+        <div class="employer-form-grid">
+
+          <label>
+            <span>First Name <b>*</b></span>
+            <input
+              type="text"
+              id="employee-first-name"
+              required
+              autocomplete="given-name"
+            >
+          </label>
+
+          <label>
+            <span>Last Name <b>*</b></span>
+            <input
+              type="text"
+              id="employee-last-name"
+              required
+              autocomplete="family-name"
+            >
+          </label>
+
+        </div>
+
+
+        <label>
+          <span>Email Address <b>*</b></span>
+          <input
+            type="email"
+            id="employee-email"
+            required
+            autocomplete="email"
+          >
+          <small>
+            Employee access and training notifications will use this email.
+          </small>
+        </label>
+
+
+        <div class="employer-form-grid">
+
+          <label>
+            <span>Phone Number</span>
+            <input
+              type="tel"
+              id="employee-phone"
+              autocomplete="tel"
+            >
+          </label>
+
+          <label>
+            <span>Employee Status</span>
+            <select id="employee-status">
+              <option value="active">Active</option>
+              <option value="inactive">Inactive</option>
+            </select>
+          </label>
+
+        </div>
+
+
+        <div class="employer-employee-form-note">
+          <strong>Employee Portal Access</strong>
+          <p>
+            This employee record belongs to your organization. Employee portal access and training are linked through the employee's Screenings4u account when available.
+          </p>
+        </div>
+
+
+        <div class="employer-modal-actions">
+
+          <button
+            type="button"
+            class="employer-modal-cancel-btn"
+            id="employee-modal-cancel"
+          >
+            Cancel
+          </button>
+
+          <button
+            type="submit"
+            class="employer-modal-save-btn"
+          >
+            Save Employee
+          </button>
+
+        </div>
+
+      </form>
+
+    </div>
+
+  </div>
+
+
+  <!-- EMPLOYEE DETAILS MODAL -->
+  <div
+    class="employer-employee-modal"
+    id="employee-details-modal"
+    hidden
+  >
+
+    <div
+      class="employer-employee-modal-backdrop"
+      id="employee-details-backdrop"
+    ></div>
+
+    <div
+      class="employer-employee-modal-card employer-employee-details-card"
+      role="dialog"
+      aria-modal="true"
+    >
+
+      <div class="employer-employee-modal-header">
+
+        <div>
+          <span class="employer-eyebrow">EMPLOYEE DETAILS</span>
+          <h2 id="employee-details-name">Employee</h2>
+          <p id="employee-details-email">—</p>
+        </div>
+
+        <button
+          type="button"
+          class="employer-modal-close"
+          id="employee-details-close"
+          aria-label="Close"
+        >
+          ×
+        </button>
+
+      </div>
+
+
+      <div class="employer-employee-details-grid">
+
+        <div>
+          <span>Status</span>
+          <strong id="employee-details-status">—</strong>
+        </div>
+
+        <div>
+          <span>Phone</span>
+          <strong id="employee-details-phone">—</strong>
+        </div>
+
+        <div>
+          <span>Training</span>
+          <strong id="employee-details-training">—</strong>
+        </div>
+
+        <div>
+          <span>Added</span>
+          <strong id="employee-details-added">—</strong>
+        </div>
+
+      </div>
+
+
+      <div class="employer-modal-actions">
+
+        <button
+          type="button"
+          class="employer-modal-cancel-btn"
+          id="employee-details-done"
+        >
+          Close
+        </button>
+
+        <button
+          type="button"
+          class="employer-modal-save-btn"
+          id="employee-details-edit"
+        >
+          Edit Employee
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+
+
+<script src="assets/js/ui.js?v=20260918-modal-fix-1"></script>
+
+
+
+<script src="assets/js/employer-portal.js"></script>
+  <script src="assets/js/employer-employees.js"></script>
+
+
+<!-- screenings4u universal portal security -->
+<script src="assets/js/supabase-config.js?v=20260925-lockdown"></script>
+<script src="assets/js/core-auth.js?v=20260925-lockdown"></script>
+<script src="assets/js/session-security.js?v=20260925-lockdown"></script>
+<script src="assets/js/portal-auth-guard.js?v=20260925-lockdown"></script>
+<script src="assets/js/employer-auth-guard.js?v=20260925-lockdown"></script>
+</body>
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en" class="s4u-auth-pending">
+<head><style id="s4u-preauth-style">html.s4u-auth-pending body{visibility:hidden!important}html.s4u-auth-pending #s4u-auth-blocking-error{visibility:visible!important}</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#24467f">
+
+  <title>Employee Dashboard | screenings4u</title>
+<link href="images/fav.png" rel="icon" type="image/png"/>
+  <link rel="stylesheet" href="assets/css/employee-portal.css">
+  <link rel="stylesheet" href="assets/css/employee-dashboard.css">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/lms-ui-modals.css?v=20260918-modal-fix-1">
+<link rel="stylesheet" href="assets/css/brand-system.css?v=20260918-brand-repair-v2">
+</head>
+
+<body class="employee-dashboard-page"
+      data-page-title="Dashboard"
+      data-page-subtitle="Access your training, progress, certificates, and employer resources from one place." data-s4u-portal="employee">
+
+  <div id="employee-portal-sidebar"></div>
+
+  <main class="employee-portal-main">
+    <div id="employee-portal-header"></div>
+
+    <div class="employee-dashboard-content">
+
+      <section class="employee-welcome-card">
+        <div>
+          <span class="employee-eyebrow">MY TRAINING</span>
+          <h1 id="welcome-name">Welcome back</h1>
+          <p>Continue your assigned courses, review your learning progress, and access the resources provided by your employer.</p>
+        </div>
+
+        <div class="employee-welcome-actions">
+          <a class="employee-secondary-action" href="employee-training-progress.html">View Progress</a>
+          <a class="employee-primary-action" href="employee-courses.html">View My Courses</a>
+        </div>
+      </section>
+
+      <section class="employee-stat-grid">
+        <article class="employee-stat-card"><div class="employee-stat-icon courses-icon">C</div><div><span>Available Courses</span><strong id="stat-available">0</strong><small>Ready to begin</small></div></article>
+        <article class="employee-stat-card"><div class="employee-stat-icon progress-icon">P</div><div><span>In Progress</span><strong id="stat-progress">0</strong><small>Courses underway</small></div></article>
+        <article class="employee-stat-card"><div class="employee-stat-icon completed-icon">✓</div><div><span>Completed</span><strong id="stat-completed">0</strong><small>Training completed</small></div></article>
+        <article class="employee-stat-card"><div class="employee-stat-icon percent-icon">%</div><div><span>Overall Progress</span><strong id="stat-percent">0%</strong><small>Across assigned courses</small></div></article>
+      </section>
+
+      <section class="employee-dashboard-grid">
+        <section class="employee-dashboard-panel employee-dashboard-panel-wide">
+          <div class="employee-panel-heading"><div><h2>Quick Actions</h2><p>Open the employee tools you use most often.</p></div></div>
+          <div class="employee-quick-actions">
+            <a href="employee-courses.html" class="employee-quick-action"><span class="quick-icon">C</span><span><strong>My Courses</strong><small>Open assigned training</small></span></a>
+            <a href="employee-training-progress.html" class="employee-quick-action"><span class="quick-icon">P</span><span><strong>Training Progress</strong><small>Review course progress</small></span></a>
+            <a href="employee-certificates.html" class="employee-quick-action"><span class="quick-icon">✓</span><span><strong>Certificates</strong><small>View earned certificates</small></span></a>
+            <a href="employee-contact-employer.html" class="employee-quick-action"><span class="quick-icon">?</span><span><strong>Contact Employer</strong><small>Get training assistance</small></span></a>
+          </div>
+        </section>
+
+        <section class="employee-dashboard-panel">
+          <div class="employee-panel-heading"><div><h2>Continue Learning</h2><p>Pick up your most recent active course.</p></div><a href="employee-courses.html" class="employee-panel-link">View All</a></div>
+          <div id="continue-course" class="employee-empty-state">No course is currently in progress.</div>
+        </section>
+
+        <section class="employee-dashboard-panel">
+          <div class="employee-panel-heading"><div><h2>Training Progress</h2><p>Your progress across all assigned courses.</p></div><a href="employee-training-progress.html" class="employee-panel-link">View Progress</a></div>
+          <div class="employee-training-summary">
+            <div class="employee-progress-circle"><strong id="progress-ring-value">0%</strong><span>Complete</span></div>
+            <div class="employee-training-details">
+              <div><span>Completed</span><strong id="legend-completed">0</strong></div>
+              <div><span>In Progress</span><strong id="legend-progress">0</strong></div>
+              <div><span>Available</span><strong id="legend-available">0</strong></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="employee-dashboard-panel">
+          <div class="employee-panel-heading"><div><h2>My Assigned Courses</h2><p>Recently assigned employee training.</p></div><a href="employee-courses.html" class="employee-panel-link">Open Courses</a></div>
+          <div id="course-list" class="employee-open-items"><div class="employee-empty-state">No courses assigned yet.</div></div>
+        </section>
+
+        <section class="employee-dashboard-panel">
+          <div class="employee-panel-heading"><div><h2 id="employer-name">Your Employer</h2><p>Employer information and training assistance.</p></div></div>
+          <div class="employee-employer-copy"><p id="employer-message">Your employer manages your training access and course assignments.</p></div>
+          <a href="employee-contact-employer.html" class="employee-secondary-action employee-contact-action">Contact Employer</a>
+        </section>
+      </section>
+    </div>
+  </main>
+
+  <div class="employee-modal" id="employee-modal" hidden>
+    <div class="employee-modal-backdrop"></div>
+    <div class="employee-modal-card">
+      <h2 id="employee-modal-title"></h2>
+      <p id="employee-modal-message"></p>
+      <button class="employee-primary-action" id="employee-modal-close" type="button">Done</button>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  
+  
+  <script src="assets/js/ui.js?v=20260918-modal-fix-1"></script>
+  
+  
+  <script src="assets/js/employee-portal.js"></script>
+  <script src="assets/js/employee-dashboard.js"></script>
+
+<!-- screenings4u universal portal security -->
+<script src="assets/js/supabase-config.js?v=20260925-lockdown"></script>
+<script src="assets/js/core-auth.js?v=20260925-lockdown"></script>
+<script src="assets/js/session-security.js?v=20260925-lockdown"></script>
+<script src="assets/js/portal-auth-guard.js?v=20260925-lockdown"></script>
+<script src="assets/js/employee-auth-guard.js?v=20260925-lockdown"></script>
+</body>
+</html>

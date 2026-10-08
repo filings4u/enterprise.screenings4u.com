@@ -1,0 +1,363 @@
+:root{--s4u-font-scale:.92;--s4u-font-body:calc(14px * var(--s4u-font-scale));--s4u-font-small:calc(12px * var(--s4u-font-scale));--s4u-font-xs:calc(11px * var(--s4u-font-scale));--s4u-font-title:calc(25px * var(--s4u-font-scale));--s4u-font-h2:calc(17px * var(--s4u-font-scale));--s4u-font-h3:calc(15px * var(--s4u-font-scale))}
+html,body{font-size:var(--s4u-font-body)}body,.admin-lms-main,.ecp-page{font-size:var(--s4u-font-body);line-height:1.42}.ecp-page{padding:22px 24px}.ecp-head{margin-bottom:17px}.ecp-head h1{font-size:var(--s4u-font-title)!important;line-height:1.15}.ecp-head p{font-size:var(--s4u-font-body)!important;line-height:1.45;margin-top:5px}.ecp-card-head h2,.ecp-dialog-head h2{font-size:var(--s4u-font-h2)!important}.ecp-section-title h3,.ecp-account h3{font-size:var(--s4u-font-h3)!important}.ecp-card-head>span,.ecp-sub,.ecp-field label,.ecp-metric span{font-size:var(--s4u-font-small)!important}.ecp-table td{font-size:calc(13px * var(--s4u-font-scale))!important;padding:10px 11px}.ecp-table th{font-size:var(--s4u-font-xs)!important;padding:9px 11px}.ecp-btn,.ecp-tabs a,.ecp-ops-tabs button{font-size:calc(12.5px * var(--s4u-font-scale))!important;padding:8px 11px}.ecp-field input,.ecp-field select,.ecp-field textarea{font-size:var(--s4u-font-body)!important;padding:9px 10px;min-height:38px}.ecp-metric{padding:13px 14px}.ecp-metric strong{font-size:calc(23px * var(--s4u-font-scale))!important}.ecp-card-head{padding:14px 16px}.ecp-card-body{padding:16px}.ecp-badge{font-size:var(--s4u-font-xs)!important;padding:4px 8px}.ecp-alert{display:none!important}
+.admin-lms-topbar,.ep-topbar{font-size:calc(13px * var(--s4u-font-scale))}.ep-business-tabs a,.ep-business-tabs button,.ep-side-link,.ep-side-group-title{font-size:calc(12px * var(--s4u-font-scale))!important}.ep-top-brand strong{font-size:calc(14px * var(--s4u-font-scale))!important}.ep-top-brand small,.ep-user-copy small{font-size:var(--s4u-font-xs)!important}
+.s4u-font-sizer{display:flex;align-items:center;gap:4px;margin-left:4px;padding:4px;border:1px solid #d8e0eb;border-radius:9px;background:#f8fafc}.s4u-font-sizer span{font-size:10px;font-weight:800;color:#66758a;padding:0 3px;text-transform:uppercase;letter-spacing:.04em}.s4u-font-sizer button{width:27px;height:27px;border:0;border-radius:6px;background:transparent;color:#24467f;font-weight:800;cursor:pointer;font-size:12px}.s4u-font-sizer button:hover,.s4u-font-sizer button.active{background:#24467f;color:#fff}
+.s4u-toast-stack{position:fixed;right:18px;top:76px;z-index:25000;display:flex;flex-direction:column;gap:9px;width:min(390px,calc(100vw - 32px));pointer-events:none}.s4u-toast{pointer-events:auto;background:#fff;border:1px solid #dce5ef;border-left:4px solid #24467f;border-radius:11px;box-shadow:0 14px 35px rgba(17,45,82,.16);padding:12px 14px;display:flex;gap:10px;align-items:flex-start;animation:s4uToastIn .18s ease-out}.s4u-toast.success{border-left-color:#21865a}.s4u-toast.error{border-left-color:#bf3d3d}.s4u-toast.warning{border-left-color:#c47c12}.s4u-toast-copy{flex:1;min-width:0}.s4u-toast-copy strong{display:block;color:#173d78;font-size:13px;margin-bottom:2px}.s4u-toast-copy p{margin:0;color:#55667a;font-size:12.5px;line-height:1.4;overflow-wrap:anywhere}.s4u-toast-close{border:0;background:transparent;color:#708196;cursor:pointer;font-size:18px;line-height:1;padding:0}.s4u-toast.leaving{opacity:0;transform:translateY(-6px);transition:.18s ease}@keyframes s4uToastIn{from{opacity:0;transform:translateY(-7px)}to{opacity:1;transform:none}}
+.s4u-confirm-route,.s4u-management-route{background:#fff;border:1px solid #dfe6f0;border-radius:14px;box-shadow:0 5px 18px rgba(23,61,120,.05);max-width:980px;margin:0 auto 22px}.s4u-route-head{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;padding:18px 20px;border-bottom:1px solid #edf1f5}.s4u-route-head h1,.s4u-route-head h2{margin:0;color:#173d78;font-size:var(--s4u-font-h2)}.s4u-route-head p{margin:5px 0 0;color:#68788b;font-size:var(--s4u-font-small)}.s4u-route-body{padding:20px}.s4u-route-actions{display:flex;gap:9px;justify-content:flex-end;margin-top:20px}.s4u-route-back{display:inline-flex;align-items:center;gap:6px;border:1px solid #cfd9e6;border-radius:8px;padding:7px 10px;text-decoration:none;color:#24467f;background:#fff;font-weight:750;cursor:pointer}.s4u-confirm-message{font-size:var(--s4u-font-body);color:#35465a;line-height:1.55;background:#f8fafc;border-left:3px solid #d19a33;padding:13px 14px;border-radius:8px}.s4u-management-route .ecp-dialog{width:100%!important;max-width:none!important;max-height:none!important;overflow:visible!important;border:0!important;border-radius:0!important;box-shadow:none!important}.s4u-management-route .ecp-dialog-head{padding:0 0 16px!important;margin-bottom:16px}.s4u-management-route .ecp-dialog-body{padding:0!important}.s4u-route-hidden{display:none!important}.ecp-route-panel.s4u-routed-modal{display:none!important;background:none!important;position:static!important;padding:0!important}
+@media(max-width:900px){.ecp-page{padding:16px}.s4u-toast-stack{top:62px;right:10px}.s4u-font-sizer span{display:none}.s4u-font-sizer button{width:25px;height:25px}.s4u-route-head{padding:15px}.s4u-route-body{padding:15px}}
+
+.ecp-route-panel{display:none!important}
+
+/* ================================================================
+   ENTERPRISE PORTAL DESIGN SYSTEM v5 — dashboard visual language
+   Shared across every live management workspace.
+   ================================================================ */
+:root{
+  --s4u-font-scale:1;
+  --ep-font-scale:var(--s4u-font-scale);
+  --s4u-surface:#ffffff;
+  --s4u-canvas:#f5f8fc;
+  --s4u-line:#dbe5f0;
+  --s4u-line-soft:#edf2f7;
+  --s4u-ink:#10264a;
+  --s4u-copy:#435a76;
+  --s4u-muted:#71839d;
+  --s4u-navy:#0b2a50;
+  --s4u-blue:#24467f;
+  --s4u-orange:#ff6b00;
+  --s4u-radius:11px;
+  --s4u-shadow:0 8px 28px rgba(20,54,92,.07);
+}
+html{font-size:calc(16px * var(--s4u-font-scale))!important}
+body.ep-enterprise-shell,
+body.ep-enterprise-shell button,
+body.ep-enterprise-shell input,
+body.ep-enterprise-shell select,
+body.ep-enterprise-shell textarea{font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif!important}
+body.ep-enterprise-shell{background:var(--s4u-canvas)!important;color:var(--s4u-ink)!important}
+
+/* One page canvas, regardless of which phase originally created the page. */
+body.ep-enterprise-shell .admin-lms-main>section:not(.ep-dashboard),
+body.ep-enterprise-shell .admin-lms-main>.page,
+body.ep-enterprise-shell .admin-lms-main>.admin-lms-content,
+body.ep-enterprise-shell .admin-lms-main>.ep-business-page,
+body.ep-enterprise-shell .admin-lms-main>.ep-page,
+body.ep-enterprise-shell .admin-lms-main>.et-page,
+body.ep-enterprise-shell .admin-lms-main>.se-page,
+body.ep-enterprise-shell .admin-lms-main>.comm-page,
+body.ep-enterprise-shell .admin-lms-main>.lb-page,
+body.ep-enterprise-shell .admin-lms-main>.invoice-page,
+body.ep-enterprise-shell .admin-lms-main>.courses-page,
+body.ep-enterprise-shell .admin-lms-main>.media-page{
+  width:100%!important;
+  max-width:1580px!important;
+  margin:0 auto!important;
+  padding:20px 24px 34px!important;
+  background:var(--s4u-canvas)!important;
+  color:var(--s4u-ink)!important;
+}
+
+/* Page titles and descriptive copy match the dashboard scale. */
+body.ep-enterprise-shell .ecp-head,
+body.ep-enterprise-shell .courses-heading,
+body.ep-enterprise-shell .ep-business-head,
+body.ep-enterprise-shell .page-head,
+body.ep-enterprise-shell .settings-heading,
+body.ep-enterprise-shell .admin-page-head{
+  margin-bottom:16px!important;
+  gap:14px!important;
+}
+body.ep-enterprise-shell .ecp-head h1,
+body.ep-enterprise-shell .courses-heading h1,
+body.ep-enterprise-shell .ep-business-head h1,
+body.ep-enterprise-shell .page-head h1,
+body.ep-enterprise-shell .settings-heading h1,
+body.ep-enterprise-shell .admin-page-head h1,
+body.ep-enterprise-shell .admin-lms-content h1{
+  margin:0!important;
+  color:var(--s4u-ink)!important;
+  font-size:1.62rem!important;
+  line-height:1.08!important;
+  letter-spacing:-.035em!important;
+  font-weight:850!important;
+}
+body.ep-enterprise-shell .ecp-head p,
+body.ep-enterprise-shell .courses-heading p,
+body.ep-enterprise-shell .ep-business-head p,
+body.ep-enterprise-shell .page-head p,
+body.ep-enterprise-shell .settings-heading p,
+body.ep-enterprise-shell .admin-page-head p{
+  margin:5px 0 0!important;
+  color:var(--s4u-muted)!important;
+  font-size:.78rem!important;
+  line-height:1.48!important;
+  max-width:850px!important;
+}
+body.ep-enterprise-shell .courses-kicker,
+body.ep-enterprise-shell .ep-eyebrow,
+body.ep-enterprise-shell .kicker,
+body.ep-enterprise-shell [class*="-kicker"]{
+  color:var(--s4u-orange)!important;
+  font-size:.59rem!important;
+  line-height:1.2!important;
+  font-weight:900!important;
+  letter-spacing:.13em!important;
+  text-transform:uppercase!important;
+}
+
+/* Common cards/panels use the same surface treatment as the dashboard. */
+body.ep-enterprise-shell .ecp-card,
+body.ep-enterprise-shell .card,
+body.ep-enterprise-shell .panel,
+body.ep-enterprise-shell .settings-card,
+body.ep-enterprise-shell .courses-panel,
+body.ep-enterprise-shell .courses-metric,
+body.ep-enterprise-shell .courses-action-card,
+body.ep-enterprise-shell .stat-card,
+body.ep-enterprise-shell .finance-entity,
+body.ep-enterprise-shell .ep-business-card,
+body.ep-enterprise-shell .lb-card,
+body.ep-enterprise-shell .media-card,
+body.ep-enterprise-shell .assessment-card{
+  background:var(--s4u-surface)!important;
+  border:1px solid var(--s4u-line)!important;
+  border-radius:var(--s4u-radius)!important;
+  box-shadow:var(--s4u-shadow)!important;
+}
+body.ep-enterprise-shell .ecp-card{margin-bottom:14px!important}
+body.ep-enterprise-shell .ecp-card-head,
+body.ep-enterprise-shell .courses-panel-head,
+body.ep-enterprise-shell .lb-card-head{
+  padding:14px 16px!important;
+  border-bottom:1px solid var(--s4u-line-soft)!important;
+}
+body.ep-enterprise-shell .ecp-card-head h2,
+body.ep-enterprise-shell .courses-panel-head h2,
+body.ep-enterprise-shell .lb-card-head h2,
+body.ep-enterprise-shell .card h2,
+body.ep-enterprise-shell .panel h2{
+  margin:0!important;
+  color:var(--s4u-ink)!important;
+  font-size:.96rem!important;
+  letter-spacing:-.015em!important;
+}
+body.ep-enterprise-shell .ecp-card-body{padding:16px!important}
+
+/* Metrics are intentionally compact and consistent. */
+body.ep-enterprise-shell .ecp-metrics,
+body.ep-enterprise-shell .courses-metrics,
+body.ep-enterprise-shell .finance-metrics{
+  gap:10px!important;
+  margin-bottom:14px!important;
+}
+body.ep-enterprise-shell .ecp-metric,
+body.ep-enterprise-shell .courses-metric,
+body.ep-enterprise-shell .stat-card,
+body.ep-enterprise-shell [class*="-metric"]{
+  border-radius:10px!important;
+}
+body.ep-enterprise-shell .ecp-metric{padding:13px 14px!important}
+body.ep-enterprise-shell .ecp-metric span,
+body.ep-enterprise-shell .courses-metric span,
+body.ep-enterprise-shell .stat-card span{
+  color:var(--s4u-muted)!important;
+  font-size:.62rem!important;
+  letter-spacing:.02em!important;
+}
+body.ep-enterprise-shell .ecp-metric strong,
+body.ep-enterprise-shell .courses-metric strong,
+body.ep-enterprise-shell .stat-card strong{
+  color:#0d2d55!important;
+  font-size:1.48rem!important;
+  line-height:1!important;
+  letter-spacing:-.035em!important;
+}
+
+/* Forms and filter bars. */
+body.ep-enterprise-shell .ecp-filter-grid{gap:10px!important}
+body.ep-enterprise-shell .ecp-field label,
+body.ep-enterprise-shell .field label,
+body.ep-enterprise-shell label.label{
+  color:#526985!important;
+  font-size:.64rem!important;
+  font-weight:800!important;
+  margin-bottom:5px!important;
+}
+body.ep-enterprise-shell input:not([type="checkbox"]):not([type="radio"]),
+body.ep-enterprise-shell select,
+body.ep-enterprise-shell textarea{
+  color:#253d5d!important;
+  font-size:.75rem!important;
+  border-color:#d3deeb!important;
+  border-radius:8px!important;
+  background:#fff!important;
+  box-shadow:none!important;
+}
+body.ep-enterprise-shell input:not([type="checkbox"]):not([type="radio"]),
+body.ep-enterprise-shell select{min-height:38px!important}
+body.ep-enterprise-shell textarea{line-height:1.45!important}
+body.ep-enterprise-shell input:focus,
+body.ep-enterprise-shell select:focus,
+body.ep-enterprise-shell textarea:focus{
+  outline:none!important;
+  border-color:#9bb2cc!important;
+  box-shadow:0 0 0 3px rgba(36,70,127,.07)!important;
+}
+
+/* Buttons use one sizing system across every management module. */
+body.ep-enterprise-shell .ecp-btn,
+body.ep-enterprise-shell .btn,
+body.ep-enterprise-shell .courses-btn,
+body.ep-enterprise-shell .course-row-btn,
+body.ep-enterprise-shell .admin-primary-btn,
+body.ep-enterprise-shell .invoice-btn,
+body.ep-enterprise-shell .quiz-builder-button,
+body.ep-enterprise-shell .assessment-button,
+body.ep-enterprise-shell .blog-button,
+body.ep-enterprise-shell .lb-btn,
+body.ep-enterprise-shell .preview-btn,
+body.ep-enterprise-shell .participants-pill-button,
+body.ep-enterprise-shell .row-action{
+  min-height:35px!important;
+  border-radius:8px!important;
+  font-size:.69rem!important;
+  line-height:1!important;
+  font-weight:800!important;
+  padding:0 11px!important;
+  font-family:inherit!important;
+}
+body.ep-enterprise-shell .ecp-btn.primary,
+body.ep-enterprise-shell .btn.primary,
+body.ep-enterprise-shell .courses-btn.primary,
+body.ep-enterprise-shell .admin-primary-btn,
+body.ep-enterprise-shell .invoice-btn.primary{
+  background:var(--s4u-blue)!important;
+  border-color:var(--s4u-blue)!important;
+  color:#fff!important;
+}
+
+/* Tables mirror the clean dashboard density. */
+body.ep-enterprise-shell table{border-collapse:collapse!important}
+body.ep-enterprise-shell table th{
+  color:#62758f!important;
+  background:#f7f9fc!important;
+  font-size:.61rem!important;
+  line-height:1.25!important;
+  font-weight:850!important;
+  letter-spacing:.045em!important;
+  text-transform:uppercase!important;
+  padding:10px 11px!important;
+  border-bottom:1px solid var(--s4u-line)!important;
+}
+body.ep-enterprise-shell table td{
+  color:#29405f!important;
+  font-size:.71rem!important;
+  line-height:1.38!important;
+  padding:11px!important;
+  border-bottom:1px solid var(--s4u-line-soft)!important;
+}
+body.ep-enterprise-shell table tbody tr:hover td{background:#fbfdff!important}
+body.ep-enterprise-shell .ecp-name,
+body.ep-enterprise-shell .course-name strong{color:#17365e!important;font-size:.72rem!important}
+body.ep-enterprise-shell .ecp-sub,
+body.ep-enterprise-shell .course-name small{color:#7b8ba0!important;font-size:.62rem!important}
+
+/* Tabs, badges and chips. */
+body.ep-enterprise-shell .ecp-tabs{gap:5px!important;margin-bottom:14px!important}
+body.ep-enterprise-shell .ecp-tabs a,
+body.ep-enterprise-shell .ecp-ops-tabs button{
+  min-height:34px!important;
+  padding:0 10px!important;
+  border-radius:8px!important;
+  font-size:.68rem!important;
+}
+body.ep-enterprise-shell .ecp-badge,
+body.ep-enterprise-shell .course-badge,
+body.ep-enterprise-shell [class*="-pill"]{
+  font-size:.58rem!important;
+  line-height:1!important;
+}
+
+/* Shared font-size control: obvious three-step control, persistent portal-wide. */
+.s4u-font-sizer{gap:2px!important;padding:3px!important;border-color:#d9e3ee!important;background:#f8fafc!important}
+.s4u-font-sizer span{font-size:.58rem!important;padding:0 5px!important;color:#60738d!important}
+.s4u-font-sizer button{
+  width:29px!important;
+  height:28px!important;
+  border-radius:6px!important;
+  font-size:.69rem!important;
+  transition:background .12s,color .12s,box-shadow .12s!important;
+}
+.s4u-font-sizer button.active,
+.s4u-font-sizer button[aria-pressed="true"]{
+  background:var(--s4u-blue)!important;
+  color:#fff!important;
+  box-shadow:0 2px 7px rgba(36,70,127,.18)!important;
+}
+
+/* Management actions stay as routed pages, never visual overlay modals. */
+body.ep-enterprise-shell .s4u-management-route,
+body.ep-enterprise-shell .s4u-confirm-route{
+  border-radius:var(--s4u-radius)!important;
+  box-shadow:var(--s4u-shadow)!important;
+}
+body.ep-enterprise-shell .s4u-route-head{padding:16px 18px!important}
+body.ep-enterprise-shell .s4u-route-head h1,
+body.ep-enterprise-shell .s4u-route-head h2{font-size:1.18rem!important;color:var(--s4u-ink)!important}
+body.ep-enterprise-shell .s4u-route-body{padding:18px!important}
+
+@media(max-width:900px){
+  body.ep-enterprise-shell .admin-lms-main>section:not(.ep-dashboard),
+  body.ep-enterprise-shell .admin-lms-main>.page,
+  body.ep-enterprise-shell .admin-lms-main>.admin-lms-content,
+  body.ep-enterprise-shell .admin-lms-main>.ep-business-page,
+  body.ep-enterprise-shell .admin-lms-main>.ep-page,
+  body.ep-enterprise-shell .admin-lms-main>.et-page,
+  body.ep-enterprise-shell .admin-lms-main>.se-page,
+  body.ep-enterprise-shell .admin-lms-main>.comm-page,
+  body.ep-enterprise-shell .admin-lms-main>.lb-page,
+  body.ep-enterprise-shell .admin-lms-main>.invoice-page,
+  body.ep-enterprise-shell .admin-lms-main>.courses-page,
+  body.ep-enterprise-shell .admin-lms-main>.media-page{padding:16px!important}
+}
+
+/* Functional management panels: hidden until page code opens them. */
+.ecp-route-panel.open,.ecp-route-panel.active,.ecp-route-panel.show{position:fixed!important;inset:0!important;z-index:10000!important;display:flex!important;align-items:center!important;justify-content:center!important;padding:18px!important;background:rgba(16,29,47,.5)!important;box-sizing:border-box!important}
+.ecp-route-panel.open>.ecp-dialog,.ecp-route-panel.active>.ecp-dialog,.ecp-route-panel.show>.ecp-dialog{display:block!important}
+/* DOT management cutover: shared missing layout primitives */
+body[data-s4u-business="dot"]{background:#f4f7fb;color:#102d55}
+body[data-s4u-business="dot"] .admin-lms-main{background:#f4f7fb;min-width:0}
+body[data-s4u-business="dot"] .ecp-page,body[data-s4u-business="dot"] .ep-business-page,body[data-s4u-business="dot"] .bs-page,body[data-s4u-business="dot"] .dcr{width:100%;max-width:1500px;margin:0 auto;padding:22px 24px;box-sizing:border-box}
+.ecp-page-head,.bs-head,.people-list-head{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;margin:0 0 18px}
+.ecp-page-head h1,.bs-head h1{margin:0;color:#102d55;font-size:28px;line-height:1.15}.ecp-page-head p,.bs-head p{margin:6px 0 0;color:#70819a}
+.ecp-eyebrow{display:block;color:#f05a00;font-size:11px;line-height:1.2;font-weight:900;letter-spacing:.09em;text-transform:uppercase;margin-bottom:5px}
+.ecp-grid,.bs-grid,.ep-business-metrics{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:0 0 18px}
+.ecp-grid>.ecp-card{display:block;text-decoration:none;color:inherit;margin:0;min-height:130px;transition:transform .12s ease,border-color .12s ease,box-shadow .12s ease}
+.ecp-grid>a.ecp-card:hover{transform:translateY(-1px);border-color:#b7c8dc;box-shadow:0 8px 24px rgba(18,53,94,.09)}
+.ecp-grid .ecp-card h2{margin:0 0 7px;color:#102d55;font-size:18px}.ecp-grid .ecp-card p{margin:0;color:#70819a;line-height:1.45}
+.bs-card,.dcr-card,.people-shell{background:#fff;border:1px solid #dbe5f0;border-radius:12px;box-shadow:0 4px 16px rgba(18,53,94,.045);padding:16px;margin-bottom:14px}
+.dcr-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.dcr-actions{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end;margin-top:16px}
+.people-toolbar{display:grid;grid-template-columns:minmax(220px,2fr) repeat(3,minmax(150px,1fr));gap:10px;margin-bottom:14px}.people-field label{display:block;font-size:11px;font-weight:800;color:#6d7f96;margin-bottom:5px}.people-field input,.people-field select{width:100%;box-sizing:border-box;min-height:39px;border:1px solid #d1ddeb;border-radius:8px;padding:8px 10px;background:#fff;color:#17365f}.people-list-head{align-items:center;margin:12px 0 8px}.people-list-head h2{margin:0;font-size:17px;color:#17365f}
+@media(max-width:1100px){.ecp-grid,.bs-grid,.ep-business-metrics{grid-template-columns:repeat(2,minmax(0,1fr))}.people-toolbar{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:720px){body[data-s4u-business="dot"] .ecp-page,body[data-s4u-business="dot"] .ep-business-page,body[data-s4u-business="dot"] .bs-page,body[data-s4u-business="dot"] .dcr{padding:16px}.ecp-grid,.bs-grid,.ep-business-metrics,.dcr-grid,.people-toolbar{grid-template-columns:1fr}.ecp-page-head,.bs-head{display:block}}
+
+/* DOT management shared rendering repair — 2026-09-28 */
+body[data-s4u-business="dot"].ep-enterprise-shell .ep-business-head{display:flex!important;align-items:flex-end!important;justify-content:space-between!important;gap:18px!important;margin-bottom:16px!important}
+body[data-s4u-business="dot"].ep-enterprise-shell .ep-business-actions{display:flex!important;align-items:center!important;justify-content:flex-end!important;gap:8px!important;flex-wrap:wrap!important}
+body[data-s4u-business="dot"].ep-enterprise-shell .ep-business-btn{min-height:38px!important;padding:0 14px!important;border:1px solid #d6e0eb!important;border-radius:8px!important;background:#fff!important;color:#17365f!important;display:inline-flex!important;align-items:center!important;justify-content:center!important;gap:7px!important;font-size:12px!important;font-weight:800!important;text-decoration:none!important;cursor:pointer!important}
+body[data-s4u-business="dot"].ep-enterprise-shell .ep-business-btn.primary{background:#244f8d!important;border-color:#244f8d!important;color:#fff!important}
+body[data-s4u-business="dot"].ep-enterprise-shell .ep-business-metrics article{background:#fff!important;border:1px solid #dbe5f0!important;border-radius:12px!important;box-shadow:0 4px 16px rgba(18,53,94,.045)!important;padding:14px 15px!important;min-height:82px!important}
+body[data-s4u-business="dot"].ep-enterprise-shell .ep-business-metrics article span{display:block!important;color:#6d7f96!important;font-size:10px!important;font-weight:800!important;text-transform:uppercase!important;letter-spacing:.04em!important}
+body[data-s4u-business="dot"].ep-enterprise-shell .ep-business-metrics article strong{display:block!important;color:#102d55!important;font-size:24px!important;line-height:1.1!important;margin:5px 0 3px!important}
+body[data-s4u-business="dot"].ep-enterprise-shell .ep-business-metrics article small{display:block!important;color:#8291a6!important;font-size:10px!important}
+body[data-s4u-business="dot"].ep-enterprise-shell .ep-business-card{overflow:hidden!important;margin-bottom:14px!important}
+body[data-s4u-business="dot"].ep-enterprise-shell .ep-business-table-wrap{overflow:auto!important}
+body[data-s4u-business="dot"].ep-enterprise-shell .ep-business-table{width:100%!important;border-collapse:collapse!important;min-width:760px!important;background:#fff!important}
+body[data-s4u-business="dot"].ep-enterprise-shell .ep-business-table th{padding:10px 13px!important;background:#f7f9fc!important;border-bottom:1px solid #dbe5f0!important;color:#5f7592!important;text-transform:uppercase!important;letter-spacing:.045em!important;font-size:10px!important;font-weight:850!important;text-align:left!important}
+body[data-s4u-business="dot"].ep-enterprise-shell .ep-business-table td{padding:12px 13px!important;border-bottom:1px solid #edf2f7!important;color:#334a68!important;font-size:11px!important;vertical-align:middle!important}
+body[data-s4u-business="dot"].ep-enterprise-shell .ep-business-table tbody tr:hover{background:#fbfcfe!important}
+body[data-s4u-business="dot"].ep-enterprise-shell .ep-inline-actions,body[data-s4u-business="dot"].ep-enterprise-shell .ep-row-actions{display:flex!important;align-items:center!important;gap:6px!important;flex-wrap:wrap!important}
+body[data-s4u-business="dot"].ep-enterprise-shell .ep-mini-btn{min-height:30px!important;padding:0 9px!important;border:1px solid #d5e0eb!important;border-radius:7px!important;background:#fff!important;color:#24466f!important;font-size:10px!important;font-weight:850!important;text-decoration:none!important;display:inline-flex!important;align-items:center!important;justify-content:center!important;cursor:pointer!important;white-space:nowrap!important}
+body[data-s4u-business="dot"].ep-enterprise-shell .ep-mini-btn.primary{background:#244f8d!important;border-color:#244f8d!important;color:#fff!important}
+body[data-s4u-business="dot"].ep-enterprise-shell .ep-business-empty{padding:28px!important;text-align:center!important;color:#8291a6!important;font-size:11px!important}
+@media(max-width:820px){body[data-s4u-business="dot"].ep-enterprise-shell .ep-business-head{display:block!important}body[data-s4u-business="dot"].ep-enterprise-shell .ep-business-actions{justify-content:flex-start!important;margin-top:14px!important}}

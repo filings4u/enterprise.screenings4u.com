@@ -1,0 +1,7 @@
+(()=>{'use strict';
+const $=s=>document.querySelector(s);const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+async function call(){const sb=window.screenings4uSupabase;if(!sb?.functions)throw new Error('screenings4u connection unavailable.');const {data,error}=await sb.functions.invoke('enterprise-control-plane',{body:{action:'catalog_overview'}});if(error)throw error;if(data?.error)throw new Error(data.error);return data}
+function metric(label,value,href){return `<a class="ecp-metric" href="${href}"><span>${esc(label)}</span><strong>${Number(value||0)}</strong></a>`}
+async function load(){const m=$('#globalCatalogMessage');try{if(m)m.innerHTML='';const d=await call();const html=[metric('Testing Services',d?.testing?.services?.length,'admin-testing-catalog.html'),metric('Training Products',d?.training?.products?.length,'admin-training-catalog.html'),metric('NON-DOT Plans',d?.workforce?.plans?.length,'admin-workforce-catalog.html'),metric('DOT Plans',d?.dot?.plans?.length,'admin-dot-catalog.html')].join('');$('#globalCatalogMetrics').innerHTML=html}catch(e){if(m)m.innerHTML=`<div class="ecp-alert error">${esc(e?.message||'Unable to load catalog summary.')}</div>`}}
+$('#refreshGlobalCatalog')?.addEventListener('click',load);load();
+})();

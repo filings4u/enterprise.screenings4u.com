@@ -1,0 +1,1603 @@
+/* ============================================================
+   SCREENINGS4U
+   EMPLOYER PORTAL SHELL
+   employer-portal.css
+   ============================================================ */
+
+
+/* ============================================================
+   ROOT
+   ============================================================ */
+
+:root {
+  /* BRAND */
+  --portal-blue: #24467f;
+  --portal-blue-dark: #24467f;
+  --portal-blue-light: #edf3ff;
+
+  --portal-orange: #ff6b00;
+  --portal-orange-dark: #dc5c00;
+
+  /* NEUTRALS */
+  --portal-white: #ffffff;
+  --portal-page-bg: #f5f7fb;
+  --portal-border: #e5eaf2;
+  --portal-border-strong: #d9e0ea;
+
+  --portal-text: #172033;
+  --portal-text-muted: #667085;
+  --portal-text-soft: #8a94a6;
+
+  /* STATUS */
+  --portal-success: #1f9d62;
+  --portal-danger: #d64545;
+  --portal-warning: #e89b1c;
+
+  /* LAYOUT */
+  --portal-sidebar-width: 268px;
+  --portal-sidebar-collapsed-width: 82px;
+  --portal-header-height: 76px;
+
+  /* SHADOWS */
+  --portal-shadow-sm: 0 2px 8px rgba(24, 39, 75, 0.05);
+  --portal-shadow-md: 0 10px 30px rgba(24, 39, 75, 0.08);
+
+  /* RADIUS */
+  --portal-radius-sm: 10px;
+  --portal-radius-md: 16px;
+  --portal-radius-lg: 22px;
+
+  /* TRANSITION */
+  --portal-transition: 0.22s ease;
+}
+
+
+/* ============================================================
+   RESET / BASE
+   ============================================================ */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  min-height: 100%;
+  background: var(--portal-page-bg);
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+
+  background: var(--portal-page-bg);
+  color: var(--portal-text);
+
+  font-family:
+    Inter,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Arial,
+    sans-serif;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+/* Prevent browser default serif fonts inside portal pages */
+
+body[class*="employer-"] {
+  font-family:
+    Inter,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Arial,
+    sans-serif;
+}
+
+
+/* Mobile sidebar lock */
+
+body.sidebar-open {
+  overflow: hidden;
+}
+
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button {
+  border: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+svg {
+  display: block;
+}
+
+
+/* ============================================================
+   PORTAL APPLICATION
+   ============================================================ */
+
+.employer-portal-app {
+  min-height: 100vh;
+}
+
+
+/* ============================================================
+   SIDEBAR
+   ============================================================ */
+
+.employer-sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+
+  display: flex;
+
+  width: var(--portal-sidebar-width);
+  height: 100dvh;
+  min-height: 100vh;
+
+  background: var(--portal-white);
+
+  border-right: 1px solid var(--portal-border);
+
+  overflow: hidden;
+
+  transition:
+    width var(--portal-transition),
+    transform var(--portal-transition);
+}
+
+
+.employer-sidebar-inner {
+  display: grid;
+
+  grid-template-rows:
+    auto
+    minmax(0, 1fr)
+    auto;
+
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+}
+
+
+/* ============================================================
+   SIDEBAR BRAND
+   ============================================================ */
+
+.employer-sidebar-brand {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  min-height: 106px;
+
+  padding: 18px 18px 16px 20px;
+
+  border-bottom: 1px solid var(--portal-border);
+}
+
+
+.employer-sidebar-logo-link {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+
+  min-width: 0;
+  flex: 1;
+}
+
+
+.employer-sidebar-logo {
+  display: block;
+
+  width: auto;
+  max-width: 172px;
+  height: 38px;
+
+  object-fit: contain;
+  object-position: left center;
+}
+
+
+.employer-sidebar-brand-copy {
+  min-width: 0;
+}
+
+
+.employer-sidebar-brand-label {
+  display: block;
+
+  margin-top: 5px;
+
+  color: var(--portal-text-soft);
+
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  line-height: 1.2;
+  text-transform: uppercase;
+
+  white-space: nowrap;
+}
+
+
+/* ============================================================
+   SIDEBAR COLLAPSE BUTTON
+   ============================================================ */
+
+.employer-sidebar-collapse {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 36px;
+  height: 36px;
+
+  flex: 0 0 36px;
+
+  margin-left: auto;
+  padding: 0;
+
+  color: var(--portal-text-muted);
+  background: #f6f8fb;
+
+  border: 1px solid var(--portal-border);
+  border-radius: 10px;
+
+  cursor: pointer;
+
+  transition:
+    background var(--portal-transition),
+    color var(--portal-transition),
+    border-color var(--portal-transition);
+}
+
+
+.employer-sidebar-collapse:hover {
+  color: var(--portal-blue);
+  background: var(--portal-blue-light);
+  border-color: #d7e3f8;
+}
+
+
+.employer-sidebar-collapse svg {
+  width: 18px;
+  height: 18px;
+
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+
+/* ============================================================
+   SIDEBAR NAVIGATION AREA
+   ============================================================ */
+
+.employer-sidebar-scroll {
+  min-height: 0;
+
+  padding: 16px 14px 18px;
+
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  overscroll-behavior: contain;
+
+  scrollbar-width: none;
+}
+
+
+.employer-sidebar-scroll::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+
+/* ============================================================
+   NAVIGATION GROUPS
+   ============================================================ */
+
+.employer-nav-group {
+  margin: 0 0 16px;
+}
+
+
+.employer-nav-group:last-child {
+  margin-bottom: 0;
+}
+
+
+.employer-nav-label {
+  display: block;
+
+  padding: 0 12px;
+  margin: 0 0 8px;
+
+  color: #7b8799;
+
+  font-size: 0.66rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  line-height: 1.2;
+  text-transform: uppercase;
+
+  white-space: nowrap;
+
+  transition:
+    opacity var(--portal-transition),
+    visibility var(--portal-transition);
+}
+
+
+.employer-nav {
+  display: flex;
+  flex-direction: column;
+
+  gap: 3px;
+}
+
+
+/* ============================================================
+   NAVIGATION LINKS
+   ============================================================ */
+
+.employer-nav-link {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  gap: 13px;
+
+  width: 100%;
+  min-height: 46px;
+
+  padding: 9px 12px;
+
+  color: var(--portal-text-muted);
+
+  border-radius: 12px;
+
+  font-size: 0.9rem;
+  font-weight: 650;
+
+  transition:
+    background var(--portal-transition),
+    color var(--portal-transition);
+}
+
+
+.employer-nav-link:hover {
+  color: var(--portal-blue);
+  background: #f6f8fc;
+}
+
+
+/* ACTIVE PAGE */
+
+.employer-nav-link.active {
+  color: var(--portal-blue);
+  background: var(--portal-blue-light);
+}
+
+
+.employer-nav-link.active::before {
+  content: "";
+
+  position: absolute;
+  top: 10px;
+  bottom: 10px;
+  left: 0;
+
+  width: 3px;
+
+  background: var(--portal-orange);
+
+  border-radius: 0 4px 4px 0;
+}
+
+
+/* ============================================================
+   NAVIGATION ICON
+   ============================================================ */
+
+.employer-nav-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 24px;
+  height: 24px;
+
+  flex: 0 0 24px;
+
+  color: currentColor;
+}
+
+
+.employer-nav-icon svg {
+  width: 20px;
+  height: 20px;
+
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+
+/* ============================================================
+   NAVIGATION TEXT
+   ============================================================ */
+
+.employer-nav-text {
+  min-width: 0;
+
+  overflow: hidden;
+
+  font-size: 0.9rem;
+  font-weight: 650;
+
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+  transition:
+    opacity var(--portal-transition),
+    visibility var(--portal-transition);
+}
+
+
+/* ============================================================
+   NAVIGATION BADGE
+   ============================================================ */
+
+.employer-nav-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 22px;
+  height: 22px;
+
+  margin-left: auto;
+  padding: 0 7px;
+
+  color: var(--portal-white);
+  background: var(--portal-orange);
+
+  border-radius: 999px;
+
+  font-size: 0.68rem;
+  font-weight: 800;
+}
+
+
+/* ============================================================
+   SIDEBAR FOOTER
+   ============================================================ */
+
+.employer-sidebar-footer {
+  flex: 0 0 auto;
+
+  padding: 12px 14px 14px;
+
+  background: var(--portal-white);
+
+  border-top: 1px solid var(--portal-border);
+}
+
+
+.employer-sidebar-footer-links {
+  display: flex;
+  flex-direction: column;
+
+  gap: 5px;
+}
+
+
+.employer-footer-link {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+
+  width: 100%;
+  min-height: 44px;
+
+  padding: 9px 12px;
+
+  color: var(--portal-text-muted);
+  background: transparent;
+
+  border-radius: 11px;
+
+  font-size: 0.88rem;
+  font-weight: 650;
+
+  cursor: pointer;
+
+  transition:
+    background var(--portal-transition),
+    color var(--portal-transition);
+}
+
+
+.employer-footer-link:hover {
+  color: var(--portal-blue);
+  background: var(--portal-blue-light);
+}
+
+
+.employer-footer-link.sign-out {
+  color: var(--portal-danger);
+  background: #fff7f6;
+}
+
+
+.employer-footer-link.sign-out:hover {
+  background: #fff0ee;
+}
+
+
+.employer-footer-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 24px;
+  height: 24px;
+
+  flex: 0 0 24px;
+}
+
+
+.employer-footer-icon svg {
+  width: 20px;
+  height: 20px;
+
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+
+.employer-footer-text {
+  min-width: 0;
+
+  overflow: hidden;
+
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+  transition:
+    opacity var(--portal-transition),
+    visibility var(--portal-transition);
+}
+
+
+/* ============================================================
+   MAIN AREA
+   ============================================================ */
+
+.employer-portal-main {
+  min-width: 0;
+  min-height: 100dvh;
+
+  margin-left: var(--portal-sidebar-width);
+
+  transition:
+    margin-left var(--portal-transition);
+}
+
+
+/* ============================================================
+   HEADER
+   ============================================================ */
+
+.employer-portal-header {
+  position: sticky;
+  top: 0;
+  z-index: 500;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+
+  width: 100%;
+  min-height: var(--portal-header-height);
+
+  padding: 0 32px;
+
+  background: rgba(255, 255, 255, 0.96);
+
+  border-bottom: 1px solid var(--portal-border);
+
+  backdrop-filter: blur(12px);
+}
+
+
+.employer-header-left,
+.employer-header-right {
+  display: flex;
+  align-items: center;
+}
+
+
+.employer-header-left {
+  min-width: 0;
+
+  gap: 15px;
+}
+
+
+.employer-header-right {
+  gap: 12px;
+}
+
+
+/* ============================================================
+   MOBILE MENU BUTTON
+   ============================================================ */
+
+.employer-mobile-menu {
+  display: none;
+  align-items: center;
+  justify-content: center;
+
+  width: 42px;
+  height: 42px;
+
+  flex: 0 0 42px;
+
+  padding: 0;
+
+  color: var(--portal-text);
+  background: var(--portal-page-bg);
+
+  border: 1px solid var(--portal-border);
+  border-radius: 12px;
+
+  cursor: pointer;
+}
+
+
+.employer-mobile-menu svg {
+  width: 21px;
+  height: 21px;
+
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+}
+
+
+/* ============================================================
+   HEADER TITLE
+   ============================================================ */
+
+.employer-header-title-wrap {
+  min-width: 0;
+}
+
+
+.employer-header-title {
+  margin: 0;
+
+  color: var(--portal-text);
+
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 750;
+  line-height: 1.3;
+}
+
+
+.employer-header-subtitle {
+  margin: 3px 0 0;
+
+  color: var(--portal-text-soft);
+
+  font-family: inherit;
+  font-size: 0.78rem;
+  line-height: 1.4;
+}
+
+
+/* ============================================================
+   HEADER ICON BUTTONS
+   ============================================================ */
+
+.employer-header-icon-button {
+  position: relative;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 42px;
+  height: 42px;
+
+  padding: 0;
+
+  color: var(--portal-text-muted);
+  background: var(--portal-page-bg);
+
+  border: 1px solid var(--portal-border);
+  border-radius: 12px;
+
+  cursor: pointer;
+
+  transition:
+    background var(--portal-transition),
+    color var(--portal-transition);
+}
+
+
+.employer-header-icon-button:hover {
+  color: var(--portal-blue);
+  background: var(--portal-blue-light);
+}
+
+
+.employer-header-icon-button svg {
+  width: 20px;
+  height: 20px;
+
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+
+/* ============================================================
+   NOTIFICATION INDICATOR
+   ============================================================ */
+
+.employer-notification-indicator {
+  position: absolute;
+  top: 7px;
+  right: 7px;
+
+  width: 8px;
+  height: 8px;
+
+  background: var(--portal-orange);
+
+  border: 2px solid var(--portal-white);
+  border-radius: 50%;
+}
+
+
+/* ============================================================
+   EMPLOYER ACCOUNT MENU
+   ============================================================ */
+
+.employer-account-menu {
+  position: relative;
+}
+
+
+.employer-account-trigger {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  min-height: 46px;
+
+  padding: 5px 8px 5px 6px;
+
+  color: var(--portal-text);
+  background: transparent;
+
+  border-radius: 13px;
+
+  cursor: pointer;
+
+  transition:
+    background var(--portal-transition);
+}
+
+
+.employer-account-trigger:hover {
+  background: var(--portal-page-bg);
+}
+
+
+.employer-account-avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 36px;
+  height: 36px;
+
+  flex: 0 0 36px;
+
+  color: var(--portal-white);
+  background: var(--portal-blue);
+
+  border-radius: 50%;
+
+  font-size: 0.76rem;
+  font-weight: 800;
+}
+
+
+.employer-account-copy {
+  display: flex;
+  flex-direction: column;
+
+  min-width: 0;
+
+  text-align: left;
+}
+
+
+.employer-account-name {
+  max-width: 170px;
+
+  overflow: hidden;
+
+  color: var(--portal-text);
+
+  font-size: 0.82rem;
+  font-weight: 750;
+
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+
+.employer-account-role {
+  margin-top: 2px;
+
+  color: var(--portal-text-soft);
+
+  font-size: 0.69rem;
+  font-weight: 600;
+}
+
+
+.employer-account-chevron {
+  width: 17px;
+  height: 17px;
+
+  flex: 0 0 17px;
+
+  color: var(--portal-text-soft);
+
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+
+  transition:
+    transform var(--portal-transition);
+}
+
+
+.employer-account-menu.open
+.employer-account-chevron {
+  transform: rotate(180deg);
+}
+
+
+/* ============================================================
+   ACCOUNT DROPDOWN
+   ============================================================ */
+
+.employer-account-dropdown {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  z-index: 600;
+
+  width: 230px;
+
+  padding: 8px;
+
+  visibility: hidden;
+  opacity: 0;
+
+  background: var(--portal-white);
+
+  border: 1px solid var(--portal-border);
+  border-radius: 15px;
+
+  box-shadow: var(--portal-shadow-md);
+
+  transform: translateY(-5px);
+
+  pointer-events: none;
+
+  transition:
+    opacity var(--portal-transition),
+    transform var(--portal-transition),
+    visibility var(--portal-transition);
+}
+
+
+.employer-account-menu.open
+.employer-account-dropdown {
+  visibility: visible;
+  opacity: 1;
+
+  transform: translateY(0);
+
+  pointer-events: auto;
+}
+
+
+.employer-account-dropdown-user {
+  padding: 10px 11px 12px;
+
+  border-bottom: 1px solid var(--portal-border);
+}
+
+
+.employer-dropdown-name {
+  display: block;
+
+  color: var(--portal-text);
+
+  font-size: 0.82rem;
+  font-weight: 750;
+}
+
+
+.employer-dropdown-email {
+  display: block;
+
+  margin-top: 4px;
+
+  overflow: hidden;
+
+  color: var(--portal-text-soft);
+
+  font-size: 0.73rem;
+
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+
+.employer-dropdown-links {
+  display: flex;
+  flex-direction: column;
+
+  padding-top: 5px;
+}
+
+
+.employer-dropdown-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  min-height: 40px;
+
+  padding: 8px 10px;
+
+  color: var(--portal-text-muted);
+
+  border-radius: 9px;
+
+  font-size: 0.82rem;
+  font-weight: 650;
+}
+
+
+.employer-dropdown-link:hover {
+  color: var(--portal-blue);
+  background: var(--portal-blue-light);
+}
+
+
+.employer-dropdown-link svg {
+  width: 18px;
+  height: 18px;
+
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+
+.employer-dropdown-link.sign-out {
+  color: var(--portal-danger);
+}
+
+
+.employer-dropdown-link.sign-out:hover {
+  background: #fff1f1;
+}
+
+
+/* ============================================================
+   GENERIC PAGE CONTENT
+   ============================================================ */
+
+.employer-portal-content {
+  width: 100%;
+  max-width: 1600px;
+
+  margin: 0 auto;
+
+  padding: 32px;
+}
+
+
+/* ============================================================
+   GENERIC PAGE HEADER
+   ============================================================ */
+
+.employer-page-heading {
+  margin-bottom: 28px;
+}
+
+
+.employer-page-eyebrow {
+  display: block;
+
+  margin-bottom: 7px;
+
+  color: var(--portal-orange);
+
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+
+.employer-page-title {
+  margin: 0;
+
+  color: var(--portal-text);
+
+  font-family: inherit;
+  font-size: clamp(1.65rem, 2.5vw, 2.25rem);
+  font-weight: 800;
+  line-height: 1.15;
+}
+
+
+.employer-page-description {
+  max-width: 720px;
+
+  margin: 10px 0 0;
+
+  color: var(--portal-text-muted);
+
+  font-family: inherit;
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+
+/* ============================================================
+   GENERIC CARDS
+   ============================================================ */
+
+.employer-portal-card {
+  background: var(--portal-white);
+
+  border: 1px solid var(--portal-border);
+  border-radius: var(--portal-radius-md);
+
+  box-shadow: var(--portal-shadow-sm);
+}
+
+
+.employer-portal-card-inner {
+  padding: 24px;
+}
+
+
+/* ============================================================
+   COLLAPSED SIDEBAR
+   ============================================================ */
+
+body.employer-sidebar-collapsed
+.employer-sidebar {
+  width: var(--portal-sidebar-collapsed-width);
+}
+
+
+body.employer-sidebar-collapsed
+.employer-portal-main {
+  margin-left: var(--portal-sidebar-collapsed-width);
+}
+
+
+/* Brand */
+
+body.employer-sidebar-collapsed
+.employer-sidebar-brand {
+  justify-content: center;
+
+  min-height: 88px;
+
+  padding: 16px 10px;
+}
+
+
+body.employer-sidebar-collapsed
+.employer-sidebar-logo-link {
+  flex: 0 0 auto;
+}
+
+
+body.employer-sidebar-collapsed
+.employer-sidebar-logo {
+  width: 42px;
+  max-width: 42px;
+  height: 38px;
+
+  object-fit: cover;
+  object-position: left center;
+}
+
+
+/* Hide copy */
+
+body.employer-sidebar-collapsed
+.employer-sidebar-brand-copy,
+
+body.employer-sidebar-collapsed
+.employer-nav-label,
+
+body.employer-sidebar-collapsed
+.employer-nav-text,
+
+body.employer-sidebar-collapsed
+.employer-footer-text,
+
+body.employer-sidebar-collapsed
+.employer-nav-badge {
+  position: absolute;
+
+  width: 1px;
+  height: 1px;
+
+  overflow: hidden;
+
+  visibility: hidden;
+  opacity: 0;
+
+  pointer-events: none;
+}
+
+
+/* Hide internal collapse button */
+
+body.employer-sidebar-collapsed
+.employer-sidebar-collapse {
+  display: none;
+}
+
+
+/* Navigation */
+
+body.employer-sidebar-collapsed
+.employer-sidebar-scroll {
+  padding: 16px 10px;
+}
+
+
+body.employer-sidebar-collapsed
+.employer-nav-group {
+  margin-bottom: 10px;
+}
+
+
+body.employer-sidebar-collapsed
+.employer-nav {
+  gap: 6px;
+}
+
+
+body.employer-sidebar-collapsed
+.employer-nav-link {
+  justify-content: center;
+
+  min-height: 46px;
+
+  padding: 10px;
+}
+
+
+body.employer-sidebar-collapsed
+.employer-nav-link.active::before {
+  top: 9px;
+  bottom: 9px;
+}
+
+
+/* Footer */
+
+body.employer-sidebar-collapsed
+.employer-sidebar-footer {
+  padding: 10px;
+}
+
+
+body.employer-sidebar-collapsed
+.employer-footer-link {
+  justify-content: center;
+
+  padding: 10px;
+}
+
+
+/* ============================================================
+   SIDEBAR REOPEN BUTTON
+   ============================================================ */
+
+.employer-sidebar-reopen {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 1100;
+
+  display: none;
+  align-items: center;
+  justify-content: center;
+
+  width: 42px;
+  height: 42px;
+
+  padding: 0;
+
+  color: var(--portal-blue);
+  background: var(--portal-white);
+
+  border: 1px solid var(--portal-border);
+  border-radius: 12px;
+
+  box-shadow: var(--portal-shadow-sm);
+
+  cursor: pointer;
+
+  transition:
+    background var(--portal-transition),
+    color var(--portal-transition);
+}
+
+
+.employer-sidebar-reopen:hover {
+  background: var(--portal-blue-light);
+}
+
+
+.employer-sidebar-reopen svg {
+  width: 20px;
+  height: 20px;
+
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+
+/* The reopen button belongs inside the collapsed rail */
+
+body.employer-sidebar-collapsed
+.employer-sidebar-reopen {
+  display: inline-flex;
+
+  left: 20px;
+}
+
+
+/* ============================================================
+   MOBILE OVERLAY
+   ============================================================ */
+
+.employer-sidebar-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 900;
+
+  visibility: hidden;
+  opacity: 0;
+
+  background: rgba(15, 23, 42, 0.42);
+
+  pointer-events: none;
+
+  transition:
+    opacity var(--portal-transition),
+    visibility var(--portal-transition);
+}
+
+
+.employer-sidebar-overlay.active {
+  visibility: visible;
+  opacity: 1;
+
+  pointer-events: auto;
+}
+
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+
+@media (max-width: 1100px) {
+
+  .employer-portal-header {
+    padding-right: 24px;
+    padding-left: 24px;
+  }
+
+  .employer-portal-content {
+    padding: 28px 24px;
+  }
+
+}
+
+
+@media (max-width: 860px) {
+
+  .employer-sidebar {
+    width: min(290px, 86vw);
+
+    transform: translateX(-105%);
+
+    box-shadow: var(--portal-shadow-md);
+  }
+
+
+  .employer-sidebar.mobile-open {
+    transform: translateX(0);
+  }
+
+
+  .employer-portal-main,
+
+  body.employer-sidebar-collapsed
+  .employer-portal-main {
+    margin-left: 0;
+  }
+
+
+  .employer-mobile-menu {
+    display: inline-flex;
+  }
+
+
+  .employer-sidebar-collapse {
+    display: none;
+  }
+
+
+  .employer-sidebar-reopen,
+
+  body.employer-sidebar-collapsed
+  .employer-sidebar-reopen {
+    display: none;
+  }
+
+
+  body.employer-sidebar-collapsed
+  .employer-sidebar {
+    width: min(290px, 86vw);
+  }
+
+
+  body.employer-sidebar-collapsed
+  .employer-sidebar-brand {
+    justify-content: flex-start;
+
+    min-height: 106px;
+
+    padding: 18px 20px;
+  }
+
+
+  body.employer-sidebar-collapsed
+  .employer-sidebar-logo-link {
+    flex: 1;
+  }
+
+
+  body.employer-sidebar-collapsed
+  .employer-sidebar-logo {
+    width: auto;
+    max-width: 172px;
+    height: 38px;
+
+    object-fit: contain;
+  }
+
+
+  body.employer-sidebar-collapsed
+  .employer-sidebar-brand-copy,
+
+  body.employer-sidebar-collapsed
+  .employer-nav-label,
+
+  body.employer-sidebar-collapsed
+  .employer-nav-text,
+
+  body.employer-sidebar-collapsed
+  .employer-footer-text,
+
+  body.employer-sidebar-collapsed
+  .employer-nav-badge {
+    position: static;
+
+    width: auto;
+    height: auto;
+
+    overflow: visible;
+
+    visibility: visible;
+    opacity: 1;
+
+    pointer-events: auto;
+  }
+
+
+  body.employer-sidebar-collapsed
+  .employer-nav-link,
+
+  body.employer-sidebar-collapsed
+  .employer-footer-link {
+    justify-content: flex-start;
+
+    padding: 9px 12px;
+  }
+
+}
+
+
+@media (max-width: 640px) {
+
+  .employer-portal-header {
+    min-height: 68px;
+
+    padding: 0 16px;
+  }
+
+
+  .employer-header-left {
+    gap: 10px;
+  }
+
+
+  .employer-header-title {
+    font-size: 0.96rem;
+  }
+
+
+  .employer-header-subtitle {
+    display: none;
+  }
+
+
+  .employer-header-right {
+    gap: 8px;
+  }
+
+
+  .employer-header-icon-button {
+    width: 40px;
+    height: 40px;
+  }
+
+
+  .employer-account-copy,
+
+  .employer-account-chevron {
+    display: none;
+  }
+
+
+  .employer-account-trigger {
+    padding: 3px;
+  }
+
+
+  .employer-account-avatar {
+    width: 38px;
+    height: 38px;
+
+    flex-basis: 38px;
+  }
+
+
+  .employer-portal-content {
+    padding: 24px 16px 32px;
+  }
+
+
+  .employer-page-heading {
+    margin-bottom: 22px;
+  }
+
+
+  .employer-portal-card-inner {
+    padding: 18px;
+  }
+
+}
+
+
+@media (max-width: 400px) {
+
+  .employer-header-title {
+    max-width: 135px;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+}
+
+/* ============================================================
+   DESKTOP READABILITY — CORRECTED
+   ============================================================ */
+@media (min-width: 861px) {
+  .employer-nav-link,
+  .employer-nav-text { font-size: 15px; }
+
+  .employer-nav-label,
+  .employer-sidebar-brand-label { font-size: 12px; color:#667085; }
+
+  .employer-footer-link { font-size: 15px; }
+
+  .employer-header-title { font-size: 18px; }
+  .employer-header-subtitle { font-size: 14px; color:#536174; }
+
+  .employer-account-name,
+  .employer-dropdown-name { font-size: 14px; }
+
+  .employer-account-role,
+  .employer-dropdown-email { font-size: 13px; color:#536174; }
+
+  .employer-dropdown-link { font-size: 14px; }
+
+  .employer-page-description { font-size: 16px; color:#536174; }
+}

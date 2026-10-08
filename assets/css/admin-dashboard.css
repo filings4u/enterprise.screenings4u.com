@@ -1,0 +1,766 @@
+/* ============================================================
+   screenings4u — ADMIN DASHBOARD
+   Dashboard-only styling
+   Matches the visual language of the Employees page
+   ============================================================ */
+
+:root {
+    --dashboard-blue: #173d78;
+    --dashboard-blue-light: #325aa3;
+    --dashboard-orange: #ff6b00;
+    --dashboard-orange-hover: #e86000;
+    --dashboard-card: #ffffff;
+    --dashboard-bg: #f5f7fa;
+    --dashboard-line: #e1e7ef;
+    --dashboard-line-soft: #edf0f4;
+    --dashboard-muted: #617087;
+    --dashboard-text: #172033;
+    --dashboard-success: #16804d;
+}
+
+
+/* ============================================================
+   PAGE
+   ============================================================ */
+
+.admin-dashboard-page .s4u-dashboard-page {
+    width: 100%;
+    min-width: 0;
+    padding: 28px;
+}
+
+.admin-dashboard-page .s4u-dashboard-page *,
+.admin-dashboard-page .s4u-dashboard-page *::before,
+.admin-dashboard-page .s4u-dashboard-page *::after {
+    box-sizing: border-box;
+}
+
+
+/* ============================================================
+   PAGE HEADING
+   ============================================================ */
+
+.admin-dashboard-page .s4u-dashboard-heading {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 24px;
+    width: 100%;
+    min-width: 0;
+    margin-bottom: 24px;
+}
+
+.admin-dashboard-page .s4u-dashboard-heading-copy {
+    min-width: 0;
+}
+
+.admin-dashboard-page .s4u-dashboard-kicker {
+    margin-bottom: 8px;
+    color: var(--dashboard-orange);
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.admin-dashboard-page .s4u-dashboard-heading h1 {
+    margin: 0 0 8px;
+    color: var(--dashboard-blue);
+    font-size: 38px;
+    line-height: 1.05;
+    font-weight: 900;
+    letter-spacing: -0.04em;
+}
+
+.admin-dashboard-page .s4u-dashboard-heading p {
+    max-width: 760px;
+    margin: 0;
+    color: var(--dashboard-muted);
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.admin-dashboard-page .s4u-dashboard-primary-button {
+    flex: 0 0 auto;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    padding: 11px 18px;
+    border: 1px solid var(--dashboard-orange);
+    border-radius: 8px;
+    background: var(--dashboard-orange);
+    color: #ffffff;
+    box-shadow: 0 7px 16px rgba(255, 107, 0, 0.14);
+    font-size: 13px;
+    font-weight: 800;
+    line-height: 1;
+    text-decoration: none;
+    white-space: nowrap;
+    transition:
+        transform 0.18s ease,
+        background 0.18s ease,
+        border-color 0.18s ease;
+}
+
+.admin-dashboard-page .s4u-dashboard-primary-button:hover {
+    transform: translateY(-1px);
+    background: var(--dashboard-orange-hover);
+    border-color: var(--dashboard-orange-hover);
+}
+
+
+/* ============================================================
+   METRICS
+   ============================================================ */
+
+.admin-dashboard-page .s4u-dashboard-metrics {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 16px;
+    margin-bottom: 22px;
+}
+
+.admin-dashboard-page .s4u-dashboard-metric-card {
+    min-width: 0;
+    padding: 19px;
+    border: 1px solid var(--dashboard-line);
+    border-radius: 10px;
+    background: var(--dashboard-card);
+    box-shadow: 0 4px 14px rgba(20, 48, 82, 0.04);
+}
+
+.admin-dashboard-page .s4u-dashboard-metric-card > span {
+    display: block;
+    color: var(--dashboard-muted);
+    font-size: 12px;
+    font-weight: 800;
+}
+
+.admin-dashboard-page .s4u-dashboard-metric-card > strong {
+    display: block;
+    margin-top: 8px;
+    color: var(--dashboard-blue);
+    font-size: 31px;
+    line-height: 1;
+    font-weight: 900;
+    letter-spacing: -0.035em;
+}
+
+.admin-dashboard-page .s4u-dashboard-metric-card > small {
+    display: block;
+    margin-top: 9px;
+    color: var(--dashboard-muted);
+    font-size: 11px;
+    line-height: 1.45;
+}
+
+
+/* ============================================================
+   MAIN GRID
+   ============================================================ */
+
+.admin-dashboard-page .s4u-dashboard-main-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.55fr) minmax(330px, 0.85fr);
+    gap: 18px;
+    align-items: start;
+    margin-bottom: 22px;
+}
+
+
+/* ============================================================
+   PANELS
+   ============================================================ */
+
+.admin-dashboard-page .s4u-dashboard-panel {
+    min-width: 0;
+    overflow: hidden;
+    border: 1px solid var(--dashboard-line);
+    border-radius: 10px;
+    background: var(--dashboard-card);
+    box-shadow: 0 4px 14px rgba(20, 48, 82, 0.04);
+}
+
+.admin-dashboard-page .s4u-dashboard-panel-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 18px;
+    padding: 18px 20px;
+    border-bottom: 1px solid var(--dashboard-line);
+}
+
+.admin-dashboard-page .s4u-dashboard-panel-kicker {
+    display: block;
+    margin-bottom: 5px;
+    color: var(--dashboard-orange);
+    font-size: 9px;
+    font-weight: 900;
+    letter-spacing: 0.1em;
+}
+
+.admin-dashboard-page .s4u-dashboard-panel-header h2 {
+    margin: 0;
+    color: var(--dashboard-blue);
+    font-size: 16px;
+    line-height: 1.25;
+    font-weight: 900;
+}
+
+.admin-dashboard-page .s4u-dashboard-panel-header p {
+    margin: 5px 0 0;
+    color: var(--dashboard-muted);
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+.admin-dashboard-page .s4u-dashboard-text-link {
+    flex: 0 0 auto;
+    margin-top: 17px;
+    color: var(--dashboard-blue-light);
+    font-size: 11px;
+    font-weight: 800;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.admin-dashboard-page .s4u-dashboard-text-link:hover {
+    color: var(--dashboard-orange);
+}
+
+
+/* ============================================================
+   SYSTEM ACTIVITY
+   ============================================================ */
+
+.admin-dashboard-page .s4u-dashboard-activity-list {
+    padding: 0 20px;
+}
+
+.admin-dashboard-page .s4u-dashboard-activity-item,
+.admin-dashboard-page #admin-system-activity-target > .admin-activity {
+    display: grid;
+    grid-template-columns: 38px minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 13px;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--dashboard-line-soft);
+}
+
+.admin-dashboard-page .s4u-dashboard-activity-item:last-child,
+.admin-dashboard-page #admin-system-activity-target > .admin-activity:last-child {
+    border-bottom: 0;
+}
+
+.admin-dashboard-page .s4u-dashboard-activity-number,
+.admin-dashboard-page #admin-system-activity-target .admin-activity-icon {
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    display: grid;
+    place-items: center;
+    background: #fff0e5;
+    color: var(--dashboard-orange);
+    font-size: 11px;
+    font-weight: 900;
+}
+
+.admin-dashboard-page .s4u-dashboard-activity-copy,
+.admin-dashboard-page #admin-system-activity-target .admin-activity-copy {
+    min-width: 0;
+}
+
+.admin-dashboard-page .s4u-dashboard-activity-copy strong,
+.admin-dashboard-page #admin-system-activity-target .admin-activity-title {
+    display: block;
+    color: var(--dashboard-blue);
+    font-size: 12px;
+    font-weight: 800;
+}
+
+.admin-dashboard-page .s4u-dashboard-activity-copy span,
+.admin-dashboard-page #admin-system-activity-target .admin-activity-text {
+    display: block;
+    margin-top: 4px;
+    color: var(--dashboard-muted);
+    font-size: 11px;
+    line-height: 1.45;
+}
+
+.admin-dashboard-page .s4u-dashboard-activity-item time,
+.admin-dashboard-page #admin-system-activity-target .admin-activity-time {
+    align-self: start;
+    padding-top: 2px;
+    color: var(--dashboard-muted);
+    font-size: 10px;
+    white-space: nowrap;
+}
+
+
+/* ============================================================
+   QUICK ACTIONS
+   ============================================================ */
+
+.admin-dashboard-page .s4u-dashboard-quick-actions {
+    display: grid;
+    gap: 0;
+    padding: 4px 18px 12px;
+}
+
+.admin-dashboard-page .s4u-dashboard-action-row {
+    display: grid;
+    grid-template-columns: 38px minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 12px;
+    min-width: 0;
+    padding: 13px 0;
+    border-bottom: 1px solid var(--dashboard-line-soft);
+    color: var(--dashboard-text);
+    text-decoration: none;
+}
+
+.admin-dashboard-page .s4u-dashboard-action-row:last-child {
+    border-bottom: 0;
+}
+
+.admin-dashboard-page .s4u-dashboard-action-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 9px;
+    display: grid;
+    place-items: center;
+    background: #edf3fb;
+    color: var(--dashboard-blue);
+}
+
+.admin-dashboard-page .s4u-dashboard-action-icon svg {
+    width: 18px;
+    height: 18px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.admin-dashboard-page .s4u-dashboard-action-copy {
+    min-width: 0;
+}
+
+.admin-dashboard-page .s4u-dashboard-action-copy strong {
+    display: block;
+    color: var(--dashboard-blue);
+    font-size: 12px;
+    font-weight: 800;
+}
+
+.admin-dashboard-page .s4u-dashboard-action-copy small {
+    display: block;
+    margin-top: 3px;
+    color: var(--dashboard-muted);
+    font-size: 10px;
+    line-height: 1.4;
+}
+
+.admin-dashboard-page .s4u-dashboard-action-arrow {
+    color: var(--dashboard-blue-light);
+    font-size: 19px;
+    font-weight: 900;
+    transition: transform 0.18s ease, color 0.18s ease;
+}
+
+.admin-dashboard-page .s4u-dashboard-action-row:hover .s4u-dashboard-action-arrow {
+    transform: translateX(2px);
+    color: var(--dashboard-orange);
+}
+
+.admin-dashboard-page .s4u-dashboard-action-row:hover .s4u-dashboard-action-icon {
+    background: #fff0e5;
+    color: var(--dashboard-orange);
+}
+
+
+/* ============================================================
+   MANAGEMENT MODULES
+   ============================================================ */
+
+.admin-dashboard-page .s4u-dashboard-modules-panel {
+    margin-bottom: 6px;
+}
+
+.admin-dashboard-page .s4u-dashboard-modules-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+    padding: 18px;
+}
+
+.admin-dashboard-page .s4u-dashboard-module-card {
+    display: grid;
+    grid-template-columns: 42px minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 12px;
+    min-width: 0;
+    min-height: 84px;
+    padding: 14px;
+    border: 1px solid var(--dashboard-line);
+    border-radius: 9px;
+    background: #ffffff;
+    color: var(--dashboard-text);
+    text-decoration: none;
+    transition:
+        background 0.18s ease,
+        border-color 0.18s ease,
+        transform 0.18s ease,
+        box-shadow 0.18s ease;
+}
+
+.admin-dashboard-page .s4u-dashboard-module-card:hover {
+    transform: translateY(-1px);
+    border-color: #c9d4e2;
+    background: #fbfcfe;
+    box-shadow: 0 5px 14px rgba(20, 48, 82, 0.05);
+}
+
+.admin-dashboard-page .s4u-dashboard-module-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 10px;
+    display: grid;
+    place-items: center;
+    background: #edf3fb;
+    color: var(--dashboard-blue);
+}
+
+.admin-dashboard-page .s4u-dashboard-module-icon svg {
+    width: 20px;
+    height: 20px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.admin-dashboard-page .s4u-dashboard-module-copy {
+    min-width: 0;
+}
+
+.admin-dashboard-page .s4u-dashboard-module-copy strong {
+    display: block;
+    color: var(--dashboard-blue);
+    font-size: 12px;
+    font-weight: 800;
+}
+
+.admin-dashboard-page .s4u-dashboard-module-copy small {
+    display: block;
+    margin-top: 4px;
+    color: var(--dashboard-muted);
+    font-size: 10px;
+    line-height: 1.4;
+}
+
+.admin-dashboard-page .s4u-dashboard-module-arrow {
+    color: var(--dashboard-blue-light);
+    font-size: 18px;
+    font-weight: 900;
+}
+
+.admin-dashboard-page .s4u-dashboard-module-card:hover .s4u-dashboard-module-icon {
+    background: #fff0e5;
+    color: var(--dashboard-orange);
+}
+
+.admin-dashboard-page .s4u-dashboard-module-card:hover .s4u-dashboard-module-arrow {
+    color: var(--dashboard-orange);
+}
+
+
+/* ============================================================
+   GLOBAL SHELL COMPATIBILITY
+   ============================================================ */
+
+.admin-dashboard-page .admin-lms-main {
+    min-width: 0;
+}
+
+.admin-dashboard-page .admin-lms-topbar-right {
+    position: relative;
+    min-width: 0;
+}
+
+.admin-dashboard-page .admin-user-dropdown {
+    position: relative;
+}
+
+/* Keep shared SVGs from inheriting accidental page styles. */
+.admin-dashboard-page .admin-lms-topbar svg,
+.admin-dashboard-page .admin-user-dropdown svg {
+    fill: none;
+    stroke: currentColor;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+
+@media (max-width: 1180px) {
+
+    .admin-dashboard-page .s4u-dashboard-metrics {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .admin-dashboard-page .s4u-dashboard-main-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .admin-dashboard-page .s4u-dashboard-modules-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 760px) {
+
+    .admin-dashboard-page .s4u-dashboard-page {
+        padding: 18px;
+    }
+
+    .admin-dashboard-page .s4u-dashboard-heading {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .admin-dashboard-page .s4u-dashboard-heading h1 {
+        font-size: 32px;
+    }
+
+    .admin-dashboard-page .s4u-dashboard-primary-button {
+        width: 100%;
+    }
+
+    .admin-dashboard-page .s4u-dashboard-metrics {
+        grid-template-columns: 1fr;
+    }
+
+    .admin-dashboard-page .s4u-dashboard-modules-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .admin-dashboard-page .s4u-dashboard-panel-header {
+        flex-direction: column;
+    }
+
+    .admin-dashboard-page .s4u-dashboard-text-link {
+        margin-top: 0;
+    }
+}
+
+@media (max-width: 520px) {
+
+    .admin-dashboard-page .s4u-dashboard-activity-item,
+    .admin-dashboard-page #admin-system-activity-target > .admin-activity {
+        grid-template-columns: 38px minmax(0, 1fr);
+    }
+
+    .admin-dashboard-page .s4u-dashboard-activity-item time,
+    .admin-dashboard-page #admin-system-activity-target .admin-activity-time {
+        grid-column: 2;
+        padding-top: 0;
+    }
+}
+
+
+/* ============================================================
+   SCREENINGS4U — ADMIN DESKTOP TYPOGRAPHY NORMALIZATION
+   Canonical sizing source: customer-dashboard.css
+   Added 2026-08-31
+   Layout, colors, spacing, borders, and responsive rules above
+   remain unchanged.
+   ============================================================ */
+
+@media (min-width: 901px) {
+
+  /* Page titles */
+  :is(
+    .s4u-dashboard-heading,
+    .customers-heading,
+    .employees-heading,
+    .admin-employers-heading,
+    .employer-users-heading,
+    .enterprise-page-title,
+    .admin-module-heading,
+    .operations-page-title,
+    .admin-lms-page-heading,
+    .admin-lms-heading,
+    .s4u-page-heading,
+    .page-heading
+  ) h1 {
+    font-size: clamp(1.8rem, 3vw, 2.55rem);
+  }
+
+  /* Page descriptions */
+  :is(
+    .s4u-dashboard-heading,
+    .customers-heading,
+    .employees-heading,
+    .admin-employers-heading,
+    .employer-users-heading,
+    .enterprise-page-title,
+    .admin-module-heading,
+    .operations-page-title,
+    .admin-lms-page-heading,
+    .admin-lms-heading,
+    .s4u-page-heading,
+    .page-heading
+  ) p {
+    font-size: 0.98rem;
+  }
+
+  /* Eyebrows / kickers */
+  :is(
+    .s4u-dashboard-kicker,
+    .page-eyebrow,
+    .panel-eyebrow,
+    .employees-kicker,
+    .admin-employers-kicker,
+    .employer-users-kicker,
+    .s4u-page-kicker,
+    .admin-module-kicker,
+    .admin-lms-kicker,
+    .page-kicker
+  ) {
+    font-size: 0.72rem;
+  }
+
+  /* Primary and secondary action text */
+  :is(
+    .s4u-button,
+    .btn,
+    .employees-primary-button,
+    .employees-secondary-button,
+    .employees-action-button,
+    .admin-employers-primary-button,
+    .employer-users-primary-button,
+    .employer-users-secondary-button,
+    .employer-users-action-button,
+    .operations-btn,
+    .admin-lms-button,
+    .admin-lms-primary-button,
+    .admin-lms-secondary-button
+  ) {
+    font-size: 0.9rem;
+  }
+
+  /* Section / panel headings */
+  :is(
+    .s4u-section-header,
+    .enterprise-section-header,
+    .admin-module-section-header,
+    .operations-panel-header,
+    .admin-lms-panel-header,
+    .panel-header,
+    .section-header
+  ) h2 {
+    font-size: 1.05rem;
+  }
+
+  /* Section / panel supporting text */
+  :is(
+    .s4u-section-header,
+    .enterprise-section-header,
+    .admin-module-section-header,
+    .operations-panel-header,
+    .admin-lms-panel-header,
+    .panel-header,
+    .section-header
+  ) p {
+    font-size: 0.78rem;
+  }
+
+  /* KPI / metric values */
+  :is(
+    .s4u-dashboard-metric-card,
+    .metric-card,
+    .employees-metric-card,
+    .admin-employer-metric-card,
+    .employer-users-metric-card,
+    .admin-module-kpi,
+    .operations-kpi-card,
+    .s4u-stat,
+    .admin-lms-stat-card,
+    .admin-lms-metric-card
+  ) strong,
+  .admin-employer-metric-value,
+  .s4u-stat-value {
+    font-size: 1.85rem;
+  }
+
+  /* KPI / metric labels */
+  :is(
+    .s4u-dashboard-metric-card,
+    .metric-card,
+    .employees-metric-card,
+    .admin-employer-metric-card,
+    .employer-users-metric-card,
+    .admin-module-kpi,
+    .operations-kpi-card,
+    .s4u-stat,
+    .admin-lms-stat-card,
+    .admin-lms-metric-card
+  ) > span:first-child,
+  .metric-label,
+  .admin-employer-metric-label,
+  .admin-module-kpi-label,
+  .operations-kpi-label,
+  .s4u-stat-label {
+    font-size: 0.72rem;
+  }
+
+  /* Tables */
+  :is(
+    .s4u-table,
+    .enterprise-table,
+    .admin-module-table,
+    .operations-table,
+    .admin-lms-table,
+    table
+  ) {
+    font-size: 0.78rem;
+  }
+
+  :is(
+    .s4u-table,
+    .enterprise-table,
+    .admin-module-table,
+    .operations-table,
+    .admin-lms-table,
+    table
+  ) th {
+    font-size: 0.72rem;
+  }
+
+  :is(
+    .s4u-table,
+    .enterprise-table,
+    .admin-module-table,
+    .operations-table,
+    .admin-lms-table,
+    table
+  ) td {
+    font-size: 0.78rem;
+  }
+
+  /* Form controls */
+  :is(
+    input,
+    select,
+    textarea
+  ) {
+    font-size: 0.9rem;
+  }
+}

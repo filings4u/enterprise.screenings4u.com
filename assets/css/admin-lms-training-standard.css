@@ -1,0 +1,88 @@
+/* screenings4u Training workspace — shared Enterprise typography baseline.
+   All font sizes use rem so A− / A / A+ scale the entire page through the portal root font scale. */
+body.ep-enterprise-shell .training-overview-page,
+body.ep-enterprise-shell .training-standard-page{
+  font-size:1rem!important;
+  line-height:1.45!important;
+  color:var(--s4u-ink,#10264a)!important;
+}
+body.ep-enterprise-shell .training-overview-page p,
+body.ep-enterprise-shell .training-standard-page p{
+  font-size:.88rem!important;
+  line-height:1.5!important;
+}
+body.ep-enterprise-shell .training-standard-btn{
+  min-height:2.45rem!important;
+  padding:0 .85rem!important;
+  display:inline-flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  border:1px solid #cfd9e6!important;
+  border-radius:.55rem!important;
+  background:#fff!important;
+  color:#24467f!important;
+  font-size:.82rem!important;
+  line-height:1!important;
+  font-weight:800!important;
+  text-decoration:none!important;
+}
+body.ep-enterprise-shell .training-standard-btn.primary{
+  background:#24467f!important;
+  border-color:#24467f!important;
+  color:#fff!important;
+}
+body.ep-enterprise-shell .training-standard-btn:hover{box-shadow:0 4px 14px rgba(36,70,127,.1)!important}
+
+/* Step 3 layout normalization */
+body.ep-enterprise-shell .training-order-create-page{box-sizing:border-box!important;}
+body.ep-enterprise-shell .training-order-create-page *,body.ep-enterprise-shell .training-order-create-page *::before,body.ep-enterprise-shell .training-order-create-page *::after{box-sizing:border-box;}
+body.ep-enterprise-shell .training-order-create-page .admin-page-eyebrow{font-size:.7rem!important;letter-spacing:.05em!important;}
+body.ep-enterprise-shell .training-order-create-page input,body.ep-enterprise-shell .training-order-create-page select,body.ep-enterprise-shell .training-order-create-page textarea,body.ep-enterprise-shell .training-order-create-page button{font-family:inherit!important;}
+
+
+/* Step 4 — learner account management */
+body.ep-enterprise-shell .training-learner-page{max-width:none!important;width:100%!important;}
+body.ep-enterprise-shell .training-learner-page .tl-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1rem;margin:1rem 0;}
+body.ep-enterprise-shell .training-learner-page .tl-stat,
+body.ep-enterprise-shell .training-learner-page .tl-panel{background:#fff;border:1px solid #d7e0ec;border-radius:.8rem;box-shadow:0 .25rem .9rem rgba(31,63,105,.05);}
+body.ep-enterprise-shell .training-learner-page .tl-stat{padding:1rem;}
+body.ep-enterprise-shell .training-learner-page .tl-stat span{display:block;font-size:.72rem;font-weight:800;letter-spacing:.04em;text-transform:uppercase;color:#60708a;}
+body.ep-enterprise-shell .training-learner-page .tl-stat strong{display:block;margin-top:.3rem;font-size:1.5rem;line-height:1.15;color:#10264a;}
+body.ep-enterprise-shell .training-learner-page .tl-panel{overflow:hidden;margin-top:1rem;}
+body.ep-enterprise-shell .training-learner-page .tl-head{display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;padding:1rem 1.1rem;border-bottom:1px solid #e2e8f0;}
+body.ep-enterprise-shell .training-learner-page .tl-head h2{font-size:1.05rem;margin:0;color:#10264a;}
+body.ep-enterprise-shell .training-learner-page .tl-head p{margin:.25rem 0 0!important;color:#65758d;}
+body.ep-enterprise-shell .training-learner-page .tl-body{padding:1.1rem;}
+body.ep-enterprise-shell .training-learner-page .tl-form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.9rem;}
+body.ep-enterprise-shell .training-learner-page .tl-field{display:flex;flex-direction:column;gap:.35rem;}
+body.ep-enterprise-shell .training-learner-page .tl-field label{font-size:.78rem;font-weight:800;color:#233c61;}
+body.ep-enterprise-shell .training-learner-page .tl-field input,
+body.ep-enterprise-shell .training-learner-page .tl-field select,
+body.ep-enterprise-shell .training-learner-page .tl-field textarea{width:100%;min-height:2.55rem;border:1px solid #cad6e5;border-radius:.55rem;padding:.65rem .75rem;font:inherit;font-size:.88rem;background:#fff;color:#10264a;}
+body.ep-enterprise-shell .training-learner-page .tl-field.full{grid-column:1/-1;}
+body.ep-enterprise-shell .training-learner-page .tl-actions{display:flex;gap:.65rem;flex-wrap:wrap;}
+body.ep-enterprise-shell .training-learner-page .tl-btn{display:inline-flex;align-items:center;justify-content:center;min-height:2.4rem;padding:0 .85rem;border:1px solid #cad6e5;border-radius:.55rem;background:#fff;color:#24467f;font-size:.8rem;font-weight:800;text-decoration:none;cursor:pointer;}
+body.ep-enterprise-shell .training-learner-page .tl-btn.primary{background:#24467f;color:#fff;border-color:#24467f;}
+body.ep-enterprise-shell .training-learner-page .tl-btn.orange{background:#ff6b00;color:#fff;border-color:#ff6b00;}
+body.ep-enterprise-shell .training-learner-page .tl-btn.danger{color:#a52b23;border-color:#efc0bc;}
+body.ep-enterprise-shell .training-learner-page .tl-btn[disabled]{opacity:.55;cursor:not-allowed;}
+body.ep-enterprise-shell .training-learner-page .tl-table-wrap{overflow:auto;}
+body.ep-enterprise-shell .training-learner-page .tl-table{width:100%;border-collapse:collapse;}
+body.ep-enterprise-shell .training-learner-page .tl-table th,
+body.ep-enterprise-shell .training-learner-page .tl-table td{padding:.8rem .9rem;border-bottom:1px solid #e7edf5;text-align:left;vertical-align:top;font-size:.8rem;}
+body.ep-enterprise-shell .training-learner-page .tl-table th{font-size:.68rem;text-transform:uppercase;letter-spacing:.04em;color:#65758d;background:#f8fafc;}
+body.ep-enterprise-shell .training-learner-page .tl-badge{display:inline-flex;padding:.28rem .5rem;border-radius:999px;background:#eef3fb;color:#24467f;font-size:.7rem;font-weight:800;text-transform:capitalize;}
+body.ep-enterprise-shell .training-learner-page .tl-badge.completed{background:#eaf8ef;color:#237549;}
+body.ep-enterprise-shell .training-learner-page .tl-badge.not-started{background:#eef3fb;color:#24467f;}
+body.ep-enterprise-shell .training-learner-page .tl-badge.cancelled,
+body.ep-enterprise-shell .training-learner-page .tl-badge.expired{background:#fff0ee;color:#9b2c24;}
+body.ep-enterprise-shell .training-learner-page .tl-note{display:none;margin:0 0 1rem;padding:.75rem .9rem;border-radius:.55rem;font-size:.82rem;font-weight:650;}
+body.ep-enterprise-shell .training-learner-page .tl-note.ok{display:block;background:#effaf3;color:#23643f;border:1px solid #ccebd7;}
+body.ep-enterprise-shell .training-learner-page .tl-note.err{display:block;background:#fff1f0;color:#8c2d27;border:1px solid #f3cbc8;}
+body.ep-enterprise-shell .training-learner-page .tl-empty{padding:1.25rem;text-align:center;color:#65758d;}
+body.ep-enterprise-shell .training-learner-page .tl-subtle{font-size:.75rem;color:#6b7b92;}
+body.ep-enterprise-shell .training-learner-page .tl-inline-edit{display:grid;grid-template-columns:minmax(10rem,1fr) minmax(9rem,.55fr) auto;gap:.5rem;align-items:center;}
+body.ep-enterprise-shell .training-learner-page .tl-inline-edit select,
+body.ep-enterprise-shell .training-learner-page .tl-inline-edit input{min-height:2.2rem;border:1px solid #cad6e5;border-radius:.45rem;padding:.45rem .55rem;font:inherit;font-size:.78rem;}
+@media(max-width:1100px){body.ep-enterprise-shell .training-learner-page .tl-grid{grid-template-columns:repeat(2,minmax(0,1fr));}}
+@media(max-width:760px){body.ep-enterprise-shell .training-learner-page .tl-grid{grid-template-columns:1fr}body.ep-enterprise-shell .training-learner-page .tl-form{grid-template-columns:1fr}body.ep-enterprise-shell .training-learner-page .tl-inline-edit{grid-template-columns:1fr}.training-learner-page .tl-head{flex-direction:column;}}

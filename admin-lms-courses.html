@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html class="s4u-auth-pending" lang="en">
+<head><style id="s4u-preauth-style">@keyframes s4uAuthSpin{to{transform:rotate(360deg)}}html.s4u-auth-pending body>:not(#s4u-auth-blocking-error):not(#s4u-auth-loading){visibility:hidden!important}html.s4u-auth-pending #s4u-auth-blocking-error,html.s4u-auth-pending #s4u-auth-loading{visibility:visible!important}</style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#24467f">
+
+<title>Courses | screenings4u Management Portal</title>
+<link href="images/fav.png" rel="icon" type="image/png"/>
+<link rel="stylesheet" href="assets/css/admin-lms.css"><link rel="stylesheet" href="assets/css/lms-ui-modals.css?v=20260917-brandmodal">
+<style>
+:root{--c-blue:#24467f;--c-orange:#ff6b00;--c-text:#263246;--c-muted:#6d7888;--c-line:#dfe5ec;--c-bg:#f5f7fa;--c-ok:#18794e;--c-warn:#c45100;--c-bad:#b42318}
+*{box-sizing:border-box}.courses-page{padding:28px;background:var(--c-bg);min-height:calc(100vh - 72px);color:var(--c-text)}
+.courses-heading,.courses-panel-head,.courses-pagination,.courses-actions{display:flex;align-items:center}.courses-heading{justify-content:space-between;gap:22px;margin-bottom:22px}.courses-heading h1{margin:4px 0 6px;color:var(--c-blue);font-size:36px;line-height:1.05}.courses-heading p,.courses-panel-head p{margin:0;color:var(--c-muted);font-size:13px;line-height:1.55;max-width:780px}.courses-kicker{display:block;color:var(--c-orange);font-size:10px;font-weight:900;letter-spacing:.12em}.courses-heading-actions,.courses-actions{gap:8px;flex-wrap:wrap}
+.courses-btn{display:inline-flex;align-items:center;justify-content:center;min-height:38px;padding:0 14px;border:1px solid #cfd7e2;border-radius:7px;background:#fff;color:var(--c-blue);font:800 11px/1 Arial,sans-serif;text-decoration:none;cursor:pointer}.courses-btn.primary{background:var(--c-blue);border-color:var(--c-blue);color:#fff}.courses-btn.orange{background:var(--c-orange);border-color:var(--c-orange);color:#fff}
+.courses-metrics{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-bottom:18px}.courses-metric{background:#fff;border:1px solid var(--c-line);border-radius:9px;padding:17px 18px;box-shadow:0 2px 8px rgba(23,61,120,.035)}.courses-metric span{display:block;color:var(--c-muted);font-size:9px;font-weight:900;text-transform:uppercase;letter-spacing:.06em}.courses-metric strong{display:block;margin:8px 0 4px;color:var(--c-blue);font-size:27px}.courses-metric small{color:#8b95a3;font-size:9px}
+.courses-panel{background:#fff;border:1px solid var(--c-line);border-radius:9px;overflow:hidden;box-shadow:0 2px 10px rgba(23,61,120,.035)}.courses-panel-head{justify-content:space-between;gap:16px;padding:18px 20px;border-bottom:1px solid var(--c-line)}.courses-panel-head h2{margin:3px 0 4px;color:var(--c-blue);font-size:18px}.courses-count{color:var(--c-blue);font-size:10px;font-weight:900}
+.courses-toolbar{display:grid;grid-template-columns:minmax(260px,1.5fr) minmax(150px,.65fr) minmax(150px,.65fr) auto;gap:9px;padding:14px 16px;background:#fbfcfe;border-bottom:1px solid var(--c-line)}.courses-toolbar input,.courses-toolbar select{width:100%;height:38px;border:1px solid #d4dce6;border-radius:7px;background:#fff;padding:0 10px;color:var(--c-text);font-size:11px;outline:none}.courses-toolbar input:focus,.courses-toolbar select:focus{border-color:#8aa7cb;box-shadow:0 0 0 3px rgba(23,61,120,.07)}
+.courses-table-wrap{overflow:auto}.courses-table{width:100%;border-collapse:collapse;min-width:1080px}.courses-table th{padding:11px 12px;background:#f8fafc;border-bottom:1px solid var(--c-line);color:#657286;font-size:9px;text-align:left;text-transform:uppercase;letter-spacing:.045em;white-space:nowrap}.courses-table td{padding:13px 12px;border-bottom:1px solid #edf0f4;font-size:10px;vertical-align:middle}.courses-table tbody tr:hover{background:#fbfcff}.course-name strong{display:block;color:var(--c-blue);font-size:11px}.course-name small{display:block;margin-top:4px;color:var(--c-muted);font-size:8px;line-height:1.4;max-width:430px}.course-badge{display:inline-flex;align-items:center;min-height:23px;padding:0 8px;border-radius:999px;background:#eef4fb;color:var(--c-blue);font-size:8px;font-weight:900;text-transform:uppercase;white-space:nowrap}.course-badge.published{background:#edf8f2;color:var(--c-ok)}.course-badge.draft{background:#fff6e8;color:var(--c-warn)}.course-badge.archived{background:#f1f3f5;color:#697586}
+.course-row-actions{display:flex;gap:6px;white-space:nowrap}.course-row-btn{border:1px solid #d3dbe5;border-radius:6px;background:#fff;color:var(--c-blue);padding:7px 9px;font-size:8px;font-weight:900;text-decoration:none;cursor:pointer}.course-row-btn.primary{background:var(--c-blue);border-color:var(--c-blue);color:#fff}
+.courses-pagination{justify-content:space-between;gap:12px;padding:13px 16px;color:var(--c-muted);font-size:9px}.courses-pagination-nav{display:flex;align-items:center;gap:7px}.courses-pagination button{height:31px;border:1px solid #d5dde6;border-radius:6px;background:#fff;color:var(--c-blue);font-size:9px;font-weight:900;padding:0 10px}.courses-pagination button:disabled{opacity:.45}
+.course-empty,.course-loading,.course-error{text-align:center!important;padding:34px!important;color:var(--c-muted)!important}.course-error{color:var(--c-bad)!important}
+.courses-bottom-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:18px}.courses-action-card{display:flex;align-items:center;gap:14px;background:#fff;border:1px solid var(--c-line);border-radius:9px;padding:18px}.courses-action-icon{width:42px;height:42px;border-radius:9px;background:#eef4fb;color:var(--c-blue);display:grid;place-items:center;flex:0 0 auto}.courses-action-icon svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.8}.courses-action-card h3{margin:0 0 4px;color:var(--c-blue);font-size:14px}.courses-action-card p{margin:0;color:var(--c-muted);font-size:10px;line-height:1.5}.courses-action-card a{margin-left:auto;color:var(--c-orange);font-size:10px;font-weight:900;text-decoration:none;white-space:nowrap}
+@media(max-width:1050px){.courses-metrics{grid-template-columns:repeat(2,1fr)}.courses-toolbar{grid-template-columns:1fr 1fr}.courses-toolbar input{grid-column:1/-1}}
+@media(max-width:760px){.courses-page{padding:18px}.courses-heading,.courses-panel-head,.courses-pagination{flex-direction:column;align-items:stretch}.courses-heading h1{font-size:31px}.courses-metrics,.courses-toolbar,.courses-bottom-grid{grid-template-columns:1fr}.courses-btn{width:100%}}
+
+/* ============================================================
+   COURSE PAGE TYPOGRAPHY — MATCH REST OF ADMIN SITE
+   ============================================================ */
+@media (min-width: 761px){
+  .courses-kicker{font-size:12px}
+  .courses-heading p,
+  .courses-panel-head p{font-size:14px;line-height:1.6}
+
+  .courses-btn{font-size:13px;min-height:40px;padding:0 16px}
+
+  .courses-metric span{font-size:11px}
+  .courses-metric strong{font-size:30px}
+  .courses-metric small{font-size:11px}
+
+  .courses-panel-head h2{font-size:20px}
+  .courses-count{font-size:12px}
+
+  .courses-toolbar input,
+  .courses-toolbar select{font-size:13px;height:40px}
+
+  .courses-table th{font-size:11px;padding:12px 14px}
+  .courses-table td{font-size:12px;padding:14px}
+  .course-name strong{font-size:13px}
+  .course-name small{font-size:11px}
+  .course-badge{font-size:10px;min-height:25px;padding:0 9px}
+  .course-row-btn{font-size:11px;padding:8px 10px}
+
+  .courses-pagination{font-size:11px}
+  .courses-pagination button{font-size:11px}
+
+  .courses-action-card h3{font-size:16px}
+  .courses-action-card p{font-size:12px}
+  .courses-action-card a{font-size:12px}
+}
+
+
+/* Larger course-page typography */
+@media (min-width:761px){
+  .courses-heading p,.courses-panel-head p{font-size:15px}
+  .courses-kicker{font-size:13px}
+  .courses-btn{font-size:14px}
+  .courses-metric span{font-size:12px}
+  .courses-metric strong{font-size:32px}
+  .courses-metric small{font-size:12px}
+  .courses-panel-head h2{font-size:21px}
+  .courses-count{font-size:13px}
+  .courses-toolbar input,.courses-toolbar select{font-size:14px}
+  .courses-table th{font-size:12px}
+  .courses-table td{font-size:13px}
+  .course-name strong{font-size:14px}
+  .course-name small{font-size:12px}
+  .course-badge{font-size:11px}
+  .course-row-btn{font-size:12px;padding:9px 11px}
+  .courses-pagination,.courses-pagination button{font-size:12px}
+}
+.course-row-btn.danger,.courses-btn.danger{border-color:#efc7c4;background:#fff;color:var(--c-bad)}
+.course-row-btn.danger:hover,.courses-btn.danger:hover{background:#fff3f2;border-color:var(--c-bad)}
+.course-delete-modal[hidden]{display:none!important}
+.course-delete-modal{position:fixed;inset:0;z-index:12000;display:grid;place-items:center;padding:22px}
+.course-delete-backdrop{position:absolute;inset:0;background:rgba(15,30,50,.56)}
+.course-delete-dialog{position:relative;z-index:1;width:min(520px,100%);overflow:hidden;border:1px solid var(--c-line);border-radius:12px;background:#fff;box-shadow:0 22px 60px rgba(15,30,50,.22)}
+.course-delete-head{display:flex;align-items:flex-start;justify-content:space-between;gap:18px;padding:20px;border-bottom:1px solid var(--c-line)}
+.course-delete-head h2{margin:5px 0 7px;color:var(--c-blue);font-size:23px}
+.course-delete-head p{margin:0;color:var(--c-muted);font-size:14px;line-height:1.6}
+.course-delete-close{width:35px;height:35px;flex:0 0 auto;border:1px solid #d5dde7;border-radius:7px;background:#fff;color:var(--c-blue);font-size:21px;cursor:pointer}
+.course-delete-warning{margin:18px 20px 0;padding:13px 14px;border:1px solid #f0cfcc;border-radius:8px;background:#fff6f5;color:var(--c-bad);font-size:13px;font-weight:700;line-height:1.5}
+.course-delete-actions{display:flex;justify-content:flex-end;gap:9px;padding:18px 20px}
+body.course-delete-open{overflow:hidden}
+
+</style>
+<link rel="stylesheet" href="assets/css/enterprise-portal.css?v=20260924-design-v5">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/brand-system.css?v=20260918-dashboard-fix-v1">
+<link rel="stylesheet" href="assets/css/enterprise-management-system.css?v=20260924-design-v5">
+<link rel="stylesheet" href="assets/css/admin-lms-courses.css?v=20260927-course-ui7">
+</head>
+<body class="admin-lms-courses-page" data-s4u-portal="admin"><div id="s4u-auth-loading" role="status" aria-live="polite" style="position:fixed;inset:0;z-index:2147483000;display:grid;place-items:center;background:#f4f7fc;font-family:Inter,Arial,sans-serif;color:#24467f"><div style="text-align:center"><div style="width:34px;height:34px;margin:0 auto 14px;border:3px solid #dbe5f1;border-top-color:#24467f;border-radius:50%;animation:s4uAuthSpin .7s linear infinite"></div><strong style="font-size:14px">Loading secure workspace…</strong></div></div>
+<div class="admin-lms-app">
+<div id="admin-lms-sidebar-target"></div>
+<main class="admin-lms-main">
+<header class="admin-lms-topbar">
+<div class="admin-lms-topbar-left">
+<button type="button" class="admin-lms-sidebar-collapse" data-admin-sidebar-collapse aria-label="Collapse sidebar" aria-expanded="true"><svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"></path></svg></button>
+<div class="admin-lms-page-context"><small>Training</small><strong>Courses</strong></div>
+</div>
+<div class="admin-lms-topbar-right">
+<a href="admin-notifications.html" class="admin-lms-icon-button" aria-label="Notifications"><svg viewBox="0 0 24 24"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9"></path><path d="M10 21h4"></path></svg></a>
+<div class="admin-user-dropdown">
+<button type="button" class="admin-user-dropdown-toggle" data-admin-user-menu-toggle aria-expanded="false"><span class="admin-lms-avatar">AD</span><span class="admin-lms-user-copy"><span class="admin-lms-user-name">Administrator</span><span class="admin-lms-user-role">System Administrator</span></span><span class="admin-user-dropdown-chevron"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"></path></svg></span></button>
+<div class="admin-user-dropdown-menu" data-admin-user-menu>
+<div class="admin-user-dropdown-header"><strong>Administrator</strong><span>System Administrator</span></div>
+<a href="index.html" class="admin-user-dropdown-item"><span>Visit Main Website</span></a>
+<a href="admin-accounts.html" class="admin-user-dropdown-item"><span>Account Access</span></a>
+<a href="admin-accounts.html" class="admin-user-dropdown-item"><span>My Account</span></a>
+<div class="admin-user-dropdown-divider"></div>
+<button type="button" class="admin-user-dropdown-item admin-user-logout" data-admin-logout><span>Logout</span></button>
+</div></div></div>
+</header>
+
+<section class="courses-page">
+<header class="courses-heading">
+<div><span class="courses-kicker">LEARNING CONTENT</span><h1>Courses</h1><p>Create, manage, publish, and organize the training courses available throughout the screenings4u Learning Center.</p></div>
+<div class="courses-heading-actions">
+<a class="courses-btn" href="admin-lms-course-manager.html">Course Manager</a>
+<a class="courses-btn orange" href="admin-lms-creation.html">+ Create Course</a>
+</div>
+</header>
+
+<section class="courses-metrics">
+<article class="courses-metric"><span>Total Courses</span><strong id="courseMetricTotal">—</strong><small>All LMS course records</small></article>
+<article class="courses-metric"><span>Published</span><strong id="courseMetricPublished">—</strong><small>Available to learners</small></article>
+<article class="courses-metric"><span>Draft Courses</span><strong id="courseMetricDraft">—</strong><small>Still being built</small></article>
+<article class="courses-metric"><span>Archived</span><strong id="courseMetricArchived">—</strong><small>Inactive training</small></article>
+</section>
+
+<section class="courses-panel">
+<header class="courses-panel-head">
+<div><span class="courses-kicker">COURSE LIBRARY</span><h2>Course Management</h2><p>Live course records with lesson and enrollment totals from Supabase.</p></div>
+<div class="courses-count" id="courseCount">—</div>
+</header>
+<div class="courses-toolbar">
+<input type="search" id="courseSearch" placeholder="Search course name, slug, description..." autocomplete="off">
+<select id="courseStatus"><option value="">All statuses</option></select>
+<select id="courseSort"><option value="newest">Newest first</option><option value="oldest">Oldest first</option><option value="name">Course name</option><option value="updated">Recently updated</option></select>
+<button class="courses-btn" id="courseClear" type="button">Clear</button>
+</div>
+<div class="courses-table-wrap">
+<table class="courses-table">
+<thead><tr><th>Course</th><th>Status</th><th>Sections</th><th>Lessons</th><th>Enrollments</th><th>Last Updated</th><th>Actions</th></tr></thead>
+<tbody id="courseTableBody"><tr><td colspan="7" class="course-loading">Loading courses...</td></tr></tbody>
+</table>
+</div>
+<div class="courses-pagination">
+<span id="courseResults">Loading...</span>
+<div class="courses-pagination-nav"><button id="coursePrevious" type="button">Previous</button><strong id="coursePage">1</strong><button id="courseNext" type="button">Next</button></div>
+</div>
+</section>
+</section>
+</main>
+
+<div class="course-delete-modal" id="courseDeleteModal" hidden>
+  <div class="course-delete-backdrop" data-course-delete-close></div>
+  <div class="course-delete-dialog" role="dialog" aria-modal="true" aria-labelledby="courseDeleteTitle">
+    <div class="course-delete-head">
+      <div>
+        <span class="courses-kicker">DELETE COURSE</span>
+        <h2 id="courseDeleteTitle">Are you sure?</h2>
+        <p>This removes <strong id="courseDeleteName">this course</strong> from the Training admin portal. The course record, enrollments, learner progress, orders, certificates, and historical data remain preserved in Supabase.</p>
+      </div>
+      <button type="button" class="course-delete-close" data-course-delete-close aria-label="Close">×</button>
+    </div>
+    <div class="course-delete-warning">
+      This is a soft delete. No LMS history is physically deleted from Supabase.
+    </div>
+    <div class="course-delete-actions">
+      <button type="button" class="courses-btn" data-course-delete-close>Cancel</button>
+      <button type="button" class="courses-btn danger" id="courseDeleteConfirm">Delete Course</button>
+    </div>
+  </div>
+</div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="assets/js/supabase-config.js?v=20260925-fast-auth"></script>
+<script src="assets/js/core-auth.js?v=20260925-fast-auth"></script>
+<script src="assets/js/session-security.js?v=20260925-fast-auth"></script>
+<script src="assets/js/portal-auth-guard.js?v=20260927-live4"></script>
+<script src="assets/js/admin-auth-guard.js?v=20260925-fast-auth"></script>
+<script src="assets/js/enterprise-management-system.js?v=20260924-design-v5"></script>
+
+<script src="assets/js/ui.js?v=20260918-modal-fix-1"></script>
+
+
+
+<script src="assets/js/admin-lms-courses.js?v=20260927-step13"></script>
+<script src="assets/js/enterprise-portal.js?v=20260927-step13-nav1"></script>
+
+<!-- screenings4u universal portal security -->
+</body>
+</html>

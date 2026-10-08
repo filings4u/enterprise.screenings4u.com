@@ -1,0 +1,422 @@
+/* ============================================================
+   screenings4u — DASHBOARD SECURITY MODAL
+   Shared inactivity timeout warning.
+   ============================================================ */
+
+
+/* ------------------------------------------------------------
+   MODAL ROOT
+   ------------------------------------------------------------ */
+
+.dashboard-security-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 999999;
+
+  display: none;
+  align-items: center;
+  justify-content: center;
+
+  padding: 24px;
+}
+
+
+.dashboard-security-modal.is-visible {
+  display: flex;
+}
+
+
+/* ------------------------------------------------------------
+   BACKDROP
+   ------------------------------------------------------------ */
+
+.dashboard-security-backdrop {
+  position: absolute;
+  inset: 0;
+
+  background:
+    rgba(15, 23, 42, 0.72);
+
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+}
+
+
+/* ------------------------------------------------------------
+   DIALOG
+   ------------------------------------------------------------ */
+
+.dashboard-security-dialog {
+  position: relative;
+  z-index: 2;
+
+  width: 100%;
+  max-width: 480px;
+
+  padding: 36px;
+
+  background: #ffffff;
+
+  border-radius: 18px;
+
+  box-shadow:
+    0 24px 70px rgba(15, 23, 42, 0.28);
+
+  text-align: center;
+
+  animation:
+    dashboardSecurityModalIn
+    0.25s ease-out;
+}
+
+
+@keyframes dashboardSecurityModalIn {
+  from {
+    opacity: 0;
+    transform: translateY(14px) scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+
+/* ------------------------------------------------------------
+   ICON
+   ------------------------------------------------------------ */
+
+.dashboard-security-icon {
+  width: 64px;
+  height: 64px;
+
+  margin:
+    0 auto 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background:
+    rgba(255, 107, 0, 0.12);
+
+  color:
+    #ff6b00;
+
+  font-size: 30px;
+  font-weight: 800;
+
+  border:
+    2px solid rgba(255, 107, 0, 0.28);
+}
+
+
+.dashboard-security-icon span {
+  line-height: 1;
+}
+
+
+/* ------------------------------------------------------------
+   TITLE
+   ------------------------------------------------------------ */
+
+.dashboard-security-dialog h2 {
+  margin:
+    0 0 12px;
+
+  color:
+    #1f2937;
+
+  font-size:
+    24px;
+
+  font-weight:
+    750;
+
+  line-height:
+    1.25;
+}
+
+
+/* ------------------------------------------------------------
+   DESCRIPTION
+   ------------------------------------------------------------ */
+
+.dashboard-security-dialog p {
+  margin:
+    0 auto;
+
+  max-width:
+    380px;
+
+  color:
+    #64748b;
+
+  font-size:
+    15px;
+
+  line-height:
+    1.65;
+}
+
+
+/* ------------------------------------------------------------
+   COUNTDOWN
+   ------------------------------------------------------------ */
+
+.dashboard-security-countdown {
+  margin:
+    28px 0;
+
+  padding:
+    18px 20px;
+
+  background:
+    #f8fafc;
+
+  border:
+    1px solid #e2e8f0;
+
+  border-radius:
+    14px;
+}
+
+
+.dashboard-security-countdown span {
+  display: block;
+
+  margin-bottom:
+    8px;
+
+  color:
+    #64748b;
+
+  font-size:
+    13px;
+
+  font-weight:
+    600;
+}
+
+
+.dashboard-security-countdown strong {
+  display: block;
+
+  color:
+    #325aa3;
+
+  font-size:
+    32px;
+
+  font-weight:
+    800;
+
+  letter-spacing:
+    1px;
+
+  font-variant-numeric:
+    tabular-nums;
+}
+
+
+/* ------------------------------------------------------------
+   ACTIONS
+   ------------------------------------------------------------ */
+
+.dashboard-security-actions {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap:
+    12px;
+
+  flex-wrap:
+    wrap;
+}
+
+
+.dashboard-security-actions button {
+  appearance: none;
+
+  min-height:
+    46px;
+
+  padding:
+    0 20px;
+
+  border-radius:
+    10px;
+
+  font-family:
+    inherit;
+
+  font-size:
+    14px;
+
+  font-weight:
+    700;
+
+  cursor:
+    pointer;
+
+  transition:
+    transform 0.18s ease,
+    box-shadow 0.18s ease,
+    background-color 0.18s ease,
+    border-color 0.18s ease;
+}
+
+
+.dashboard-security-actions button:hover {
+  transform:
+    translateY(-1px);
+}
+
+
+.dashboard-security-actions button:focus-visible {
+  outline:
+    3px solid rgba(50, 90, 163, 0.25);
+
+  outline-offset:
+    3px;
+}
+
+
+/* ------------------------------------------------------------
+   STAY LOGGED IN
+   ------------------------------------------------------------ */
+
+.dashboard-security-stay {
+  flex:
+    1 1 190px;
+
+  color:
+    #ffffff;
+
+  background:
+    #325aa3;
+
+  border:
+    1px solid #325aa3;
+
+  box-shadow:
+    0 8px 18px rgba(50, 90, 163, 0.22);
+}
+
+
+.dashboard-security-stay:hover {
+  background:
+    #294a87;
+
+  border-color:
+    #294a87;
+
+  box-shadow:
+    0 10px 22px rgba(50, 90, 163, 0.28);
+}
+
+
+/* ------------------------------------------------------------
+   SIGN OUT
+   ------------------------------------------------------------ */
+
+.dashboard-security-signout {
+  flex:
+    1 1 150px;
+
+  color:
+    #475569;
+
+  background:
+    #ffffff;
+
+  border:
+    1px solid #cbd5e1;
+}
+
+
+.dashboard-security-signout:hover {
+  color:
+    #1f2937;
+
+  background:
+    #f8fafc;
+
+  border-color:
+    #94a3b8;
+}
+
+
+/* ------------------------------------------------------------
+   MOBILE
+   ------------------------------------------------------------ */
+
+@media (max-width: 600px) {
+
+  .dashboard-security-modal {
+    padding:
+      16px;
+  }
+
+
+  .dashboard-security-dialog {
+    padding:
+      28px 22px;
+
+    border-radius:
+      16px;
+  }
+
+
+  .dashboard-security-dialog h2 {
+    font-size:
+      22px;
+  }
+
+
+  .dashboard-security-countdown strong {
+    font-size:
+      30px;
+  }
+
+
+  .dashboard-security-actions {
+    flex-direction:
+      column;
+  }
+
+
+  .dashboard-security-actions button {
+    width:
+      100%;
+
+    flex:
+      1 1 auto;
+  }
+
+}
+
+
+/* ------------------------------------------------------------
+   REDUCED MOTION
+   ------------------------------------------------------------ */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .dashboard-security-dialog {
+    animation:
+      none;
+  }
+
+
+  .dashboard-security-actions button {
+    transition:
+      none;
+  }
+
+}

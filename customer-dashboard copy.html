@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en" class="s4u-auth-pending">
+<head><style id="s4u-preauth-style">html.s4u-auth-pending body{visibility:hidden!important}html.s4u-auth-pending #s4u-auth-blocking-error{visibility:visible!important}</style>
+  <meta charset="UTF-8">
+<meta name="theme-color" content="#325aa3" />
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>Customer Dashboard | screenings4u</title>
+
+<link href="images/fav.png" rel="icon" type="image/png"/>
+
+
+<!-- CUSTOMER PORTAL SHELL -->
+<link
+  rel="stylesheet"
+  href="assets/css/customer-portal.css"
+>
+
+<!-- CUSTOMER DASHBOARD -->
+<link
+  rel="stylesheet"
+  href="assets/css/customer-dashboard.css?v=20260830-0730"
+>
+<style>
+*{box-sizing:border-box}html,body{max-width:100%;overflow-x:hidden}
+@media(max-width:767px){
+html{font-size:16px}.customer-dashboard-content{width:100%;padding:20px 16px 40px}
+.customer-welcome-section{padding:22px 18px}.customer-welcome-content{display:flex;align-items:stretch;flex-direction:column;gap:20px}
+.customer-welcome-title{font-size:29px;line-height:1.2}.customer-welcome-description{font-size:15px;line-height:1.6}
+.customer-welcome-actions,.customer-primary-action{width:100%}.customer-primary-action{min-height:48px;justify-content:center}
+.customer-summary-grid{display:grid;grid-template-columns:1fr;gap:12px}.customer-summary-card{width:100%;min-width:0;padding:18px}
+.customer-dashboard-grid{display:grid;grid-template-columns:1fr;gap:16px}.customer-dashboard-column,.customer-dashboard-side-column{display:grid;grid-template-columns:1fr;width:100%;min-width:0;gap:16px}
+.customer-dashboard-card{width:100%;min-width:0;padding:18px 15px}.customer-card-header{display:flex;align-items:flex-start;flex-direction:column;gap:12px}
+.customer-card-action-link{width:100%;min-height:44px;justify-content:center}
+.customer-orders-list,.customer-results-list,.customer-notifications-list,.customer-dashboard-receipts{display:grid;grid-template-columns:1fr;gap:10px}
+.customer-orders-list>*,.customer-results-list>*,.customer-notifications-list>*,.customer-dashboard-receipts>*{width:100%;min-width:0}
+.customer-quick-actions-list{display:grid;grid-template-columns:1fr}.customer-quick-action{width:100%;min-width:0}
+.customer-donor-feature,.customer-dashboard-support,.customer-support-copy{display:flex;align-items:flex-start;flex-direction:column;gap:16px}
+.customer-donor-feature-action,.customer-support-action{width:100%;min-height:46px;justify-content:center}
+.customer-dashboard-empty{padding:24px 16px}.customer-dashboard-loading{align-items:flex-start}
+}
+</style>
+</head>
+
+
+<body
+  class="customer-dashboard-page"
+  data-page-title="Dashboard"
+  data-page-subtitle="Manage your services, orders, results, and account."
+ data-s4u-portal="customer">
+
+
+  <!-- ========================================================
+       CUSTOMER PORTAL SIDEBAR
+       Dynamically injected by customer-portal.js
+       ======================================================== -->
+
+  <div id="customer-portal-sidebar"></div>
+
+
+  <!-- ========================================================
+       MAIN PORTAL APPLICATION
+       ======================================================== -->
+
+  <main class="customer-portal-main">
+
+
+    <!-- ======================================================
+         HEADER
+         Dynamically injected by customer-portal.js
+         ====================================================== -->
+
+    <div id="customer-portal-header"></div>
+
+
+    <!-- ======================================================
+         PAGE CONTENT
+         ====================================================== -->
+
+    <div class="customer-dashboard-content">
+
+
+
+
+
+
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+
+
+<script src="assets/js/ui.js"></script>
+
+
+
+
+<script src="assets/js/customer-portal.js"></script>
+<script src="assets/js/customer-dashboard.js?v=20260830-0730"></script>
+
+
+<!-- screenings4u universal portal security -->
+<script src="assets/js/supabase-config.js?v=20260925-lockdown"></script>
+<script src="assets/js/core-auth.js?v=20260925-lockdown"></script>
+<script src="assets/js/session-security.js?v=20260925-lockdown"></script>
+<script src="assets/js/portal-auth-guard.js?v=20260925-lockdown"></script>
+<script src="assets/js/customer-auth-guard.js?v=20260925-lockdown"></script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+/* ============================================================
+   SCREENINGS4U — LESSON EDITOR RICH TEXT
+   Optional external companion stylesheet.
+   The updated JS also injects the full rich editor styles.
+   ============================================================ */
+
+.s4u-rich-field {
+  grid-column: 1 / -1;
+}
+
+.s4u-rich-editor-shell {
+  overflow: hidden;
+  border: 1px solid var(--s4u-editor-border, #dfe5ec);
+  border-radius: 12px;
+  background: #fff;
+}
+
+.s4u-rich-editor-shell:focus-within {
+  border-color: var(--s4u-editor-blue, #325aa3);
+  box-shadow: 0 0 0 3px rgba(50, 90, 163, .10);
+}
+
+.s4u-rich-toolbar {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 10px;
+  border-bottom: 1px solid var(--s4u-editor-border, #dfe5ec);
+  background: #f8fafc;
+}
+
+.s4u-rich-editor {
+  min-height: 300px;
+  max-height: 50vh;
+  overflow: auto;
+  padding: 16px 17px;
+  color: var(--s4u-editor-text, #172033);
+  font-size: 14px;
+  line-height: 1.7;
+  outline: none;
+}
+
+.s4u-rich-editor blockquote {
+  padding: 10px 14px;
+  border-left: 4px solid var(--s4u-editor-orange, #ff6b00);
+  background: #fff8f2;
+}

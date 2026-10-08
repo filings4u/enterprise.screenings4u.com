@@ -1,0 +1,310 @@
+/* ============================================================
+   screenings4u — ADMIN ENTERPRISE MODULE SYSTEM
+   Canonical visual system for inner admin pages.
+   Matches the rebuilt DOT Consortium page.
+   ============================================================ */
+
+.admin-module-page{padding:22px 24px 34px;max-width:none}
+.admin-module-header{min-height:116px;display:flex;align-items:center;justify-content:space-between;gap:24px;padding-bottom:22px;border-bottom:1px solid #e3e8ef}
+.admin-module-heading{min-width:0}
+.admin-module-kicker{margin-bottom:5px;color:#f05a00;font-size:11px;line-height:1;font-weight:900;letter-spacing:.045em}
+.admin-module-heading h1{margin:0;color:#173d78;font-size:clamp(36px,3vw,44px);line-height:.98;font-weight:800;letter-spacing:-.045em}
+.admin-module-heading p{max-width:760px;margin:9px 0 0;color:#52627a;font-size:13px;line-height:1.45}
+.admin-module-actions{flex:0 0 auto;display:flex;align-items:center;gap:9px;flex-wrap:wrap}
+.admin-module-actions .s4u-button{min-width:105px;height:43px;display:inline-flex;align-items:center;justify-content:center;gap:8px;border-color:#cbd7e5;border-radius:9px;font-size:11px;font-weight:900}
+.admin-module-actions .s4u-button.primary{border-color:transparent}
+
+.admin-module-icon{width:17px;height:17px;display:inline-flex}
+.admin-module-icon svg{width:17px;height:17px;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+
+.admin-module-kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:13px;margin-top:22px}
+.admin-module-kpi{min-width:0;min-height:153px;padding:17px 20px;background:#fff;border:1px solid #dfe5ed;border-radius:10px;box-shadow:0 3px 10px rgba(20,48,82,.055)}
+.admin-module-kpi-top{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.admin-module-kpi-label{color:#5f6d83;font-size:10px;line-height:1;font-weight:900;letter-spacing:.075em}
+.admin-module-kpi-icon{width:38px;height:38px;flex:0 0 38px;display:inline-flex;align-items:center;justify-content:center;border-radius:9px;background:#edf4fc;color:#17519b}
+.admin-module-kpi-icon svg{width:20px;height:20px;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.admin-module-kpi strong{display:block;margin-top:20px;color:#183f7c;font-size:30px;line-height:1;font-weight:800;letter-spacing:-.04em}
+.admin-module-kpi > span:last-child{display:block;margin-top:12px;color:#647189;font-size:10px;line-height:1.3}
+.admin-module-kpi.status-good strong{color:#16804d}
+.admin-module-kpi.status-warn strong{color:#b56a00}
+
+.admin-module-grid{display:grid;grid-template-columns:minmax(0,1.34fr) minmax(360px,1fr);gap:16px 22px;margin-top:16px}
+.admin-module-grid.single{grid-template-columns:minmax(0,1fr)}
+.admin-module-grid .s4u-section{min-width:0;margin-top:0;overflow:hidden;background:#fff;border:1px solid #dfe5ed;border-radius:10px;box-shadow:0 3px 11px rgba(20,48,82,.055)}
+.admin-module-section{min-height:0}
+.admin-module-section-header{min-height:82px;display:flex;align-items:center;justify-content:space-between;gap:18px;padding:17px 23px;border-bottom:1px solid #e3e8ef}
+.admin-module-section-header h2{margin:0;color:#173d78;font-size:19px;line-height:1.15;font-weight:800;letter-spacing:-.025em}
+.admin-module-section-header p{margin:6px 0 0;color:#607089;font-size:11px;line-height:1.3}
+.admin-module-section-body{padding:14px 13px 16px}
+
+.admin-module-filterbar{display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:0 0 14px}
+.admin-module-filterbar input,.admin-module-filterbar select{height:40px;min-width:190px;padding:0 12px;border:1px solid #d3dce8;border-radius:8px;background:#fff;color:#173b73;font:inherit;font-size:11px}
+.admin-module-filterbar input{min-width:280px}
+.admin-module-filterbar input:focus,.admin-module-filterbar select:focus{outline:none;border-color:#8faed0;box-shadow:0 0 0 3px rgba(50,90,163,.08)}
+
+.admin-module-table-wrap{width:100%;overflow:auto}
+.admin-module-table{width:100%;min-width:720px;border-collapse:collapse}
+.admin-module-table th{padding:12px 13px;background:#f7f9fc;border-bottom:1px solid #dfe5ed;color:#607089;text-align:left;font-size:9px;line-height:1.2;font-weight:900;letter-spacing:.07em;text-transform:uppercase;white-space:nowrap}
+.admin-module-table td{padding:13px;border-bottom:1px solid #edf0f4;color:#334b6d;font-size:11px;line-height:1.35;vertical-align:middle}
+.admin-module-table tbody tr:hover{background:#fbfcfe}
+.admin-module-table td strong{color:#173b73;font-weight:800}
+.admin-module-table td small{display:inline-block;margin-top:3px;color:#74829a;font-size:9px;line-height:1.25}
+.admin-module-table .s4u-button{min-height:34px;padding:0 12px;border-radius:7px;font-size:10px;font-weight:900}
+.admin-module-table .s4u-status{white-space:nowrap}
+
+.admin-module-empty{padding:28px 14px!important;text-align:center;color:#718097!important}
+.admin-module-list{padding:9px 12px}
+.admin-module-row{min-height:67px;display:grid;grid-template-columns:40px minmax(0,1fr) auto;align-items:center;gap:12px;padding:7px 10px;border-radius:8px;color:inherit;text-decoration:none;transition:background .16s ease}
+.admin-module-row:hover{background:#f7f9fc}
+.admin-module-row-icon{width:40px;height:40px;display:inline-flex;align-items:center;justify-content:center;border-radius:9px;background:#edf4fc;color:#17519b}
+.admin-module-row-icon svg{width:20px;height:20px;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.admin-module-row strong{display:block;color:#173b73;font-size:13px;line-height:1.2;font-weight:800}
+.admin-module-row small{display:block;margin-top:5px;color:#617088;font-size:10px;line-height:1.25}
+.admin-module-arrow{padding-right:7px;color:#667a98;font-size:22px;line-height:1}
+
+.admin-module-side{min-width:0;display:grid;grid-template-rows:auto auto;gap:16px}
+.admin-module-action-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:13px}
+.admin-module-action{min-height:93px;display:flex;flex-direction:column;justify-content:center;padding:12px 15px;border:1px solid #dfe5ed;border-radius:8px;background:#fff;color:inherit;text-decoration:none;transition:border-color .16s ease,background .16s ease,transform .16s ease}
+.admin-module-action:hover{border-color:#bfcfe2;background:#f9fbfe;transform:translateY(-1px)}
+.admin-module-action-plus{display:block;color:#f05a00;font-size:24px;line-height:.7;font-weight:400}
+.admin-module-action strong{display:block;margin-top:10px;color:#173b73;font-size:12px;line-height:1.15;font-weight:800}
+.admin-module-action small{display:block;margin-top:5px;color:#647189;font-size:10px;line-height:1.2}
+.admin-module-resource-list{padding:7px 13px 12px}
+.admin-module-resource-list a{min-height:45px;display:flex;align-items:center;justify-content:space-between;gap:15px;padding:0 10px;border-bottom:1px solid #edf0f4;color:#173b73;text-decoration:none;font-size:11px;font-weight:800}
+.admin-module-resource-list a:last-child{border-bottom:0}
+.admin-module-resource-list a:hover{background:#f7f9fc}
+.admin-module-resource-list a span:last-child{color:#667a98;font-size:17px}
+
+.admin-module-message{margin:0 0 13px;padding:11px 13px;border:1px solid #dfe5ed;border-radius:8px;background:#f8fafc;color:#52627a;font-size:11px;line-height:1.4}
+.admin-module-status-list{padding:5px 12px 10px}
+.admin-module-status-row{min-height:58px;display:grid;grid-template-columns:40px minmax(0,1fr) auto;align-items:center;gap:12px;padding:7px 10px;border-bottom:1px solid #edf0f4}
+.admin-module-status-row:last-child{border-bottom:0}
+.admin-module-status-icon{width:40px;height:40px;display:inline-flex;align-items:center;justify-content:center;border-radius:9px;background:#edf4fc;color:#17519b}
+.admin-module-status-icon svg{width:19px;height:19px;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.admin-module-status-row strong{display:block;color:#173b73;font-size:12px;font-weight:800}
+.admin-module-status-row small{display:block;margin-top:4px;color:#718097;font-size:9px}
+.admin-module-badge{display:inline-flex;align-items:center;justify-content:center;min-height:27px;padding:0 10px;border-radius:999px;font-size:9px;font-weight:900;letter-spacing:.03em}
+.admin-module-badge.success{background:#eaf7f0;color:#16804d}
+.admin-module-badge.warning{background:#fff4df;color:#a86500}
+.admin-module-badge.danger{background:#fdebea;color:#b53632}
+
+@media(max-width:1250px){
+ .admin-module-kpis{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .admin-module-grid{grid-template-columns:minmax(0,1.15fr) minmax(320px,.85fr)}
+}
+@media(max-width:1050px){
+ .admin-module-header{align-items:flex-start;flex-direction:column}
+ .admin-module-actions{width:100%}
+ .admin-module-actions .s4u-button{width:100%}
+ .admin-module-grid{grid-template-columns:1fr}
+ .admin-module-side{grid-template-columns:1fr 1fr;grid-template-rows:auto}
+}
+@media(max-width:700px){
+ .admin-module-page{padding:18px 14px 22px}
+ .admin-module-header{min-height:0;padding-bottom:18px}
+ .admin-module-heading h1{font-size:36px}
+ .admin-module-heading p{font-size:12px}
+ .admin-module-kpis{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+ .admin-module-kpi{min-height:128px;padding:14px}
+ .admin-module-kpi-icon{width:32px;height:32px;flex-basis:32px}
+ .admin-module-kpi strong{margin-top:14px;font-size:25px}
+ .admin-module-side{grid-template-columns:1fr}
+ .admin-module-action-grid{grid-template-columns:1fr}
+ .admin-module-section-header{padding-left:17px;padding-right:17px}
+}
+@media(max-width:430px){
+ .admin-module-kpis{grid-template-columns:1fr}
+ .admin-module-row{grid-template-columns:38px minmax(0,1fr) auto;padding-left:5px;padding-right:5px}
+ .admin-module-row-icon,.admin-module-status-icon{width:38px;height:38px}
+}
+
+
+/* ============================================================
+   SCREENINGS4U — ADMIN DESKTOP TYPOGRAPHY NORMALIZATION
+   Canonical sizing source: customer-dashboard.css
+   Added 2026-08-31
+   Layout, colors, spacing, borders, and responsive rules above
+   remain unchanged.
+   ============================================================ */
+
+@media (min-width: 901px) {
+
+  /* Page titles */
+  :is(
+    .s4u-dashboard-heading,
+    .customers-heading,
+    .employees-heading,
+    .admin-employers-heading,
+    .employer-users-heading,
+    .enterprise-page-title,
+    .admin-module-heading,
+    .operations-page-title,
+    .admin-lms-page-heading,
+    .admin-lms-heading,
+    .s4u-page-heading,
+    .page-heading
+  ) h1 {
+    font-size: clamp(1.8rem, 3vw, 2.55rem);
+  }
+
+  /* Page descriptions */
+  :is(
+    .s4u-dashboard-heading,
+    .customers-heading,
+    .employees-heading,
+    .admin-employers-heading,
+    .employer-users-heading,
+    .enterprise-page-title,
+    .admin-module-heading,
+    .operations-page-title,
+    .admin-lms-page-heading,
+    .admin-lms-heading,
+    .s4u-page-heading,
+    .page-heading
+  ) p {
+    font-size: 0.98rem;
+  }
+
+  /* Eyebrows / kickers */
+  :is(
+    .s4u-dashboard-kicker,
+    .page-eyebrow,
+    .panel-eyebrow,
+    .employees-kicker,
+    .admin-employers-kicker,
+    .employer-users-kicker,
+    .s4u-page-kicker,
+    .admin-module-kicker,
+    .admin-lms-kicker,
+    .page-kicker
+  ) {
+    font-size: 0.72rem;
+  }
+
+  /* Primary and secondary action text */
+  :is(
+    .s4u-button,
+    .btn,
+    .employees-primary-button,
+    .employees-secondary-button,
+    .employees-action-button,
+    .admin-employers-primary-button,
+    .employer-users-primary-button,
+    .employer-users-secondary-button,
+    .employer-users-action-button,
+    .operations-btn,
+    .admin-lms-button,
+    .admin-lms-primary-button,
+    .admin-lms-secondary-button
+  ) {
+    font-size: 0.9rem;
+  }
+
+  /* Section / panel headings */
+  :is(
+    .s4u-section-header,
+    .enterprise-section-header,
+    .admin-module-section-header,
+    .operations-panel-header,
+    .admin-lms-panel-header,
+    .panel-header,
+    .section-header
+  ) h2 {
+    font-size: 1.05rem;
+  }
+
+  /* Section / panel supporting text */
+  :is(
+    .s4u-section-header,
+    .enterprise-section-header,
+    .admin-module-section-header,
+    .operations-panel-header,
+    .admin-lms-panel-header,
+    .panel-header,
+    .section-header
+  ) p {
+    font-size: 0.78rem;
+  }
+
+  /* KPI / metric values */
+  :is(
+    .s4u-dashboard-metric-card,
+    .metric-card,
+    .employees-metric-card,
+    .admin-employer-metric-card,
+    .employer-users-metric-card,
+    .admin-module-kpi,
+    .operations-kpi-card,
+    .s4u-stat,
+    .admin-lms-stat-card,
+    .admin-lms-metric-card
+  ) strong,
+  .admin-employer-metric-value,
+  .s4u-stat-value {
+    font-size: 1.85rem;
+  }
+
+  /* KPI / metric labels */
+  :is(
+    .s4u-dashboard-metric-card,
+    .metric-card,
+    .employees-metric-card,
+    .admin-employer-metric-card,
+    .employer-users-metric-card,
+    .admin-module-kpi,
+    .operations-kpi-card,
+    .s4u-stat,
+    .admin-lms-stat-card,
+    .admin-lms-metric-card
+  ) > span:first-child,
+  .metric-label,
+  .admin-employer-metric-label,
+  .admin-module-kpi-label,
+  .operations-kpi-label,
+  .s4u-stat-label {
+    font-size: 0.72rem;
+  }
+
+  /* Tables */
+  :is(
+    .s4u-table,
+    .enterprise-table,
+    .admin-module-table,
+    .operations-table,
+    .admin-lms-table,
+    table
+  ) {
+    font-size: 0.78rem;
+  }
+
+  :is(
+    .s4u-table,
+    .enterprise-table,
+    .admin-module-table,
+    .operations-table,
+    .admin-lms-table,
+    table
+  ) th {
+    font-size: 0.72rem;
+  }
+
+  :is(
+    .s4u-table,
+    .enterprise-table,
+    .admin-module-table,
+    .operations-table,
+    .admin-lms-table,
+    table
+  ) td {
+    font-size: 0.78rem;
+  }
+
+  /* Form controls */
+  :is(
+    input,
+    select,
+    textarea
+  ) {
+    font-size: 0.9rem;
+  }
+}

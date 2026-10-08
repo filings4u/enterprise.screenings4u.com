@@ -1,0 +1,1801 @@
+/* SCREENINGS4U — COURSE SETTINGS */
+
+:root{
+  --st-blue:#24467f;
+  --st-green:#16a34a;
+  --st-ink:#07152d;
+  --st-text:#334155;
+  --st-muted:#748095;
+  --st-line:#dce4ed;
+  --st-bg:#eef2f7;
+  --st-card:#fff;
+}
+
+.admin-lms-course-settings-page{background:var(--st-bg)}
+
+.settings-workspace{
+  width:100%;
+  max-width:1500px;
+  margin:auto;
+  padding:22px 26px 52px;
+  color:var(--st-text);
+}
+
+.settings-breadcrumbs{
+  display:flex;
+  gap:9px;
+  align-items:center;
+  margin-bottom:8px;
+  font-size:11px;
+}
+.settings-breadcrumbs a{color:var(--st-ink);text-decoration:none}
+.settings-breadcrumbs span{color:#98a4b4}
+
+.settings-course-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:22px;
+  padding:6px 0 10px;
+}
+.settings-title-row{display:flex;gap:8px}
+.settings-back{
+  margin-top:3px;
+  color:var(--st-blue);
+  font-size:22px;
+  text-decoration:none;
+}
+.settings-course-header h1{
+  margin:0;
+  color:var(--st-ink);
+  font-size:clamp(1.8rem,3vw,2.55rem);
+  line-height:1.05;
+  font-weight:800;
+  letter-spacing:-.035em;
+}
+.settings-status-row{display:flex;gap:6px;margin-top:5px}
+.settings-status-badge{
+  padding:2px 7px;
+  border-radius:3px;
+  background:#111827;
+  color:#fff;
+  font-size:9px;
+  font-weight:800;
+}
+.settings-status-badge.active{background:var(--st-green)}
+
+.settings-header-actions{display:flex;gap:10px;align-items:center}
+.settings-circle-button{
+  width:38px;
+  height:38px;
+  border:0;
+  border-radius:50%;
+  background:#fff;
+  color:var(--st-blue);
+  font:inherit;
+  font-weight:900;
+}
+.settings-pill{
+  min-height:38px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:0 18px;
+  border:0;
+  border-radius:999px;
+  font:inherit;
+  font-size:12px;
+  font-weight:800;
+  text-decoration:none;
+  cursor:pointer;
+}
+.settings-pill.primary{background:var(--st-blue);color:#fff}
+.settings-pill.secondary{
+  border:1px solid #dfe6ee;
+  background:#fff;
+  color:var(--st-blue);
+}
+
+.settings-course-tabs{display:flex;border-bottom:1px solid var(--st-line)}
+.settings-course-tabs a{
+  position:relative;
+  padding:13px 18px;
+  color:#1f2937;
+  font-size:11px;
+  text-decoration:none;
+}
+.settings-course-tabs a.active{color:var(--st-blue)}
+.settings-course-tabs a.active:after{
+  content:"";
+  position:absolute;
+  left:14px;
+  right:14px;
+  bottom:-1px;
+  height:2px;
+  background:var(--st-blue);
+}
+
+.settings-toast{
+  display:none;
+  margin-top:12px;
+  padding:10px 12px;
+  border-radius:8px;
+  font-size:11px;
+  font-weight:750;
+}
+.settings-toast.show{display:block}
+.settings-toast.success{background:#ecfdf3;color:#166534}
+.settings-toast.error{background:#fff1f2;color:#991b1b}
+.settings-loading{
+  padding:52px 20px;
+  text-align:center;
+  color:var(--st-muted);
+  font-size:11px;
+}
+
+.settings-content{display:grid;gap:14px;margin-top:14px}
+.settings-card{
+  overflow:hidden;
+  border:1px solid #e3e8ef;
+  border-radius:8px;
+  background:#fff;
+}
+.settings-card>header{
+  min-height:54px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+  padding:0 17px;
+  border-bottom:1px solid var(--st-line);
+}
+.settings-card h2{margin:0;color:#111827;font-size:13px}
+.settings-card header p,
+.settings-automation-card p{
+  margin:3px 0 0;
+  color:var(--st-muted);
+  font-size:9px;
+}
+.settings-edit{
+  min-height:29px;
+  padding:0 12px;
+  border:1px solid #bdd4fc;
+  border-radius:999px;
+  background:#fff;
+  color:var(--st-blue);
+  font:inherit;
+  font-size:9px;
+  font-weight:800;
+  cursor:pointer;
+}
+.settings-rows{display:grid}
+.settings-row{
+  min-height:42px;
+  display:grid;
+  grid-template-columns:180px minmax(0,1fr);
+  gap:18px;
+  align-items:center;
+  padding:0 17px;
+  border-bottom:1px solid var(--st-line);
+}
+.settings-row:last-child{border-bottom:0}
+.settings-row span{color:#667085;font-size:9px}
+.settings-row strong{
+  overflow:hidden;
+  color:#223047;
+  font-size:10px;
+  font-weight:600;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+.settings-card-note{
+  padding:10px 17px;
+  border-top:1px solid var(--st-line);
+  background:#fbfcfe;
+  color:#7b8797;
+  font-size:9px;
+  line-height:1.45;
+}
+.settings-card-note code{color:#44536b}
+
+.settings-automation-card{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:18px;
+  padding:17px;
+}
+.settings-automation-card h2{font-size:13px}
+
+.settings-modal-backdrop{
+  position:fixed;
+  inset:0;
+  z-index:5000;
+  display:grid;
+  place-items:center;
+  padding:20px;
+  background:rgba(15,23,42,.46);
+}
+.settings-modal-backdrop[hidden]{display:none}
+.settings-modal{
+  width:min(590px,100%);
+  overflow:hidden;
+  border-radius:12px;
+  background:#fff;
+  box-shadow:0 24px 65px rgba(15,23,42,.22);
+}
+.settings-modal>header,
+.settings-modal>footer{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  padding:16px 18px;
+}
+.settings-modal>header{border-bottom:1px solid var(--st-line)}
+.settings-modal>footer{
+  justify-content:flex-end;
+  border-top:1px solid var(--st-line);
+}
+.settings-modal header small{
+  color:var(--st-blue);
+  font-size:9px;
+  font-weight:900;
+  letter-spacing:.08em;
+}
+.settings-modal h2{margin:3px 0 0;font-size:18px;color:#111827}
+.settings-modal header button{
+  border:0;
+  background:transparent;
+  font-size:24px;
+  color:#667085;
+  cursor:pointer;
+}
+.settings-modal-body{display:grid;gap:14px;padding:18px}
+.settings-modal-body label{display:grid;gap:6px}
+.settings-modal-body label>span{
+  font-size:10px;
+  font-weight:700;
+  color:#4b5c72;
+}
+.settings-modal input,
+.settings-modal select,
+.settings-modal textarea{
+  width:100%;
+  border:1px solid #cfd9e7;
+  border-radius:7px;
+  background:#fff;
+  color:#172033;
+  font:inherit;
+  font-size:11px;
+  outline:none;
+}
+.settings-modal input,
+.settings-modal select{
+  height:40px;
+  padding:0 10px;
+}
+.settings-modal textarea{padding:10px;resize:vertical}
+.settings-modal input:focus,
+.settings-modal select:focus,
+.settings-modal textarea:focus{
+  border-color:var(--st-blue);
+  box-shadow:0 0 0 3px rgba(15,103,244,.08);
+}
+.settings-check{
+  display:flex!important;
+  grid-template-columns:none!important;
+  align-items:center;
+  gap:9px!important;
+}
+.settings-check input{
+  width:17px;
+  height:17px;
+  accent-color:var(--st-blue);
+}
+.settings-check span{font-size:10px!important}
+
+@media(max-width:900px){
+  .settings-workspace{padding:18px 16px 40px}
+  .settings-course-header{flex-direction:column}
+  .settings-header-actions{flex-wrap:wrap}
+  .settings-course-tabs{overflow-x:auto}
+  .settings-row{
+    grid-template-columns:1fr;
+    gap:4px;
+    padding-top:9px;
+    padding-bottom:9px;
+  }
+  .settings-automation-card{
+    align-items:flex-start;
+    flex-direction:column;
+  }
+}
+
+/* ============================================================
+   DESKTOP TYPOGRAPHY — COURSE SETTINGS
+   ============================================================ */
+
+@media (min-width: 901px) {
+  .settings-breadcrumbs { font-size: 13px; }
+  .settings-status-badge { font-size: 11px; }
+  .settings-pill { font-size: 13px; }
+  .settings-course-tabs a { font-size: 13px; }
+  .settings-toast,
+  .settings-loading { font-size: 13px; }
+  .settings-card h2,
+  .settings-automation-card h2 { font-size: 16px; }
+  .settings-card header p,
+  .settings-automation-card p { font-size: 12px; }
+  .settings-edit { font-size: 12px; }
+  .settings-row span { font-size: 12px; }
+  .settings-row strong { font-size: 13px; }
+  .settings-card-note { font-size: 11px; }
+  .settings-modal header small { font-size: 10px; }
+  .settings-modal h2 { font-size: 20px; }
+  .settings-modal-body label > span { font-size: 12px; }
+  .settings-modal input,
+  .settings-modal select,
+  .settings-modal textarea { font-size: 13px; }
+  .settings-check span { font-size: 12px !important; }
+}
+
+
+/* ============================================================
+   COURSE IMAGE MANAGER + BASIC SETTINGS MODAL
+   MERGED FROM admin-lms-course-settings-image.css
+   Keep this in THIS file. Do not load a separate image CSS file.
+   ============================================================ */
+
+/* ============================================================
+   SCREENINGS4U — COURSE SETTINGS IMAGE MANAGER
+   COMPLETE HORIZONTAL / COMPACT VERSION
+   ============================================================ */
+
+:root {
+  --st-blue: var(--admin-blue, #24467f);
+  --st-blue-dark: var(--admin-blue-dark, #24467f);
+  --st-orange: var(--admin-orange, #ff6b00);
+  --st-orange-hover: var(--admin-orange-hover, #e66000);
+  --st-line: var(--admin-border, #dfe5ec);
+  --st-text: var(--admin-text, #172033);
+  --st-muted: var(--admin-muted, #687386);
+}
+
+/* Prevent any image-manager child from forcing horizontal overflow. */
+#basicSettingsModal *,
+#basicSettingsModal *::before,
+#basicSettingsModal *::after {
+  box-sizing: border-box;
+}
+
+/* ============================================================
+   BASIC SETTINGS MODAL
+   Wide horizontally, constrained vertically
+   ============================================================ */
+
+#basicSettingsModal .settings-modal {
+  width: min(980px, calc(100vw - 48px));
+  max-width: 980px;
+  max-height: calc(100vh - 40px);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+#basicSettingsModal .settings-modal-body {
+  width: 100%;
+  min-width: 0;
+  max-width: none;
+  min-height: 0;
+  grid-template-columns: minmax(0, 1fr);
+  align-items: stretch;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+#basicSettingsModal .settings-modal-body > *,
+#basicSettingsModal .settings-modal-body > label,
+#basicSettingsModal .settings-course-image-manager {
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+  grid-column: 1 / -1;
+}
+
+#basicSettingsModal .settings-modal > footer {
+  flex: 0 0 auto;
+  width: 100%;
+}
+
+/* ============================================================
+   COURSE IMAGE CARD
+   ============================================================ */
+
+.settings-course-image-manager {
+  width: 100%;
+  min-width: 0;
+  margin-top: 4px;
+  overflow: hidden;
+  border: 1px solid var(--st-line);
+  border-radius: 14px;
+  background: #fff;
+}
+
+.settings-image-heading {
+  padding: 12px 15px;
+  border-bottom: 1px solid var(--st-line);
+  background: #fbfcfe;
+}
+
+.settings-image-heading > div {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 5px 8px;
+}
+
+.settings-image-heading > div > span {
+  color: var(--st-orange);
+  font-size: 9px;
+  font-weight: 900;
+  letter-spacing: .1em;
+}
+
+.settings-image-heading strong {
+  color: var(--st-blue-dark);
+  font-size: 14px;
+}
+
+.settings-image-heading small {
+  flex: 1 1 420px;
+  min-width: 250px;
+  color: var(--st-muted);
+  font-size: 10px;
+  line-height: 1.45;
+}
+
+/* ============================================================
+   HORIZONTAL IMAGE ROW
+   ============================================================ */
+
+.settings-image-grid,
+#basicSettingsModal .settings-image-grid {
+  width: 100%;
+  min-width: 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 14px;
+  padding: 14px;
+  align-items: start;
+}
+
+.settings-image-current,
+.settings-image-dropzone,
+#basicSettingsModal .settings-image-current,
+#basicSettingsModal .settings-image-dropzone {
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+}
+
+.settings-image-label {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--st-text);
+  font-size: 10px;
+  font-weight: 800;
+}
+
+/* The important fix:
+   fixed compact visual height instead of width-driven giant aspect ratio. */
+.settings-image-preview,
+#basicSettingsModal .settings-image-preview {
+  width: 100%;
+  height: 170px;
+  max-width: 100%;
+  max-height: 170px;
+  aspect-ratio: auto;
+  overflow: hidden;
+  border: 1px solid var(--st-line);
+  border-radius: 10px;
+  background:
+    linear-gradient(
+      135deg,
+      rgba(50, 90, 163, .10),
+      rgba(255, 107, 0, .08)
+    );
+}
+
+.settings-image-preview img,
+#basicSettingsModal .settings-image-preview img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+  max-width: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Empty image state */
+.settings-image-placeholder {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-items: center;
+  align-content: center;
+  gap: 4px;
+  padding: 14px;
+  color: var(--st-blue);
+  text-align: center;
+}
+
+.settings-image-placeholder strong {
+  font-size: 12px;
+}
+
+.settings-image-placeholder span {
+  color: var(--st-muted);
+  font-size: 10px;
+}
+
+/* ============================================================
+   UPLOAD AREA
+   Same compact height as current image
+   ============================================================ */
+
+.settings-image-dropzone,
+#basicSettingsModal .settings-image-dropzone {
+  position: relative;
+  height: 170px;
+  min-height: 170px;
+  max-height: 170px;
+  display: grid !important;
+  place-items: center;
+  align-content: center;
+  gap: 4px !important;
+  padding: 14px;
+  overflow: hidden;
+  border: 2px dashed #bfd0e5;
+  border-radius: 10px;
+  background: #f9fbfd;
+  text-align: center;
+  cursor: pointer;
+}
+
+.settings-image-dropzone:hover {
+  border-color: var(--st-blue);
+  background: rgba(50, 90, 163, .035);
+}
+
+.settings-image-dropzone input {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  min-height: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.settings-image-upload-icon {
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  border-radius: 10px;
+  background: rgba(255, 107, 0, .10);
+  color: var(--st-orange);
+  font-size: 18px !important;
+  font-weight: 900;
+}
+
+.settings-image-dropzone strong {
+  color: var(--st-blue-dark);
+  font-size: 12px;
+}
+
+.settings-image-dropzone > span:not(.settings-image-upload-icon) {
+  color: var(--st-muted);
+  font-size: 10px;
+}
+
+.settings-image-dropzone small {
+  max-width: 330px;
+  color: var(--st-muted);
+  font-size: 9px;
+  line-height: 1.4;
+}
+
+/* ============================================================
+   IMAGE ACTIONS
+   ============================================================ */
+
+.settings-image-current-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-top: 8px;
+}
+
+.settings-image-button {
+  min-height: 34px;
+  padding: 0 11px;
+  border-radius: 8px;
+  font: inherit;
+  font-size: 10px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.settings-image-button.secondary {
+  border: 1px solid var(--st-line);
+  background: #fff;
+  color: var(--st-blue);
+}
+
+.settings-image-button.secondary:hover {
+  border-color: var(--st-blue);
+  color: var(--st-orange);
+}
+
+.settings-image-button.danger {
+  border: 1px solid #fecaca;
+  background: #fff;
+  color: #b42318;
+}
+
+/* ============================================================
+   UPLOAD PROGRESS / STATUS
+   ============================================================ */
+
+.settings-image-progress {
+  margin: 0 14px 10px;
+  padding: 9px 11px;
+  border: 1px solid #d8e4f3;
+  border-radius: 8px;
+  background: #f6f9fd;
+}
+
+.settings-image-progress > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  color: var(--st-blue-dark);
+  font-size: 10px;
+  font-weight: 800;
+}
+
+.settings-image-progress > i {
+  display: block;
+  height: 6px;
+  margin-top: 7px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: #dde7f3;
+}
+
+.settings-image-progress > i > b {
+  display: block;
+  width: 0;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(
+    90deg,
+    var(--st-blue),
+    var(--st-orange)
+  );
+  transition: width .15s ease;
+}
+
+.settings-image-status {
+  min-height: 0;
+  margin: 0 14px 12px;
+  color: var(--st-muted);
+  font-size: 10px;
+}
+
+.settings-image-status.success {
+  color: #166534;
+}
+
+.settings-image-status.error {
+  color: #991b1b;
+}
+
+/* ============================================================
+   SMALL IMAGE BESIDE COURSE TITLE
+   ============================================================ */
+
+.settings-header-course-image {
+  width: 58px;
+  height: 42px;
+  flex: 0 0 58px;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+  margin-top: 1px;
+  border: 1px solid var(--st-line);
+  border-radius: 8px;
+  background:
+    linear-gradient(
+      135deg,
+      rgba(50, 90, 163, .12),
+      rgba(255, 107, 0, .10)
+    );
+  color: var(--st-blue);
+  font-size: 8px;
+  font-weight: 900;
+}
+
+.settings-header-course-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  object-fit: cover;
+}
+
+/* ============================================================
+   BRANDED REMOVE CONFIRMATION
+   ============================================================ */
+
+.settings-image-confirm {
+  position: fixed;
+  inset: 0;
+  z-index: 12000;
+  display: grid;
+  place-items: center;
+  padding: 18px;
+}
+
+.settings-image-confirm[hidden] {
+  display: none;
+}
+
+.settings-image-confirm-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(23, 32, 51, .62);
+  backdrop-filter: blur(2px);
+}
+
+.settings-image-confirm-card {
+  position: relative;
+  z-index: 1;
+  width: min(540px, 100%);
+  overflow: hidden;
+  border: 1px solid var(--st-line);
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 28px 80px rgba(23, 32, 51, .24);
+}
+
+.settings-image-confirm-card > header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 20px;
+  border-top: 4px solid var(--st-orange);
+}
+
+.settings-image-confirm-card header span {
+  color: var(--st-orange);
+  font-size: 9px;
+  font-weight: 900;
+  letter-spacing: .1em;
+}
+
+.settings-image-confirm-card h2 {
+  margin: 5px 0;
+  color: var(--st-blue-dark);
+  font-size: 19px;
+}
+
+.settings-image-confirm-card p {
+  margin: 0;
+  color: var(--st-muted);
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+.settings-image-confirm-card header button {
+  width: 34px;
+  height: 34px;
+  border: 1px solid var(--st-line);
+  border-radius: 50%;
+  background: #fff;
+  color: var(--st-muted);
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.settings-image-confirm-card > footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  padding: 15px 20px 18px;
+  border-top: 1px solid var(--st-line);
+  background: #fbfcfe;
+}
+
+.settings-image-confirm-secondary,
+.settings-image-confirm-danger {
+  min-height: 38px;
+  padding: 0 14px;
+  border-radius: 8px;
+  font: inherit;
+  font-size: 11px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.settings-image-confirm-secondary {
+  border: 1px solid var(--st-line);
+  background: #fff;
+  color: var(--st-text);
+}
+
+.settings-image-confirm-danger {
+  border: 1px solid #b42318;
+  background: #b42318;
+  color: #fff;
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+
+@media (max-width: 900px) {
+  #basicSettingsModal .settings-modal {
+    width: min(820px, calc(100vw - 28px));
+  }
+
+  .settings-image-preview,
+  #basicSettingsModal .settings-image-preview,
+  .settings-image-dropzone,
+  #basicSettingsModal .settings-image-dropzone {
+    height: 155px;
+    min-height: 155px;
+    max-height: 155px;
+  }
+}
+
+@media (max-width: 700px) {
+  #basicSettingsModal .settings-modal {
+    width: calc(100vw - 20px);
+  }
+
+  .settings-image-grid,
+  #basicSettingsModal .settings-image-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .settings-image-preview,
+  #basicSettingsModal .settings-image-preview {
+    height: 180px;
+    min-height: 180px;
+    max-height: 180px;
+  }
+
+  .settings-image-dropzone,
+  #basicSettingsModal .settings-image-dropzone {
+    height: 145px;
+    min-height: 145px;
+    max-height: 145px;
+  }
+
+  .settings-image-confirm-card > footer {
+    flex-direction: column-reverse;
+  }
+
+  .settings-image-confirm-secondary,
+  .settings-image-confirm-danger {
+    width: 100%;
+  }
+}
+
+
+/* ============================================================
+   FINAL BASIC SETTINGS MODAL IMAGE LAYOUT OVERRIDE
+   This stylesheet is loaded AFTER admin-lms-course-settings.css,
+   so the image manager must own the final geometry here.
+   ============================================================ */
+
+#basicSettingsModal #courseImageManager.settings-course-image-manager {
+  width: 100% !important;
+  min-width: 0 !important;
+  max-width: 100% !important;
+
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+
+  display: block !important;
+  position: relative !important;
+
+  margin: 0 !important;
+  padding: 0 !important;
+
+  overflow: hidden !important;
+
+  border: 1px solid var(--st-line, #dfe5ec) !important;
+  border-radius: 11px !important;
+  background: #ffffff !important;
+}
+
+#basicSettingsModal #courseImageManager .settings-image-heading {
+  position: static !important;
+  width: 100% !important;
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+
+  padding: 9px 14px !important;
+
+  border-bottom: 1px solid var(--st-line, #dfe5ec) !important;
+  border-radius: 10px 10px 0 0 !important;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(50, 90, 163, 0.08) 0%,
+      rgba(255, 107, 0, 0.035) 100%
+    ) !important;
+}
+
+#basicSettingsModal #courseImageManager .settings-image-grid {
+  position: static !important;
+
+  width: 100% !important;
+  min-width: 0 !important;
+  max-width: 100% !important;
+
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important;
+
+  gap: 14px !important;
+  padding: 10px 14px 14px !important;
+
+  align-items: stretch !important;
+
+  overflow: visible !important;
+}
+
+#basicSettingsModal #courseImageManager .settings-image-current {
+  position: static !important;
+
+  width: 100% !important;
+  min-width: 0 !important;
+  max-width: 100% !important;
+
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+
+  display: flex !important;
+  flex-direction: column !important;
+
+  overflow: visible !important;
+}
+
+#basicSettingsModal #courseImageManager .settings-image-label {
+  flex: 0 0 auto !important;
+  display: block !important;
+  margin: 0 0 5px !important;
+}
+
+#basicSettingsModal #courseImageManager .settings-image-preview {
+  position: relative !important;
+
+  width: 100% !important;
+  min-width: 0 !important;
+  max-width: 100% !important;
+
+  height: 170px !important;
+  min-height: 170px !important;
+  max-height: 170px !important;
+
+  aspect-ratio: auto !important;
+
+  flex: 0 0 170px !important;
+
+  overflow: hidden !important;
+
+  border: 1px solid var(--st-line, #dfe5ec) !important;
+  border-radius: 9px !important;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(50, 90, 163, 0.08),
+      rgba(255, 107, 0, 0.06)
+    ) !important;
+}
+
+#basicSettingsModal #courseImageManager .settings-image-preview img {
+  display: block !important;
+
+  width: 100% !important;
+  height: 100% !important;
+
+  min-width: 0 !important;
+  max-width: 100% !important;
+
+  object-fit: cover !important;
+  object-position: center !important;
+
+  background: #ffffff !important;
+}
+
+#basicSettingsModal #courseImageManager .settings-image-current-actions {
+  position: static !important;
+
+  width: 100% !important;
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+
+  flex: 0 0 auto !important;
+
+  display: flex !important;
+  flex-wrap: wrap !important;
+  align-items: center !important;
+
+  gap: 7px !important;
+
+  margin: 8px 0 0 !important;
+  padding: 0 !important;
+
+  overflow: visible !important;
+}
+
+#basicSettingsModal #courseImageManager .settings-image-dropzone {
+  position: relative !important;
+
+  width: 100% !important;
+  min-width: 0 !important;
+  max-width: 100% !important;
+
+  /*
+     IMPORTANT:
+     Do not give the upload box a fixed height.
+     The grid row is sized by the complete left column:
+     label + 170px preview + action buttons.
+     align-items: stretch makes this box match that full height.
+  */
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+
+  align-self: stretch !important;
+
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  gap: 4px !important;
+
+  margin: 0 !important;
+  padding: 14px !important;
+
+  overflow: hidden !important;
+
+  border: 2px dashed #bfd0e5 !important;
+  border-radius: 9px !important;
+
+  background: #f9fbfd !important;
+
+  text-align: center !important;
+}
+
+#basicSettingsModal #courseImageManager .settings-image-progress[hidden],
+#basicSettingsModal #courseImageManager .settings-image-status:empty {
+  display: none !important;
+}
+
+/* The image manager must remain a normal grid item in the modal body. */
+#basicSettingsModal .settings-modal-body > #courseImageManager {
+  grid-column: 1 / -1 !important;
+  align-self: start !important;
+  justify-self: stretch !important;
+}
+
+/* Desktop/laptop modal geometry */
+#basicSettingsModal .settings-modal {
+  width: min(960px, calc(100vw - 24px)) !important;
+  max-width: 960px !important;
+  height: auto !important;
+  max-height: calc(100dvh - 8px) !important;
+}
+
+/* Only the middle area scrolls. Header and footer stay fixed. */
+#basicSettingsModal .settings-modal-body {
+  min-height: 0 !important;
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+
+@media (max-width: 900px) {
+  #basicSettingsModal .settings-modal {
+    width: calc(100vw - 24px) !important;
+    max-width: none !important;
+  }
+}
+
+@media (max-width: 700px) {
+  #basicSettingsModal #courseImageManager .settings-image-grid {
+    grid-template-columns: minmax(0, 1fr) !important;
+    align-items: start !important;
+  }
+
+  #basicSettingsModal #courseImageManager .settings-image-preview {
+    height: 175px !important;
+    min-height: 175px !important;
+    max-height: 175px !important;
+    flex-basis: 175px !important;
+  }
+
+  #basicSettingsModal #courseImageManager .settings-image-dropzone {
+    min-height: 150px !important;
+    height: 150px !important;
+    max-height: 150px !important;
+    align-self: auto !important;
+  }
+}
+
+@media (max-width: 480px) {
+  #basicSettingsModal .settings-modal {
+    width: calc(100vw - 8px) !important;
+    max-height: calc(100dvh - 8px) !important;
+  }
+
+  #basicSettingsModal #courseImageManager .settings-image-grid {
+    gap: 12px !important;
+    padding: 10px 12px 12px !important;
+  }
+}
+
+/* ============================================================
+   FINAL SCREENINGS4U ADMIN LMS VISUAL SYSTEM
+   Matches Courses, Course Builder, and the management dashboard.
+   ============================================================ */
+
+:root {
+  --st-blue: var(--admin-blue, #24467f);
+  --st-blue-dark: var(--admin-blue-dark, #123f7a);
+  --st-blue-deep: #0d3265;
+  --st-orange: var(--admin-orange, #ff6b00);
+  --st-orange-hover: #e85f00;
+  --st-green: #16835b;
+  --st-ink: var(--admin-text, #172033);
+  --st-text: #344054;
+  --st-muted: var(--admin-muted, #687386);
+  --st-line: var(--admin-border, #d9e2ee);
+  --st-line-strong: #c8d4e3;
+  --st-bg: #f4f7fb;
+  --st-card: #ffffff;
+  --st-soft-blue: #eef4fb;
+  --st-soft-orange: #fff5ed;
+  --st-shadow: 0 8px 24px rgba(15, 50, 101, .06);
+}
+
+.admin-lms-course-settings-page {
+  background: var(--st-bg);
+  color: var(--st-text);
+}
+
+.admin-lms-course-settings-page .admin-lms-main {
+  min-width: 0;
+  background: var(--st-bg);
+}
+
+.settings-workspace {
+  width: min(100%, 1500px);
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 30px 28px 64px;
+}
+
+.settings-breadcrumbs {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 14px;
+  color: #8996a9;
+  font-size: 12px;
+  font-weight: 650;
+}
+
+.settings-breadcrumbs a {
+  color: var(--st-blue);
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.settings-breadcrumbs a:hover { color: var(--st-orange); }
+.settings-breadcrumbs strong { color: var(--st-blue-dark); font-weight: 800; }
+
+.settings-course-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 0 0 22px;
+}
+
+.settings-title-row {
+  min-width: 0;
+  display: flex;
+  align-items: flex-start;
+  gap: 13px;
+}
+
+.settings-title-row > div { min-width: 0; }
+
+.settings-back {
+  width: 38px;
+  height: 38px;
+  flex: 0 0 38px;
+  display: grid;
+  place-items: center;
+  margin: 2px 0 0;
+  border: 1px solid var(--st-line);
+  border-radius: 9px;
+  background: var(--st-card);
+  color: var(--st-blue-dark);
+  font-size: 25px;
+  line-height: 1;
+  text-decoration: none;
+  box-shadow: 0 3px 10px rgba(15, 50, 101, .04);
+}
+
+.settings-back:hover {
+  border-color: var(--st-orange);
+  color: var(--st-orange);
+}
+
+.settings-course-header h1 {
+  overflow-wrap: anywhere;
+  margin: 0;
+  color: var(--st-blue-dark);
+  font-size: clamp(30px, 3.2vw, 42px);
+  font-weight: 850;
+  line-height: 1.08;
+  letter-spacing: -.035em;
+}
+
+.settings-status-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-top: 10px;
+}
+
+.settings-status-badge {
+  display: inline-flex;
+  align-items: center;
+  min-height: 25px;
+  padding: 0 10px;
+  border-radius: 999px;
+  background: var(--st-soft-orange);
+  color: #c45100;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+
+.settings-status-badge.active {
+  background: #eaf8f1;
+  color: #087044;
+}
+
+.settings-header-actions {
+  flex: 0 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 9px;
+}
+
+.settings-circle-button,
+.settings-pill,
+.settings-edit,
+.settings-image-button,
+.settings-image-confirm-secondary,
+.settings-image-confirm-danger {
+  transition: border-color .18s ease, background .18s ease, color .18s ease, transform .18s ease;
+}
+
+.settings-circle-button {
+  width: 42px;
+  height: 42px;
+  border: 1px solid var(--st-line);
+  border-radius: 9px;
+  background: var(--st-card);
+  color: var(--st-blue-dark);
+  font: inherit;
+  font-size: 16px;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.settings-circle-button:hover {
+  border-color: var(--st-blue);
+  color: var(--st-orange);
+}
+
+.settings-pill {
+  min-height: 42px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  padding: 0 17px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  font: inherit;
+  font-size: 12px;
+  font-weight: 850;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.settings-pill.primary {
+  border-color: var(--st-orange);
+  background: var(--st-orange);
+  color: #fff;
+  box-shadow: 0 7px 18px rgba(255, 107, 0, .16);
+}
+
+.settings-pill.primary:hover {
+  border-color: var(--st-orange-hover);
+  background: var(--st-orange-hover);
+  transform: translateY(-1px);
+}
+
+.settings-pill.secondary {
+  border-color: var(--st-line-strong);
+  background: var(--st-card);
+  color: var(--st-blue-dark);
+}
+
+.settings-pill.secondary:hover {
+  border-color: var(--st-blue);
+  color: var(--st-blue);
+}
+
+.settings-course-tabs {
+  display: flex;
+  align-items: stretch;
+  gap: 3px;
+  overflow-x: auto;
+  margin: 0;
+  padding: 0 8px;
+  border: 1px solid var(--st-line);
+  border-radius: 11px 11px 0 0;
+  background: var(--st-card);
+  scrollbar-width: thin;
+}
+
+.settings-course-tabs a {
+  position: relative;
+  flex: 0 0 auto;
+  padding: 16px 14px 15px;
+  color: #5f6f84;
+  font-size: 12px;
+  font-weight: 750;
+  text-decoration: none;
+}
+
+.settings-course-tabs a:hover { color: var(--st-blue); }
+.settings-course-tabs a.active { color: var(--st-blue-dark); font-weight: 900; }
+.settings-course-tabs a.active::after {
+  content: "";
+  position: absolute;
+  right: 12px;
+  bottom: 0;
+  left: 12px;
+  height: 3px;
+  border-radius: 3px 3px 0 0;
+  background: var(--st-orange);
+}
+
+.settings-toast {
+  display: none;
+  margin-top: 14px;
+  padding: 12px 15px;
+  border: 1px solid transparent;
+  border-radius: 9px;
+  font-size: 13px;
+  font-weight: 750;
+}
+
+.settings-toast.show { display: block; }
+.settings-toast.success { border-color: #bde7d1; background: #edfaf3; color: #11633f; }
+.settings-toast.error { border-color: #f4c9c6; background: #fff4f3; color: #9b241d; }
+
+.settings-loading {
+  min-height: 220px;
+  display: grid;
+  place-items: center;
+  padding: 58px 20px;
+  border: 1px solid var(--st-line);
+  border-top: 0;
+  border-radius: 0 0 11px 11px;
+  background: var(--st-card);
+  color: var(--st-muted);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.settings-loading[hidden] {
+  display: none !important;
+}
+
+.settings-content {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 18px;
+}
+
+.settings-content[hidden] { display: none; }
+
+.settings-card {
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid var(--st-line);
+  border-radius: 11px;
+  background: var(--st-card);
+  box-shadow: var(--st-shadow);
+}
+
+.settings-card:nth-child(1),
+.settings-card:nth-child(4),
+.settings-card:nth-child(7),
+.settings-card.settings-automation-card {
+  grid-column: 1 / -1;
+}
+
+.settings-card > header {
+  min-height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 13px 18px;
+  border-bottom: 1px solid var(--st-line);
+  background: linear-gradient(180deg, #fff, #fbfcfe);
+}
+
+.settings-card h2,
+.settings-automation-card h2 {
+  margin: 0;
+  color: var(--st-blue-dark);
+  font-size: 16px;
+  font-weight: 850;
+  line-height: 1.3;
+}
+
+.settings-card header p,
+.settings-automation-card p {
+  margin: 4px 0 0;
+  color: var(--st-muted);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.settings-edit {
+  min-height: 34px;
+  flex: 0 0 auto;
+  padding: 0 13px;
+  border: 1px solid var(--st-line-strong);
+  border-radius: 7px;
+  background: var(--st-card);
+  color: var(--st-blue-dark);
+  font: inherit;
+  font-size: 11px;
+  font-weight: 850;
+  cursor: pointer;
+}
+
+.settings-edit:hover {
+  border-color: var(--st-orange);
+  color: var(--st-orange);
+}
+
+.settings-rows { display: grid; }
+
+.settings-row {
+  min-height: 50px;
+  display: grid;
+  grid-template-columns: minmax(150px, 30%) minmax(0, 1fr);
+  align-items: center;
+  gap: 20px;
+  padding: 11px 18px;
+  border-bottom: 1px solid #e8edf4;
+}
+
+.settings-row:last-child { border-bottom: 0; }
+
+.settings-row span {
+  color: #6a788c;
+  font-size: 12px;
+  font-weight: 650;
+}
+
+.settings-row strong {
+  min-width: 0;
+  overflow: hidden;
+  color: var(--st-ink);
+  font-size: 13px;
+  font-weight: 750;
+  line-height: 1.45;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.settings-card-note {
+  padding: 12px 18px;
+  border-top: 1px solid var(--st-line);
+  background: var(--st-soft-blue);
+  color: #6f7e91;
+  font-size: 11px;
+  line-height: 1.55;
+}
+
+.settings-card-note code {
+  color: var(--st-blue-dark);
+  font-size: inherit;
+  font-weight: 750;
+}
+
+.settings-automation-card {
+  min-height: 94px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 20px;
+  border-left: 4px solid var(--st-orange);
+}
+
+.settings-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 5000;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  background: rgba(13, 39, 76, .58);
+  backdrop-filter: blur(3px);
+}
+
+.settings-modal-backdrop[hidden] { display: none; }
+
+.settings-modal {
+  width: min(620px, 100%);
+  max-height: calc(100dvh - 34px);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid var(--st-line);
+  border-radius: 13px;
+  background: var(--st-card);
+  box-shadow: 0 30px 85px rgba(8, 34, 71, .28);
+}
+
+.settings-modal > header,
+.settings-modal > footer {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 17px 20px;
+}
+
+.settings-modal > header {
+  border-top: 4px solid var(--st-orange);
+  border-bottom: 1px solid var(--st-line);
+}
+
+.settings-modal > footer {
+  justify-content: flex-end;
+  border-top: 1px solid var(--st-line);
+  background: #f9fbfd;
+}
+
+.settings-modal header small {
+  color: var(--st-orange);
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: .1em;
+}
+
+.settings-modal h2 {
+  margin: 4px 0 0;
+  color: var(--st-blue-dark);
+  font-size: 21px;
+  font-weight: 850;
+}
+
+.settings-modal header button {
+  width: 36px;
+  height: 36px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--st-line);
+  border-radius: 50%;
+  background: var(--st-card);
+  color: var(--st-muted);
+  font-size: 23px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.settings-modal header button:hover { border-color: var(--st-orange); color: var(--st-orange); }
+
+.settings-modal-body {
+  min-height: 0;
+  display: grid;
+  gap: 15px;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.settings-modal-body label { display: grid; gap: 7px; }
+
+.settings-modal-body label > span {
+  color: #45566d;
+  font-size: 12px;
+  font-weight: 750;
+}
+
+.settings-modal input,
+.settings-modal select,
+.settings-modal textarea {
+  width: 100%;
+  border: 1px solid var(--st-line-strong);
+  border-radius: 8px;
+  background: #fff;
+  color: var(--st-ink);
+  font: inherit;
+  font-size: 13px;
+  outline: none;
+}
+
+.settings-modal input,
+.settings-modal select { height: 43px; padding: 0 12px; }
+.settings-modal textarea { min-height: 112px; padding: 11px 12px; line-height: 1.55; resize: vertical; }
+
+.settings-modal input:focus,
+.settings-modal select:focus,
+.settings-modal textarea:focus {
+  border-color: var(--st-blue);
+  box-shadow: 0 0 0 3px rgba(50, 90, 163, .11);
+}
+
+.settings-check {
+  display: flex !important;
+  align-items: center;
+  gap: 10px !important;
+  min-height: 34px;
+}
+
+.settings-check input {
+  width: 18px;
+  height: 18px;
+  flex: 0 0 18px;
+  accent-color: var(--st-orange);
+}
+
+.settings-check span { font-size: 12px !important; }
+
+@media (max-width: 1050px) {
+  .settings-content { grid-template-columns: 1fr; }
+  .settings-card,
+  .settings-card:nth-child(1),
+  .settings-card:nth-child(4),
+  .settings-card:nth-child(7),
+  .settings-card.settings-automation-card { grid-column: auto; }
+}
+
+@media (max-width: 760px) {
+  .settings-workspace { padding: 22px 16px 46px; }
+  .settings-course-header { flex-direction: column; }
+  .settings-header-actions { width: 100%; justify-content: flex-start; }
+  .settings-course-tabs { padding: 0 3px; border-radius: 9px 9px 0 0; }
+  .settings-course-tabs a { padding-right: 12px; padding-left: 12px; }
+  .settings-automation-card { align-items: flex-start; flex-direction: column; }
+}
+
+@media (max-width: 520px) {
+  .settings-workspace { padding-right: 12px; padding-left: 12px; }
+  .settings-title-row { gap: 9px; }
+  .settings-back { width: 34px; height: 34px; flex-basis: 34px; }
+  .settings-course-header h1 { font-size: 29px; }
+  .settings-header-actions .settings-pill { flex: 1 1 auto; }
+  .settings-row { grid-template-columns: 1fr; gap: 4px; padding-top: 12px; padding-bottom: 12px; }
+  .settings-row strong { white-space: normal; overflow-wrap: anywhere; }
+  .settings-card > header { align-items: flex-start; }
+  .settings-modal-backdrop { padding: 7px; }
+  .settings-modal { max-height: calc(100dvh - 14px); }
+  .settings-modal > header,
+  .settings-modal > footer,
+  .settings-modal-body { padding-right: 15px; padding-left: 15px; }
+  .settings-modal > footer { flex-direction: column-reverse; }
+  .settings-modal > footer .settings-pill { width: 100%; }
+}
+
+/* ============================================================
+   #8 COURSE SETTINGS — TRAINING PORTAL TYPOGRAPHY + CONSISTENCY
+   Final override: keep the course workspace on the same readable
+   scale as the rest of the Training business portal.
+   ============================================================ */
+.admin-lms-course-settings-page,
+.admin-lms-course-settings-page button,
+.admin-lms-course-settings-page input,
+.admin-lms-course-settings-page select,
+.admin-lms-course-settings-page textarea {
+  font-family: Inter, Arial, sans-serif;
+}
+
+.admin-lms-course-settings-page {
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.admin-lms-course-settings-page *,
+.admin-lms-course-settings-page *::before,
+.admin-lms-course-settings-page *::after {
+  box-sizing: border-box;
+}
+
+.settings-breadcrumbs { font-size: 13px; }
+.settings-course-header h1 { font-size: clamp(28px, 2.4vw, 36px); }
+.settings-status-badge { font-size: 12px; padding: 4px 9px; border-radius: 999px; }
+.settings-pill { font-size: 14px; min-height: 40px; }
+.settings-course-tabs a { font-size: 14px; font-weight: 700; }
+.settings-toast,
+.settings-loading { font-size: 14px; }
+.settings-card h2,
+.settings-automation-card h2 { font-size: 16px; }
+.settings-card header p,
+.settings-automation-card p { font-size: 13px; }
+.settings-edit { font-size: 13px; font-weight: 800; }
+.settings-row span { font-size: 14px; }
+.settings-row strong { font-size: 15px; }
+.settings-card-note { font-size: 13px; line-height: 1.55; }
+.settings-modal header small { font-size: 11px; }
+.settings-modal h2 { font-size: 21px; }
+.settings-modal-body label > span { font-size: 14px; font-weight: 700; }
+.settings-modal input,
+.settings-modal select,
+.settings-modal textarea,
+.settings-rich-editor-surface { font-size: 15px !important; }
+.settings-check span { font-size: 14px !important; }
+
+@media (max-width: 760px) {
+  .settings-workspace { padding: 18px 16px 40px; }
+  .settings-course-header { align-items: stretch; }
+  .settings-header-actions { flex-wrap: wrap; }
+  .settings-course-tabs { overflow-x: auto; }
+  .settings-course-tabs a { white-space: nowrap; }
+}

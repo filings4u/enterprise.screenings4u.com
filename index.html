@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="theme-color" content="#24467f">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Secure screenings4u portal access for customers, employers, employees, and administrators.">
+  <title>Portal Login | screenings4u</title>
+<link href="images/fav.png" rel="icon" type="image/png"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --orange: #ff6b00;
+      --orange-dark: #d95800;
+      --blue: #24467f;
+      --blue-dark: #24467f;
+      --blue-deep: #17335f;
+      --blue-darker: #10284b;
+      --blue-pale: #f4f7fc;
+      --ink: #1d2d45;
+      --muted: #667892;
+      --line: #d9e3f0;
+      --white: #ffffff;
+      --shadow: 0 22px 60px rgba(10, 34, 65, 0.2);
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body { min-height: 100%; }
+
+    body {
+      margin: 0;
+      display: grid;
+      place-items: center;
+      padding: 36px 20px;
+      font-family: "Inter", Arial, sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 12% 18%, rgba(50, 90, 163, 0.36), transparent 30%),
+        radial-gradient(circle at 88% 82%, rgba(255, 107, 0, 0.2), transparent 28%),
+        linear-gradient(135deg, var(--blue-darker), var(--blue-deep));
+    }
+
+    .portal-shell {
+      width: min(100%, 980px);
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: minmax(280px, 0.82fr) minmax(0, 1.18fr);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 20px;
+      background: var(--white);
+      box-shadow: var(--shadow);
+    }
+
+    .portal-intro {
+      position: relative;
+      overflow: hidden;
+      padding: 52px 42px;
+      color: var(--white);
+      background: linear-gradient(155deg, var(--blue-darker), var(--blue));
+    }
+
+    .portal-intro::after {
+      content: "";
+      position: absolute;
+      right: -110px;
+      bottom: -120px;
+      width: 250px;
+      height: 250px;
+      border: 48px solid rgba(255, 107, 0, 0.85);
+      border-radius: 50%;
+    }
+
+    .brand {
+      position: relative;
+      z-index: 1;
+      display: inline-flex;
+      align-items: center;
+      min-height: 52px;
+      margin-bottom: 54px;
+      padding: 8px 14px;
+      border-radius: 10px;
+      background: var(--white);
+    }
+
+    .brand img {
+      display: block;
+      width: 145px;
+      max-height: 42px;
+      object-fit: contain;
+    }
+
+    .eyebrow {
+      position: relative;
+      z-index: 1;
+      display: block;
+      margin-bottom: 13px;
+      color: #ffb47d;
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      position: relative;
+      z-index: 1;
+      margin: 0 0 18px;
+      font-size: clamp(36px, 5vw, 52px);
+      line-height: 1;
+      letter-spacing: -0.055em;
+    }
+
+    .portal-intro p {
+      position: relative;
+      z-index: 1;
+      margin: 0;
+      color: #d7e3f1;
+      font-size: 14px;
+      line-height: 1.75;
+    }
+
+    .portal-options {
+      padding: 48px;
+      background: var(--blue-pale);
+    }
+
+    .portal-options h2 {
+      margin: 0 0 8px;
+      color: var(--blue-darker);
+      font-size: 23px;
+      letter-spacing: -0.03em;
+    }
+
+    .portal-options > p {
+      margin: 0 0 26px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.65;
+    }
+
+    .login-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .login-card {
+      min-height: 138px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 20px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      color: var(--ink);
+      background: var(--white);
+      text-decoration: none;
+      box-shadow: 0 6px 20px rgba(23, 51, 95, 0.06);
+      transition: 0.2s ease;
+    }
+
+    .login-card:hover,
+    .login-card:focus-visible {
+      border-color: var(--orange);
+      transform: translateY(-3px);
+      box-shadow: 0 15px 32px rgba(23, 51, 95, 0.13);
+      outline: none;
+    }
+
+    .login-card strong {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--blue-darker);
+      font-size: 15px;
+    }
+
+    .login-card small {
+      color: var(--muted);
+      font-size: 11px;
+      line-height: 1.55;
+    }
+
+    .login-card b {
+      align-self: flex-end;
+      color: var(--orange);
+      font-size: 18px;
+    }
+
+    .support {
+      margin: 24px 0 0;
+      color: var(--muted);
+      font-size: 11px;
+      text-align: center;
+    }
+
+    .support a { color: var(--blue); font-weight: 800; }
+
+    @media (max-width: 760px) {
+      body { padding: 18px 14px; }
+      .portal-shell { grid-template-columns: 1fr; }
+      .portal-intro { padding: 34px 28px; }
+      .brand { margin-bottom: 34px; }
+      .portal-options { padding: 32px 28px; }
+    }
+
+    @media (max-width: 480px) {
+      .login-grid { grid-template-columns: 1fr; }
+      .login-card { min-height: 116px; }
+    }
+  </style>
+<link rel="stylesheet" href="assets/css/brand-system.css?v=20260918-brand-repair-v2">
+</head>
+<body>
+  <main class="portal-shell">
+    <section class="portal-intro" aria-labelledby="portalTitle">
+      <a class="brand" href="https://screenings4u.com" aria-label="screenings4u home">
+        <img src="images/logo.png" alt="screenings4u">
+      </a>
+      <span class="eyebrow">Secure Account Access</span>
+      <h1 id="portalTitle">Welcome to the screenings4u Portal.</h1>
+      <p>Select your account type to continue to the correct secure login.</p>
+    </section>
+
+    <section class="portal-options" aria-labelledby="loginHeading">
+      <h2 id="loginHeading">Choose your portal</h2>
+      <p>Use the account type assigned to you by screenings4u or your organization.</p>
+
+      <div class="login-grid">
+        <a class="login-card" href="customer-login.html">
+          <span><strong>Customer Login</strong><small>Order testing services and manage your account.</small></span>
+          <b aria-hidden="true">→</b>
+        </a>
+
+        <a class="login-card" href="employer-login.html">
+          <span><strong>Employer Login</strong><small>Manage workplace screening and compliance services.</small></span>
+          <b aria-hidden="true">→</b>
+        </a>
+
+        <a class="login-card" href="employee-login.html">
+          <span><strong>Employee Login</strong><small>Access assigned requests, documents, and updates.</small></span>
+          <b aria-hidden="true">→</b>
+        </a>
+
+        <a class="login-card" href="admin-login.html">
+          <span><strong>Administrator Login</strong><small>Authorized screenings4u administration access.</small></span>
+          <b aria-hidden="true">→</b>
+        </a>
+      </div>
+
+      <p class="support">Need assistance? <a href="https://screenings4u.com/customer-support.html">Contact screenings4u</a></p>
+    </section>
+  </main>
+</body>
+</html>

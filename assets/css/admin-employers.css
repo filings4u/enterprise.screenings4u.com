@@ -1,0 +1,991 @@
+
+:root {
+  --employer-blue: #24467f;
+  --employer-blue-2: #24467f;
+  --employer-orange: #f05a00;
+
+  --employer-bg: #f6f8fb;
+  --employer-surface: #ffffff;
+  --employer-border: #dfe5ed;
+
+  --employer-text: #25344a;
+  --employer-muted: #617087;
+
+  --employer-success: #16804d;
+  --employer-success-bg: #e9f8ef;
+
+  --employer-inactive: #687486;
+  --employer-inactive-bg: #f1f3f6;
+
+  --employer-radius: 10px;
+  --employer-shadow: 0 3px 11px rgba(20, 48, 82, .055);
+}
+
+/* ============================================================
+   PAGE
+   ============================================================ */
+
+.admin-employers-page {
+  width: 100%;
+  padding: 22px 24px 30px;
+  background: var(--employer-bg);
+}
+
+/* ============================================================
+   HEADING
+   ============================================================ */
+
+.admin-employers-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+
+  min-height: 137px;
+  padding-bottom: 22px;
+  border-bottom: 1px solid #e3e8ef;
+}
+
+.admin-employers-heading-copy {
+  min-width: 0;
+}
+
+.admin-employers-kicker {
+  display: block;
+  margin-bottom: 5px;
+
+  color: var(--employer-orange);
+
+  font-size: 11px;
+  line-height: 1;
+  font-weight: 900;
+  letter-spacing: .045em;
+  text-transform: uppercase;
+}
+
+.admin-employers-heading h1 {
+  margin: 0;
+
+  color: var(--employer-blue);
+
+  font-size: clamp(38px, 3vw, 45px);
+  line-height: .98;
+  font-weight: 800;
+  letter-spacing: -.045em;
+}
+
+.admin-employers-heading p {
+  max-width: 850px;
+  margin: 8px 0 0;
+
+  color: #52627a;
+
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.admin-employers-primary-button {
+  min-width: 145px;
+  height: 54px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+
+  flex: 0 0 auto;
+
+  padding: 0 20px;
+
+  border: 0;
+  border-radius: 10px;
+
+  background: linear-gradient(135deg, #ff8a16, var(--employer-orange));
+  color: #ffffff;
+
+  box-shadow: 0 10px 20px rgba(240, 90, 0, .16);
+
+  font: inherit;
+  font-size: 12px;
+  font-weight: 900;
+
+  cursor: pointer;
+  transition: transform .16s ease, box-shadow .16s ease;
+}
+
+.admin-employers-primary-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 13px 24px rgba(240, 90, 0, .22);
+}
+
+.admin-employers-primary-button:active {
+  transform: translateY(0);
+}
+
+.admin-employers-primary-button span {
+  font-size: 20px;
+  line-height: 1;
+  font-weight: 500;
+}
+
+/* ============================================================
+   METRICS
+   ============================================================ */
+
+.admin-employer-metrics {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 13px;
+
+  margin-top: 22px;
+}
+
+.admin-employer-metric-card {
+  min-width: 0;
+  height: 138px;
+
+  padding: 17px 20px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  background: var(--employer-surface);
+
+  border: 1px solid var(--employer-border);
+  border-radius: var(--employer-radius);
+
+  box-shadow: var(--employer-shadow);
+}
+
+.admin-employer-metric-label {
+  display: block;
+
+  color: #5f6d83;
+
+  font-size: 10px;
+  line-height: 1.2;
+  font-weight: 900;
+  letter-spacing: .075em;
+  text-transform: uppercase;
+}
+
+.admin-employer-metric-value {
+  display: block;
+  margin-top: 16px;
+
+  color: #24467f;
+
+  font-size: 31px;
+  line-height: 1;
+  font-weight: 800;
+  letter-spacing: -.04em;
+}
+
+/* ============================================================
+   DIRECTORY PANEL
+   ============================================================ */
+
+.admin-employers-panel {
+  margin-top: 16px;
+
+  overflow: hidden;
+
+  background: var(--employer-surface);
+
+  border: 1px solid var(--employer-border);
+  border-radius: var(--employer-radius);
+
+  box-shadow: var(--employer-shadow);
+}
+
+/* ============================================================
+   TOOLBAR
+   ============================================================ */
+
+.admin-employers-toolbar {
+  min-height: 76px;
+
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  padding: 16px;
+
+  border-bottom: 1px solid #e7ebf1;
+}
+
+.admin-employers-search {
+  min-width: 220px;
+  flex: 1;
+
+  position: relative;
+}
+
+.admin-employers-search svg {
+  position: absolute;
+  top: 50%;
+  left: 13px;
+
+  width: 17px;
+  height: 17px;
+
+  transform: translateY(-50%);
+
+  fill: none;
+  stroke: #7d8aa0;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+
+  pointer-events: none;
+}
+
+.admin-employers-search input,
+.admin-employers-toolbar select {
+  width: 100%;
+  height: 42px;
+
+  border: 1px solid #d9e1eb;
+  border-radius: 8px;
+  outline: none;
+
+  background: #ffffff;
+  color: var(--employer-text);
+
+  font: inherit;
+  font-size: 12px;
+
+  transition: border-color .18s ease, box-shadow .18s ease;
+}
+
+.admin-employers-search input {
+  padding: 0 13px 0 39px;
+}
+
+.admin-employers-search input::placeholder {
+  color: #9aa5b5;
+}
+
+.admin-employers-toolbar select {
+  width: 155px;
+  padding: 0 34px 0 12px;
+  cursor: pointer;
+}
+
+.admin-employers-search input:focus,
+.admin-employers-toolbar select:focus {
+  border-color: var(--employer-blue-2);
+  box-shadow: 0 0 0 3px rgba(50, 90, 163, .10);
+}
+
+.admin-employers-secondary-button {
+  height: 42px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0 16px;
+
+  border: 1px solid #cbd7e5;
+  border-radius: 8px;
+
+  background: #ffffff;
+  color: #214b87;
+
+  font: inherit;
+  font-size: 11px;
+  font-weight: 900;
+
+  cursor: pointer;
+
+  transition: background .16s ease, border-color .16s ease;
+}
+
+.admin-employers-secondary-button:hover {
+  background: #f7faff;
+  border-color: #9fb6d3;
+}
+
+/* ============================================================
+   TABLE
+   ============================================================ */
+
+.admin-employers-table-wrap {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.admin-employers-table {
+  width: 100%;
+  min-width: 1080px;
+
+  border-collapse: collapse;
+}
+
+.admin-employers-table thead {
+  background: #fbfcfe;
+}
+
+.admin-employers-table th,
+.admin-employers-table td {
+  padding: 16px 18px;
+
+  border-bottom: 1px solid #edf0f4;
+
+  text-align: left;
+  vertical-align: middle;
+}
+
+.admin-employers-table th {
+  color: #718096;
+
+  font-size: 10px;
+  line-height: 1.2;
+  font-weight: 900;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+}
+
+.admin-employers-table td {
+  color: #4e5d72;
+
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.admin-employers-table tbody tr {
+  transition: background .16s ease;
+}
+
+.admin-employers-table tbody tr:hover {
+  background: #fafcff;
+}
+
+.admin-employers-table tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.admin-employers-table td strong {
+  display: block;
+
+  color: #24467f;
+
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.admin-employers-table td small {
+  display: block;
+  margin-top: 3px;
+
+  color: #748198;
+
+  font-size: 10px;
+  line-height: 1.35;
+}
+
+/* ============================================================
+   STATUS
+   ============================================================ */
+
+.status {
+  display: inline-flex;
+  align-items: center;
+
+  min-height: 26px;
+  padding: 0 10px;
+
+  border-radius: 999px;
+
+  font-size: 10px;
+  line-height: 1;
+  font-weight: 900;
+  text-transform: capitalize;
+}
+
+.status.active {
+  background: var(--employer-success-bg);
+  color: var(--employer-success);
+}
+
+.status.inactive {
+  background: var(--employer-inactive-bg);
+  color: var(--employer-inactive);
+}
+
+/* ============================================================
+   ACTION BUTTON
+   ============================================================ */
+
+.row-action {
+  min-height: 32px;
+
+  padding: 6px 10px;
+
+  border: 1px solid #dfe5ed;
+  border-radius: 7px;
+
+  background: #ffffff;
+  color: #214b87;
+
+  font: inherit;
+  font-size: 11px;
+  font-weight: 800;
+
+  cursor: pointer;
+
+  transition: background .16s ease, border-color .16s ease;
+}
+
+.row-action:hover {
+  background: #f7faff;
+  border-color: #bfcfe2;
+}
+
+/* ============================================================
+   TABLE STATES
+   ============================================================ */
+
+.admin-employers-loading-row,
+.empty-row {
+  height: 150px;
+
+  color: #647189 !important;
+
+  text-align: center !important;
+
+  font-size: 13px !important;
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+
+.admin-employers-table-footer {
+  min-height: 52px;
+
+  display: flex;
+  align-items: center;
+
+  padding: 13px 18px;
+
+  border-top: 1px solid #edf0f4;
+
+  color: #647189;
+
+  font-size: 11px;
+  font-weight: 700;
+}
+
+/* ============================================================
+   SHARED UI.JS FORM MODAL SUPPORT
+   ============================================================ */
+
+.s4u-form-modal-field {
+  display: block;
+  margin-bottom: 14px;
+}
+
+.s4u-form-modal-field span {
+  display: block;
+  margin-bottom: 6px;
+
+  color: var(--employer-text);
+
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.s4u-form-modal-field input,
+.s4u-form-modal-field select,
+.s4u-form-modal-field textarea {
+  width: 100%;
+
+  border: 1px solid #d9e1eb;
+  border-radius: 8px;
+
+  background: #ffffff;
+  color: var(--employer-text);
+
+  font: inherit;
+  font-size: 13px;
+}
+
+.s4u-form-modal-field input,
+.s4u-form-modal-field select {
+  height: 42px;
+  padding: 0 12px;
+}
+
+.s4u-form-modal-field textarea {
+  min-height: 100px;
+  padding: 10px 12px;
+  resize: vertical;
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+
+@media (max-width: 1250px) {
+  .admin-employer-metrics {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 900px) {
+  .admin-employers-page {
+    padding: 20px;
+  }
+
+  .admin-employers-heading {
+    align-items: flex-start;
+    flex-direction: column;
+
+    min-height: 0;
+  }
+
+  .admin-employers-primary-button {
+    min-width: 150px;
+  }
+}
+
+@media (max-width: 700px) {
+  .admin-employers-page {
+    padding: 18px 14px 24px;
+  }
+
+  .admin-employers-heading {
+    gap: 18px;
+    padding-bottom: 18px;
+  }
+
+  .admin-employers-heading h1 {
+    font-size: 36px;
+  }
+
+  .admin-employers-heading p {
+    font-size: 12px;
+  }
+
+  .admin-employer-metrics {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    margin-top: 16px;
+  }
+
+  .admin-employer-metric-card {
+    height: 118px;
+  }
+
+  .admin-employers-toolbar {
+    align-items: stretch;
+    flex-wrap: wrap;
+  }
+
+  .admin-employers-search {
+    width: 100%;
+    min-width: 100%;
+  }
+
+  .admin-employers-toolbar select,
+  .admin-employers-secondary-button {
+    flex: 1;
+    width: auto;
+  }
+}
+
+@media (max-width: 430px) {
+  .admin-employers-toolbar select,
+  .admin-employers-secondary-button {
+    width: 100%;
+    flex-basis: 100%;
+  }
+
+  .admin-employers-primary-button {
+    width: 100%;
+  }
+}
+
+/* ============================================================
+   EMPLOYER ADD / EDIT MODAL
+   Matches admin-employers.js exactly
+   ============================================================ */
+
+#employerModalOverlay.employer-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  overflow-y: auto;
+  background: rgba(18, 34, 58, 0.62);
+  backdrop-filter: blur(4px);
+  box-sizing: border-box;
+}
+
+.employer-modal {
+  position: relative;
+  width: min(1100px, calc(100vw - 48px));
+  max-height: calc(100vh - 48px);
+  overflow-y: auto;
+  background: #ffffff;
+  border: 1px solid #dfe5ed;
+  border-radius: 14px;
+  box-shadow: 0 24px 70px rgba(20, 48, 82, 0.28);
+}
+
+.employer-modal *,
+.employer-modal *::before,
+.employer-modal *::after {
+  box-sizing: border-box;
+}
+
+.employer-modal-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 28px 32px 22px;
+  border-bottom: 1px solid #e7ebf1;
+}
+
+.employer-modal-header h2 {
+  margin: 0;
+  color: var(--employer-blue);
+  font-size: 25px;
+  line-height: 1.2;
+  font-weight: 800;
+}
+
+.employer-modal-header p {
+  margin: 8px 0 0;
+  color: var(--employer-muted);
+  font-size: 13px;
+}
+
+.employer-modal-close {
+  width: 38px;
+  height: 38px;
+  flex: 0 0 38px;
+  padding: 0;
+  border: 1px solid var(--employer-border);
+  border-radius: 8px;
+  background: #ffffff;
+  color: var(--employer-muted);
+  font-size: 24px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.employer-modal-form {
+  margin: 0;
+}
+
+.employer-form-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px 20px;
+  padding: 26px 32px 28px;
+}
+
+.employer-form-field {
+  display: grid;
+  gap: 7px;
+  min-width: 0;
+}
+
+.employer-form-field label {
+  margin: 0;
+  color: var(--employer-text);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.employer-form-field input,
+.employer-form-field select {
+  width: 100%;
+  height: 44px;
+  min-width: 0;
+  margin: 0;
+  padding: 0 13px;
+  border: 1px solid #d5deea;
+  border-radius: 8px;
+  background: #ffffff;
+  color: var(--employer-text);
+  font: inherit;
+  font-size: 13px;
+  outline: none;
+}
+
+.employer-form-field input:focus,
+.employer-form-field select:focus {
+  border-color: var(--employer-blue);
+  box-shadow: 0 0 0 3px rgba(50, 90, 163, 0.12);
+}
+
+.employer-modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 12px;
+  padding: 20px 32px 24px;
+  border-top: 1px solid #e7ebf1;
+}
+
+.employer-modal-cancel,
+.employer-modal-save {
+  min-width: 130px;
+  height: 44px;
+  padding: 0 18px;
+  border-radius: 8px;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.employer-modal-cancel {
+  border: 1px solid var(--employer-border);
+  background: #ffffff;
+  color: var(--employer-blue);
+}
+
+.employer-modal-save {
+  border: 0;
+  background: var(--employer-orange);
+  color: #ffffff;
+}
+
+@media (max-width: 1000px) {
+  .employer-form-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 650px) {
+  #employerModalOverlay.employer-modal-overlay {
+    align-items: flex-start;
+    padding: 12px;
+  }
+
+  .employer-modal {
+    width: 100%;
+    max-height: calc(100vh - 24px);
+  }
+
+  .employer-modal-header {
+    padding: 22px 18px 18px;
+  }
+
+  .employer-form-grid {
+    grid-template-columns: 1fr;
+    padding: 20px 18px 22px;
+  }
+
+  .employer-modal-footer {
+    flex-direction: column-reverse;
+    align-items: stretch;
+    padding: 18px;
+  }
+
+  .employer-modal-cancel,
+  .employer-modal-save {
+    width: 100%;
+  }
+}
+
+
+/* ============================================================
+   SCREENINGS4U — ADMIN DESKTOP TYPOGRAPHY NORMALIZATION
+   Canonical sizing source: customer-dashboard.css
+   Added 2026-08-31
+   Layout, colors, spacing, borders, and responsive rules above
+   remain unchanged.
+   ============================================================ */
+
+@media (min-width: 901px) {
+
+  /* Page titles */
+  :is(
+    .s4u-dashboard-heading,
+    .customers-heading,
+    .employees-heading,
+    .admin-employers-heading,
+    .employer-users-heading,
+    .enterprise-page-title,
+    .admin-module-heading,
+    .operations-page-title,
+    .admin-lms-page-heading,
+    .admin-lms-heading,
+    .s4u-page-heading,
+    .page-heading
+  ) h1 {
+    font-size: clamp(1.8rem, 3vw, 2.55rem);
+  }
+
+  /* Page descriptions */
+  :is(
+    .s4u-dashboard-heading,
+    .customers-heading,
+    .employees-heading,
+    .admin-employers-heading,
+    .employer-users-heading,
+    .enterprise-page-title,
+    .admin-module-heading,
+    .operations-page-title,
+    .admin-lms-page-heading,
+    .admin-lms-heading,
+    .s4u-page-heading,
+    .page-heading
+  ) p {
+    font-size: 0.98rem;
+  }
+
+  /* Eyebrows / kickers */
+  :is(
+    .s4u-dashboard-kicker,
+    .page-eyebrow,
+    .panel-eyebrow,
+    .employees-kicker,
+    .admin-employers-kicker,
+    .employer-users-kicker,
+    .s4u-page-kicker,
+    .admin-module-kicker,
+    .admin-lms-kicker,
+    .page-kicker
+  ) {
+    font-size: 0.72rem;
+  }
+
+  /* Primary and secondary action text */
+  :is(
+    .s4u-button,
+    .btn,
+    .employees-primary-button,
+    .employees-secondary-button,
+    .employees-action-button,
+    .admin-employers-primary-button,
+    .employer-users-primary-button,
+    .employer-users-secondary-button,
+    .employer-users-action-button,
+    .operations-btn,
+    .admin-lms-button,
+    .admin-lms-primary-button,
+    .admin-lms-secondary-button
+  ) {
+    font-size: 0.9rem;
+  }
+
+  /* Section / panel headings */
+  :is(
+    .s4u-section-header,
+    .enterprise-section-header,
+    .admin-module-section-header,
+    .operations-panel-header,
+    .admin-lms-panel-header,
+    .panel-header,
+    .section-header
+  ) h2 {
+    font-size: 1.05rem;
+  }
+
+  /* Section / panel supporting text */
+  :is(
+    .s4u-section-header,
+    .enterprise-section-header,
+    .admin-module-section-header,
+    .operations-panel-header,
+    .admin-lms-panel-header,
+    .panel-header,
+    .section-header
+  ) p {
+    font-size: 0.78rem;
+  }
+
+  /* KPI / metric values */
+  :is(
+    .s4u-dashboard-metric-card,
+    .metric-card,
+    .employees-metric-card,
+    .admin-employer-metric-card,
+    .employer-users-metric-card,
+    .admin-module-kpi,
+    .operations-kpi-card,
+    .s4u-stat,
+    .admin-lms-stat-card,
+    .admin-lms-metric-card
+  ) strong,
+  .admin-employer-metric-value,
+  .s4u-stat-value {
+    font-size: 1.85rem;
+  }
+
+  /* KPI / metric labels */
+  :is(
+    .s4u-dashboard-metric-card,
+    .metric-card,
+    .employees-metric-card,
+    .admin-employer-metric-card,
+    .employer-users-metric-card,
+    .admin-module-kpi,
+    .operations-kpi-card,
+    .s4u-stat,
+    .admin-lms-stat-card,
+    .admin-lms-metric-card
+  ) > span:first-child,
+  .metric-label,
+  .admin-employer-metric-label,
+  .admin-module-kpi-label,
+  .operations-kpi-label,
+  .s4u-stat-label {
+    font-size: 0.72rem;
+  }
+
+  /* Tables */
+  :is(
+    .s4u-table,
+    .enterprise-table,
+    .admin-module-table,
+    .operations-table,
+    .admin-lms-table,
+    table
+  ) {
+    font-size: 0.78rem;
+  }
+
+  :is(
+    .s4u-table,
+    .enterprise-table,
+    .admin-module-table,
+    .operations-table,
+    .admin-lms-table,
+    table
+  ) th {
+    font-size: 0.72rem;
+  }
+
+  :is(
+    .s4u-table,
+    .enterprise-table,
+    .admin-module-table,
+    .operations-table,
+    .admin-lms-table,
+    table
+  ) td {
+    font-size: 0.78rem;
+  }
+
+  /* Form controls */
+  :is(
+    input,
+    select,
+    textarea
+  ) {
+    font-size: 0.9rem;
+  }
+}

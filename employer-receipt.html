@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en" class="s4u-auth-pending">
+<head><style id="s4u-preauth-style">html.s4u-auth-pending body{visibility:hidden!important}html.s4u-auth-pending #s4u-auth-blocking-error{visibility:visible!important}</style>
+  <meta charset="utf-8">
+  <meta name="theme-color" content="#24467f">
+
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Receipt | screenings4u Employer Portal</title>
+<link href="images/fav.png" rel="icon" type="image/png"/>
+  <link rel="stylesheet" href="assets/css/employer-portal.css">
+  <link rel="stylesheet" href="assets/css/employer-receipt.css?v=20260830-1712">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/lms-ui-modals.css?v=20260918-modal-fix-1">
+<link rel="stylesheet" href="assets/css/brand-system.css?v=20260918-brand-repair-v2">
+</head>
+<body data-s4u-portal="employer">
+  <main class="receipt-page">
+    <div class="receipt-toolbar">
+      <a href="employer-orders.html" class="receipt-back">← Back to Orders</a>
+      <button type="button" id="print-receipt" class="receipt-print">Print / Save PDF</button>
+    </div>
+
+    <section class="receipt-card" id="receipt">
+      <header class="receipt-header">
+        <div class="receipt-brand-wrap">
+          <img
+            src="images/logo.png"
+            alt="Screenings4u"
+            class="receipt-logo"
+            onerror="this.onerror=null;this.src='images/logo2.png';"
+          >
+          <p>Employer Portal Payment Receipt</p>
+        </div>
+        <div class="receipt-status" id="receipt-payment-status">Loading…</div>
+      </header>
+
+      <div id="receipt-error" class="receipt-error" hidden></div>
+
+      <div id="receipt-content" hidden>
+        <div class="receipt-title-row">
+          <div>
+            <span>Receipt for</span>
+            <h1 id="receipt-order-number">—</h1>
+          </div>
+          <div class="receipt-date">
+            <span>Order Date</span>
+            <strong id="receipt-date">—</strong>
+          </div>
+        </div>
+
+        <div class="receipt-info-grid">
+          <div><span>Employer</span><strong id="receipt-employer">—</strong></div>
+          <div><span>Customer</span><strong id="receipt-customer">—</strong></div>
+          <div><span>Email</span><strong id="receipt-email">—</strong></div>
+          <div><span>Payment Method</span><strong id="receipt-payment-method">—</strong></div>
+          <div><span>Payment Reference</span><strong id="receipt-payment-reference">—</strong></div>
+          <div><span>Tracking Number</span><strong id="receipt-tracking-number">—</strong></div>
+        </div>
+
+        <div class="receipt-items">
+          <table>
+            <thead>
+              <tr><th>Service</th><th>Qty</th><th>Unit Price</th><th>Total</th></tr>
+            </thead>
+            <tbody id="receipt-items"></tbody>
+          </table>
+        </div>
+
+        <div class="receipt-totals">
+          <div><span>Subtotal</span><strong id="receipt-subtotal">$0.00</strong></div>
+          <div class="receipt-grand-total"><span>Total Paid</span><strong id="receipt-total">$0.00</strong></div>
+        </div>
+
+        <footer class="receipt-footer">
+          <p>Thank you for choosing Screenings4u.</p>
+          <p>Keep this receipt and tracking number for your records.</p>
+        </footer>
+      </div>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  
+  
+    <script src="assets/js/ui.js?v=20260918-modal-fix-1"></script>
+  
+  
+  <script src="assets/js/employer-receipt.js"></script>
+
+<!-- screenings4u universal portal security -->
+<script src="assets/js/supabase-config.js?v=20260925-lockdown"></script>
+<script src="assets/js/core-auth.js?v=20260925-lockdown"></script>
+<script src="assets/js/session-security.js?v=20260925-lockdown"></script>
+<script src="assets/js/portal-auth-guard.js?v=20260925-lockdown"></script>
+<script src="assets/js/employer-auth-guard.js?v=20260925-lockdown"></script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Moved | screenings4u Enterprise</title>
+<script>
+(function(){
+  const target=new URL('admin-lms-order-create.html',location.href);
+  target.searchParams.set('mode','customer');
+  target.searchParams.set('business','training');
+  const org=new URLSearchParams(location.search).get('organization_id');
+  if(org) target.searchParams.set('organization_id',org);
+  location.replace(target.href);
+})();
+</script>
+</head>
+<body><p>This workspace has moved to <a href="admin-lms-order-create.html?mode=customer&amp;business=training">Create Training Order</a>.</p></body>
+</html>

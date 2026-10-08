@@ -1,0 +1,762 @@
+/* ============================================================
+   SCREENINGS4U — CUSTOMER MY ACCOUNT
+   ============================================================ */
+
+.customer-account-page {
+  background: #f5f7fb;
+}
+
+.customer-account-content {
+  width: 100%;
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 32px;
+}
+
+.customer-account-hero {
+  margin-bottom: 26px;
+}
+
+.customer-account-eyebrow {
+  display: inline-block;
+  margin-bottom: 8px;
+  color: #ff6b00;
+  font-size: .72rem;
+  font-weight: 800;
+  letter-spacing: .11em;
+}
+
+.customer-account-hero h1 {
+  margin: 0;
+  color: #24364f;
+  font-size: clamp(2rem, 3vw, 2.7rem);
+  font-weight: 780;
+}
+
+.customer-account-hero p {
+  max-width: 700px;
+  margin: 10px 0 0;
+  color: #69778b;
+  line-height: 1.65;
+}
+
+.customer-account-layout {
+  display: grid;
+  grid-template-columns: minmax(250px, 300px) minmax(0, 1fr);
+  align-items: start;
+  gap: 20px;
+}
+
+.customer-account-profile-card,
+.customer-account-panel,
+.customer-account-danger-panel {
+  border: 1px solid #dce4ed;
+  border-radius: 17px;
+  background: #fff;
+}
+
+.customer-account-profile-card {
+  position: sticky;
+  top: 20px;
+  padding: 28px 23px;
+  text-align: center;
+}
+
+.customer-account-avatar-wrap {
+  position: relative;
+  display: inline-flex;
+  margin-bottom: 14px;
+}
+
+.customer-account-avatar {
+  display: grid;
+  place-items: center;
+  width: 78px;
+  height: 78px;
+  border-radius: 24px;
+  background: linear-gradient(135deg, #24467f, #4675c6);
+  color: #fff;
+  font-size: 1.35rem;
+  font-weight: 800;
+}
+
+.customer-account-status-dot {
+  position: absolute;
+  right: -2px;
+  bottom: -2px;
+  width: 17px;
+  height: 17px;
+  border: 3px solid #fff;
+  border-radius: 50%;
+  background: #2b9b68;
+}
+
+.customer-account-profile-card h2 {
+  margin: 0;
+  color: #34475f;
+  font-size: 1rem;
+}
+
+.customer-account-profile-card > p {
+  margin: 7px 0 13px;
+  color: #8995a5;
+  font-size: .69rem;
+  overflow-wrap: anywhere;
+}
+
+.customer-account-active,
+.customer-account-security-status {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 25px;
+  padding: 0 9px;
+  border-radius: 999px;
+  background: rgba(43,155,104,.10);
+  color: #23895f;
+  font-size: .62rem;
+  font-weight: 750;
+}
+
+.customer-account-profile-meta {
+  display: grid;
+  gap: 12px;
+  margin-top: 23px;
+  padding-top: 20px;
+  border-top: 1px solid #edf1f5;
+  text-align: left;
+}
+
+.customer-account-profile-meta div {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.customer-account-profile-meta span {
+  color: #97a2af;
+  font-size: .61rem;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+}
+
+.customer-account-profile-meta strong {
+  color: #52637a;
+  font-size: .71rem;
+  overflow-wrap: anywhere;
+}
+
+.customer-account-panels {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.customer-account-panel {
+  padding: 23px;
+}
+
+.customer-account-panel-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 18px;
+  margin-bottom: 22px;
+}
+
+.customer-account-panel-header h2,
+.customer-account-danger-panel h2 {
+  margin: 0;
+  color: #34475f;
+  font-size: 1rem;
+}
+
+.customer-account-panel-header p,
+.customer-account-danger-panel p {
+  margin: 6px 0 0;
+  color: #8793a3;
+  font-size: .72rem;
+  line-height: 1.55;
+}
+
+.customer-account-edit-btn,
+.customer-account-secondary-btn,
+.customer-account-cancel-btn,
+.customer-account-save-btn,
+.customer-account-support-btn {
+  min-height: 39px;
+  border-radius: 9px;
+  font: inherit;
+  font-size: .69rem;
+  font-weight: 750;
+  cursor: pointer;
+}
+
+.customer-account-edit-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 0 12px;
+  border: 1px solid #d8e1eb;
+  background: #fff;
+  color: #24467f;
+}
+
+.customer-account-edit-btn svg {
+  width: 15px;
+  height: 15px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.customer-account-form {
+  display: flex;
+  flex-direction: column;
+  gap: 17px;
+}
+
+.customer-account-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 15px;
+}
+
+.customer-account-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.customer-account-form label > span {
+  color: #596b80;
+  font-size: .66rem;
+  font-weight: 750;
+}
+
+.customer-account-form input {
+  width: 100%;
+  min-height: 43px;
+  padding: 0 12px;
+  border: 1px solid #dce4ed;
+  border-radius: 9px;
+  outline: none;
+  background: #f8fafc;
+  color: #53647a;
+  font: inherit;
+  font-size: .72rem;
+}
+
+.customer-account-form input:not(:disabled) {
+  background: #fff;
+}
+
+.customer-account-form input:focus {
+  border-color: #24467f;
+  box-shadow: 0 0 0 3px rgba(50,90,163,.08);
+}
+
+.customer-account-form small {
+  color: #98a2af;
+  font-size: .59rem;
+  line-height: 1.4;
+}
+
+.customer-account-form-actions,
+.customer-account-notification-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 9px;
+  padding-top: 2px;
+}
+
+.customer-account-cancel-btn {
+  padding: 0 14px;
+  border: 1px solid #d8e1eb;
+  background: #fff;
+  color: #657388;
+}
+
+.customer-account-save-btn {
+  padding: 0 15px;
+  border: 1px solid #24467f;
+  background: #24467f;
+  color: #fff;
+}
+
+.customer-account-security-row,
+.customer-account-toggle-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 0;
+  border-top: 1px solid #edf1f5;
+}
+
+.customer-account-security-row:first-of-type,
+.customer-account-toggle-row:first-of-type {
+  border-top: 0;
+  padding-top: 0;
+}
+
+.customer-account-security-row:last-child,
+.customer-account-toggle-row:last-child {
+  padding-bottom: 0;
+}
+
+.customer-account-security-icon {
+  display: grid;
+  place-items: center;
+  flex: 0 0 41px;
+  width: 41px;
+  height: 41px;
+  border-radius: 12px;
+  background: rgba(255,107,0,.10);
+  color: #ff6b00;
+}
+
+.customer-account-security-icon.is-blue {
+  background: rgba(50,90,163,.09);
+  color: #24467f;
+}
+
+.customer-account-security-icon svg {
+  width: 19px;
+  height: 19px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.customer-account-security-copy {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.customer-account-security-copy strong,
+.customer-account-toggle-row strong {
+  color: #485a71;
+  font-size: .73rem;
+}
+
+.customer-account-security-copy span,
+.customer-account-toggle-row span {
+  color: #909baa;
+  font-size: .65rem;
+  line-height: 1.45;
+}
+
+.customer-account-secondary-btn {
+  flex: 0 0 auto;
+  padding: 0 12px;
+  border: 1px solid #d8e1eb;
+  background: #fff;
+  color: #24467f;
+}
+
+.customer-account-toggle-row > div {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.customer-account-switch {
+  position: relative;
+  flex: 0 0 auto;
+  width: 42px;
+  height: 24px;
+}
+
+.customer-account-switch input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.customer-account-switch span {
+  position: absolute;
+  inset: 0;
+  border-radius: 999px;
+  background: #d6dee8;
+  cursor: pointer;
+  transition: .2s ease;
+}
+
+.customer-account-switch span::after {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 1px 3px rgba(28,48,75,.2);
+  transition: .2s ease;
+}
+
+.customer-account-switch input:checked + span {
+  background: #24467f;
+}
+
+.customer-account-switch input:checked + span::after {
+  transform: translateX(18px);
+}
+
+.customer-account-switch input:disabled + span {
+  cursor: default;
+}
+
+.customer-account-danger-panel {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 22px;
+  padding: 22px 23px;
+  background: #fffdfb;
+}
+
+.customer-account-support-btn {
+  flex: 0 0 auto;
+  padding: 0 14px;
+  border: 1px solid rgba(255,107,0,.3);
+  background: #fff;
+  color: #d95d00;
+}
+
+.customer-account-modal[hidden] {
+  display: none;
+}
+
+.customer-account-modal {
+  position: fixed;
+  z-index: 9999;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+}
+
+.customer-account-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(21,35,54,.45);
+}
+
+.customer-account-modal-card {
+  position: relative;
+  width: min(100%, 420px);
+  padding: 30px;
+  border-radius: 18px;
+  background: #fff;
+  box-shadow: 0 20px 60px rgba(25,42,67,.22);
+  text-align: center;
+}
+
+.customer-account-modal-close {
+  position: absolute;
+  top: 10px;
+  right: 13px;
+  width: 32px;
+  height: 32px;
+  border: 0;
+  background: transparent;
+  color: #8793a3;
+  font-size: 1.45rem;
+  cursor: pointer;
+}
+
+.customer-account-modal-icon {
+  display: grid;
+  place-items: center;
+  width: 54px;
+  height: 54px;
+  margin: 0 auto 15px;
+  border-radius: 16px;
+  background: rgba(50,90,163,.09);
+  color: #24467f;
+}
+
+.customer-account-modal-icon svg {
+  width: 24px;
+  height: 24px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.customer-account-modal-card h2 {
+  margin: 0;
+  color: #34475f;
+  font-size: 1.05rem;
+}
+
+.customer-account-modal-card p {
+  margin: 9px 0 21px;
+  color: #8793a3;
+  font-size: .72rem;
+  line-height: 1.6;
+}
+
+.customer-account-modal-card .customer-account-save-btn {
+  min-width: 120px;
+}
+
+@media (max-width: 1000px) {
+  .customer-account-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .customer-account-profile-card {
+    position: static;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 0 18px;
+    text-align: left;
+  }
+
+  .customer-account-avatar-wrap {
+    grid-row: span 3;
+    margin: 0;
+  }
+
+  .customer-account-profile-card > p {
+    margin: 5px 0;
+  }
+
+  .customer-account-active {
+    justify-self: start;
+  }
+
+  .customer-account-profile-meta {
+    grid-column: 1 / -1;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 650px) {
+  .customer-account-content {
+    padding: 22px 18px;
+  }
+
+  .customer-account-panel {
+    padding: 18px;
+  }
+
+  .customer-account-panel-header {
+    flex-direction: column;
+  }
+
+  .customer-account-form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .customer-account-security-row,
+  .customer-account-toggle-row {
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .customer-account-secondary-btn {
+    margin-left: 55px;
+  }
+
+  .customer-account-security-status,
+  .customer-account-switch {
+    margin-left: auto;
+  }
+
+  .customer-account-danger-panel {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .customer-account-profile-card {
+    display: block;
+    text-align: center;
+  }
+
+  .customer-account-avatar-wrap {
+    margin-bottom: 14px;
+  }
+
+  .customer-account-active {
+    justify-self: center;
+  }
+
+  .customer-account-profile-meta {
+    grid-template-columns: 1fr;
+    text-align: left;
+  }
+}
+
+/* ============================================================
+   LIVE ACCOUNT STATE / ACCESSIBILITY REFINEMENTS
+   Added for Supabase-wired customer-account.js
+   ============================================================ */
+
+.customer-account-page {
+  min-height: 100vh;
+}
+
+.customer-account-content,
+.customer-account-layout,
+.customer-account-panels,
+.customer-account-panel {
+  min-width: 0;
+}
+
+/* Keep native [hidden] behavior reliable even with flex/grid rules. */
+.customer-account-page [hidden] {
+  display: none !important;
+}
+
+/* Disabled form state */
+.customer-account-form input:disabled {
+  cursor: default;
+  opacity: 1;
+  -webkit-text-fill-color: #53647a;
+}
+
+.customer-account-form input[readonly],
+.customer-account-form input:disabled {
+  background: #f8fafc;
+}
+
+.customer-account-form button:disabled,
+.customer-account-secondary-btn:disabled,
+.customer-account-save-btn:disabled,
+.customer-account-support-btn:disabled {
+  cursor: not-allowed;
+  opacity: .62;
+}
+
+/* Notification switch editing states */
+.customer-account-switch input:not(:disabled) + span {
+  cursor: pointer;
+}
+
+.customer-account-switch input:disabled + span {
+  opacity: .72;
+}
+
+/* Account status states populated by live JS */
+.customer-account-active.is-inactive {
+  background: rgba(190, 52, 52, .09);
+  color: #b53434;
+}
+
+.customer-account-status-dot.is-inactive {
+  background: #c24a4a;
+}
+
+/* Better keyboard focus visibility */
+.customer-account-edit-btn:focus-visible,
+.customer-account-secondary-btn:focus-visible,
+.customer-account-cancel-btn:focus-visible,
+.customer-account-save-btn:focus-visible,
+.customer-account-support-btn:focus-visible,
+.customer-account-modal-close:focus-visible,
+.customer-account-switch input:focus-visible + span {
+  outline: 3px solid rgba(50, 90, 163, .18);
+  outline-offset: 2px;
+}
+
+/* Prevent long customer/account values from expanding the layout. */
+.customer-account-security-copy,
+.customer-account-toggle-row > div,
+.customer-account-panel-header > div {
+  min-width: 0;
+}
+
+.customer-account-security-copy span,
+.customer-account-toggle-row span,
+.customer-account-panel-header p,
+.customer-account-danger-panel p {
+  overflow-wrap: anywhere;
+}
+
+/* Modal must stay above portal header/sidebar overlays. */
+.customer-account-modal {
+  isolation: isolate;
+}
+
+.customer-account-modal-card {
+  z-index: 1;
+}
+
+/* Loading/disabled buttons should not visually jump. */
+.customer-account-save-btn,
+.customer-account-secondary-btn,
+.customer-account-edit-btn,
+.customer-account-support-btn {
+  transition:
+    background-color .18s ease,
+    border-color .18s ease,
+    color .18s ease,
+    opacity .18s ease,
+    transform .18s ease;
+}
+
+@media (hover: hover) {
+  .customer-account-edit-btn:hover,
+  .customer-account-secondary-btn:hover {
+    background: #f7f9fc;
+    border-color: #c8d5e4;
+  }
+
+  .customer-account-save-btn:hover:not(:disabled) {
+    background: #294f94;
+    border-color: #294f94;
+  }
+
+  .customer-account-support-btn:hover {
+    background: #fff7f1;
+    border-color: rgba(255,107,0,.48);
+  }
+}
+
+/* Small-screen button alignment correction */
+@media (max-width: 650px) {
+  .customer-account-secondary-btn {
+    margin-left: 0;
+  }
+
+  .customer-account-security-row .customer-account-secondary-btn {
+    margin-left: 55px;
+  }
+
+  .customer-account-form-actions,
+  .customer-account-notification-actions {
+    width: 100%;
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 420px) {
+  .customer-account-security-row .customer-account-secondary-btn {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .customer-account-cancel-btn,
+  .customer-account-save-btn,
+  .customer-account-support-btn {
+    width: 100%;
+  }
+
+  .customer-account-form-actions,
+  .customer-account-notification-actions {
+    flex-direction: column-reverse;
+  }
+}

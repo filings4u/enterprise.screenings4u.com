@@ -1,0 +1,159 @@
+/* ============================================================
+   SCREENINGS4U — ADMIN LMS COURSE ENGAGEMENT
+   Builder/site-aligned design + desktop typography normalization
+   ============================================================ */
+
+:root {
+  --eg-blue: var(--admin-blue, #24467f);
+  --eg-blue-dark: var(--admin-blue-dark, #24467f);
+  --eg-orange: var(--admin-orange, #ff6b00);
+  --eg-orange-hover: var(--admin-orange-hover, #e86000);
+  --eg-green: #16804d;
+  --eg-yellow: #c45100;
+  --eg-red: #b42318;
+  --eg-ink: var(--admin-text, #172033);
+  --eg-text: #334155;
+  --eg-muted: var(--admin-muted, #617087);
+  --eg-line: var(--admin-border, #e1e7ef);
+  --eg-line-soft: #edf0f4;
+  --eg-bg: var(--admin-bg, #f5f7fa);
+  --eg-card: var(--admin-card, #ffffff);
+  --eg-shadow: 0 4px 14px rgba(20,48,82,.04);
+}
+
+.admin-lms-course-engagement-page { background: var(--eg-bg); }
+.admin-lms-course-engagement-page .admin-lms-main { min-width: 0; }
+.engagement-workspace, .engagement-workspace *, .engagement-workspace *::before, .engagement-workspace *::after { box-sizing: border-box; }
+.engagement-workspace { width:100%; max-width:1500px; margin:0 auto; padding:28px; color:var(--eg-text); }
+
+.engagement-breadcrumbs { display:flex; align-items:center; gap:9px; margin-bottom:10px; color:var(--eg-muted); font-size:.78rem; }
+.engagement-breadcrumbs a { color:var(--eg-blue-dark); font-weight:700; text-decoration:none; }
+.engagement-breadcrumbs a:hover { color:var(--eg-orange); }
+.engagement-breadcrumbs span { color:#98a4b4; }
+
+.engagement-course-header { display:flex; align-items:flex-start; justify-content:space-between; gap:24px; padding:6px 0 16px; }
+.engagement-title-row { display:flex; align-items:flex-start; gap:10px; min-width:0; }
+.engagement-back { margin-top:4px; color:var(--eg-blue); font-size:24px; line-height:1; text-decoration:none; }
+.engagement-course-header h1 { margin:0; color:var(--eg-blue-dark); font-size:clamp(1.8rem,3vw,2.55rem); line-height:1.05; font-weight:900; letter-spacing:-.04em; }
+.engagement-status-row { display:flex; flex-wrap:wrap; gap:7px; margin-top:8px; }
+.engagement-status-badge { display:inline-flex; align-items:center; min-height:24px; padding:3px 9px; border-radius:999px; background:#111827; color:#fff; font-size:.72rem; font-weight:800; }
+.engagement-status-badge.active { background:#eaf8ef; color:var(--eg-green); }
+
+.engagement-header-actions { display:flex; align-items:center; gap:10px; flex:0 0 auto; }
+.engagement-circle-button { width:42px; height:42px; border:1px solid var(--eg-line); border-radius:8px; background:#fff; color:var(--eg-blue-dark); font:inherit; font-size:.9rem; font-weight:800; cursor:pointer; }
+.engagement-pill,.engagement-small-button { display:inline-flex; align-items:center; justify-content:center; text-decoration:none; }
+.engagement-pill { min-height:42px; padding:0 18px; border:1px solid transparent; border-radius:8px; font:inherit; font-size:.9rem; font-weight:800; cursor:pointer; }
+.engagement-pill.primary { border-color:var(--eg-orange); background:var(--eg-orange); color:#fff; box-shadow:0 7px 16px rgba(255,107,0,.14); }
+.engagement-pill.primary:hover { border-color:var(--eg-orange-hover); background:var(--eg-orange-hover); }
+.engagement-pill.secondary { border-color:var(--eg-line); background:#fff; color:var(--eg-blue-dark); }
+.engagement-small-button { min-height:34px; padding:0 12px; border:1px solid #c9d4e2; border-radius:7px; background:#fff; color:var(--eg-blue); font-size:.78rem; font-weight:800; }
+
+.engagement-course-tabs { display:flex; gap:4px; overflow-x:auto; border-bottom:1px solid var(--eg-line); }
+.engagement-course-tabs a { position:relative; padding:13px 17px; color:#46556b; font-size:.9rem; font-weight:700; text-decoration:none; white-space:nowrap; }
+.engagement-course-tabs a:hover { color:var(--eg-blue-dark); }
+.engagement-course-tabs a.active { color:var(--eg-blue-dark); font-weight:800; }
+.engagement-course-tabs a.active::after { content:""; position:absolute; left:14px; right:14px; bottom:-1px; height:3px; border-radius:3px 3px 0 0; background:var(--eg-orange); }
+
+.engagement-toast { display:none; margin-top:12px; padding:11px 13px; border-radius:8px; font-size:.78rem; font-weight:750; }
+.engagement-toast.show { display:block; }
+.engagement-toast.success { background:#ecfdf3; color:#166534; }
+.engagement-toast.error { background:#fff1f2; color:#991b1b; }
+.engagement-loading { padding:52px 20px; color:var(--eg-muted); font-size:.9rem; text-align:center; }
+.engagement-content { display:grid; gap:18px; margin-top:18px; }
+
+.engagement-metric-grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:16px; }
+.engagement-metric { min-height:112px; display:flex; align-items:center; gap:14px; padding:18px; border:1px solid var(--eg-line); border-radius:10px; background:#fff; box-shadow:var(--eg-shadow); }
+.engagement-metric-icon { width:42px; height:42px; display:grid; place-items:center; flex:0 0 42px; border-radius:10px; background:#edf3fb; color:var(--eg-blue-dark); }
+.engagement-metric small { display:block; color:var(--eg-muted); font-size:.72rem; font-weight:800; }
+.engagement-metric strong { display:block; margin-top:8px; color:var(--eg-blue-dark); font-size:1.85rem; line-height:1; font-weight:900; letter-spacing:-.035em; }
+
+.engagement-two-column { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:18px; }
+.engagement-card { min-width:0; overflow:hidden; border:1px solid var(--eg-line); border-radius:10px; background:#fff; box-shadow:var(--eg-shadow); }
+.engagement-card-header { min-height:70px; display:flex; align-items:center; justify-content:space-between; gap:18px; padding:16px 20px; border-bottom:1px solid var(--eg-line); }
+.engagement-card-header h2 { margin:0; color:var(--eg-blue-dark); font-size:1.05rem; line-height:1.25; font-weight:900; }
+.engagement-card-header p { margin:5px 0 0; color:var(--eg-muted); font-size:.78rem; line-height:1.5; }
+
+.engagement-automation-list { display:grid; }
+.engagement-automation-row { min-height:78px; display:grid; grid-template-columns:38px minmax(0,1fr) auto; align-items:center; gap:13px; padding:12px 20px; border-bottom:1px solid var(--eg-line-soft); }
+.engagement-automation-row:last-child { border-bottom:0; }
+.engagement-automation-icon { width:38px; height:38px; display:grid; place-items:center; border-radius:9px; background:#edf3fb; color:var(--eg-blue-dark); }
+.engagement-automation-row strong,.engagement-automation-row small { display:block; }
+.engagement-automation-row strong { color:var(--eg-blue-dark); font-size:.78rem; font-weight:800; }
+.engagement-automation-row small { margin-top:4px; color:var(--eg-muted); font-size:.72rem; line-height:1.45; }
+.engagement-state,.engagement-level { display:inline-flex; align-items:center; min-height:25px; padding:2px 9px; border-radius:999px; font-size:.72rem; font-weight:800; white-space:nowrap; }
+.engagement-state.ready,.engagement-level.high { background:#eaf8ef; color:var(--eg-green); }
+.engagement-level.medium { background:#fff7df; color:#c45100; }
+.engagement-level.low { background:#fff1f2; color:#a32d2d; }
+
+.engagement-communication-actions { display:grid; gap:10px; padding:16px; }
+.engagement-communication-button { width:100%; min-height:72px; display:grid; grid-template-columns:40px minmax(0,1fr); align-items:center; gap:13px; padding:12px 14px; border:1px solid var(--eg-line); border-radius:9px; background:#fff; color:inherit; font:inherit; text-align:left; cursor:pointer; }
+.engagement-communication-button:hover { border-color:#c9d4e2; background:#fbfcfe; }
+.engagement-communication-button > span { width:38px; height:38px; display:grid; place-items:center; border-radius:9px; background:#fff0e5; color:var(--eg-orange); }
+.engagement-communication-button strong,.engagement-communication-button small { display:block; }
+.engagement-communication-button strong { color:var(--eg-blue-dark); font-size:.78rem; font-weight:800; }
+.engagement-communication-button small { margin-top:4px; color:var(--eg-muted); font-size:.72rem; line-height:1.45; }
+
+.engagement-card-header-tools { min-height:76px; }
+.engagement-filter-group { display:flex; align-items:center; gap:9px; }
+.engagement-filter-group select,.engagement-filter-group input { height:38px; border:1px solid #cfd9e7; border-radius:8px; background:#fff; color:#24344c; font:inherit; font-size:.9rem; outline:none; }
+.engagement-filter-group select:focus,.engagement-filter-group input:focus { border-color:var(--eg-blue); box-shadow:0 0 0 3px rgba(50,90,163,.1); }
+.engagement-filter-group select { padding:0 32px 0 11px; }
+.engagement-filter-group input { width:220px; padding:0 12px; }
+
+.engagement-table-wrap { overflow-x:auto; }
+.engagement-table { width:100%; min-width:900px; border-collapse:collapse; font-size:.78rem; }
+.engagement-table th { height:44px; padding:0 16px; border-bottom:1px solid var(--eg-line); background:#f8fafc; color:#5d6a7d; font-size:.72rem; font-weight:800; text-align:left; }
+.engagement-table td { min-height:64px; padding:12px 16px; border-bottom:1px solid var(--eg-line-soft); color:#26364c; font-size:.78rem; vertical-align:middle; }
+.engagement-table tbody tr:last-child td { border-bottom:0; }
+.engagement-person { display:flex; align-items:center; gap:11px; }
+.engagement-avatar { width:36px; height:36px; display:grid; place-items:center; flex:0 0 36px; border-radius:50%; background:var(--eg-blue-dark); color:#fff; font-size:.72rem; font-weight:900; }
+.engagement-person strong,.engagement-person small { display:block; }
+.engagement-person strong { color:var(--eg-blue-dark); font-size:.78rem; font-weight:800; }
+.engagement-person small { margin-top:3px; color:var(--eg-muted); font-size:.72rem; }
+.engagement-row-action { min-height:34px; padding:0 12px; border:1px solid #c9d4e2; border-radius:7px; background:#fff; color:var(--eg-blue); font:inherit; font-size:.78rem; font-weight:800; cursor:pointer; }
+.engagement-row-action:hover { border-color:var(--eg-orange); color:var(--eg-orange); }
+.engagement-empty { padding:38px 20px; color:var(--eg-muted); font-size:.78rem; text-align:center; }
+
+.engagement-performance-grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); }
+.engagement-performance-grid > div { min-height:98px; padding:18px; border-right:1px solid var(--eg-line); }
+.engagement-performance-grid > div:last-child { border-right:0; }
+.engagement-performance-grid span,.engagement-momentum-list span { display:block; color:var(--eg-muted); font-size:.72rem; font-weight:800; }
+.engagement-performance-grid strong,.engagement-momentum-list strong { display:block; margin-top:9px; color:var(--eg-blue-dark); font-size:1.85rem; line-height:1; font-weight:900; }
+.engagement-momentum-list { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); }
+.engagement-momentum-list > div { min-height:98px; padding:18px; border-right:1px solid var(--eg-line); border-bottom:1px solid var(--eg-line); }
+.engagement-momentum-list > div:nth-child(2n) { border-right:0; }
+.engagement-momentum-list > div:nth-last-child(-n+2) { border-bottom:0; }
+
+.engagement-modal-backdrop { position:fixed; inset:0; z-index:5000; display:grid; place-items:center; padding:20px; background:rgba(15,23,42,.46); }
+.engagement-modal-backdrop[hidden] { display:none; }
+.engagement-modal { width:min(560px,100%); overflow:hidden; border-radius:12px; background:#fff; box-shadow:0 24px 65px rgba(15,23,42,.22); }
+.engagement-modal > header { display:flex; align-items:center; justify-content:space-between; gap:12px; padding:18px 20px; border-bottom:1px solid var(--eg-line); }
+.engagement-modal header small { color:var(--eg-orange); font-size:.72rem; font-weight:900; letter-spacing:.08em; }
+.engagement-modal h2 { margin:4px 0 0; color:var(--eg-blue-dark); font-size:1.05rem; font-weight:900; }
+.engagement-modal header button { border:0; background:transparent; color:#667085; font-size:24px; cursor:pointer; }
+.engagement-modal-body { padding:20px; }
+.engagement-message-choice { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; }
+.engagement-message-choice button { min-height:165px; display:flex; align-items:center; flex-direction:column; justify-content:center; padding:18px; border:1px solid var(--eg-line); border-radius:10px; background:#fff; color:#1a2941; font:inherit; text-align:center; cursor:pointer; }
+.engagement-message-choice button:hover { border-color:var(--eg-orange); background:#fffaf6; }
+.engagement-message-choice button > span { margin-bottom:10px; color:var(--eg-orange); font-size:28px; }
+.engagement-message-choice strong { color:var(--eg-blue-dark); font-size:.9rem; }
+.engagement-message-choice small { margin-top:8px; color:var(--eg-muted); font-size:.78rem; line-height:1.45; }
+
+@media (max-width:1100px) { .engagement-metric-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+@media (max-width:900px) {
+  .engagement-workspace { padding:18px 16px 40px; }
+  .engagement-course-header { flex-direction:column; }
+  .engagement-header-actions { flex-wrap:wrap; }
+  .engagement-two-column { grid-template-columns:1fr; }
+  .engagement-card-header-tools { align-items:flex-start; flex-direction:column; }
+  .engagement-filter-group { width:100%; }
+}
+@media (max-width:620px) {
+  .engagement-metric-grid,.engagement-message-choice { grid-template-columns:1fr; }
+  .engagement-header-actions { width:100%; }
+  .engagement-pill { flex:1 1 auto; }
+  .engagement-filter-group { flex-direction:column; align-items:stretch; }
+  .engagement-filter-group input { width:100%; }
+  .engagement-performance-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .engagement-course-header h1 { font-size:2rem; }
+}

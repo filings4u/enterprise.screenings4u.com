@@ -1,0 +1,77 @@
+/* ============================================================
+   SCREENINGS4U — EMPLOYER DASHBOARD
+   ============================================================ */
+
+.employer-dashboard-content{max-width:1600px;margin:0 auto;padding:30px;}
+.employer-welcome-card{display:flex;justify-content:space-between;gap:30px;align-items:center;padding:28px 30px;border-radius:18px;background:linear-gradient(135deg,#ffffff 0%,#f3f7ff 100%);border:1px solid #dce4ef;margin-bottom:22px;}
+.employer-eyebrow{font-size:.68rem;font-weight:800;letter-spacing:.12em;color:#ff6b00;}
+.employer-welcome-card h1{margin:8px 0;color:#2d405a;font-size:2rem;}
+.employer-welcome-card p{margin:0;max-width:720px;color:#718096;font-size:.84rem;line-height:1.65;}
+.employer-welcome-actions{display:flex;gap:10px;flex-wrap:wrap;}
+.employer-primary-action,.employer-secondary-action{display:inline-flex;align-items:center;justify-content:center;min-height:42px;padding:0 16px;border-radius:9px;text-decoration:none;font-size:.72rem;font-weight:750;}
+.employer-primary-action{background:#24467f;color:#fff;}
+.employer-secondary-action{background:#fff;color:#24467f;border:1px solid #d7e0eb;}
+
+.employer-stat-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-bottom:20px;}
+.employer-stat-card{display:flex;gap:14px;align-items:center;padding:20px;border:1px solid #dce4ed;border-radius:15px;background:#fff;}
+.employer-stat-icon{width:44px;height:44px;display:grid;place-items:center;border-radius:12px;font-size:1rem;font-weight:800;}
+.employees-icon{background:#edf3ff;color:#24467f}.training-icon{background:#fff3e9}.program-icon{background:#eaf8f1;color:#21865c}.order-icon{background:#f2efff;color:#6c57b8}
+.employer-stat-card span{display:block;color:#8290a1;font-size:.65rem;margin-bottom:5px;}
+.employer-stat-card strong{display:block;color:#34475f;font-size:1.35rem;line-height:1;}
+.employer-stat-card small{display:block;margin-top:6px;color:#9aa5b3;font-size:.58rem;}
+
+.employer-dashboard-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;}
+.employer-dashboard-panel{padding:22px;border:1px solid #dce4ed;border-radius:16px;background:#fff;}
+.employer-dashboard-panel-wide{grid-column:1/-1;}
+.employer-panel-heading{display:flex;justify-content:space-between;gap:20px;align-items:flex-start;margin-bottom:20px;}
+.employer-panel-heading h2{margin:0;color:#34475f;font-size:1rem;}
+.employer-panel-heading p{margin:5px 0 0;color:#909baa;font-size:.68rem;}
+.employer-panel-link{color:#24467f;text-decoration:none;font-size:.67rem;font-weight:750;}
+
+.employer-quick-actions{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:13px;}
+.employer-quick-action{display:flex;gap:11px;align-items:center;padding:16px;border:1px solid #e3e9f0;border-radius:12px;text-decoration:none;background:#fff;transition:.18s ease;}
+.employer-quick-action:hover{border-color:#b9c9e4;transform:translateY(-1px);}
+.quick-icon{width:36px;height:36px;flex:0 0 36px;display:grid;place-items:center;border-radius:10px;background:#f1f5fb;color:#24467f;font-weight:800;}
+.employer-quick-action strong{display:block;color:#4a5b70;font-size:.68rem;}
+.employer-quick-action small{display:block;margin-top:4px;color:#98a3b0;font-size:.58rem;line-height:1.4;}
+
+.employer-empty-state{padding:24px 8px;color:#98a3b0;font-size:.7rem;text-align:center;border:1px dashed #dce4ed;border-radius:10px;}
+.employer-activity-list{display:flex;flex-direction:column;gap:10px;}
+.employer-activity-item{display:flex;gap:10px;align-items:flex-start;padding:11px 0;border-bottom:1px solid #eef2f6;}
+.employer-activity-item:last-child{border-bottom:0;}
+.employer-activity-marker{width:8px;height:8px;border-radius:50%;margin-top:5px;background:#24467f;flex:0 0 auto;}
+.employer-activity-copy strong{display:block;color:#53647a;font-size:.68rem;}
+.employer-activity-copy span{display:block;margin-top:4px;color:#9aa5b3;font-size:.59rem;}
+
+.employer-training-summary{display:flex;align-items:center;gap:28px;}
+.employer-progress-circle{width:112px;height:112px;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;background:#f2f6fc;border:8px solid #e0e9f5;color:#24467f;flex:0 0 auto;}
+.employer-progress-circle strong{font-size:1.15rem}.employer-progress-circle span{font-size:.57rem;margin-top:3px;color:#7f8da0;}
+.employer-training-details{display:grid;gap:13px;width:100%;}
+.employer-training-details div{display:flex;justify-content:space-between;gap:12px;padding-bottom:10px;border-bottom:1px solid #edf1f5;}
+.employer-training-details div:last-child{border-bottom:0;padding-bottom:0;}
+.employer-training-details span{color:#8995a5;font-size:.66rem}.employer-training-details strong{color:#45586f;font-size:.72rem;}
+
+.employer-open-items{display:grid;gap:10px;}
+.employer-open-item{display:flex;justify-content:space-between;align-items:center;gap:15px;padding:14px 15px;border:1px solid #e5ebf1;border-radius:10px;}
+.employer-open-item strong{display:block;color:#52637a;font-size:.7rem}.employer-open-item span{display:block;margin-top:4px;color:#98a3b0;font-size:.59rem;}
+.employer-open-item a{color:#24467f;text-decoration:none;font-size:.64rem;font-weight:750;}
+
+@media(max-width:1100px){.employer-stat-grid{grid-template-columns:repeat(2,1fr)}.employer-quick-actions{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:800px){.employer-welcome-card{flex-direction:column;align-items:flex-start}.employer-dashboard-grid{grid-template-columns:1fr}.employer-dashboard-panel-wide{grid-column:auto}.employer-dashboard-content{padding:22px 18px;}}
+@media(max-width:560px){.employer-stat-grid,.employer-quick-actions{grid-template-columns:1fr}.employer-training-summary{align-items:flex-start;flex-direction:column}.employer-welcome-actions{width:100%}.employer-primary-action,.employer-secondary-action{flex:1;}.employer-welcome-card{padding:22px;}}
+
+/* Desktop readability */
+@media (min-width:861px){
+  .employer-welcome-card p{font-size:16px;color:#536174}
+  .employer-primary-action,.employer-secondary-action{font-size:15px;min-height:46px}
+  .employer-stat-card span{font-size:14px;color:#667085}
+  .employer-stat-card strong{font-size:26px}
+  .employer-stat-card small{font-size:13px;color:#667085}
+  .employer-panel-heading h2{font-size:20px}
+  .employer-panel-heading p{font-size:15px;color:#536174;line-height:1.55}
+  .employer-panel-link{font-size:14px}
+  .employer-quick-action strong{font-size:15px}
+  .employer-quick-action small{font-size:13px;color:#667085}
+  .employer-empty-state{font-size:15px;color:#667085}
+  .employer-activity-item,.employer-activity-item p,.employer-activity-item span,.employer-activity-item small{font-size:14px;color:#536174}
+}

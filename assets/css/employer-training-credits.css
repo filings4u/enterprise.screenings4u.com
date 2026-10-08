@@ -1,0 +1,280 @@
+:root{
+  --s4u-nav:#17365f;
+  --s4u-teal:#24467f;
+  --s4u-orange:#ef8a24;
+  --s4u-bg:#f4f7f8;
+  --s4u-line:#dbe5e7;
+  --s4u-text:#17383f;
+  --s4u-muted:#6d8185;
+  --s4u-good:#16804d;
+}
+
+.employer-training-credits-page{
+  background:var(--s4u-bg);
+  color:var(--s4u-text);
+}
+
+.employer-training-credits-page .employer-dashboard-content{
+  width:100%;
+  padding:28px;
+}
+
+.training-credits-hero{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:24px;
+  margin-bottom:22px;
+  padding:24px 26px;
+  background:linear-gradient(135deg,#17365f 0%,#24467f 100%);
+  border-radius:16px;
+  color:#fff;
+}
+
+.training-credits-hero h1{
+  margin:5px 0 7px;
+  font-size:30px;
+  line-height:1.15;
+}
+
+.training-credits-hero p{
+  margin:0;
+  max-width:720px;
+  color:#d8eff0;
+  line-height:1.6;
+}
+
+.training-credits-eyebrow{
+  display:block;
+  font-size:11px;
+  font-weight:900;
+  letter-spacing:.11em;
+  color:#ffb86c;
+}
+
+.training-credits-hero-actions{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  flex-shrink:0;
+}
+
+.training-credits-primary-btn,
+.training-credits-secondary-btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:42px;
+  padding:10px 15px;
+  border-radius:9px;
+  font-weight:800;
+  text-decoration:none;
+  cursor:pointer;
+}
+
+.training-credits-primary-btn{
+  border:1px solid var(--s4u-orange);
+  background:var(--s4u-orange);
+  color:#fff;
+}
+
+.training-credits-secondary-btn{
+  border:1px solid rgba(255,255,255,.38);
+  background:rgba(255,255,255,.08);
+  color:#fff;
+}
+
+.training-credits-summary-grid{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:14px;
+  margin-bottom:18px;
+}
+
+.training-credits-summary-card{
+  min-width:0;
+  padding:18px;
+  background:#fff;
+  border:1px solid var(--s4u-line);
+  border-radius:13px;
+  box-shadow:0 4px 14px rgba(7,52,59,.04);
+}
+
+.training-credits-summary-card span{
+  display:block;
+  margin-bottom:7px;
+  color:var(--s4u-muted);
+  font-size:11px;
+  font-weight:900;
+  text-transform:uppercase;
+  letter-spacing:.04em;
+}
+
+.training-credits-summary-card strong{
+  display:block;
+  margin-bottom:5px;
+  font-size:29px;
+  line-height:1;
+  color:var(--s4u-nav);
+}
+
+.training-credits-summary-card small{
+  display:block;
+  color:var(--s4u-muted);
+  line-height:1.45;
+}
+
+.training-credits-panel{
+  margin-bottom:18px;
+  padding:20px;
+  background:#fff;
+  border:1px solid var(--s4u-line);
+  border-radius:14px;
+  box-shadow:0 4px 14px rgba(7,52,59,.035);
+}
+
+.training-credits-panel-header{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+  margin-bottom:17px;
+}
+
+.training-credits-panel-header h2{
+  margin:4px 0;
+  font-size:20px;
+  color:var(--s4u-nav);
+}
+
+.training-credits-panel-header p{
+  margin:0;
+  color:var(--s4u-muted);
+}
+
+.training-credits-package-grid{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:14px;
+}
+
+.training-credit-package{
+  display:flex;
+  flex-direction:column;
+  min-height:205px;
+  padding:18px;
+  border:1px solid var(--s4u-line);
+  border-radius:13px;
+  background:#fff;
+}
+
+.training-credit-package h3{
+  margin:0 0 10px;
+  font-size:16px;
+  color:var(--s4u-nav);
+}
+
+.training-credit-package .credits{
+  margin-bottom:5px;
+  font-size:28px;
+  font-weight:900;
+  color:var(--s4u-teal);
+}
+
+.training-credit-package .price{
+  margin-bottom:17px;
+  font-size:18px;
+  font-weight:900;
+  color:var(--s4u-text);
+}
+
+.training-credits-buy-btn{
+  width:100%;
+  margin-top:auto;
+  border:1px solid var(--s4u-teal);
+  background:var(--s4u-teal);
+  color:#fff;
+  border-radius:9px;
+  padding:10px 13px;
+  font-weight:900;
+  cursor:pointer;
+}
+
+.training-credits-table-wrap{
+  width:100%;
+  overflow-x:auto;
+}
+
+.training-credits-table{
+  width:100%;
+  border-collapse:collapse;
+}
+
+.training-credits-table th,
+.training-credits-table td{
+  padding:12px 11px;
+  border-bottom:1px solid #e8eeef;
+  text-align:left;
+  white-space:nowrap;
+}
+
+.training-credits-table th{
+  color:var(--s4u-muted);
+  font-size:11px;
+  font-weight:900;
+  text-transform:uppercase;
+}
+
+.training-credits-table tbody tr:last-child td{
+  border-bottom:0;
+}
+
+.training-credits-pill{
+  display:inline-flex;
+  align-items:center;
+  padding:5px 9px;
+  border-radius:999px;
+  background:#e7f1f2;
+  color:var(--s4u-teal);
+  font-size:11px;
+  font-weight:900;
+  text-transform:capitalize;
+}
+
+.training-credits-empty{
+  padding:28px !important;
+  text-align:center !important;
+  color:var(--s4u-muted);
+}
+
+#message .notice{
+  margin-bottom:16px;
+  padding:12px 14px;
+  border:1px solid #cce5e5;
+  border-radius:10px;
+  background:#eef7f7;
+  color:var(--s4u-text);
+}
+
+#message .notice.error{
+  border-color:#f1cccc;
+  background:#fff0f0;
+  color:#8f2929;
+}
+
+@media(max-width:1100px){
+  .training-credits-summary-grid,
+  .training-credits-package-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+}
+
+@media(max-width:760px){
+  .employer-training-credits-page .employer-dashboard-content{padding:18px}
+  .training-credits-hero{align-items:flex-start;flex-direction:column}
+  .training-credits-hero-actions{width:100%;flex-wrap:wrap}
+  .training-credits-primary-btn,
+  .training-credits-secondary-btn{flex:1}
+  .training-credits-summary-grid,
+  .training-credits-package-grid{grid-template-columns:1fr}
+}

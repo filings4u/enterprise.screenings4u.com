@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en" class="s4u-auth-pending">
+<head><style id="s4u-preauth-style">html.s4u-auth-pending body{visibility:hidden!important}html.s4u-auth-pending #s4u-auth-blocking-error{visibility:visible!important}</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#24467f">
+
+  <title>Welcome | screenings4u Employee Portal</title>
+<link href="images/fav.png" rel="icon" type="image/png"/>
+
+  <link rel="stylesheet" href="assets/css/employee-portal.css">
+
+  <style>
+    * { box-sizing: border-box; }
+
+    html,
+    body {
+      max-width: 100%;
+      overflow-x: hidden;
+    }
+
+    .employee-welcome-page {
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at 88% 8%, rgba(255, 107, 0, 0.10), transparent 28%),
+        linear-gradient(180deg, #f8fbff 0%, #f4f7fb 100%);
+    }
+
+    .employee-welcome-page-content {
+      width: min(1180px, calc(100% - 48px));
+      margin: 0 auto;
+      padding: 44px 0 64px;
+    }
+
+    .employee-welcome-hero {
+      position: relative;
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: minmax(0, 1.25fr) minmax(340px, 0.75fr);
+      gap: 30px;
+      padding: 42px;
+      border: 1px solid #dce6f2;
+      border-radius: 24px;
+      background: #ffffff;
+      box-shadow: 0 22px 60px rgba(24, 52, 88, 0.08);
+    }
+
+    .employee-welcome-hero::after {
+      content: "";
+      position: absolute;
+      width: 360px;
+      height: 360px;
+      right: -170px;
+      top: -170px;
+      border-radius: 50%;
+      border: 66px solid rgba(255, 107, 0, 0.08);
+      pointer-events: none;
+    }
+
+    .employee-welcome-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      margin-bottom: 16px;
+      color: #ff6b00;
+      font-size: 12px;
+      line-height: 1;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .employee-welcome-eyebrow::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #ff6b00;
+    }
+
+    .employee-welcome-title {
+      margin: 0;
+      max-width: 760px;
+      color: #173b70;
+      font-size: clamp(36px, 5vw, 58px);
+      line-height: 1.04;
+      letter-spacing: -0.035em;
+    }
+
+    .employee-welcome-intro {
+      max-width: 720px;
+      margin: 20px 0 0;
+      color: #5f7087;
+      font-size: 17px;
+      line-height: 1.75;
+    }
+
+    .employee-welcome-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .employee-welcome-button {
+      min-height: 48px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      padding: 0 20px;
+      border: 1px solid transparent;
+      border-radius: 10px;
+      font-size: 14px;
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .employee-welcome-button.primary {
+      background: #ff6b00;
+      color: #ffffff;
+      box-shadow: 0 10px 24px rgba(255, 107, 0, 0.20);
+    }
+
+    .employee-welcome-button.secondary {
+      border-color: #cfdae8;
+      background: #ffffff;
+      color: #173b70;
+    }
+
+    .employee-welcome-button svg {
+      width: 18px;
+      height: 18px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .employee-welcome-hero-side {
+      align-self: stretch;
+      display: grid;
+      gap: 14px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .employee-welcome-mini-card,
+    .employee-welcome-feature-card {
+      border: 1px solid #dce6f2;
+      background: #ffffff;
+    }
+
+    .employee-welcome-mini-card {
+      padding: 20px;
+      border-radius: 16px;
+      background: #f8fbff;
+    }
+
+    .employee-welcome-mini-icon,
+    .employee-welcome-feature-icon {
+      display: grid;
+      place-items: center;
+      color: #173b70;
+      background: #eaf2ff;
+    }
+
+    .employee-welcome-mini-icon {
+      width: 42px;
+      height: 42px;
+      margin-bottom: 14px;
+      border-radius: 11px;
+    }
+
+    .employee-welcome-mini-icon.orange,
+    .employee-welcome-feature-icon.orange {
+      background: #fff1e6;
+      color: #ff6b00;
+    }
+
+    .employee-welcome-feature-icon.green {
+      background: #eaf8f0;
+      color: #147a42;
+    }
+
+    .employee-welcome-mini-icon svg,
+    .employee-welcome-feature-icon svg {
+      width: 22px;
+      height: 22px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .employee-welcome-mini-card strong {
+      display: block;
+      color: #173b70;
+      font-size: 15px;
+    }
+
+    .employee-welcome-mini-card p {
+      margin: 6px 0 0;
+      color: #6d7b8f;
+      font-size: 13px;
+      line-height: 1.55;
+    }
+
+    .employee-welcome-section {
+      margin-top: 28px;
+    }
+
+    .employee-welcome-section-header {
+      margin-bottom: 16px;
+    }
+
+    .employee-welcome-section-header h2 {
+      margin: 0;
+      color: #173b70;
+      font-size: 25px;
+      line-height: 1.2;
+    }
+
+    .employee-welcome-section-header p {
+      margin: 7px 0 0;
+      color: #6d7b8f;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .employee-welcome-feature-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .employee-welcome-feature-card {
+      min-width: 0;
+      padding: 24px;
+      border-radius: 17px;
+      box-shadow: 0 12px 34px rgba(24, 52, 88, 0.05);
+    }
+
+    .employee-welcome-feature-icon {
+      width: 46px;
+      height: 46px;
+      border-radius: 12px;
+      background: #eef4fc;
+    }
+
+    .employee-welcome-feature-card h3 {
+      margin: 18px 0 0;
+      color: #173b70;
+      font-size: 18px;
+    }
+
+    .employee-welcome-feature-card p {
+      margin: 9px 0 0;
+      color: #6d7b8f;
+      font-size: 14px;
+      line-height: 1.65;
+    }
+
+    .employee-welcome-feature-card a {
+      display: inline-flex;
+      margin-top: 16px;
+      color: #173b70;
+      font-size: 13px;
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .employee-welcome-callout {
+      margin-top: 28px;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 24px;
+      align-items: center;
+      padding: 28px 30px;
+      border-radius: 18px;
+      background: #173b70;
+      color: #ffffff;
+    }
+
+    .employee-welcome-callout h2 {
+      margin: 0;
+      color: #ffffff;
+      font-size: 23px;
+    }
+
+    .employee-welcome-callout p {
+      margin: 8px 0 0;
+      max-width: 700px;
+      color: #dbe7f7;
+      font-size: 14px;
+      line-height: 1.65;
+    }
+
+    .employee-welcome-callout a {
+      min-height: 46px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 19px;
+      border-radius: 9px;
+      background: #ffffff;
+      color: #173b70;
+      font-size: 13px;
+      font-weight: 800;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    @media (max-width: 980px) {
+      .employee-welcome-hero {
+        grid-template-columns: 1fr;
+      }
+
+      .employee-welcome-hero-side,
+      .employee-welcome-feature-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 767px) {
+      .employee-welcome-page-content {
+        width: calc(100% - 28px);
+        padding: 22px 0 40px;
+      }
+
+      .employee-welcome-hero {
+        padding: 25px 20px;
+        border-radius: 18px;
+      }
+
+      .employee-welcome-title {
+        font-size: 36px;
+      }
+
+      .employee-welcome-intro {
+        font-size: 15px;
+      }
+
+      .employee-welcome-actions,
+      .employee-welcome-button {
+        width: 100%;
+      }
+
+      .employee-welcome-hero-side,
+      .employee-welcome-feature-grid,
+      .employee-welcome-callout {
+        grid-template-columns: 1fr;
+      }
+
+      .employee-welcome-callout {
+        padding: 24px 20px;
+      }
+
+      .employee-welcome-callout a {
+        width: 100%;
+      }
+    }
+  </style>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/lms-ui-modals.css?v=20260918-modal-fix-1">
+<link rel="stylesheet" href="assets/css/brand-system.css?v=20260918-brand-repair-v2">
+</head>
+
+<body
+  class="employee-dashboard-page employee-welcome-page"
+  data-page-title="Welcome"
+  data-page-subtitle="Learn your way around the screenings4u Employee Portal."
+ data-s4u-portal="employee">
+
+  <div id="employee-portal-sidebar"></div>
+
+  <main class="employee-portal-main">
+    <div id="employee-portal-header"></div>
+
+    <div class="employee-welcome-page-content">
+
+      <section class="employee-welcome-hero">
+        <div>
+          <div class="employee-welcome-eyebrow">
+            Welcome to screenings4u
+          </div>
+
+          <h1 class="employee-welcome-title">
+            Your training and resources, all in one place.
+          </h1>
+
+          <p class="employee-welcome-intro">
+            <span id="employee-welcome-greeting">Welcome.</span>
+            Your Employee Portal gives you one secure place to access
+            assigned courses, track your learning progress, view earned
+            certificates, manage your account, and contact your employer.
+          </p>
+
+          <div class="employee-welcome-actions">
+            <a
+              href="employee-dashboard.html"
+              class="employee-welcome-button primary"
+            >
+              Go to My Dashboard
+
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M5 12h14"></path>
+                <path d="m13 6 6 6-6 6"></path>
+              </svg>
+            </a>
+
+            <a
+              href="employee-courses.html"
+              class="employee-welcome-button secondary"
+            >
+              View My Courses
+            </a>
+          </div>
+        </div>
+
+        <div class="employee-welcome-hero-side">
+
+          <article class="employee-welcome-mini-card">
+            <div class="employee-welcome-mini-icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M3 5h8a3 3 0 0 1 3 3v11a3 3 0 0 0-3-3H3z"></path>
+                <path d="M21 5h-8a3 3 0 0 0-3 3v11a3 3 0 0 1 3-3h8z"></path>
+              </svg>
+            </div>
+
+            <strong>Continue your training</strong>
+
+            <p>
+              Open assigned courses and pick up where you left off.
+            </p>
+          </article>
+
+          <article class="employee-welcome-mini-card">
+            <div class="employee-welcome-mini-icon orange">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <circle cx="12" cy="8" r="5"></circle>
+                <path d="m8.5 12.5-1 8 4.5-2 4.5 2-1-8"></path>
+              </svg>
+            </div>
+
+            <strong>Track accomplishments</strong>
+
+            <p>
+              Review your progress and access certificates when training
+              requirements are completed.
+            </p>
+          </article>
+
+        </div>
+      </section>
+
+
+      <section class="employee-welcome-section">
+
+        <div class="employee-welcome-section-header">
+          <h2>What you can do in your Employee Portal</h2>
+
+          <p>
+            Use the navigation on the left to move between your training,
+            account, and employer resources.
+          </p>
+        </div>
+
+        <div class="employee-welcome-feature-grid">
+
+          <article class="employee-welcome-feature-card">
+            <div class="employee-welcome-feature-icon orange">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M3 5h8a3 3 0 0 1 3 3v11a3 3 0 0 0-3-3H3z"></path>
+                <path d="M21 5h-8a3 3 0 0 0-3 3v11a3 3 0 0 1 3-3h8z"></path>
+              </svg>
+            </div>
+
+            <h3>My Courses</h3>
+
+            <p>
+              Open training assigned to you by your employer and continue
+              active courses.
+            </p>
+
+            <a href="employee-courses.html">
+              View My Courses →
+            </a>
+          </article>
+
+
+          <article class="employee-welcome-feature-card">
+            <div class="employee-welcome-feature-icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M4 19V9"></path>
+                <path d="M10 19V5"></path>
+                <path d="M16 19v-7"></path>
+                <path d="M22 19V3"></path>
+              </svg>
+            </div>
+
+            <h3>Training Progress</h3>
+
+            <p>
+              See how far you have progressed across your assigned
+              courses and completed training.
+            </p>
+
+            <a href="employee-training-progress.html">
+              View Progress →
+            </a>
+          </article>
+
+
+          <article class="employee-welcome-feature-card">
+            <div class="employee-welcome-feature-icon green">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <circle cx="12" cy="8" r="5"></circle>
+                <path d="m8.5 12.5-1 8 4.5-2 4.5 2-1-8"></path>
+              </svg>
+            </div>
+
+            <h3>Certificates</h3>
+
+            <p>
+              Access certificates earned from completed employee
+              training when they become available.
+            </p>
+
+            <a href="employee-certificates.html">
+              View Certificates →
+            </a>
+          </article>
+
+
+          <article class="employee-welcome-feature-card">
+            <div class="employee-welcome-feature-icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <circle cx="12" cy="8" r="4"></circle>
+                <path d="M4 21c.8-4 3.4-6 8-6s7.2 2 8 6"></path>
+              </svg>
+            </div>
+
+            <h3>My Account</h3>
+
+            <p>
+              Review your employee portal account information and keep
+              your details current.
+            </p>
+
+            <a href="employee-account.html">
+              Manage My Account →
+            </a>
+          </article>
+
+
+          <article class="employee-welcome-feature-card">
+            <div class="employee-welcome-feature-icon orange">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M4 4h16v13H8l-4 4z"></path>
+                <path d="M8 9h8"></path>
+                <path d="M8 13h5"></path>
+              </svg>
+            </div>
+
+            <h3>Contact Employer</h3>
+
+            <p>
+              Reach your employer when you need help with training access,
+              assignments, or other employee resources.
+            </p>
+
+            <a href="employee-contact-employer.html">
+              Contact Employer →
+            </a>
+          </article>
+
+
+          <article class="employee-welcome-feature-card">
+            <div class="employee-welcome-feature-icon green">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9"></path>
+                <path d="M10 21h4"></path>
+              </svg>
+            </div>
+
+            <h3>Notifications</h3>
+
+            <p>
+              Review important updates related to your account, courses,
+              and training activity.
+            </p>
+
+            <a href="employee-notifications.html">
+              View Notifications →
+            </a>
+          </article>
+
+        </div>
+
+      </section>
+
+
+      <section class="employee-welcome-callout">
+        <div>
+          <h2>Ready to continue your training?</h2>
+
+          <p>
+            Open your dashboard for a quick view of your courses,
+            progress, certificates, and employer resources.
+          </p>
+        </div>
+
+        <a href="employee-dashboard.html">
+          Open My Dashboard
+        </a>
+      </section>
+
+    </div>
+  </main>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+  
+  
+  <script src="assets/js/ui.js?v=20260918-modal-fix-1"></script>
+  
+  
+
+  <script src="assets/js/employee-portal.js"></script>
+  <script src="assets/js/employee-welcome.js?v=20260903-1"></script>
+
+<!-- screenings4u universal portal security -->
+<script src="assets/js/supabase-config.js?v=20260925-lockdown"></script>
+<script src="assets/js/core-auth.js?v=20260925-lockdown"></script>
+<script src="assets/js/session-security.js?v=20260925-lockdown"></script>
+<script src="assets/js/portal-auth-guard.js?v=20260925-lockdown"></script>
+<script src="assets/js/employee-auth-guard.js?v=20260925-lockdown"></script>
+</body>
+</html>

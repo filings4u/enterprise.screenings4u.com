@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en" class="s4u-auth-pending">
+<head><style id="s4u-preauth-style">html.s4u-auth-pending body{visibility:hidden!important}html.s4u-auth-pending #s4u-auth-blocking-error{visibility:visible!important}</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#24467f">
+
+  <title>Service Catalog | screenings4u Employer Portal</title>
+<link href="images/fav.png" rel="icon" type="image/png"/>
+  <link rel="stylesheet" href="assets/css/employer-portal.css">
+  <link rel="stylesheet" href="assets/css/employer-catalog.css">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/lms-ui-modals.css?v=20260918-modal-fix-1">
+<link rel="stylesheet" href="assets/css/brand-system.css?v=20260918-brand-repair-v2">
+</head>
+<body class="employer-catalog-page" data-page-title="Service Catalog" data-page-subtitle="Purchase services and training for your organization." data-s4u-portal="employer">
+
+  <div id="employer-portal-sidebar"></div>
+
+  <main class="employer-portal-main">
+    <div id="employer-portal-header"></div>
+
+    <div class="employer-catalog-content">
+      <section class="catalog-hero">
+        <div>
+          <span class="catalog-eyebrow">SCREENINGS4U SERVICES</span>
+          <h1>Service Catalog</h1>
+          <p>Purchase workplace screening services, testing, background checks, and training for your organization.</p>
+        </div>
+
+        <button class="catalog-cart-button" id="catalog-cart-button" type="button">
+          Cart <span id="catalog-cart-count">0</span>
+        </button>
+      </section>
+
+      <section class="catalog-layout">
+        <aside class="catalog-sidebar">
+          <div class="catalog-sidebar-section">
+            <span class="catalog-sidebar-label">BROWSE SERVICES</span>
+            <div class="catalog-category-list" id="catalog-category-list">
+              <button class="catalog-category active" data-category="all" type="button">All Services</button>
+              <button class="catalog-category" data-category="drug-testing" type="button">Drug Testing</button>
+              <button class="catalog-category" data-category="alcohol-testing" type="button">Alcohol Testing</button>
+              <button class="catalog-category" data-category="background-checks" type="button">Background Checks</button>
+              <button class="catalog-category" data-category="dot-services" type="button">DOT Services</button>
+              <button class="catalog-category" data-category="training" type="button">Training</button>
+              <button class="catalog-category" data-category="workplace-services" type="button">Workplace Services</button>
+            </div>
+          </div>
+
+          <div class="catalog-sidebar-note">
+            <strong>Need help choosing?</strong>
+            <p>Our team can help you build the right screening and compliance program.</p>
+            <button id="catalog-request-help" type="button">Request Assistance</button>
+          </div>
+        </aside>
+
+        <section class="catalog-main">
+          <div class="catalog-toolbar">
+            <div class="catalog-search">
+              <input id="catalog-search" type="search" placeholder="Search services..." autocomplete="off">
+            </div>
+            <select id="catalog-sort">
+              <option value="featured">Featured</option>
+              <option value="name">Name: A–Z</option>
+              <option value="price-low">Price: Low to High</option>
+              <option value="price-high">Price: High to Low</option>
+            </select>
+          </div>
+
+          <div class="catalog-result-header">
+            <div>
+              <span class="catalog-eyebrow">AVAILABLE SERVICES</span>
+              <h2 id="catalog-section-title">All Services</h2>
+            </div>
+            <span id="catalog-result-count">0 services</span>
+          </div>
+
+          <div class="catalog-grid" id="catalog-grid">
+            <div class="catalog-empty">
+              <div class="catalog-empty-icon">+</div>
+              <h3>Loading services</h3>
+              <p>Your available services will appear here.</p>
+            </div>
+          </div>
+        </section>
+      </section>
+    </div>
+  </main>
+
+  <aside class="catalog-cart-drawer" id="catalog-cart-drawer" aria-hidden="true">
+    <div class="catalog-cart-drawer-header">
+      <div>
+        <span class="catalog-eyebrow">YOUR PURCHASES</span>
+        <h2>Shopping Cart</h2>
+      </div>
+      <button id="catalog-close-cart" class="catalog-close-button" type="button" aria-label="Close cart">×</button>
+    </div>
+
+    <div id="catalog-cart-items" class="catalog-cart-items">
+      <div class="catalog-cart-empty">Your cart is empty.</div>
+    </div>
+
+    <div class="catalog-cart-footer">
+      <div class="catalog-cart-total">
+        <span>Total</span>
+        <strong id="catalog-cart-total">$0.00</strong>
+      </div>
+      <button id="catalog-checkout-button" class="catalog-checkout-button" type="button">Continue to Checkout</button>
+    </div>
+  </aside>
+  <div class="catalog-cart-overlay" id="catalog-cart-overlay"></div>
+
+  <div class="catalog-modal" id="catalog-service-modal" hidden>
+    <div class="catalog-modal-backdrop" data-close-catalog-modal></div>
+    <div class="catalog-modal-card" role="dialog" aria-modal="true">
+      <button class="catalog-close-button catalog-modal-close" data-close-catalog-modal type="button">×</button>
+      <div id="catalog-modal-content"></div>
+    </div>
+  </div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+
+
+<script src="assets/js/ui.js?v=20260918-modal-fix-1"></script>
+
+
+
+<script src="assets/js/employer-portal.js"></script>
+
+  <script src="assets/js/employer-catalog.js"></script>
+
+<!-- screenings4u universal portal security -->
+<script src="assets/js/supabase-config.js?v=20260925-lockdown"></script>
+<script src="assets/js/core-auth.js?v=20260925-lockdown"></script>
+<script src="assets/js/session-security.js?v=20260925-lockdown"></script>
+<script src="assets/js/portal-auth-guard.js?v=20260925-lockdown"></script>
+<script src="assets/js/employer-auth-guard.js?v=20260925-lockdown"></script>
+</body>
+</html>

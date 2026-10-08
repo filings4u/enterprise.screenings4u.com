@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en" class="s4u-auth-pending">
+<head><style id="s4u-preauth-style">html.s4u-auth-pending body{visibility:hidden!important}html.s4u-auth-pending #s4u-auth-blocking-error{visibility:visible!important}</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Certificates | screenings4u</title>
+<meta name="theme-color" content="#24467f">
+<link href="images/fav.png" rel="icon" type="image/png"/>
+
+
+  <link rel="stylesheet" href="assets/css/employee-portal.css">
+  <link rel="stylesheet" href="assets/css/employee-certificates.css">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/lms-ui-modals.css?v=20260918-modal-fix-1">
+<link rel="stylesheet" href="assets/css/brand-system.css?v=20260918-brand-repair-v2">
+</head>
+
+<body class="employee-certificates-page"
+      data-page-title="Certificates"
+      data-page-subtitle="View certificates earned from completed training." data-s4u-portal="employee">
+
+  <div id="employee-portal-sidebar"></div>
+
+  <main class="employee-portal-main">
+    <div id="employee-portal-header"></div>
+
+    <div class="employee-certificates-content">
+
+      <section class="employee-certificates-welcome-card">
+        <div>
+          <span class="employee-certificates-eyebrow">MY TRAINING</span>
+          <h1>Certificates</h1>
+          <p>View and access certificates you have earned from completed training.</p>
+        </div>
+
+        <div class="employee-certificates-welcome-actions">
+          <a href="employee-courses.html" class="employee-certificates-secondary-action">My Courses</a>
+          <a href="employee-training-progress.html" class="employee-certificates-primary-action">Training Progress</a>
+        </div>
+      </section>
+
+      <section class="employee-certificates-stat-grid">
+        <article class="employee-certificates-stat-card">
+          <div class="employee-certificates-stat-icon certificate-icon">✓</div>
+          <div>
+            <span>Certificates Earned</span>
+            <strong id="cert-total">0</strong>
+            <small>Available certificates</small>
+          </div>
+        </article>
+
+        <article class="employee-certificates-stat-card">
+          <div class="employee-certificates-stat-icon recent-icon">30</div>
+          <div>
+            <span>Recently Earned</span>
+            <strong id="cert-recent">0</strong>
+            <small>Issued in the last 30 days</small>
+          </div>
+        </article>
+
+        <article class="employee-certificates-stat-card">
+          <div class="employee-certificates-stat-icon completed-icon">C</div>
+          <div>
+            <span>Completed Training</span>
+            <strong id="training-completed">0</strong>
+            <small>Eligible completed courses</small>
+          </div>
+        </article>
+      </section>
+
+      <section class="employee-certificates-panel">
+        <div class="employee-certificates-panel-heading">
+          <div>
+            <span class="employee-certificates-eyebrow">YOUR CREDENTIALS</span>
+            <h2>Training Certificates</h2>
+            <p>Search, view, and download certificates issued to your employee account.</p>
+          </div>
+
+          <div class="employee-certificates-search-wrap">
+            <input id="cert-search" type="search" placeholder="Search certificates...">
+          </div>
+        </div>
+
+        <div id="cert-list" class="employee-certificates-grid"></div>
+
+        <div id="cert-empty" class="employee-certificates-empty" hidden>
+          <div class="employee-certificates-empty-icon">✓</div>
+          <h2>No certificates found</h2>
+          <p>Certificates will appear here after you successfully complete eligible training and meet all course requirements.</p>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <div class="employee-certificates-modal" id="cert-modal" hidden>
+    <div class="employee-certificates-modal-backdrop"></div>
+    <div class="employee-certificates-modal-card">
+      <h2 id="modal-title"></h2>
+      <p id="modal-message"></p>
+      <button id="modal-close" class="employee-certificates-primary-action" type="button">Done</button>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+  
+  
+  <script src="assets/js/ui.js?v=20260918-modal-fix-1"></script>
+  
+  
+
+  <script src="assets/js/employee-portal.js"></script>
+  <script src="assets/js/employee-certificates.js"></script>
+
+<!-- screenings4u universal portal security -->
+<script src="assets/js/supabase-config.js?v=20260925-lockdown"></script>
+<script src="assets/js/core-auth.js?v=20260925-lockdown"></script>
+<script src="assets/js/session-security.js?v=20260925-lockdown"></script>
+<script src="assets/js/portal-auth-guard.js?v=20260925-lockdown"></script>
+<script src="assets/js/employee-auth-guard.js?v=20260925-lockdown"></script>
+</body>
+</html>

@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html class="s4u-auth-pending" lang="en">
+<head><style id="s4u-preauth-style">@keyframes s4uAuthSpin{to{transform:rotate(360deg)}}html.s4u-auth-pending body>:not(#s4u-auth-blocking-error):not(#s4u-auth-loading){visibility:hidden!important}html.s4u-auth-pending #s4u-auth-blocking-error,html.s4u-auth-pending #s4u-auth-loading{visibility:visible!important}</style>
+  <meta charset="UTF-8">
+  <meta name="theme-color" content="#24467f">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create Course | screenings4u Management Portal</title>
+<link href="images/fav.png" rel="icon" type="image/png"/>
+  <link rel="stylesheet" href="assets/css/admin-lms.css"><link rel="stylesheet" href="assets/css/lms-ui-modals.css?v=20260917-brandmodal">
+  <link rel="stylesheet" href="assets/css/admin-lms-creation.css?v=20260831-1">
+<link rel="stylesheet" href="assets/css/enterprise-portal.css?v=20260924-design-v5">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/brand-system.css?v=20260918-dashboard-fix-v1">
+<link rel="stylesheet" href="assets/css/enterprise-management-system.css?v=20260924-design-v5"></head>
+
+<body class="admin-lms-creation-page" data-s4u-portal="admin"><div id="s4u-auth-loading" role="status" aria-live="polite" style="position:fixed;inset:0;z-index:2147483000;display:grid;place-items:center;background:#f4f7fc;font-family:Inter,Arial,sans-serif;color:#24467f"><div style="text-align:center"><div style="width:34px;height:34px;margin:0 auto 14px;border:3px solid #dbe5f1;border-top-color:#24467f;border-radius:50%;animation:s4uAuthSpin .7s linear infinite"></div><strong style="font-size:14px">Loading secure workspace…</strong></div></div>
+  <div class="admin-lms-app">
+
+    <div id="admin-lms-sidebar-target"></div>
+
+    <main class="admin-lms-main">
+
+      <header class="admin-lms-topbar">
+        <div class="admin-lms-topbar-left">
+          <button
+            type="button"
+            class="admin-lms-sidebar-collapse"
+            data-admin-sidebar-collapse
+            aria-label="Collapse sidebar"
+            aria-expanded="true"
+          >
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M15 18l-6-6 6-6"></path>
+            </svg>
+          </button>
+
+          <div class="admin-lms-page-context">
+            <small>Training</small>
+            <strong>Create Course</strong>
+          </div>
+        </div>
+
+        <div class="admin-lms-topbar-right">
+          <a href="admin-lms-courses.html" class="creation-top-link">All Courses</a>
+
+          <div class="admin-user-dropdown">
+            <button
+              type="button"
+              class="admin-user-dropdown-toggle"
+              data-admin-user-menu-toggle
+              aria-expanded="false"
+            >
+              <span class="admin-lms-avatar">AD</span>
+              <span class="admin-lms-user-copy">
+                <span class="admin-lms-user-name">Administrator</span>
+                <span class="admin-lms-user-role">System Administrator</span>
+              </span>
+            </button>
+          </div>
+        </div>
+      </header>
+
+      <section class="creation-shell">
+
+        <div class="creation-wizard">
+
+          <header class="creation-header">
+            <a class="creation-back-courses" href="admin-lms-dashboard.html">← Back to Training Overview</a>
+
+            <div class="creation-progress-copy">
+              <span class="creation-eyebrow">NEW ONLINE PROGRAM</span>
+              <h1 id="creationHeading">What do you want to call your program?</h1>
+              <p id="creationStepLabel">Step 1 of 4</p>
+            </div>
+
+            <div class="creation-progress-track" aria-hidden="true">
+              <span class="creation-progress-fill" id="creationProgressFill"></span>
+            </div>
+          </header>
+
+          <div id="creationMessage" class="creation-message" role="status"></div>
+
+          <form id="creationForm" novalidate>
+
+            <!-- STEP 1 -->
+            <section class="creation-step active" data-step="1">
+              <div class="creation-step-content creation-step-narrow">
+
+                <div class="creation-name-wrap">
+                  <div class="creation-label-row">
+                    <label for="courseName">Name <span>*</span></label>
+                    <span id="courseNameCount">0 / 150</span>
+                  </div>
+
+                  <input
+                    id="courseName"
+                    type="text"
+                    maxlength="150"
+                    autocomplete="off"
+                    placeholder="e.g. DOT Specimen Collector Training"
+                    required
+                  >
+
+                  <p class="creation-help">
+                    This creates the course record that the Content Builder will manage.
+                  </p>
+                </div>
+
+              </div>
+            </section>
+
+            <!-- STEP 2 -->
+            <section class="creation-step" data-step="2">
+              <div class="creation-step-content">
+
+                <div class="creation-choice-stack">
+
+                  <button
+                    class="creation-choice-card"
+                    type="button"
+                    data-choice-group="delivery"
+                    data-choice-value="self_paced"
+                  >
+                    <span class="creation-choice-icon creation-icon-blue">✓</span>
+                    <span class="creation-choice-copy">
+                      <strong>Self-Paced</strong>
+                      <small>Participants can complete steps whenever they’d like.</small>
+                    </span>
+                    <span class="creation-choice-check">✓</span>
+                  </button>
+
+                  <button
+                    class="creation-choice-card"
+                    type="button"
+                    data-choice-group="delivery"
+                    data-choice-value="scheduled"
+                  >
+                    <span class="creation-choice-icon creation-icon-calendar">31</span>
+                    <span class="creation-choice-copy">
+                      <strong>Scheduled</strong>
+                      <small>Participants complete steps on specific days.</small>
+                    </span>
+                    <span class="creation-choice-check">✓</span>
+                  </button>
+
+                </div>
+
+                <div class="creation-subpanel" id="scheduledPanel" hidden>
+                  <h3>Scheduling</h3>
+                  <p>
+                    The course will be created with Scheduled selected. Detailed lesson dates can be configured while building the course.
+                  </p>
+                </div>
+
+              </div>
+            </section>
+
+            <!-- STEP 3 -->
+            <section class="creation-step" data-step="3">
+              <div class="creation-step-content">
+
+                <div class="creation-choice-stack">
+
+                  <button
+                    class="creation-choice-card"
+                    type="button"
+                    data-choice-group="duration"
+                    data-choice-value="unlimited"
+                  >
+                    <span class="creation-choice-icon creation-icon-blue">∞</span>
+                    <span class="creation-choice-copy">
+                      <strong>Unlimited</strong>
+                      <small>Participants can complete the program without a fixed deadline.</small>
+                    </span>
+                    <span class="creation-choice-check">✓</span>
+                  </button>
+
+                  <button
+                    class="creation-choice-card"
+                    type="button"
+                    data-choice-group="duration"
+                    data-choice-value="time_limit"
+                  >
+                    <span class="creation-choice-icon creation-icon-calendar">30</span>
+                    <span class="creation-choice-copy">
+                      <strong>Time Limit</strong>
+                      <small>Give participants a set number of days to finish.</small>
+                    </span>
+                    <span class="creation-choice-check">✓</span>
+                  </button>
+
+                </div>
+
+                <div class="creation-subpanel" id="timeLimitPanel" hidden>
+                  <label for="completionDays">Days to complete</label>
+                  <input id="completionDays" type="number" min="1" max="3650" value="30">
+                  <p>The completion window begins when a participant is enrolled.</p>
+                </div>
+
+              </div>
+            </section>
+
+            <!-- STEP 4 -->
+            <section class="creation-step" data-step="4">
+              <div class="creation-step-content">
+
+                <div class="creation-price-choice-grid">
+
+                  <button
+                    class="creation-price-card"
+                    type="button"
+                    data-choice-group="pricing"
+                    data-choice-value="free"
+                  >
+                    <span class="creation-price-icon">🎁</span>
+                    <strong>Free</strong>
+                    <span class="creation-choice-check">✓</span>
+                  </button>
+
+                  <button
+                    class="creation-price-card"
+                    type="button"
+                    data-choice-group="pricing"
+                    data-choice-value="paid"
+                  >
+                    <span class="creation-price-icon">💵</span>
+                    <strong>Paid</strong>
+                    <span class="creation-choice-check">✓</span>
+                  </button>
+
+                </div>
+
+                <div class="creation-payment-panel" id="paidPanel" hidden>
+
+                  <h2>Payment options</h2>
+
+                  <div class="creation-payment-row">
+                    <div>
+                      <strong>One-time payment</strong>
+                      <span>Set a fixed price for your program.</span>
+                    </div>
+
+                    <label class="creation-money-input">
+                      <span>$</span>
+                      <input
+                        id="coursePrice"
+                        type="number"
+                        min="0.01"
+                        step="0.01"
+                        inputmode="decimal"
+                        placeholder="0.00"
+                      >
+                    </label>
+                  </div>
+
+                  <div class="creation-plan-row">
+                    <div>
+                      <strong>Include in a Pricing Plan</strong>
+                      <span>Recurring plans can be connected after the course is created.</span>
+                    </div>
+
+                    <button type="button" class="creation-connect-plans" disabled>
+                      ＋ Connect Plans
+                    </button>
+                  </div>
+
+                </div>
+
+                <div class="creation-review-card">
+                  <span>COURSE SETUP</span>
+                  <dl>
+                    <div><dt>Name</dt><dd id="reviewName">—</dd></div>
+                    <div><dt>Delivery</dt><dd id="reviewDelivery">—</dd></div>
+                    <div><dt>Completion</dt><dd id="reviewDuration">—</dd></div>
+                    <div><dt>Price</dt><dd id="reviewPrice">—</dd></div>
+                  </dl>
+                </div>
+
+              </div>
+            </section>
+
+          </form>
+
+          <footer class="creation-footer">
+            <button id="creationBack" class="creation-nav-back" type="button">‹ Back</button>
+
+            <div class="creation-footer-right">
+              <button id="creationNext" class="creation-nav-next" type="button" disabled>Next</button>
+              <button id="creationCreate" class="creation-nav-create" type="button" hidden>
+                Create Course
+              </button>
+            </div>
+          </footer>
+
+        </div>
+
+      </section>
+
+    </main>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="assets/js/supabase-config.js?v=20260925-fast-auth"></script>
+<script src="assets/js/core-auth.js?v=20260925-fast-auth"></script>
+<script src="assets/js/session-security.js?v=20260925-fast-auth"></script>
+<script src="assets/js/portal-auth-guard.js?v=20260925-fast-auth"></script>
+<script src="assets/js/admin-auth-guard.js?v=20260925-fast-auth"></script>
+  <script src="assets/js/enterprise-management-system.js?v=20260924-design-v5"></script>
+  
+  <script src="assets/js/ui.js?v=20260918-modal-fix-1"></script>
+  
+  
+  
+  <script src="assets/js/admin-lms-creation.js?v=20260927-routing3"></script>
+<script src="assets/js/enterprise-portal.js?v=20260927-step13-nav1"></script>
+
+<!-- screenings4u universal portal security -->
+</body>
+</html>

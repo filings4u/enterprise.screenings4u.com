@@ -1,0 +1,63 @@
+/* Screenings4u Lesson Editor — legacy card + wide modal update */
+
+.s4u-legacy-content-hidden,
+.lesson-card[aria-hidden="true"] {
+  display: none !important;
+}
+
+#s4uEditorModal {
+  padding: 16px 20px;
+}
+
+.s4u-editor-modal-card {
+  width: min(1120px, calc(100vw - 40px)) !important;
+  max-height: calc(100vh - 32px) !important;
+  display: flex !important;
+  flex-direction: column;
+  overflow: hidden !important;
+}
+
+.s4u-editor-modal-head,
+.s4u-editor-modal-footer,
+.s4u-editor-modal-error,
+.s4u-editor-modal-progress {
+  flex: 0 0 auto;
+}
+
+.s4u-editor-modal-body {
+  min-height: 0;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  overflow: auto;
+  overscroll-behavior: contain;
+}
+
+.s4u-editor-modal-body > .s4u-modal-field.wide,
+.s4u-editor-modal-body > .s4u-modal-upload,
+.s4u-editor-modal-body > .s4u-modal-confirm-copy {
+  grid-column: 1 / -1;
+}
+
+.s4u-modal-field textarea {
+  max-height: 320px;
+}
+
+@media (max-width: 1100px) {
+  .s4u-editor-modal-body {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+}
+
+@media (max-width: 700px) {
+  #s4uEditorModal {
+    padding: 10px;
+  }
+
+  .s4u-editor-modal-card {
+    width: calc(100vw - 20px) !important;
+    max-height: calc(100vh - 20px) !important;
+  }
+
+  .s4u-editor-modal-body {
+    grid-template-columns: 1fr !important;
+  }
+}

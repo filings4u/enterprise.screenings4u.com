@@ -1,0 +1,366 @@
+/* ============================================================
+   SCREENINGS4U — EMPLOYEE TRAINING PROGRESS
+   Uses the employee dashboard template and shared shell.
+   ============================================================ */
+
+.employee-training-progress-content{
+  max-width:1600px;
+  margin:0 auto;
+  padding:30px;
+}
+
+.employee-training-progress-welcome-card{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:30px;
+  padding:28px 30px;
+  margin-bottom:22px;
+  border:1px solid #dce4ef;
+  border-radius:18px;
+  background:linear-gradient(135deg,#ffffff 0%,#f3f7ff 100%);
+}
+
+.employee-training-progress-eyebrow{
+  display:block;
+  color:#ff6b00;
+  font-size:12px;
+  font-weight:900;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+}
+
+.employee-training-progress-welcome-card h1{
+  margin:8px 0;
+  color:#2d405a;
+  font-size:30px;
+}
+
+.employee-training-progress-welcome-card p{
+  max-width:720px;
+  margin:0;
+  color:#536174;
+  font-size:16px;
+  line-height:1.65;
+}
+
+.employee-training-progress-welcome-actions{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+}
+
+.employee-training-progress-primary-action,
+.employee-training-progress-secondary-action{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:46px;
+  padding:0 16px;
+  border-radius:9px;
+  font:inherit;
+  font-size:15px;
+  font-weight:800;
+  text-decoration:none;
+  cursor:pointer;
+}
+
+.employee-training-progress-primary-action{
+  border:1px solid #24467f;
+  background:#24467f;
+  color:#fff;
+}
+
+.employee-training-progress-primary-action:hover{
+  border-color:#24467f;
+  background:#24467f;
+}
+
+.employee-training-progress-secondary-action{
+  border:1px solid #d7e0eb;
+  background:#fff;
+  color:#24467f;
+}
+
+.employee-training-progress-secondary-action:hover{
+  background:#f7f9fc;
+}
+
+.employee-training-progress-stat-grid{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:16px;
+  margin-bottom:20px;
+}
+
+.employee-training-progress-stat-card{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  padding:20px;
+  border:1px solid #dce4ed;
+  border-radius:15px;
+  background:#fff;
+}
+
+.employee-training-progress-stat-icon{
+  width:44px;
+  height:44px;
+  display:grid;
+  place-items:center;
+  flex:0 0 44px;
+  border-radius:12px;
+  font-size:14px;
+  font-weight:900;
+}
+
+.overall-icon{background:#edf3ff;color:#24467f}
+.completed-icon{background:#eaf8f1;color:#21865c}
+.active-icon{background:#fff3e9;color:#ff6b00}
+
+.employee-training-progress-stat-card span{
+  display:block;
+  margin-bottom:5px;
+  color:#667085;
+  font-size:14px;
+}
+
+.employee-training-progress-stat-card strong{
+  display:block;
+  color:#34475f;
+  font-size:26px;
+  line-height:1;
+}
+
+.employee-training-progress-stat-card small{
+  display:block;
+  margin-top:6px;
+  color:#667085;
+  font-size:13px;
+}
+
+.employee-training-progress-panel{
+  padding:22px;
+  border:1px solid #dce4ed;
+  border-radius:16px;
+  background:#fff;
+}
+
+.employee-training-progress-panel-heading{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:20px;
+  margin-bottom:20px;
+}
+
+.employee-training-progress-panel-heading h2{
+  margin:6px 0 0;
+  color:#34475f;
+  font-size:20px;
+}
+
+.employee-training-progress-panel-heading p{
+  margin:5px 0 0;
+  color:#536174;
+  font-size:15px;
+  line-height:1.55;
+}
+
+.employee-training-progress-filter-wrap{
+  width:210px;
+  flex:0 0 auto;
+}
+
+.employee-training-progress-filter-wrap select{
+  width:100%;
+  min-height:44px;
+  padding:0 12px;
+  border:1px solid #dce4ed;
+  border-radius:9px;
+  background:#fff;
+  color:#172033;
+  font:inherit;
+  font-size:15px;
+  outline:0;
+}
+
+.employee-training-progress-filter-wrap select:focus{
+  border-color:#9db3d7;
+  box-shadow:0 0 0 3px rgba(50,90,163,.08);
+}
+
+.employee-training-progress-list{
+  display:grid;
+  gap:12px;
+}
+
+.employee-training-progress-item{
+  display:grid;
+  grid-template-columns:52px minmax(0,1fr) auto;
+  gap:14px;
+  align-items:center;
+  padding:16px;
+  border:1px solid #e3e9f0;
+  border-radius:11px;
+  background:#fff;
+}
+
+.employee-training-progress-item:hover{
+  border-color:#c8d5e6;
+  background:#fbfcff;
+}
+
+.employee-training-progress-course-icon{
+  display:grid;
+  place-items:center;
+  width:52px;
+  height:52px;
+  border-radius:9px;
+  background:#edf3ff;
+  color:#24467f;
+  font-size:14px;
+  font-weight:900;
+}
+
+.employee-training-progress-course-info{
+  min-width:0;
+}
+
+.employee-training-progress-course-info h3{
+  margin:0;
+  color:#34475f;
+  font-size:16px;
+  line-height:1.4;
+}
+
+.employee-training-progress-course-info p{
+  margin:5px 0 9px;
+  color:#536174;
+  font-size:14px;
+}
+
+.employee-training-progress-bar{
+  height:7px;
+  overflow:hidden;
+  border-radius:999px;
+  background:#edf1f5;
+}
+
+.employee-training-progress-bar span{
+  display:block;
+  height:100%;
+  background:#24467f;
+}
+
+.employee-training-progress-course-percent{
+  min-width:98px;
+  text-align:right;
+  color:#24467f;
+  font-size:16px;
+  font-weight:900;
+}
+
+.employee-training-progress-course-percent small{
+  display:block;
+  margin-top:5px;
+  color:#667085;
+  font-size:13px;
+  font-weight:700;
+}
+
+.employee-training-progress-course-percent a{
+  display:inline-block;
+  margin-top:7px;
+  color:#24467f;
+  font-size:13px;
+  font-weight:800;
+  text-decoration:none;
+}
+
+.employee-training-progress-course-percent a:hover{
+  text-decoration:underline;
+}
+
+.employee-training-progress-empty{
+  padding:56px 20px;
+  text-align:center;
+}
+
+.employee-training-progress-empty-icon{
+  display:grid;
+  place-items:center;
+  width:46px;
+  height:46px;
+  margin:0 auto;
+  border-radius:50%;
+  background:#edf3ff;
+  color:#24467f;
+  font-weight:900;
+}
+
+.employee-training-progress-empty h2{
+  margin:12px 0 0;
+  color:#34475f;
+  font-size:20px;
+}
+
+.employee-training-progress-empty p{
+  margin:8px 0 0;
+  color:#536174;
+  font-size:15px;
+}
+
+@media(max-width:800px){
+  .employee-training-progress-content{
+    padding:22px 18px;
+  }
+
+  .employee-training-progress-welcome-card{
+    align-items:flex-start;
+    flex-direction:column;
+  }
+
+  .employee-training-progress-stat-grid{
+    grid-template-columns:1fr;
+  }
+
+  .employee-training-progress-panel-heading{
+    flex-direction:column;
+  }
+
+  .employee-training-progress-filter-wrap{
+    width:100%;
+  }
+}
+
+@media(max-width:650px){
+  .employee-training-progress-welcome-card{
+    padding:22px;
+  }
+
+  .employee-training-progress-welcome-actions{
+    width:100%;
+    flex-direction:column;
+  }
+
+  .employee-training-progress-primary-action,
+  .employee-training-progress-secondary-action{
+    width:100%;
+  }
+
+  .employee-training-progress-item{
+    grid-template-columns:46px minmax(0,1fr);
+  }
+
+  .employee-training-progress-course-icon{
+    width:46px;
+    height:46px;
+  }
+
+  .employee-training-progress-course-percent{
+    grid-column:2;
+    min-width:0;
+    text-align:left;
+  }
+}

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" class="s4u-auth-pending">
+<head><style id="s4u-preauth-style">html.s4u-auth-pending body{visibility:hidden!important}html.s4u-auth-pending #s4u-auth-blocking-error{visibility:visible!important}</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#24467f">
+
+  <title>Invoices & Payments | screenings4u Employer Portal</title>
+<link href="images/fav.png" rel="icon" type="image/png"/>
+  <link rel="stylesheet" href="assets/css/employer-portal.css">
+  <link rel="stylesheet" href="assets/css/employer-invoices.css">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/brand-system.css?v=20260918-brand-repair-v2">
+</head>
+<body class="employer-invoices-page" data-page-title="Invoices & Payments" data-page-subtitle="Manage invoices, payments, and billing activity." data-s4u-portal="employer">
+
+  <div id="employer-portal-sidebar"></div>
+
+  <main class="employer-portal-main">
+    <div id="employer-portal-header"></div>
+
+    <div class="employer-invoices-content">
+      <section class="invoices-hero">
+        <div>
+          <span class="invoice-eyebrow">BILLING CENTER</span>
+          <h1>Invoices & Payments</h1>
+          <p>Review outstanding balances, invoice history, and payment activity for your organization.</p>
+        </div>
+        <button class="invoice-primary-btn" id="pay-invoices-btn" type="button">Pay Outstanding Invoices</button>
+      </section>
+
+      <section class="invoice-summary-grid">
+        <article class="invoice-summary-card"><span>Outstanding Balance</span><strong id="stat-outstanding">—</strong><small>Across unpaid invoices</small></article>
+        <article class="invoice-summary-card"><span>Open Invoices</span><strong id="stat-open">—</strong><small>Awaiting payment</small></article>
+        <article class="invoice-summary-card"><span>Past Due</span><strong id="stat-past-due">—</strong><small>Requires attention</small></article>
+        <article class="invoice-summary-card"><span>Total Paid</span><strong id="stat-paid">—</strong><small>Recorded payment activity</small></article>
+      </section>
+
+      <section class="invoice-panel">
+        <div class="invoice-panel-header">
+          <div><span class="invoice-eyebrow">INVOICE HISTORY</span><h2>Your Invoices</h2></div>
+          <div class="invoice-controls">
+            <div class="invoice-search"><input id="invoice-search" type="search" placeholder="Search invoice number..." autocomplete="off"></div>
+            <select id="invoice-status-filter">
+              <option value="all">All Statuses</option><option value="open">Open</option><option value="paid">Paid</option><option value="past_due">Past Due</option><option value="void">Void</option>
+            </select>
+          </div>
+        </div>
+        <div class="invoice-table-wrap">
+          <table class="invoice-table">
+            <thead><tr><th>Invoice</th><th>Issued</th><th>Due Date</th><th>Amount</th><th>Balance</th><th>Status</th><th></th></tr></thead>
+            <tbody id="invoice-table-body"><tr><td colspan="7"><div class="invoice-empty-state"><div class="invoice-empty-icon">$</div><h3>Loading invoices…</h3><p>Please wait while your billing activity loads.</p></div></td></tr></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="payment-panel">
+        <div class="payment-panel-header">
+          <div><span class="invoice-eyebrow">PAYMENT ACTIVITY</span><h2>Recent Payments</h2></div>
+          <button class="invoice-text-btn" id="view-all-payments-btn" type="button">View All Payments →</button>
+        </div>
+        <div id="payment-list" class="payment-list"><div class="payment-empty-state"><p>Loading payment activity…</p></div></div>
+      </section>
+    </div>
+  </main>
+
+  <div class="invoice-modal" id="invoice-modal" hidden>
+    <div class="invoice-modal-backdrop" data-close-invoice-modal></div>
+    <div class="invoice-modal-card" role="dialog" aria-modal="true" aria-labelledby="invoice-modal-title">
+      <div class="invoice-modal-header">
+        <div><span class="invoice-eyebrow">INVOICE DETAILS</span><h2 id="invoice-modal-title">Invoice</h2></div>
+        <button class="invoice-modal-close" data-close-invoice-modal type="button" aria-label="Close">×</button>
+      </div>
+      <div id="invoice-modal-content"></div>
+      <div class="invoice-modal-actions" id="invoice-modal-actions"></div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  
+  
+  
+  
+  <script src="assets/js/employer-portal.js"></script>
+  <script src="assets/js/employer-invoices.js"></script>
+
+<!-- screenings4u universal portal security -->
+<script src="assets/js/supabase-config.js?v=20260925-lockdown"></script>
+<script src="assets/js/core-auth.js?v=20260925-lockdown"></script>
+<script src="assets/js/session-security.js?v=20260925-lockdown"></script>
+<script src="assets/js/portal-auth-guard.js?v=20260925-lockdown"></script>
+<script src="assets/js/employer-auth-guard.js?v=20260925-lockdown"></script>
+</body>
+</html>

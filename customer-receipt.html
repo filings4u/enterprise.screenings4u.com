@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en" class="s4u-auth-pending">
+<head><style id="s4u-preauth-style">html.s4u-auth-pending body{visibility:hidden!important}html.s4u-auth-pending #s4u-auth-blocking-error{visibility:visible!important}</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Receipt | screenings4u</title>
+  <meta name="theme-color" content="#24467f">
+
+<link href="images/fav.png" rel="icon" type="image/png"/>
+  <style>
+    :root{
+      --s4u-blue:#24467f;
+      --s4u-blue-2:#24467f;
+      --s4u-orange:#f05a00;
+      --s4u-text:#17304f;
+      --s4u-muted:#6b7b90;
+      --s4u-border:#dbe4ef;
+      --s4u-bg:#eef3f8;
+      --s4u-soft:#f7f9fc;
+      --s4u-success:#16804d;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0}
+    body{
+      min-height:100vh;
+      background:var(--s4u-bg);
+      color:var(--s4u-text);
+      font-family:Arial,Helvetica,sans-serif;
+      -webkit-print-color-adjust:exact;
+      print-color-adjust:exact;
+    }
+    .receipt-page{max-width:980px;margin:34px auto;padding:0 18px 40px}
+    .receipt-shell{
+      background:#fff;
+      border:1px solid var(--s4u-border);
+      border-radius:18px;
+      overflow:hidden;
+      box-shadow:0 24px 70px rgba(23,61,120,.12);
+    }
+    .receipt-header{
+      padding:28px 34px;
+      background:linear-gradient(135deg,#102f60,#24467f 65%,#24467f);
+      color:#fff;
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-start;
+      gap:28px;
+    }
+    .receipt-logo-wrap{min-width:220px}
+    .receipt-logo{
+      display:block;
+      width:210px;
+      max-width:100%;
+      height:auto;
+      object-fit:contain;
+      object-position:left center;
+      margin-bottom:18px;
+    }
+    .receipt-kicker{
+      color:#ff9a5c;
+      font-size:10px;
+      font-weight:900;
+      letter-spacing:.14em;
+      margin-bottom:7px;
+    }
+    .receipt-header h1{
+      margin:0;
+      font-size:31px;
+      letter-spacing:-.035em;
+    }
+    .receipt-header-meta{
+      text-align:right;
+      min-width:260px;
+      color:#dce7f8;
+      font-size:12px;
+      line-height:1.65;
+    }
+    .receipt-header-meta strong{
+      display:block;
+      color:#fff;
+      font-size:18px;
+      margin-bottom:4px;
+    }
+    .receipt-body{padding:30px 34px 24px}
+    .receipt-grid{
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:16px;
+      margin-bottom:24px;
+    }
+    .receipt-card{
+      border:1px solid var(--s4u-border);
+      border-radius:12px;
+      padding:16px 18px;
+      background:#fff;
+    }
+    .receipt-card h3,
+    .receipt-section h3{
+      margin:0 0 12px;
+      color:var(--s4u-blue);
+      font-size:12px;
+      letter-spacing:.04em;
+    }
+    .kv{display:grid;grid-template-columns:130px minmax(0,1fr);gap:8px 14px;font-size:12px;line-height:1.45}
+    .kv span{color:var(--s4u-muted)}
+    .kv strong{font-weight:700;overflow-wrap:anywhere}
+    .receipt-section{margin-top:22px}
+    .items-wrap{overflow-x:auto}
+    table{width:100%;border-collapse:collapse}
+    th{
+      padding:11px 10px;
+      background:#f7f9fc;
+      border-top:1px solid var(--s4u-border);
+      border-bottom:1px solid var(--s4u-border);
+      color:#718198;
+      text-align:left;
+      font-size:10px;
+      letter-spacing:.06em;
+    }
+    td{
+      padding:14px 10px;
+      border-bottom:1px solid #e8eef5;
+      font-size:12px;
+      vertical-align:top;
+    }
+    th:nth-child(2),td:nth-child(2){text-align:center}
+    th:nth-child(3),th:nth-child(4),td:nth-child(3),td:nth-child(4){text-align:right}
+    .item-name{font-weight:800;color:#243f63}
+    .item-sku{display:block;margin-top:4px;color:#8290a3;font-size:10px}
+    .totals{
+      width:min(100%,390px);
+      margin:24px 0 0 auto;
+    }
+    .total-line{
+      display:flex;
+      justify-content:space-between;
+      gap:20px;
+      padding:8px 0;
+      font-size:12px;
+      color:#5f7087;
+    }
+    .total-line strong{color:#2b405c}
+    .total-line.grand{
+      border-top:1px solid var(--s4u-border);
+      margin-top:6px;
+      padding-top:14px;
+      font-size:17px;
+      font-weight:900;
+      color:var(--s4u-text);
+    }
+    .receipt-note{
+      margin-top:22px;
+      padding:14px 16px;
+      border:1px solid var(--s4u-border);
+      background:var(--s4u-soft);
+      border-radius:10px;
+      color:#5c6d83;
+      font-size:11px;
+      line-height:1.55;
+    }
+    .receipt-footer{
+      padding:20px 34px;
+      border-top:1px solid var(--s4u-border);
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:20px;
+    }
+    .receipt-footer-copy{font-size:10px;color:#718198;line-height:1.5}
+    .receipt-actions{display:flex;gap:10px}
+    .receipt-btn{
+      min-height:42px;
+      padding:0 18px;
+      border-radius:8px;
+      border:1px solid transparent;
+      font-size:11px;
+      font-weight:900;
+      cursor:pointer;
+    }
+    .receipt-btn.secondary{background:#edf3fb;color:var(--s4u-blue);border-color:#dbe4ef}
+    .receipt-btn.primary{background:var(--s4u-orange);color:#fff;border-color:var(--s4u-orange)}
+    .receipt-loading,
+    .receipt-error{
+      max-width:760px;
+      margin:80px auto;
+      padding:28px;
+      border-radius:14px;
+      background:#fff;
+      border:1px solid var(--s4u-border);
+      text-align:center;
+      box-shadow:0 20px 55px rgba(23,61,120,.10);
+    }
+    .receipt-error{color:#a33}
+    .receipt-status-paid{color:var(--s4u-success)!important}
+    [hidden]{display:none!important}
+
+    @media(max-width:720px){
+      html{font-size:16px}
+      body{overflow-x:hidden}
+      .receipt-page{width:100%;margin:0;padding:0}
+      .receipt-shell{border-left:0;border-right:0;border-radius:0;box-shadow:none}
+      .receipt-header{flex-direction:column;padding:24px 16px}
+      .receipt-header-meta{text-align:left;min-width:0}
+      .receipt-header h1{font-size:28px}
+      .receipt-logo-wrap{min-width:0;width:100%}
+      .receipt-logo{width:180px}
+      .receipt-body{padding:22px 16px}
+      .receipt-grid{grid-template-columns:1fr}
+      .receipt-card{width:100%;padding:16px}
+      .kv{grid-template-columns:1fr;gap:3px}
+      .kv strong{margin-bottom:10px}
+      .items-wrap{overflow:visible}
+      table,tbody,tr,td{display:block;width:100%}
+      thead{display:none}
+      tbody{display:grid;grid-template-columns:1fr;gap:12px}
+      tr{padding:14px;border:1px solid var(--s4u-border);border-radius:10px;background:#fff}
+      td{display:grid;grid-template-columns:100px minmax(0,1fr);gap:12px;padding:7px 0;border:0;text-align:right!important;font-size:14px}
+      td:before{color:var(--s4u-muted);font-size:11px;font-weight:800;text-align:left}
+      td:nth-child(1):before{content:"Service"}
+      td:nth-child(2):before{content:"Quantity"}
+      td:nth-child(3):before{content:"Unit Price"}
+      td:nth-child(4):before{content:"Line Total"}
+      .totals{width:100%;margin-top:20px}
+      .total-line{font-size:14px}
+      .receipt-note{font-size:13px}
+      .receipt-footer{align-items:stretch;flex-direction:column;padding:20px 16px}
+      .receipt-actions{display:grid;grid-template-columns:1fr;width:100%}
+      .receipt-btn{width:100%;min-height:46px;font-size:13px}
+      .receipt-loading,.receipt-error{margin:30px 16px;padding:22px 16px}
+    }
+
+    @media print{
+      @page{size:Letter;margin:.45in}
+      body{background:#fff}
+      .receipt-page{max-width:none;margin:0;padding:0}
+      .receipt-shell{border:0;border-radius:0;box-shadow:none}
+      .receipt-header{padding:18px 24px}
+      .receipt-body{padding:18px 24px 12px}
+      .receipt-grid{gap:10px;margin-bottom:14px}
+      .receipt-card{padding:12px 14px}
+      .receipt-section{margin-top:14px}
+      th{padding:8px 8px}
+      td{padding:10px 8px}
+      .totals{margin-top:16px}
+      .receipt-note{margin-top:14px;padding:10px 12px}
+      .receipt-footer{display:none!important}
+      .receipt-actions{display:none!important}
+      .receipt-loading,.receipt-error{display:none!important}
+      .receipt-logo{width:190px}
+    }
+  </style>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/brand-system.css?v=20260918-brand-repair-v2">
+</head>
+<body data-s4u-portal="customer">
+  <div id="receipt-loading" class="receipt-loading">Loading your Screenings4u receipt...</div>
+  <div id="receipt-error" class="receipt-error" hidden></div>
+
+  <main id="receipt-page" class="receipt-page" hidden>
+    <article class="receipt-shell">
+      <header class="receipt-header">
+        <div class="receipt-logo-wrap">
+          <img class="receipt-logo" src="images/logo2.png" alt="Screenings4u">
+          <div class="receipt-kicker">OFFICIAL PAYMENT RECEIPT</div>
+          <h1 id="receipt-order-number">Receipt</h1>
+        </div>
+
+        <div class="receipt-header-meta">
+          <strong id="receipt-paid-date">—</strong>
+          <div>Payment Status: <span id="receipt-payment-status">—</span></div>
+          <div>Order Status: <span id="receipt-order-status">—</span></div>
+          <div>Service Status: <span id="receipt-service-status">—</span></div>
+        </div>
+      </header>
+
+      <div class="receipt-body">
+        <section class="receipt-grid">
+          <div class="receipt-card">
+            <h3>CUSTOMER INFORMATION</h3>
+            <div class="kv">
+              <span>Name</span><strong id="receipt-customer-name">—</strong>
+              <span>Email</span><strong id="receipt-customer-email">—</strong>
+              <span>Phone</span><strong id="receipt-customer-phone">—</strong>
+            </div>
+          </div>
+
+          <div class="receipt-card">
+            <h3>ORDER INFORMATION</h3>
+            <div class="kv">
+              <span>Order ID</span><strong id="receipt-order-id">—</strong>
+              <span>Tracking #</span><strong id="receipt-tracking">—</strong>
+              <span>Fulfillment</span><strong id="receipt-fulfillment-type">—</strong>
+              <span>Created</span><strong id="receipt-created-date">—</strong>
+            </div>
+          </div>
+
+          <div class="receipt-card">
+            <h3>PAYMENT INFORMATION</h3>
+            <div class="kv">
+              <span>Method</span><strong id="receipt-payment-method">—</strong>
+              <span>Provider</span><strong id="receipt-payment-provider">—</strong>
+              <span>Reference</span><strong id="receipt-payment-reference">—</strong>
+              <span>Paid At</span><strong id="receipt-paid-at">—</strong>
+            </div>
+          </div>
+
+          <div class="receipt-card">
+            <h3>BILLING ADDRESS</h3>
+            <div class="kv">
+              <span>Address</span><strong id="receipt-billing-address">—</strong>
+              <span>City / State</span><strong id="receipt-billing-city-state">—</strong>
+              <span>Postal Code</span><strong id="receipt-billing-postal">—</strong>
+              <span>Country</span><strong id="receipt-billing-country">—</strong>
+            </div>
+          </div>
+        </section>
+
+        <section class="receipt-section">
+          <h3>ORDER ITEMS</h3>
+          <div class="items-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Service</th>
+                  <th>Qty</th>
+                  <th>Unit Price</th>
+                  <th>Line Total</th>
+                </tr>
+              </thead>
+              <tbody id="receipt-items"></tbody>
+            </table>
+          </div>
+
+          <div class="totals">
+            <div class="total-line"><span>Subtotal</span><strong id="receipt-subtotal">$0.00</strong></div>
+            <div class="total-line grand"><span>Total Paid</span><strong id="receipt-total">$0.00</strong></div>
+          </div>
+        </section>
+
+        <section class="receipt-section" id="receipt-notes-section" hidden>
+          <h3>CUSTOMER NOTES</h3>
+          <div class="receipt-note" id="receipt-notes"></div>
+        </section>
+
+        <div class="receipt-note">
+          This receipt confirms payment received by Screenings4u for the services listed above.
+          Keep this document for your records. Service completion and testing status may continue to
+          update separately from payment status.
+        </div>
+      </div>
+
+      <footer class="receipt-footer">
+        <div class="receipt-footer-copy">
+          Screenings4u<br>
+          Official customer payment receipt
+        </div>
+        <div class="receipt-actions">
+          <button type="button" class="receipt-btn secondary" onclick="window.location.href='customer-orders.html'">Close</button>
+          <button type="button" class="receipt-btn primary" onclick="window.print()">Print / Save PDF</button>
+        </div>
+      </footer>
+    </article>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  
+  
+  <script src="assets/js/customer-receipt.js?v=20260830-1815"></script>
+
+<!-- screenings4u universal portal security -->
+<script src="assets/js/supabase-config.js?v=20260925-lockdown"></script>
+<script src="assets/js/core-auth.js?v=20260925-lockdown"></script>
+<script src="assets/js/session-security.js?v=20260925-lockdown"></script>
+<script src="assets/js/portal-auth-guard.js?v=20260925-lockdown"></script>
+<script src="assets/js/customer-auth-guard.js?v=20260925-lockdown"></script>
+</body>
+</html>

@@ -1,0 +1,515 @@
+
+/* ============================================================
+   screenings4u — ENTERPRISE ADMIN PAGE SYSTEM
+   Companion styles for pages built around admin-dashboard.html.
+   The dashboard CSS itself is not modified.
+   ============================================================ */
+
+.enterprise-content {
+  width: min(1480px, calc(100% - 48px));
+  margin: 0 auto;
+  padding: 22px 24px 44px;
+}
+
+.enterprise-page-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 28px;
+  min-height: 118px;
+  padding-bottom: 22px;
+  border-bottom: 1px solid #e3e8ef;
+}
+
+.enterprise-page-title {
+  min-width: 0;
+}
+
+.enterprise-page-title .s4u-page-kicker {
+  margin-bottom: 5px;
+  color: #f05a00;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: .045em;
+}
+
+.enterprise-page-title h1 {
+  margin: 0;
+  color: #173d78;
+  font-size: clamp(34px, 3vw, 42px);
+  line-height: .98;
+  font-weight: 800;
+  letter-spacing: -.045em;
+}
+
+.enterprise-page-title p {
+  margin: 8px 0 0;
+  color: #52627a;
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.enterprise-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 9px;
+  flex-wrap: wrap;
+}
+
+.enterprise-filter-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 14px;
+}
+
+.enterprise-filter,
+.enterprise-search {
+  min-height: 40px;
+  padding: 0 12px;
+  border: 1px solid #cbd7e5;
+  border-radius: 8px;
+  background: #fff;
+  color: #344054;
+  font: inherit;
+  font-size: 12px;
+}
+
+.enterprise-search {
+  min-width: 300px;
+  outline: none;
+}
+
+.enterprise-search:focus,
+.enterprise-filter:focus {
+  border-color: #8ea9ca;
+  box-shadow: 0 0 0 3px rgba(50,90,163,.08);
+}
+
+.enterprise-section {
+  margin-top: 16px;
+  overflow: hidden;
+  background: #fff;
+  border: 1px solid #dfe5ed;
+  border-radius: 10px;
+  box-shadow: 0 3px 11px rgba(20,48,82,.055);
+}
+
+.enterprise-section-header {
+  min-height: 76px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 16px 23px;
+  border-bottom: 1px solid #e3e8ef;
+}
+
+.enterprise-section-header h2 {
+  margin: 0;
+  color: #173d78;
+  font-size: 18px;
+  line-height: 1.15;
+  font-weight: 800;
+  letter-spacing: -.025em;
+}
+
+.enterprise-section-header p {
+  margin: 6px 0 0;
+  color: #607089;
+  font-size: 11px;
+  line-height: 1.3;
+}
+
+.enterprise-section-body {
+  padding: 18px 20px;
+}
+
+.enterprise-table-wrap {
+  overflow-x: auto;
+}
+
+.enterprise-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+}
+
+.enterprise-table th {
+  padding: 11px 12px;
+  background: #f8fafc;
+  border-bottom: 1px solid #dfe5ed;
+  color: #667892;
+  font-size: 9px;
+  font-weight: 900;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.enterprise-table td {
+  padding: 13px 12px;
+  border-bottom: 1px solid #edf0f4;
+  color: #35435a;
+  vertical-align: middle;
+}
+
+.enterprise-table tr:last-child td {
+  border-bottom: 0;
+}
+
+.enterprise-table tr:hover td {
+  background: #fbfcfe;
+}
+
+.enterprise-table td strong {
+  color: #173b73;
+  font-weight: 800;
+}
+
+.enterprise-table td small {
+  color: #748198;
+  font-size: 10px;
+  line-height: 1.3;
+}
+
+.enterprise-table .s4u-button {
+  min-height: 34px;
+  padding: 0 11px;
+  font-size: 10px;
+}
+
+.enterprise-empty,
+.enterprise-loading {
+  padding: 38px 20px !important;
+  text-align: center;
+  color: #748198;
+}
+
+.enterprise-stat-grid {
+  display: grid;
+  grid-template-columns: repeat(4,minmax(0,1fr));
+  gap: 13px;
+  margin-top: 16px;
+}
+
+.enterprise-stat-card {
+  min-height: 116px;
+  padding: 17px 20px;
+  background: #fff;
+  border: 1px solid #dfe5ed;
+  border-radius: 10px;
+  box-shadow: 0 3px 10px rgba(20,48,82,.055);
+}
+
+.enterprise-stat-label {
+  color: #5f6d83;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: .075em;
+  text-transform: uppercase;
+}
+
+.enterprise-stat-value {
+  display: block;
+  margin-top: 15px;
+  color: #183f7c;
+  font-size: 28px;
+  line-height: 1;
+  font-weight: 800;
+  letter-spacing: -.04em;
+}
+
+.enterprise-stat-note {
+  display: block;
+  margin-top: 8px;
+  color: #647189;
+  font-size: 10px;
+}
+
+.enterprise-module-grid {
+  display: grid;
+  grid-template-columns: repeat(12,minmax(0,1fr));
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.enterprise-module-card {
+  grid-column: span 4;
+  min-height: 170px;
+  padding: 20px;
+  background: #fff;
+  border: 1px solid #dfe5ed;
+  border-top: 3px solid #ff6b00;
+  border-radius: 10px;
+  box-shadow: 0 3px 11px rgba(20,48,82,.055);
+}
+
+.enterprise-module-card.wide {
+  grid-column: span 6;
+  min-height: 150px;
+}
+
+.enterprise-module-card h2 {
+  margin: 0;
+  color: #173d78;
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.enterprise-module-card p {
+  margin: 9px 0 0;
+  color: #607089;
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+.enterprise-kpi {
+  margin-top: 16px;
+  color: #183f7c;
+  font-size: 30px;
+  line-height: 1;
+  font-weight: 800;
+}
+
+.enterprise-actions {
+  display: flex;
+  gap: 9px;
+  flex-wrap: wrap;
+  margin-top: 16px;
+}
+
+.enterprise-message {
+  min-height: 0;
+  margin-bottom: 12px;
+  color: #607089;
+  font-size: 11px;
+}
+
+.enterprise-message:empty {
+  display: none;
+}
+
+.enterprise-role-message {
+  margin-top: 12px;
+}
+
+@media (max-width: 1100px) {
+  .enterprise-stat-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .enterprise-module-card { grid-column: span 6; }
+  .enterprise-module-card.wide { grid-column: span 6; }
+}
+
+@media (max-width: 800px) {
+  .enterprise-page-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+  .enterprise-toolbar { justify-content: flex-start; }
+  .enterprise-search { min-width: min(100%, 300px); }
+  .enterprise-module-card,
+  .enterprise-module-card.wide { grid-column: 1 / -1; }
+}
+
+@media (max-width: 600px) {
+  .enterprise-content { width: 100%; padding: 18px 14px 28px; }
+  .enterprise-page-header { min-height: 0; padding-bottom: 18px; }
+  .enterprise-page-title h1 { font-size: 34px; }
+  .enterprise-stat-grid { grid-template-columns: 1fr; }
+  .enterprise-section-header { align-items: flex-start; flex-direction: column; }
+  .enterprise-section-body { padding: 14px; }
+}
+
+
+/* ============================================================
+   SCREENINGS4U — ADMIN DESKTOP TYPOGRAPHY NORMALIZATION
+   Canonical sizing source: customer-dashboard.css
+   Added 2026-08-31
+   Layout, colors, spacing, borders, and responsive rules above
+   remain unchanged.
+   ============================================================ */
+
+@media (min-width: 901px) {
+
+  /* Page titles */
+  :is(
+    .s4u-dashboard-heading,
+    .customers-heading,
+    .employees-heading,
+    .admin-employers-heading,
+    .employer-users-heading,
+    .enterprise-page-title,
+    .admin-module-heading,
+    .operations-page-title,
+    .admin-lms-page-heading,
+    .admin-lms-heading,
+    .s4u-page-heading,
+    .page-heading
+  ) h1 {
+    font-size: clamp(1.8rem, 3vw, 2.55rem);
+  }
+
+  /* Page descriptions */
+  :is(
+    .s4u-dashboard-heading,
+    .customers-heading,
+    .employees-heading,
+    .admin-employers-heading,
+    .employer-users-heading,
+    .enterprise-page-title,
+    .admin-module-heading,
+    .operations-page-title,
+    .admin-lms-page-heading,
+    .admin-lms-heading,
+    .s4u-page-heading,
+    .page-heading
+  ) p {
+    font-size: 0.98rem;
+  }
+
+  /* Eyebrows / kickers */
+  :is(
+    .s4u-dashboard-kicker,
+    .page-eyebrow,
+    .panel-eyebrow,
+    .employees-kicker,
+    .admin-employers-kicker,
+    .employer-users-kicker,
+    .s4u-page-kicker,
+    .admin-module-kicker,
+    .admin-lms-kicker,
+    .page-kicker
+  ) {
+    font-size: 0.72rem;
+  }
+
+  /* Primary and secondary action text */
+  :is(
+    .s4u-button,
+    .btn,
+    .employees-primary-button,
+    .employees-secondary-button,
+    .employees-action-button,
+    .admin-employers-primary-button,
+    .employer-users-primary-button,
+    .employer-users-secondary-button,
+    .employer-users-action-button,
+    .operations-btn,
+    .admin-lms-button,
+    .admin-lms-primary-button,
+    .admin-lms-secondary-button
+  ) {
+    font-size: 0.9rem;
+  }
+
+  /* Section / panel headings */
+  :is(
+    .s4u-section-header,
+    .enterprise-section-header,
+    .admin-module-section-header,
+    .operations-panel-header,
+    .admin-lms-panel-header,
+    .panel-header,
+    .section-header
+  ) h2 {
+    font-size: 1.05rem;
+  }
+
+  /* Section / panel supporting text */
+  :is(
+    .s4u-section-header,
+    .enterprise-section-header,
+    .admin-module-section-header,
+    .operations-panel-header,
+    .admin-lms-panel-header,
+    .panel-header,
+    .section-header
+  ) p {
+    font-size: 0.78rem;
+  }
+
+  /* KPI / metric values */
+  :is(
+    .s4u-dashboard-metric-card,
+    .metric-card,
+    .employees-metric-card,
+    .admin-employer-metric-card,
+    .employer-users-metric-card,
+    .admin-module-kpi,
+    .operations-kpi-card,
+    .s4u-stat,
+    .admin-lms-stat-card,
+    .admin-lms-metric-card
+  ) strong,
+  .admin-employer-metric-value,
+  .s4u-stat-value {
+    font-size: 1.85rem;
+  }
+
+  /* KPI / metric labels */
+  :is(
+    .s4u-dashboard-metric-card,
+    .metric-card,
+    .employees-metric-card,
+    .admin-employer-metric-card,
+    .employer-users-metric-card,
+    .admin-module-kpi,
+    .operations-kpi-card,
+    .s4u-stat,
+    .admin-lms-stat-card,
+    .admin-lms-metric-card
+  ) > span:first-child,
+  .metric-label,
+  .admin-employer-metric-label,
+  .admin-module-kpi-label,
+  .operations-kpi-label,
+  .s4u-stat-label {
+    font-size: 0.72rem;
+  }
+
+  /* Tables */
+  :is(
+    .s4u-table,
+    .enterprise-table,
+    .admin-module-table,
+    .operations-table,
+    .admin-lms-table,
+    table
+  ) {
+    font-size: 0.78rem;
+  }
+
+  :is(
+    .s4u-table,
+    .enterprise-table,
+    .admin-module-table,
+    .operations-table,
+    .admin-lms-table,
+    table
+  ) th {
+    font-size: 0.72rem;
+  }
+
+  :is(
+    .s4u-table,
+    .enterprise-table,
+    .admin-module-table,
+    .operations-table,
+    .admin-lms-table,
+    table
+  ) td {
+    font-size: 0.78rem;
+  }
+
+  /* Form controls */
+  :is(
+    input,
+    select,
+    textarea
+  ) {
+    font-size: 0.9rem;
+  }
+}

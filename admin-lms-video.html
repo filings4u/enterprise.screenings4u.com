@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en" class="s4u-auth-pending">
+<head><style id="s4u-preauth-style">@keyframes s4uAuthSpin{to{transform:rotate(360deg)}}html.s4u-auth-pending body>:not(#s4u-auth-blocking-error):not(#s4u-auth-loading){visibility:hidden!important}html.s4u-auth-pending #s4u-auth-blocking-error,html.s4u-auth-pending #s4u-auth-loading{visibility:visible!important}</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Video Library | screenings4u Learning Center</title>
+  <meta name="theme-color" content="#24467f">
+
+<link href="images/fav.png" rel="icon" type="image/png"/>
+  <link rel="stylesheet" href="assets/css/admin-lms.css"><link rel="stylesheet" href="assets/css/lms-ui-modals.css?v=20260917-brandmodal">
+  <link rel="stylesheet" href="assets/css/admin-lms-video.css?v=20260901-2305">
+<link rel="stylesheet" href="assets/css/enterprise-portal.css?v=20260924-design-v5">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/brand-system.css?v=20260918-dashboard-fix-v1">
+<link rel="stylesheet" href="assets/css/enterprise-management-system.css?v=20260924-design-v5"></head>
+
+<body class="admin-lms-video-page" data-s4u-portal="admin"><div id="s4u-auth-loading" role="status" aria-live="polite" style="position:fixed;inset:0;z-index:2147483000;display:grid;place-items:center;background:#f4f7fc;font-family:Inter,Arial,sans-serif;color:#24467f"><div style="text-align:center"><div style="width:34px;height:34px;margin:0 auto 14px;border:3px solid #dbe5f1;border-top-color:#24467f;border-radius:50%;animation:s4uAuthSpin .7s linear infinite"></div><strong style="font-size:14px">Loading secure workspace…</strong></div></div>
+  <div class="admin-lms-app">
+    <div id="admin-lms-sidebar-target"></div>
+
+    <main class="admin-lms-main">
+      <header class="admin-lms-topbar">
+        <div class="admin-lms-topbar-left">
+          <button
+            type="button"
+            class="admin-lms-sidebar-collapse"
+            data-admin-sidebar-collapse
+            aria-label="Collapse sidebar"
+            aria-expanded="true"
+          >☰</button>
+
+          <div class="admin-lms-topbar-context">
+            <span>Screenings4u Learning Center</span><br>
+            <strong>Video Library</strong>
+          </div>
+        </div>
+      </header>
+
+      <section class="video-library-shell">
+        <nav class="video-library-breadcrumbs" aria-label="Breadcrumb">
+          <a href="admin-lms-dashboard.html">Learning Center</a>
+          <span>/</span>
+          <span>Video Library</span>
+        </nav>
+
+        <header class="video-library-header">
+          <div>
+            <span class="video-library-eyebrow">LEARNING ASSETS</span>
+            <h1>Video Library</h1>
+            <p>
+              Upload physical video files or add videos from YouTube and
+              external websites. Every saved video can be reused in course lessons.
+            </p>
+          </div>
+
+          <div class="video-library-header-actions">
+            <a
+              class="video-library-secondary"
+              href="admin-lms-courses.html"
+            >
+              Open Courses
+            </a>
+
+            <button
+              type="button"
+              class="video-library-primary"
+              id="videoLibraryAdd"
+            >
+              + Add Video
+            </button>
+          </div>
+        </header>
+
+        <div
+          class="video-library-toast"
+          id="videoLibraryToast"
+          role="status"
+          aria-live="polite"
+        ></div>
+
+        <section class="video-library-metrics" aria-label="Video library summary">
+          <article>
+            <span>Total Videos</span>
+            <strong id="videoMetricTotal">0</strong>
+          </article>
+
+          <article>
+            <span>Ready</span>
+            <strong id="videoMetricReady">0</strong>
+          </article>
+
+          <article>
+            <span>Cloudflare Stream</span>
+            <strong id="videoMetricCloudflare">0</strong>
+          </article>
+
+          <article>
+            <span>Total Runtime</span>
+            <strong id="videoMetricRuntime">0m</strong>
+          </article>
+        </section>
+
+        <section
+          class="video-category-section"
+          aria-label="Video categories"
+        >
+          <div class="video-category-section-head">
+            <div>
+              <span>ORGANIZE LIBRARY</span>
+              <h2>Categories</h2>
+            </div>
+
+            <p>
+              Select a category to filter the video library.
+            </p>
+          </div>
+
+          <div
+            class="video-category-tabs"
+            id="videoLibraryCategoryTabs"
+          ></div>
+        </section>
+
+        <section class="video-library-panel">
+          <header class="video-library-panel-head">
+            <div>
+              <h2>Course Videos</h2>
+              <p id="videoLibraryCount">Loading videos...</p>
+            </div>
+
+            <div class="video-library-filters">
+              <input
+                id="videoLibrarySearch"
+                type="search"
+                placeholder="Search videos..."
+                aria-label="Search videos"
+              >
+
+              <select id="videoLibraryProvider" aria-label="Filter by provider">
+                <option value="all">All providers</option>
+                <option value="cloudflare_stream">Cloudflare Stream</option>
+                <option value="supabase_storage">Uploaded Files</option>
+                <option value="youtube">YouTube</option>
+                <option value="external">External Website</option>
+                <option value="other">Other</option>
+              </select>
+
+              <select id="videoLibraryStatus" aria-label="Filter by status">
+                <option value="all">All statuses</option>
+                <option value="ready">Ready</option>
+                <option value="processing">Processing</option>
+              </select>
+
+              <button type="button" id="videoLibraryRefresh">
+                Refresh
+              </button>
+            </div>
+          </header>
+
+          <div class="video-library-loading" id="videoLibraryLoading">
+            Loading video library...
+          </div>
+
+          <div
+            class="video-library-grid"
+            id="videoLibraryGrid"
+            hidden
+          ></div>
+
+          <div
+            class="video-library-empty"
+            id="videoLibraryEmpty"
+            hidden
+          >
+            No videos match the current filters.
+          </div>
+        </section>
+      </section>
+    </main>
+  </div>
+
+
+  <!-- ADD VIDEO -->
+  <div class="video-library-modal" id="videoAddModal" hidden>
+    <div
+      class="video-library-modal-backdrop"
+      data-close-add-video
+    ></div>
+
+    <section
+      class="video-library-modal-card video-library-add-card"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="videoAddTitle"
+    >
+      <header>
+        <div>
+          <span>VIDEO LIBRARY</span>
+          <h2 id="videoAddTitle">Add Video</h2>
+          <p>
+            Upload a file or save a reusable video from YouTube or another website.
+          </p>
+        </div>
+
+        <button
+          type="button"
+          data-close-add-video
+          aria-label="Close"
+        >×</button>
+      </header>
+
+      <div class="video-library-modal-body">
+        <div
+          class="video-source-tabs"
+          role="tablist"
+          aria-label="Video source"
+        >
+          <button
+            type="button"
+            class="active"
+            data-video-source-tab="upload"
+            aria-selected="true"
+          >
+            Upload File
+          </button>
+
+          <button
+            type="button"
+            data-video-source-tab="youtube"
+            aria-selected="false"
+          >
+            YouTube
+          </button>
+
+          <button
+            type="button"
+            data-video-source-tab="external"
+            aria-selected="false"
+          >
+            Website / External Link
+          </button>
+        </div>
+
+        <input
+          id="videoAddSource"
+          type="hidden"
+          value="upload"
+        >
+
+        <div
+          class="video-add-source-panel"
+          data-video-source-panel="upload"
+        >
+          <label
+            class="video-upload-drop"
+            for="videoAddFile"
+          >
+            <input
+              id="videoAddFile"
+              type="file"
+              accept="video/mp4,video/webm,video/quicktime,.mp4,.webm,.mov"
+              hidden
+            >
+
+            <span class="video-upload-drop-icon">↑</span>
+            <strong>Choose Video File</strong>
+            <small>MP4, WebM, or MOV · Maximum 500 MB</small>
+            <em id="videoAddFileName">No file selected</em>
+          </label>
+        </div>
+
+        <div
+          class="video-add-source-panel"
+          data-video-source-panel="youtube"
+          hidden
+        >
+          <label class="video-add-field">
+            <span>YouTube URL</span>
+            <input
+              id="videoAddYouTubeUrl"
+              type="url"
+              placeholder="https://www.youtube.com/watch?v=..."
+            >
+            <small>
+              Supports youtube.com, youtu.be, Shorts, embed, and live URLs.
+            </small>
+          </label>
+        </div>
+
+        <div
+          class="video-add-source-panel"
+          data-video-source-panel="external"
+          hidden
+        >
+          <label class="video-add-field">
+            <span>Video or Website URL</span>
+            <input
+              id="videoAddExternalUrl"
+              type="url"
+              placeholder="https://example.com/video"
+            >
+            <small>
+              Use a direct video URL or a page/embed URL from another provider.
+            </small>
+          </label>
+        </div>
+
+        <div class="video-add-details">
+          <label class="video-add-field wide">
+            <span>Category</span>
+            <input
+              id="videoAddCategory"
+              type="text"
+              list="videoCategoryOptions"
+              maxlength="80"
+              placeholder="e.g. DOT Training, Collector Training, Compliance"
+            >
+            <small>
+              Choose an existing category or type a new category name.
+            </small>
+          </label>
+
+          <datalist id="videoCategoryOptions"></datalist>
+
+          <label class="video-add-field">
+            <span>Display Title</span>
+            <input
+              id="videoAddDisplayTitle"
+              type="text"
+              maxlength="200"
+              placeholder="Video title"
+            >
+          </label>
+
+          <label class="video-add-field">
+            <span>Duration (seconds)</span>
+            <input
+              id="videoAddDuration"
+              type="number"
+              min="0"
+              step="1"
+              placeholder="Optional"
+            >
+          </label>
+
+          <label class="video-add-field wide">
+            <span>Thumbnail URL</span>
+            <input
+              id="videoAddThumbnail"
+              type="url"
+              placeholder="Optional image URL"
+            >
+            <small>
+              YouTube thumbnails are filled automatically when possible.
+            </small>
+          </label>
+
+          <label class="video-add-field wide">
+            <span>Description</span>
+            <textarea
+              id="videoAddDescription"
+              rows="4"
+              placeholder="Optional description"
+            ></textarea>
+          </label>
+        </div>
+
+        <div class="video-add-progress-wrap">
+          <progress
+            id="videoAddProgress"
+            max="100"
+            value="0"
+            hidden
+          ></progress>
+
+          <span id="videoAddProgressText"></span>
+        </div>
+      </div>
+
+      <footer>
+        <button
+          type="button"
+          class="secondary"
+          data-close-add-video
+        >
+          Cancel
+        </button>
+
+        <button
+          type="button"
+          class="primary"
+          id="videoAddConfirm"
+        >
+          Add Video
+        </button>
+      </footer>
+    </section>
+  </div>
+
+
+  <!-- PREVIEW -->
+  <div class="video-library-modal" id="videoPreviewModal" hidden>
+    <div
+      class="video-library-modal-backdrop"
+      data-close-video-modal
+    ></div>
+
+    <section
+      class="video-library-modal-card"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="videoPreviewTitle"
+    >
+      <header>
+        <div>
+          <span>VIDEO LIBRARY</span>
+          <h2 id="videoPreviewTitle">Video Preview</h2>
+          <p id="videoPreviewMeta"></p>
+        </div>
+
+        <button
+          type="button"
+          data-close-video-modal
+          aria-label="Close"
+        >×</button>
+      </header>
+
+      <div
+        class="video-library-modal-body"
+        id="videoPreviewBody"
+      ></div>
+    </section>
+  </div>
+
+
+  <!-- USE IN COURSE -->
+  <div class="video-library-modal" id="videoUseModal" hidden>
+    <div
+      class="video-library-modal-backdrop"
+      data-close-use-modal
+    ></div>
+
+    <section
+      class="video-library-modal-card video-library-use-card"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="videoUseTitle"
+    >
+      <header>
+        <div>
+          <span>ADD TO COURSE</span>
+          <h2 id="videoUseTitle">Use Video in Course</h2>
+          <p id="videoUseName"></p>
+        </div>
+
+        <button
+          type="button"
+          data-close-use-modal
+          aria-label="Close"
+        >×</button>
+      </header>
+
+      <div class="video-library-modal-body video-library-use-body">
+        <label>
+          <span>Course</span>
+          <select id="videoUseCourse">
+            <option value="">Select a course</option>
+          </select>
+        </label>
+
+        <label>
+          <span>Lesson</span>
+          <select
+            id="videoUseLesson"
+            disabled
+          >
+            <option value="">Select a course first</option>
+          </select>
+        </label>
+
+        <label>
+          <span>Display Title</span>
+          <input
+            id="videoUseDisplayTitle"
+            type="text"
+          >
+        </label>
+
+        <label class="video-use-check">
+          <input
+            id="videoUseRequired"
+            type="checkbox"
+            checked
+          >
+          <span>Required lesson content</span>
+        </label>
+      </div>
+
+      <footer>
+        <button
+          type="button"
+          class="secondary"
+          data-close-use-modal
+        >
+          Cancel
+        </button>
+
+        <button
+          type="button"
+          class="primary"
+          id="videoUseConfirm"
+        >
+          Add Video to Lesson
+        </button>
+      </footer>
+    </section>
+  </div>
+
+
+  <!-- ORGANIZE VIDEO -->
+  <div class="video-library-modal" id="videoCategoryModal" hidden>
+    <div
+      class="video-library-modal-backdrop"
+      data-close-category-video
+    ></div>
+
+    <section
+      class="video-library-modal-card video-library-category-card"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="videoCategoryTitle"
+    >
+      <header>
+        <div>
+          <span>ORGANIZE VIDEO</span>
+          <h2 id="videoCategoryTitle">Choose Category</h2>
+          <p id="videoCategoryVideoName"></p>
+        </div>
+
+        <button
+          type="button"
+          data-close-category-video
+          aria-label="Close"
+        >×</button>
+      </header>
+
+      <div class="video-library-modal-body">
+        <label class="video-add-field">
+          <span>Category</span>
+          <input
+            id="videoCategoryName"
+            type="text"
+            list="videoCategoryOptions"
+            maxlength="80"
+            placeholder="Type a category name"
+          >
+          <small>
+            Choose an existing category or type a new one. Leave it blank
+            to move the video to Uncategorized.
+          </small>
+        </label>
+      </div>
+
+      <footer>
+        <button
+          type="button"
+          class="secondary"
+          data-close-category-video
+        >
+          Cancel
+        </button>
+
+        <button
+          type="button"
+          class="primary"
+          id="videoCategoryConfirm"
+        >
+          Save Category
+        </button>
+      </footer>
+    </section>
+  </div>
+
+
+  <!-- DELETE -->
+  <div class="video-library-modal" id="videoDeleteModal" hidden>
+    <div
+      class="video-library-modal-backdrop"
+      data-close-delete-video
+    ></div>
+
+    <section
+      class="video-library-modal-card video-library-delete-card"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="videoDeleteTitle"
+    >
+      <header>
+        <div>
+          <span>DELETE VIDEO</span>
+          <h2 id="videoDeleteTitle">Delete Video?</h2>
+          <p>This removes the video from the LMS library.</p>
+        </div>
+
+        <button
+          type="button"
+          data-close-delete-video
+          aria-label="Close"
+        >×</button>
+      </header>
+
+      <div class="video-library-modal-body">
+        <div class="video-delete-warning">
+          <strong id="videoDeleteName"></strong>
+          <p>
+            Physical uploads are removed from LMS storage. YouTube and
+            external videos remove the library record. Existing lesson
+            media references are cleared before deletion.
+          </p>
+        </div>
+      </div>
+
+      <footer>
+        <button
+          type="button"
+          class="secondary"
+          data-close-delete-video
+        >
+          Cancel
+        </button>
+
+        <button
+          type="button"
+          class="danger"
+          id="videoDeleteConfirm"
+        >
+          Delete Video
+        </button>
+      </footer>
+    </section>
+  </div>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="assets/js/supabase-config.js?v=20260925-fast-auth"></script>
+<script src="assets/js/core-auth.js?v=20260925-fast-auth"></script>
+<script src="assets/js/session-security.js?v=20260925-fast-auth"></script>
+<script src="assets/js/portal-auth-guard.js?v=20260925-fast-auth"></script>
+<script src="assets/js/admin-auth-guard.js?v=20260925-fast-auth"></script>
+  <script src="assets/js/enterprise-management-system.js?v=20260924-design-v5"></script>
+
+  
+  <script src="assets/js/ui.js?v=20260918-modal-fix-1"></script>
+  
+  
+  
+  <script src="assets/js/admin-lms-video.js?v=20260927-step12-video-actions1"></script>
+<script src="assets/js/enterprise-portal.js?v=20260927-step13-nav1"></script>
+
+<!-- screenings4u universal portal security -->
+</body>
+</html>

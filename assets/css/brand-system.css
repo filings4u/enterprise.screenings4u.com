@@ -1,0 +1,207 @@
+/* screenings4u enterprise brand normalization */
+:root{
+  --s4u-blue:#24467f;
+  --s4u-blue-dark:#18345f;
+  --s4u-orange:#ff6b00;
+  --s4u-bg:#f5f8fc;
+  --s4u-surface:#ffffff;
+  --s4u-border:#dbe5ef;
+  --s4u-text:#17263d;
+  --s4u-muted:#66778e;
+  --s4u-success:#16804d;
+  --s4u-danger:#b42318;
+  --s4u-warning:#c45100;
+
+  --admin-blue:#24467f;
+  --admin-blue-dark:#18345f;
+  --admin-orange:#ff6b00;
+  --portal-blue:#24467f;
+  --portal-blue-dark:#18345f;
+  --portal-orange:#ff6b00;
+  --blue:#24467f;
+  --blue-dark:#18345f;
+  --orange:#ff6b00;
+  --ep-blue:#24467f;
+  --ep-navy:#17365f;
+  --ep-navy-2:#1d3d6d;
+  --ep-navy-3:#24467f;
+  --ep-orange:#ff6b00;
+  --st-blue:#24467f;
+  --st-blue-dark:#18345f;
+  --st-orange:#ff6b00;
+  --quiz-blue:#24467f;
+  --quiz-blue-dark:#18345f;
+  --quiz-orange:#ff6b00;
+  --preview-blue:#24467f;
+  --preview-blue-dark:#18345f;
+  --preview-orange:#ff6b00;
+}
+
+html,body,button,input,select,textarea,h1,h2,h3,h4,h5,h6,p,span,div,a,label,small,strong,li,td,th{font-family:Inter,Arial,sans-serif!important}
+body{background-color:var(--s4u-bg)}
+
+/* Consistent brand focus state */
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,[tabindex]:focus-visible{
+  outline:3px solid rgba(36,70,127,.18)!important;
+  outline-offset:2px!important;
+}
+input:focus,select:focus,textarea:focus{
+  border-color:#24467f!important;
+  box-shadow:0 0 0 3px rgba(36,70,127,.10)!important;
+}
+
+/* Primary actions */
+.btn.primary,
+button.primary,
+a.primary,
+.admin-primary-btn,
+.ep-business-btn.primary,
+.invoice-primary-btn,
+.training-primary-btn,
+.training-credit-purchase-btn,
+.training-credits-primary-btn,
+.customer-primary-action,
+.customer-orders-primary-action,
+.customer-checkout-primary,
+.employer-primary-btn,
+.employer-checkout-primary,
+.employee-primary-btn,
+.login-button,
+.form-submit,
+[class$="-primary-btn"]{
+  background:#24467f!important;
+  border-color:#24467f!important;
+  color:#fff!important;
+  box-shadow:none!important;
+}
+.btn.primary:hover,
+button.primary:hover,
+a.primary:hover,
+.admin-primary-btn:hover,
+.ep-business-btn.primary:hover,
+.invoice-primary-btn:hover,
+.training-primary-btn:hover,
+.training-credit-purchase-btn:hover,
+.training-credits-primary-btn:hover,
+.customer-primary-action:hover,
+.customer-orders-primary-action:hover,
+[class$="-primary-btn"]:hover{
+  background:#18345f!important;
+  border-color:#18345f!important;
+  color:#fff!important;
+}
+
+/* Secondary actions remain clean, blue, and neutral. */
+.btn.secondary,
+button.secondary,
+a.secondary,
+[class$="-secondary-btn"],
+.training-secondary-btn,
+.training-credits-secondary-btn{
+  background:#fff!important;
+  border-color:#cdd9e8!important;
+  color:#24467f!important;
+  box-shadow:none!important;
+}
+.btn.secondary:hover,
+button.secondary:hover,
+a.secondary:hover,
+[class$="-secondary-btn"]:hover{
+  background:#f3f7fc!important;
+  border-color:#9eb4d1!important;
+  color:#18345f!important;
+}
+
+/* Keep intentional accent and warning actions orange instead of brown. */
+button.orange,a.orange,.btn.orange,
+button.warning,a.warning,.btn.warning,
+button.warn,a.warn,.btn.warn,
+[class*="warning-btn"],[class*="warn-btn"]{
+  background:#ff6b00!important;
+  border-color:#ff6b00!important;
+  color:#fff!important;
+}
+
+/* Shared surfaces */
+.card,.panel,.admin-card,.table-card,.form-card,.cc-card,.s4u-dashboard-panel,
+.invoice-panel,.payment-panel,.training-panel,.training-info-card,.training-action-card,
+.training-credits-panel,.customer-dashboard-card,.customer-summary-card,.invoice-summary-card,
+.training-summary-card,.training-credits-summary-card,.ep-business-card,.ep-panel{
+  background:#fff;
+  border-color:#dbe5ef!important;
+  border-radius:12px!important;
+  box-shadow:0 6px 22px rgba(25,55,92,.06)!important;
+}
+
+/* Tables and controls */
+table thead th{background:#f7f9fc;color:#53647a;border-color:#dbe5ef}
+table td{border-color:#e8eef5}
+input,select,textarea{border-color:#cfd9e6;background:#fff;color:#17263d}
+
+/* Standardized badges and informational emphasis */
+.ep-eyebrow,.admin-page-eyebrow,[class$="-eyebrow"],.kicker{color:#ff6b00!important}
+
+/* Enterprise shell */
+.ep-sidebar{background:linear-gradient(180deg,#17365f 0%,#24467f 52%,#17365f 100%)!important}
+.ep-biz-tab.active{background:#24467f!important}
+.ep-side-link.home-active{background:linear-gradient(135deg,#ff6b00,#ff8533)!important}
+
+/* Responsive consistency */
+img{max-width:100%;height:auto}
+@media(max-width:767px){
+  button,a.btn,[class$="-btn"]{min-height:42px}
+  .card,.panel,.admin-card,.table-card,.form-card,.ep-business-card{border-radius:10px!important}
+}
+
+/* Legacy surface normalization: older modules used teal/nav or bright-blue variables. */
+:root{
+  --nav:#17365f;
+  --teal:#24467f;
+  --s4u-nav:#17365f;
+  --s4u-teal:#24467f;
+  --s4u-blue-2:#24467f;
+  --creation-blue:#24467f;
+  --creation-blue-dark:#18345f;
+  --course-blue:#24467f;
+  --course-blue-dark:#18345f;
+  --le-blue:#24467f;
+  --le-blue-dark:#18345f;
+  --ov-blue:#24467f;
+  --ov-blue-dark:#18345f;
+  --eg-blue:#24467f;
+  --eg-blue-dark:#18345f;
+  --assessment-blue:#24467f;
+  --assessment-blue-dark:#18345f;
+  --video-blue:#24467f;
+  --video-blue-dark:#18345f;
+  --results-blue:#24467f;
+  --results-blue-light:#eef4fb;
+  --tc-blue:#24467f;
+  --tc-navy:#17365f;
+}
+
+/* Older admin shells use .app > .side rather than the enterprise sidebar. */
+.app > .side, aside.side{
+  background:#17365f!important;
+  color:#fff!important;
+}
+.app > .side a:hover,.app > .side a.on,aside.side a:hover,aside.side a.on{
+  background:#24467f!important;
+  color:#fff!important;
+}
+.tab.on,.tab.active,[role="tab"].active,[role="tab"].is-active{
+  border-color:#24467f!important;
+}
+
+
+/* Do not let the generic orange-button rule turn dashboard workspace cards into solid orange blocks. */
+.ep-workspace.orange{
+  background:#fff!important;
+  border-color:#dbe5ef!important;
+  color:inherit!important;
+}
+.ep-workspace.orange:hover{
+  background:#fbfdff!important;
+  border-color:#bfd0e2!important;
+  color:inherit!important;
+}

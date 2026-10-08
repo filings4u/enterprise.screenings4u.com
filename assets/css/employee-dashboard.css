@@ -1,0 +1,432 @@
+/* ============================================================
+   SCREENINGS4U — EMPLOYEE DASHBOARD
+   Built directly from the employer dashboard template.
+   ============================================================ */
+
+.employee-dashboard-content{
+  max-width:1600px;
+  margin:0 auto;
+  padding:30px;
+}
+
+.employee-welcome-card{
+  display:flex;
+  justify-content:space-between;
+  gap:30px;
+  align-items:center;
+  padding:28px 30px;
+  border-radius:18px;
+  background:linear-gradient(135deg,#ffffff 0%,#f3f7ff 100%);
+  border:1px solid #dce4ef;
+  margin-bottom:22px;
+}
+
+.employee-eyebrow{
+  font-size:12px;
+  font-weight:900;
+  letter-spacing:.12em;
+  color:#ff6b00;
+}
+
+.employee-welcome-card h1{
+  margin:8px 0;
+  color:#2d405a;
+  font-size:30px;
+}
+
+.employee-welcome-card p{
+  margin:0;
+  max-width:720px;
+  color:#536174;
+  font-size:16px;
+  line-height:1.65;
+}
+
+.employee-welcome-actions{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+}
+
+.employee-primary-action,
+.employee-secondary-action{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:46px;
+  padding:0 16px;
+  border-radius:9px;
+  text-decoration:none;
+  font-size:15px;
+  font-weight:800;
+  cursor:pointer;
+}
+
+.employee-primary-action{
+  border:1px solid #24467f;
+  background:#24467f;
+  color:#fff;
+}
+
+.employee-secondary-action{
+  border:1px solid #d7e0eb;
+  background:#fff;
+  color:#24467f;
+}
+
+.employee-stat-grid{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:16px;
+  margin-bottom:20px;
+}
+
+.employee-stat-card{
+  display:flex;
+  gap:14px;
+  align-items:center;
+  padding:20px;
+  border:1px solid #dce4ed;
+  border-radius:15px;
+  background:#fff;
+}
+
+.employee-stat-icon{
+  width:44px;
+  height:44px;
+  display:grid;
+  place-items:center;
+  border-radius:12px;
+  font-size:15px;
+  font-weight:900;
+}
+
+.courses-icon{background:#edf3ff;color:#24467f}
+.progress-icon{background:#fff3e9;color:#ff6b00}
+.completed-icon{background:#eaf8f1;color:#21865c}
+.percent-icon{background:#f2efff;color:#6c57b8}
+
+.employee-stat-card span{
+  display:block;
+  color:#667085;
+  font-size:14px;
+  margin-bottom:5px;
+}
+
+.employee-stat-card strong{
+  display:block;
+  color:#34475f;
+  font-size:26px;
+  line-height:1;
+}
+
+.employee-stat-card small{
+  display:block;
+  margin-top:6px;
+  color:#667085;
+  font-size:13px;
+}
+
+.employee-dashboard-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:20px;
+}
+
+.employee-dashboard-panel{
+  padding:22px;
+  border:1px solid #dce4ed;
+  border-radius:16px;
+  background:#fff;
+}
+
+.employee-dashboard-panel-wide{
+  grid-column:1/-1;
+}
+
+.employee-panel-heading{
+  display:flex;
+  justify-content:space-between;
+  gap:20px;
+  align-items:flex-start;
+  margin-bottom:20px;
+}
+
+.employee-panel-heading h2{
+  margin:0;
+  color:#34475f;
+  font-size:20px;
+}
+
+.employee-panel-heading p{
+  margin:5px 0 0;
+  color:#536174;
+  font-size:15px;
+  line-height:1.55;
+}
+
+.employee-panel-link{
+  color:#24467f;
+  text-decoration:none;
+  font-size:14px;
+  font-weight:800;
+}
+
+.employee-quick-actions{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:13px;
+}
+
+.employee-quick-action{
+  display:flex;
+  gap:11px;
+  align-items:center;
+  padding:16px;
+  border:1px solid #e3e9f0;
+  border-radius:12px;
+  text-decoration:none;
+  background:#fff;
+  transition:.18s ease;
+}
+
+.employee-quick-action:hover{
+  border-color:#b9c9e4;
+  transform:translateY(-1px);
+}
+
+.quick-icon{
+  width:36px;
+  height:36px;
+  flex:0 0 36px;
+  display:grid;
+  place-items:center;
+  border-radius:10px;
+  background:#f1f5fb;
+  color:#24467f;
+  font-weight:900;
+}
+
+.employee-quick-action strong{
+  display:block;
+  color:#4a5b70;
+  font-size:15px;
+}
+
+.employee-quick-action small{
+  display:block;
+  margin-top:4px;
+  color:#667085;
+  font-size:13px;
+  line-height:1.4;
+}
+
+.employee-empty-state{
+  padding:24px 8px;
+  color:#667085;
+  font-size:15px;
+  text-align:center;
+  border:1px dashed #dce4ed;
+  border-radius:10px;
+}
+
+.employee-training-summary{
+  display:flex;
+  align-items:center;
+  gap:28px;
+}
+
+.employee-progress-circle{
+  width:112px;
+  height:112px;
+  border-radius:50%;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  background:#f2f6fc;
+  border:8px solid #e0e9f5;
+  color:#24467f;
+  flex:0 0 auto;
+}
+
+.employee-progress-circle strong{
+  font-size:23px;
+}
+
+.employee-progress-circle span{
+  font-size:13px;
+  margin-top:3px;
+  color:#667085;
+}
+
+.employee-training-details{
+  display:grid;
+  gap:13px;
+  width:100%;
+}
+
+.employee-training-details div{
+  display:flex;
+  justify-content:space-between;
+  gap:12px;
+  padding-bottom:10px;
+  border-bottom:1px solid #edf1f5;
+}
+
+.employee-training-details div:last-child{
+  border-bottom:0;
+  padding-bottom:0;
+}
+
+.employee-training-details span{
+  color:#667085;
+  font-size:14px;
+}
+
+.employee-training-details strong{
+  color:#45586f;
+  font-size:15px;
+}
+
+.employee-open-items{
+  display:grid;
+  gap:10px;
+}
+
+.employee-open-item{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:15px;
+  padding:14px 15px;
+  border:1px solid #e5ebf1;
+  border-radius:10px;
+}
+
+.employee-open-item strong{
+  display:block;
+  color:#52637a;
+  font-size:15px;
+}
+
+.employee-open-item span{
+  display:block;
+  margin-top:4px;
+  color:#667085;
+  font-size:13px;
+}
+
+.employee-open-item a{
+  color:#24467f;
+  text-decoration:none;
+  font-size:14px;
+  font-weight:800;
+}
+
+.employee-employer-copy p{
+  margin:0 0 18px;
+  color:#536174;
+  font-size:15px;
+  line-height:1.6;
+}
+
+.employee-contact-action{
+  width:100%;
+}
+
+.employee-modal[hidden]{
+  display:none!important;
+}
+
+.employee-modal{
+  position:fixed;
+  z-index:20000;
+  inset:0;
+  display:grid;
+  place-items:center;
+  padding:20px;
+}
+
+.employee-modal-backdrop{
+  position:absolute;
+  inset:0;
+  background:rgba(22,35,53,.5);
+}
+
+.employee-modal-card{
+  position:relative;
+  z-index:1;
+  width:min(100%,440px);
+  padding:26px;
+  border-radius:17px;
+  background:#fff;
+  box-shadow:0 25px 70px rgba(20,44,77,.28);
+}
+
+.employee-modal-card h2{
+  margin:0;
+  color:#2f435e;
+  font-size:22px;
+}
+
+.employee-modal-card p{
+  margin:10px 0 20px;
+  color:#536174;
+  font-size:15px;
+  line-height:1.65;
+}
+
+@media(max-width:1100px){
+  .employee-stat-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .employee-quick-actions{
+    grid-template-columns:repeat(2,1fr);
+  }
+}
+
+@media(max-width:800px){
+  .employee-welcome-card{
+    flex-direction:column;
+    align-items:flex-start;
+  }
+
+  .employee-dashboard-grid{
+    grid-template-columns:1fr;
+  }
+
+  .employee-dashboard-panel-wide{
+    grid-column:auto;
+  }
+
+  .employee-dashboard-content{
+    padding:22px 18px;
+  }
+}
+
+@media(max-width:560px){
+  .employee-stat-grid,
+  .employee-quick-actions{
+    grid-template-columns:1fr;
+  }
+
+  .employee-training-summary{
+    align-items:flex-start;
+    flex-direction:column;
+  }
+
+  .employee-welcome-actions{
+    width:100%;
+  }
+
+  .employee-primary-action,
+  .employee-secondary-action{
+    flex:1;
+  }
+
+  .employee-welcome-card{
+    padding:22px;
+  }
+}

@@ -1,0 +1,344 @@
+/* ============================================================
+   SCREENINGS4U — EMPLOYEE ACCOUNT
+   Uses the employee dashboard design system.
+   ============================================================ */
+
+.employee-account-content{
+  max-width:1600px;
+  margin:0 auto;
+  padding:30px;
+}
+
+.employee-account-welcome-card{
+  display:flex;
+  justify-content:space-between;
+  gap:30px;
+  align-items:center;
+  padding:28px 30px;
+  margin-bottom:22px;
+  border:1px solid #dce4ef;
+  border-radius:18px;
+  background:linear-gradient(135deg,#ffffff 0%,#f3f7ff 100%);
+}
+
+.employee-account-eyebrow,
+.employee-account-panel-heading>span{
+  color:#ff6b00;
+  font-size:12px;
+  font-weight:900;
+  letter-spacing:.12em;
+}
+
+.employee-account-welcome-card h1{
+  margin:8px 0;
+  color:#2d405a;
+  font-size:30px;
+}
+
+.employee-account-welcome-card p{
+  max-width:760px;
+  margin:0;
+  color:#536174;
+  font-size:16px;
+  line-height:1.65;
+}
+
+.employee-account-layout{
+  display:grid;
+  grid-template-columns:250px minmax(0,1fr);
+  gap:20px;
+}
+
+.employee-account-nav{
+  height:max-content;
+  padding:9px;
+  border:1px solid #dce4ed;
+  border-radius:15px;
+  background:#fff;
+}
+
+.employee-account-tab{
+  width:100%;
+  padding:13px;
+  border:0;
+  border-radius:9px;
+  background:transparent;
+  color:#536174;
+  text-align:left;
+  font:inherit;
+  font-size:15px;
+  font-weight:800;
+  cursor:pointer;
+}
+
+.employee-account-tab:hover{
+  background:#f5f7fb;
+}
+
+.employee-account-tab.active{
+  background:#edf3ff;
+  color:#24467f;
+}
+
+.employee-account-panel{
+  display:none;
+  overflow:hidden;
+  border:1px solid #dce4ed;
+  border-radius:16px;
+  background:#fff;
+}
+
+.employee-account-panel.active{
+  display:block;
+}
+
+.employee-account-panel-heading{
+  padding:22px 24px;
+  border-bottom:1px solid #e8edf3;
+}
+
+.employee-account-panel-heading h2{
+  margin:7px 0 0;
+  color:#34475f;
+  font-size:20px;
+}
+
+.employee-account-panel-heading p{
+  margin:5px 0 0;
+  color:#536174;
+  font-size:15px;
+  line-height:1.55;
+}
+
+.employee-account-form{
+  padding:24px;
+}
+
+.employee-account-form-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:16px;
+}
+
+.employee-account-form label{
+  display:flex;
+  flex-direction:column;
+  gap:7px;
+  color:#34475f;
+  font-size:14px;
+  font-weight:800;
+}
+
+.employee-account-form input:not([type=checkbox]){
+  width:100%;
+  min-height:46px;
+  padding:0 11px;
+  border:1px solid #cfd7e3;
+  border-radius:8px;
+  outline:0;
+  background:#fff;
+  color:#172033;
+  font:inherit;
+  font-size:16px;
+}
+
+.employee-account-form input:not([type=checkbox]):focus{
+  border-color:#9db3d7;
+  box-shadow:0 0 0 3px rgba(50,90,163,.08);
+}
+
+.employee-account-form input[readonly]{
+  background:#f3f5f8;
+  color:#667085;
+}
+
+.employee-account-form small{
+  color:#667085;
+  font-size:13px;
+  font-weight:500;
+  line-height:1.45;
+}
+
+.employee-account-form-narrow{
+  max-width:720px;
+}
+
+.employee-account-form-narrow>label:not(.employee-account-toggle-row){
+  margin-bottom:15px;
+}
+
+.employee-account-note{
+  margin-top:3px;
+  padding:12px 13px;
+  border-radius:9px;
+  background:#f7f9fc;
+  color:#536174;
+  font-size:14px;
+  line-height:1.5;
+}
+
+.employee-account-form-actions{
+  display:flex;
+  justify-content:flex-end;
+  margin-top:22px;
+  padding-top:18px;
+  border-top:1px solid #e8edf3;
+}
+
+.employee-account-primary-action{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:46px;
+  padding:0 16px;
+  border:1px solid #24467f;
+  border-radius:9px;
+  background:#24467f;
+  color:#fff;
+  font:inherit;
+  font-size:15px;
+  font-weight:800;
+  cursor:pointer;
+}
+
+.employee-account-primary-action:hover{
+  background:#24467f;
+  border-color:#24467f;
+}
+
+.employee-account-primary-action:disabled{
+  opacity:.65;
+  cursor:not-allowed;
+}
+
+.employee-account-toggle-row{
+  position:relative;
+  display:flex!important;
+  flex-direction:row!important;
+  justify-content:space-between;
+  align-items:center;
+  gap:18px;
+  padding:16px 0;
+  border-bottom:1px solid #e8edf3;
+}
+
+.employee-account-toggle-row span{
+  display:grid;
+  gap:4px;
+}
+
+.employee-account-toggle-row strong{
+  color:#34475f;
+  font-size:15px;
+}
+
+.employee-account-toggle-row input{
+  position:absolute;
+  opacity:0;
+  pointer-events:none;
+}
+
+.employee-account-toggle-row i{
+  position:relative;
+  width:42px;
+  height:23px;
+  flex:0 0 42px;
+  border-radius:20px;
+  background:#d8e0e8;
+}
+
+.employee-account-toggle-row i:after{
+  content:"";
+  position:absolute;
+  top:3px;
+  left:3px;
+  width:17px;
+  height:17px;
+  border-radius:50%;
+  background:#fff;
+  transition:.2s;
+}
+
+.employee-account-toggle-row input:checked+i{
+  background:#24467f;
+}
+
+.employee-account-toggle-row input:checked+i:after{
+  transform:translateX(19px);
+}
+
+.employee-account-modal[hidden]{
+  display:none!important;
+}
+
+.employee-account-modal{
+  position:fixed;
+  z-index:20000;
+  inset:0;
+  display:grid;
+  place-items:center;
+  padding:20px;
+}
+
+.employee-account-modal-backdrop{
+  position:absolute;
+  inset:0;
+  background:rgba(23,32,51,.5);
+}
+
+.employee-account-modal-card{
+  position:relative;
+  width:min(100%,430px);
+  padding:26px;
+  border-radius:15px;
+  background:#fff;
+  box-shadow:0 22px 65px rgba(23,32,51,.25);
+}
+
+.employee-account-modal-card h2{
+  margin:0;
+  color:#34475f;
+  font-size:22px;
+}
+
+.employee-account-modal-card p{
+  margin:10px 0 20px;
+  color:#536174;
+  font-size:15px;
+  line-height:1.6;
+}
+
+@media(max-width:800px){
+  .employee-account-content{
+    padding:22px 18px;
+  }
+
+  .employee-account-layout{
+    grid-template-columns:1fr;
+  }
+
+  .employee-account-nav{
+    display:flex;
+    gap:6px;
+    overflow:auto;
+  }
+
+  .employee-account-tab{
+    width:auto;
+    white-space:nowrap;
+  }
+
+  .employee-account-form-grid{
+    grid-template-columns:1fr;
+  }
+}
+
+@media(max-width:560px){
+  .employee-account-welcome-card{
+    padding:22px;
+  }
+
+  .employee-account-form-actions .employee-account-primary-action{
+    width:100%;
+  }
+}

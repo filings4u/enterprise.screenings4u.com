@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html lang="en" class="s4u-auth-pending">
+
+<head><style id="s4u-preauth-style">html.s4u-auth-pending body{visibility:hidden!important}html.s4u-auth-pending #s4u-auth-blocking-error{visibility:visible!important}</style>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+<meta name="theme-color" content="#24467f">
+
+  <title>Welcome | screenings4u Customer Portal</title>
+<link href="images/fav.png" rel="icon" type="image/png"/>
+
+
+  <!-- CUSTOMER PORTAL SHELL -->
+  <link
+    rel="stylesheet"
+    href="assets/css/customer-portal.css"
+  >
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      max-width: 100%;
+      overflow-x: hidden;
+    }
+
+    .customer-welcome-page {
+      min-height: 100vh;
+      background:
+        radial-gradient(
+          circle at 88% 8%,
+          rgba(255, 107, 0, 0.10),
+          transparent 28%
+        ),
+        linear-gradient(
+          180deg,
+          #f8fbff 0%,
+          #f4f7fb 100%
+        );
+    }
+
+    .customer-welcome-page-content {
+      width: min(1180px, calc(100% - 48px));
+      margin: 0 auto;
+      padding: 44px 0 64px;
+    }
+
+    .customer-welcome-hero {
+      position: relative;
+      overflow: hidden;
+      display: grid;
+      grid-template-columns:
+        minmax(0, 1.25fr)
+        minmax(340px, 0.75fr);
+      gap: 30px;
+      padding: 42px;
+      border: 1px solid #dce6f2;
+      border-radius: 24px;
+      background: #ffffff;
+      box-shadow:
+        0 22px 60px
+        rgba(24, 52, 88, 0.08);
+    }
+
+    .customer-welcome-hero::after {
+      content: "";
+      position: absolute;
+      width: 360px;
+      height: 360px;
+      right: -170px;
+      top: -170px;
+      border-radius: 50%;
+      border:
+        66px solid
+        rgba(255, 107, 0, 0.08);
+      pointer-events: none;
+    }
+
+    .customer-welcome-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      margin-bottom: 16px;
+      color: #ff6b00;
+      font-size: 12px;
+      line-height: 1;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .customer-welcome-eyebrow::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #ff6b00;
+    }
+
+    .customer-welcome-title {
+      margin: 0;
+      max-width: 760px;
+      color: #173b70;
+      font-size: clamp(36px, 5vw, 58px);
+      line-height: 1.04;
+      letter-spacing: -0.035em;
+    }
+
+    .customer-welcome-title span {
+      display: inline;
+    }
+
+    .customer-welcome-intro {
+      max-width: 720px;
+      margin: 20px 0 0;
+      color: #5f7087;
+      font-size: 17px;
+      line-height: 1.75;
+    }
+
+    .customer-welcome-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .customer-welcome-button {
+      min-height: 48px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      padding: 0 20px;
+      border: 1px solid transparent;
+      border-radius: 10px;
+      font-size: 14px;
+      font-weight: 800;
+      text-decoration: none;
+      transition:
+        transform 150ms ease,
+        box-shadow 150ms ease,
+        border-color 150ms ease;
+    }
+
+    .customer-welcome-button:hover {
+      transform: translateY(-1px);
+    }
+
+    .customer-welcome-button.primary {
+      background: #ff6b00;
+      color: #ffffff;
+      box-shadow:
+        0 10px 24px
+        rgba(255, 107, 0, 0.20);
+    }
+
+    .customer-welcome-button.secondary {
+      border-color: #cfdae8;
+      background: #ffffff;
+      color: #173b70;
+    }
+
+    .customer-welcome-button svg {
+      width: 18px;
+      height: 18px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .customer-welcome-hero-side {
+      align-self: stretch;
+      display: grid;
+      gap: 14px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .customer-welcome-mini-card {
+      padding: 20px;
+      border: 1px solid #dce6f2;
+      border-radius: 16px;
+      background: #f8fbff;
+    }
+
+    .customer-welcome-mini-icon {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 14px;
+      border-radius: 11px;
+      background: #eaf2ff;
+      color: #173b70;
+    }
+
+    .customer-welcome-mini-icon.orange {
+      background: #fff1e6;
+      color: #ff6b00;
+    }
+
+    .customer-welcome-mini-icon svg {
+      width: 21px;
+      height: 21px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .customer-welcome-mini-card strong {
+      display: block;
+      color: #173b70;
+      font-size: 15px;
+    }
+
+    .customer-welcome-mini-card p {
+      margin: 6px 0 0;
+      color: #6d7b8f;
+      font-size: 13px;
+      line-height: 1.55;
+    }
+
+    .customer-welcome-section {
+      margin-top: 28px;
+    }
+
+    .customer-welcome-section-header {
+      margin-bottom: 16px;
+    }
+
+    .customer-welcome-section-header h2 {
+      margin: 0;
+      color: #173b70;
+      font-size: 25px;
+      line-height: 1.2;
+    }
+
+    .customer-welcome-section-header p {
+      margin: 7px 0 0;
+      color: #6d7b8f;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .customer-welcome-feature-grid {
+      display: grid;
+      grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .customer-welcome-feature-card {
+      min-width: 0;
+      padding: 24px;
+      border: 1px solid #dce6f2;
+      border-radius: 17px;
+      background: #ffffff;
+      box-shadow:
+        0 12px 34px
+        rgba(24, 52, 88, 0.05);
+    }
+
+    .customer-welcome-feature-icon {
+      width: 46px;
+      height: 46px;
+      display: grid;
+      place-items: center;
+      border-radius: 12px;
+      background: #eef4fc;
+      color: #173b70;
+    }
+
+    .customer-welcome-feature-icon.orange {
+      background: #fff1e6;
+      color: #ff6b00;
+    }
+
+    .customer-welcome-feature-icon.green {
+      background: #eaf8f0;
+      color: #147a42;
+    }
+
+    .customer-welcome-feature-icon svg {
+      width: 22px;
+      height: 22px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .customer-welcome-feature-card h3 {
+      margin: 18px 0 0;
+      color: #173b70;
+      font-size: 18px;
+    }
+
+    .customer-welcome-feature-card p {
+      margin: 9px 0 0;
+      color: #6d7b8f;
+      font-size: 14px;
+      line-height: 1.65;
+    }
+
+    .customer-welcome-feature-card a {
+      display: inline-flex;
+      margin-top: 16px;
+      color: #173b70;
+      font-size: 13px;
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .customer-welcome-callout {
+      margin-top: 28px;
+      display: grid;
+      grid-template-columns:
+        minmax(0, 1fr)
+        auto;
+      gap: 24px;
+      align-items: center;
+      padding: 28px 30px;
+      border-radius: 18px;
+      background: #173b70;
+      color: #ffffff;
+    }
+
+    .customer-welcome-callout h2 {
+      margin: 0;
+      color: #ffffff;
+      font-size: 23px;
+    }
+
+    .customer-welcome-callout p {
+      margin: 8px 0 0;
+      max-width: 700px;
+      color: #dbe7f7;
+      font-size: 14px;
+      line-height: 1.65;
+    }
+
+    .customer-welcome-callout a {
+      min-height: 46px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 19px;
+      border-radius: 9px;
+      background: #ffffff;
+      color: #173b70;
+      font-size: 13px;
+      font-weight: 800;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .customer-welcome-name-pending {
+      visibility: hidden;
+    }
+
+    @media (max-width: 980px) {
+      .customer-welcome-hero {
+        grid-template-columns: 1fr;
+      }
+
+      .customer-welcome-hero-side {
+        grid-template-columns:
+          repeat(2, minmax(0, 1fr));
+      }
+
+      .customer-welcome-feature-grid {
+        grid-template-columns:
+          repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 767px) {
+      .customer-welcome-page-content {
+        width: calc(100% - 28px);
+        padding: 22px 0 40px;
+      }
+
+      .customer-welcome-hero {
+        padding: 25px 20px;
+        border-radius: 18px;
+      }
+
+      .customer-welcome-title {
+        font-size: 36px;
+      }
+
+      .customer-welcome-intro {
+        font-size: 15px;
+      }
+
+      .customer-welcome-actions,
+      .customer-welcome-button {
+        width: 100%;
+      }
+
+      .customer-welcome-hero-side,
+      .customer-welcome-feature-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .customer-welcome-callout {
+        grid-template-columns: 1fr;
+        padding: 24px 20px;
+      }
+
+      .customer-welcome-callout a {
+        width: 100%;
+      }
+    }
+  </style>
+
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/lms-ui-modals.css?v=20260918-modal-fix-1">
+<link rel="stylesheet" href="assets/css/brand-system.css?v=20260918-brand-repair-v2">
+</head>
+
+
+<body
+  class="customer-dashboard-page customer-welcome-page"
+  data-page-title="Welcome"
+  data-page-subtitle="Learn your way around the screenings4u Customer Portal."
+ data-s4u-portal="customer">
+
+
+  <!-- ========================================================
+       CUSTOMER PORTAL SIDEBAR
+       Dynamically injected by customer-portal.js
+       ======================================================== -->
+
+  <div id="customer-portal-sidebar"></div>
+
+
+  <!-- ========================================================
+       MAIN PORTAL APPLICATION
+       ======================================================== -->
+
+  <main class="customer-portal-main">
+
+
+    <!-- ======================================================
+         HEADER
+         Dynamically injected by customer-portal.js
+         ====================================================== -->
+
+    <div id="customer-portal-header"></div>
+
+
+    <!-- ======================================================
+         PAGE CONTENT
+         ====================================================== -->
+
+    <div class="customer-welcome-page-content">
+
+
+      <!-- ====================================================
+           WELCOME HERO
+           ==================================================== -->
+
+      <section class="customer-welcome-hero">
+
+        <div>
+
+          <div class="customer-welcome-eyebrow">
+            Welcome to screenings4u
+          </div>
+
+          <h1 class="customer-welcome-title">
+            Your screenings4u services,
+            <span>all in one place.</span>
+          </h1>
+
+          <p class="customer-welcome-intro">
+            Welcome
+            <strong
+              id="customer-welcome-first-name"
+              class="customer-welcome-name-pending"
+            ></strong>.
+            Your Customer Portal gives you one secure place to review
+            purchases, follow active services, access available results,
+            manage donor passes, view receipts, and open any training
+            included with your account.
+          </p>
+
+          <div class="customer-welcome-actions">
+
+            <a
+              href="customer-dashboard.html"
+              class="customer-welcome-button primary"
+            >
+              Go to My Dashboard
+
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M5 12h14"></path>
+                <path d="m13 6 6 6-6 6"></path>
+              </svg>
+            </a>
+
+            <a
+              href="customer-catalog.html"
+              class="customer-welcome-button secondary"
+            >
+              Browse Services
+            </a>
+
+          </div>
+
+        </div>
+
+
+        <div class="customer-welcome-hero-side">
+
+          <article class="customer-welcome-mini-card">
+
+            <div class="customer-welcome-mini-icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M6 3h12"></path>
+                <path d="M6 7h12"></path>
+                <path d="M6 11h12"></path>
+                <path d="M6 15h8"></path>
+              </svg>
+            </div>
+
+            <strong>
+              Follow your orders
+            </strong>
+
+            <p>
+              See recent purchases and keep track of screenings4u
+              services associated with your account.
+            </p>
+
+          </article>
+
+
+          <article class="customer-welcome-mini-card">
+
+            <div class="customer-welcome-mini-icon orange">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M7 3h7l4 4v14H7z"></path>
+                <path d="M14 3v5h5"></path>
+                <path d="m9 13 2 2 4-4"></path>
+              </svg>
+            </div>
+
+            <strong>
+              Access important documents
+            </strong>
+
+            <p>
+              Results, receipts, and other account information are
+              organized within the portal when they become available.
+            </p>
+
+          </article>
+
+        </div>
+
+      </section>
+
+
+      <!-- ====================================================
+           PORTAL OVERVIEW
+           ==================================================== -->
+
+      <section class="customer-welcome-section">
+
+        <div class="customer-welcome-section-header">
+
+          <h2>
+            What you can do in your Customer Portal
+          </h2>
+
+          <p>
+            Use the navigation on the left to move between the areas
+            of your account.
+          </p>
+
+        </div>
+
+
+        <div class="customer-welcome-feature-grid">
+
+
+          <article class="customer-welcome-feature-card">
+
+            <div class="customer-welcome-feature-icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M6 3h12"></path>
+                <path d="M6 7h12"></path>
+                <path d="M6 11h12"></path>
+                <path d="M6 15h8"></path>
+              </svg>
+            </div>
+
+            <h3>
+              Orders &amp; Services
+            </h3>
+
+            <p>
+              Review your orders, service activity, and the products
+              connected to your screenings4u account.
+            </p>
+
+            <a href="customer-orders.html">
+              View orders →
+            </a>
+
+          </article>
+
+
+          <article class="customer-welcome-feature-card">
+
+            <div class="customer-welcome-feature-icon green">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M7 3h7l4 4v14H7z"></path>
+                <path d="M14 3v5h5"></path>
+                <path d="m9 13 2 2 4-4"></path>
+              </svg>
+            </div>
+
+            <h3>
+              Screening Results
+            </h3>
+
+            <p>
+              When eligible screening results are available to your
+              account, you can securely access them from the Results
+              section.
+            </p>
+
+            <a href="customer-results.html">
+              View results →
+            </a>
+
+          </article>
+
+
+          <article class="customer-welcome-feature-card">
+
+            <div class="customer-welcome-feature-icon orange">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <rect x="3" y="5" width="18" height="14" rx="2"></rect>
+                <circle cx="8" cy="12" r="2"></circle>
+                <path d="M13 10h5"></path>
+                <path d="M13 14h5"></path>
+              </svg>
+            </div>
+
+            <h3>
+              Donor Passes
+            </h3>
+
+            <p>
+              If a service includes a donor pass, use this area to
+              review the information needed for your assigned
+              collection site.
+            </p>
+
+            <a href="customer-donor-pass.html">
+              View donor passes →
+            </a>
+
+          </article>
+
+
+          <article class="customer-welcome-feature-card">
+
+            <div class="customer-welcome-feature-icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <rect x="3" y="5" width="18" height="14" rx="2"></rect>
+                <path d="M3 10h18"></path>
+                <path d="M7 15h2"></path>
+              </svg>
+            </div>
+
+            <h3>
+              Billing &amp; Receipts
+            </h3>
+
+            <p>
+              Keep your payment history and receipts organized in one
+              place for easy reference.
+            </p>
+
+            <a href="customer-billing.html">
+              View billing →
+            </a>
+
+          </article>
+
+
+          <article
+            class="customer-welcome-feature-card"
+            id="customer-welcome-training-card"
+            hidden
+          >
+
+            <div class="customer-welcome-feature-icon orange">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M3 5h8a3 3 0 0 1 3 3v11a3 3 0 0 0-3-3H3z"></path>
+                <path d="M21 5h-8a3 3 0 0 0-3 3v11a3 3 0 0 1 3-3h8z"></path>
+              </svg>
+            </div>
+
+            <h3>
+              Training Center
+            </h3>
+
+            <p>
+              If your account includes purchased or assigned training,
+              the Training section will appear in your portal and open
+              your Learning Center securely.
+            </p>
+
+            <a
+              href="https://training.screenings4u.com/lms-dashboard.html"
+              id="customer-welcome-training-link"
+            >
+              Open Training →
+            </a>
+
+          </article>
+
+
+          <article class="customer-welcome-feature-card">
+
+            <div class="customer-welcome-feature-icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <circle cx="12" cy="8" r="4"></circle>
+                <path d="M4 21c.8-4 3.4-6 8-6s7.2 2 8 6"></path>
+              </svg>
+            </div>
+
+            <h3>
+              My Account
+            </h3>
+
+            <p>
+              Review your account details and keep your screenings4u
+              information current.
+            </p>
+
+            <a href="customer-account.html">
+              Manage account →
+            </a>
+
+          </article>
+
+
+        </div>
+
+      </section>
+
+
+      <!-- ====================================================
+           GET STARTED
+           ==================================================== -->
+
+      <section class="customer-welcome-callout">
+
+        <div>
+
+          <h2>
+            Ready to get started?
+          </h2>
+
+          <p>
+            Your dashboard gives you a quick view of active orders,
+            available results, donor passes, receipts, and recent
+            account activity. You can return here anytime from the
+            Dashboard link in the sidebar.
+          </p>
+
+        </div>
+
+        <a href="customer-dashboard.html">
+          Open My Dashboard
+        </a>
+
+      </section>
+
+
+    </div>
+
+  </main>
+
+
+  <!-- ========================================================
+       JAVASCRIPT
+       ======================================================== -->
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+  
+  
+  <script src="assets/js/ui.js?v=20260918-modal-fix-1"></script>
+  
+  
+  
+  <script src="assets/js/customer-portal.js"></script>
+  <script src="assets/js/customer-welcome.js?v=20260903-2"></script>
+
+
+<!-- screenings4u universal portal security -->
+<script src="assets/js/supabase-config.js?v=20260925-lockdown"></script>
+<script src="assets/js/core-auth.js?v=20260925-lockdown"></script>
+<script src="assets/js/session-security.js?v=20260925-lockdown"></script>
+<script src="assets/js/portal-auth-guard.js?v=20260925-lockdown"></script>
+<script src="assets/js/customer-auth-guard.js?v=20260925-lockdown"></script>
+</body>
+
+</html>

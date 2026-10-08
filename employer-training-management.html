@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en" class="s4u-auth-pending">
+<head><style id="s4u-preauth-style">html.s4u-auth-pending body{visibility:hidden!important}html.s4u-auth-pending #s4u-auth-blocking-error{visibility:visible!important}</style>
+  <meta charset="UTF-8">
+  <meta name="theme-color" content="#24467f">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Training Management | screenings4u Employer Portal</title>
+<link href="images/fav.png" rel="icon" type="image/png"/>
+  <link rel="stylesheet" href="assets/css/employer-portal.css">
+  <link rel="stylesheet" href="assets/css/employer-training-management.css">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/brand-system.css?v=20260918-brand-repair-v2">
+</head>
+<body class="employer-training-page"
+      data-page-title="Training Management"
+      data-page-subtitle="Manage employee training, assignments, credits, and course progress." data-s4u-portal="employer">
+
+  <div id="employer-portal-sidebar"></div>
+
+  <main class="employer-portal-main">
+    <div id="employer-portal-header"></div>
+
+    <div class="training-management-content">
+
+      <section class="training-hero">
+        <div>
+          <span class="training-eyebrow">WORKFORCE LEARNING</span>
+          <h1>Training Management</h1>
+          <p>Assign courses, track employee progress, and manage your organization's training access.</p>
+        </div>
+
+        <div class="training-hero-actions">
+          <button type="button" class="training-secondary-btn" id="purchase-credits-btn">Purchase Credits</button>
+          <button type="button" class="training-primary-btn" id="browse-courses-btn">Browse Courses</button>
+        </div>
+      </section>
+
+      <section class="training-summary-grid">
+        <article class="training-summary-card">
+          <span>Training Credits</span>
+          <strong id="stat-training-credits">—</strong>
+          <small>Available for employee assignments</small>
+        </article>
+
+        <article class="training-summary-card">
+          <span>Active Enrollments</span>
+          <strong id="stat-active-enrollments">—</strong>
+          <small>Employees currently in training</small>
+        </article>
+
+        <article class="training-summary-card">
+          <span>Completed Courses</span>
+          <strong id="stat-completed-training">—</strong>
+          <small>Completed enrollments</small>
+        </article>
+
+        <article class="training-summary-card">
+          <span>Completion Rate</span>
+          <strong id="stat-completion-rate">—</strong>
+          <small>Across organization enrollments</small>
+        </article>
+      </section>
+
+      <section class="training-action-grid">
+        <article class="training-action-card">
+          <div class="training-action-icon">+</div>
+          <div>
+            <h3>Assign Training</h3>
+            <p>Select an employee and assign an available course.</p>
+          </div>
+          <button type="button" id="assign-training-btn">Assign Course</button>
+        </article>
+
+        <article class="training-action-card">
+          <div class="training-action-icon">◫</div>
+          <div>
+            <h3>Purchase More Training</h3>
+            <p>Purchase courses directly or add training credits.</p>
+          </div>
+          <button type="button" id="purchase-training-btn">View Training</button>
+        </article>
+      </section>
+
+      <section class="training-panel">
+        <div class="training-panel-header">
+          <div>
+            <span class="training-eyebrow">EMPLOYEE TRAINING</span>
+            <h2>Assignments & Progress</h2>
+          </div>
+
+          <div class="training-panel-controls">
+            <div class="training-search">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <circle cx="11" cy="11" r="6"></circle>
+                <path d="m16 16 4 4"></path>
+              </svg>
+              <input type="search" id="training-search" placeholder="Search employee or course..." autocomplete="off">
+            </div>
+
+            <select id="training-status-filter">
+              <option value="all">All Statuses</option>
+              <option value="not_started">Not Started</option>
+              <option value="in_progress">In Progress</option>
+              <option value="completed">Completed</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="training-table-wrap">
+          <table class="training-table">
+            <thead>
+              <tr>
+                <th>Employee</th>
+                <th>Course</th>
+                <th>Assigned</th>
+                <th>Progress</th>
+                <th>Status</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody id="training-table-body">
+              <tr>
+                <td colspan="6">
+                  <div class="training-empty-state">
+                    <div class="training-empty-icon">◫</div>
+                    <h3>No training assignments yet</h3>
+                    <p>When courses are assigned to employees, their progress will appear here.</p>
+                    <button type="button" class="training-secondary-btn" id="empty-assign-training-btn">Assign Training</button>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="training-bottom-grid">
+        <article class="training-info-card">
+          <div class="training-info-heading">
+            <div class="training-info-icon">C</div>
+            <div>
+              <h3>How Training Credits Work</h3>
+              <p>Flexible access for your workforce.</p>
+            </div>
+          </div>
+
+          <ol>
+            <li>Purchase training credits for your organization.</li>
+            <li>Select an employee and an available course.</li>
+            <li>A credit is consumed when the course is assigned.</li>
+            <li>Track progress and completion from this portal.</li>
+          </ol>
+        </article>
+
+        <article class="training-info-card">
+          <div class="training-info-heading">
+            <div class="training-info-icon">✓</div>
+            <div>
+              <h3>Direct Course Purchases</h3>
+              <p>Purchase specific training when needed.</p>
+            </div>
+          </div>
+
+          <p class="training-info-copy">
+            Employers can also purchase specific courses directly instead of maintaining a credit balance. Purchased course access is available for assignment according to your organization’s active enrollment and access rules.
+          </p>
+        </article>
+      </section>
+
+    </div>
+  </main>
+
+  <div class="training-modal" id="assign-training-modal" hidden>
+    <div class="training-modal-backdrop" data-close-training-modal></div>
+
+    <div class="training-modal-card" role="dialog" aria-modal="true" aria-labelledby="assign-training-title">
+      <div class="training-modal-header">
+        <div>
+          <span class="training-eyebrow">NEW ASSIGNMENT</span>
+          <h2 id="assign-training-title">Assign Training</h2>
+        </div>
+        <button type="button" class="training-modal-close" data-close-training-modal aria-label="Close">×</button>
+      </div>
+
+      <form id="assign-training-form">
+        <div class="training-form-group">
+          <label for="training-employee">Employee</label>
+          <select id="training-employee" required>
+            <option value="">Select an employee</option>
+          </select>
+        </div>
+
+        <div class="training-form-group">
+          <label for="training-course">Course</label>
+          <select id="training-course" required>
+            <option value="">Select a course</option>
+          </select>
+        </div>
+
+        <div class="training-assignment-note">
+          Course assignment eligibility is validated against your organization’s available training credits and purchased course access before an assignment is created.
+        </div>
+
+        <div class="training-modal-actions">
+          <button type="button" class="training-cancel-btn" data-close-training-modal>Cancel</button>
+          <button type="submit" class="training-primary-btn">Assign Course</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+
+
+
+
+
+<script src="assets/js/employer-portal.js"></script>
+
+  <script src="assets/js/employer-training-management.js"></script>
+
+<!-- screenings4u universal portal security -->
+<script src="assets/js/supabase-config.js?v=20260925-lockdown"></script>
+<script src="assets/js/core-auth.js?v=20260925-lockdown"></script>
+<script src="assets/js/session-security.js?v=20260925-lockdown"></script>
+<script src="assets/js/portal-auth-guard.js?v=20260925-lockdown"></script>
+<script src="assets/js/employer-auth-guard.js?v=20260925-lockdown"></script>
+</body>
+</html>

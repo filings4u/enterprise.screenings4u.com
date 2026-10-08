@@ -1,0 +1,193 @@
+
+.operations-content{padding:32px;max-width:1800px;margin:auto}.operations-page-header{display:flex;justify-content:space-between;gap:24px;margin-bottom:28px}.operations-page-title h1{margin:6px 0 8px;font-size:30px;color:#17233a}.operations-page-title p{margin:0;color:#667085;font-size:14px;line-height:1.65;max-width:760px}.operations-actions{display:flex;gap:10px}.operations-btn{border:1px solid #d9e0ea;background:#fff;color:#24324a;border-radius:8px;padding:10px 14px;font-weight:700;font-size:13px;cursor:pointer}.operations-btn.primary{background:#325aa3;border-color:#325aa3;color:#fff}.operations-kpi-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:22px}.operations-kpi-card,.operations-panel{background:#fff;border:1px solid #e5e9f0;border-radius:12px;box-shadow:0 3px 10px rgba(16,24,40,.03)}.operations-kpi-card{padding:19px}.operations-kpi-label{font-size:11px;font-weight:800;letter-spacing:.08em;color:#6b7280}.operations-kpi-card strong{display:block;font-size:28px;color:#17233a;margin:14px 0 8px}.operations-kpi-card span:last-child{font-size:12px;color:#7a8494}.operations-panel{margin-bottom:20px;overflow:hidden}.operations-panel-header{padding:18px 20px;border-bottom:1px solid #edf0f4}.operations-panel-header h2{font-size:16px;margin:0;color:#17233a}.operations-panel-header p{font-size:12px;color:#7a8494;margin:4px 0 0}.operations-toolbar{display:flex;gap:10px;padding:16px 20px;border-bottom:1px solid #edf0f4}.operations-search{flex:1}.operations-search input,.operations-select{width:100%;box-sizing:border-box;height:40px;border:1px solid #dce2ea;border-radius:8px;padding:0 12px;font-size:13px}.operations-select{width:170px}.operations-table-wrap{overflow:auto}.operations-table{width:100%;border-collapse:collapse;min-width:760px}.operations-table th{padding:12px 20px;background:#fafbfc;text-align:left;font-size:10px;letter-spacing:.07em;color:#7b8492}.operations-table td{padding:15px 20px;border-top:1px solid #eef1f4;font-size:13px;color:#354155}.operations-name{font-weight:750;color:#1f2d43;display:block}.operations-sub{display:block;color:#8a94a3;font-size:12px;margin-top:3px}.operations-badge{display:inline-flex;padding:5px 9px;border-radius:999px;background:#f1f4f8;color:#586577;font-size:11px;font-weight:750}.operations-badge.active,.operations-badge.paid,.operations-badge.completed{background:#e9f7ef;color:#24713e}.operations-badge.pending,.operations-badge.draft,.operations-badge.sent{background:#fff5df;color:#946400}.operations-badge.overdue,.operations-badge.failed,.operations-badge.cancelled{background:#fdecec;color:#a53434}.operations-empty{padding:35px;text-align:center;color:#7c8797}.operations-summary-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:20px}.operations-list{padding:6px 20px}.operations-list-item{display:flex;justify-content:space-between;gap:16px;padding:14px 0;border-bottom:1px solid #eef1f4}.operations-list-item:last-child{border:0}.operations-list-title{font-weight:700;font-size:13px;color:#26354d}.operations-list-meta{font-size:12px;color:#8791a0;margin-top:3px}.operations-amount{font-weight:800}.operations-message{display:none;margin:0 0 18px;padding:11px 13px;border-radius:8px}.operations-message.show{display:block}.operations-message.error{background:#fdecec;color:#9f3030}.operations-message.success{background:#e9f7ef;color:#24713e}@media(max-width:1100px){.operations-kpi-grid{grid-template-columns:repeat(2,1fr)}.operations-summary-grid{grid-template-columns:1fr}}@media(max-width:700px){.operations-content{padding:20px 16px}.operations-page-header{flex-direction:column}.operations-kpi-grid{grid-template-columns:1fr}.operations-toolbar{flex-direction:column}.operations-select{width:100%}}
+
+
+/* ============================================================
+   SCREENINGS4U — ADMIN DESKTOP TYPOGRAPHY NORMALIZATION
+   Canonical sizing source: customer-dashboard.css
+   Added 2026-08-31
+   Layout, colors, spacing, borders, and responsive rules above
+   remain unchanged.
+   ============================================================ */
+
+@media (min-width: 901px) {
+
+  /* Page titles */
+  :is(
+    .s4u-dashboard-heading,
+    .customers-heading,
+    .employees-heading,
+    .admin-employers-heading,
+    .employer-users-heading,
+    .enterprise-page-title,
+    .admin-module-heading,
+    .operations-page-title,
+    .admin-lms-page-heading,
+    .admin-lms-heading,
+    .s4u-page-heading,
+    .page-heading
+  ) h1 {
+    font-size: clamp(1.8rem, 3vw, 2.55rem);
+  }
+
+  /* Page descriptions */
+  :is(
+    .s4u-dashboard-heading,
+    .customers-heading,
+    .employees-heading,
+    .admin-employers-heading,
+    .employer-users-heading,
+    .enterprise-page-title,
+    .admin-module-heading,
+    .operations-page-title,
+    .admin-lms-page-heading,
+    .admin-lms-heading,
+    .s4u-page-heading,
+    .page-heading
+  ) p {
+    font-size: 0.98rem;
+  }
+
+  /* Eyebrows / kickers */
+  :is(
+    .s4u-dashboard-kicker,
+    .page-eyebrow,
+    .panel-eyebrow,
+    .employees-kicker,
+    .admin-employers-kicker,
+    .employer-users-kicker,
+    .s4u-page-kicker,
+    .admin-module-kicker,
+    .admin-lms-kicker,
+    .page-kicker
+  ) {
+    font-size: 0.72rem;
+  }
+
+  /* Primary and secondary action text */
+  :is(
+    .s4u-button,
+    .btn,
+    .employees-primary-button,
+    .employees-secondary-button,
+    .employees-action-button,
+    .admin-employers-primary-button,
+    .employer-users-primary-button,
+    .employer-users-secondary-button,
+    .employer-users-action-button,
+    .operations-btn,
+    .admin-lms-button,
+    .admin-lms-primary-button,
+    .admin-lms-secondary-button
+  ) {
+    font-size: 0.9rem;
+  }
+
+  /* Section / panel headings */
+  :is(
+    .s4u-section-header,
+    .enterprise-section-header,
+    .admin-module-section-header,
+    .operations-panel-header,
+    .admin-lms-panel-header,
+    .panel-header,
+    .section-header
+  ) h2 {
+    font-size: 1.05rem;
+  }
+
+  /* Section / panel supporting text */
+  :is(
+    .s4u-section-header,
+    .enterprise-section-header,
+    .admin-module-section-header,
+    .operations-panel-header,
+    .admin-lms-panel-header,
+    .panel-header,
+    .section-header
+  ) p {
+    font-size: 0.78rem;
+  }
+
+  /* KPI / metric values */
+  :is(
+    .s4u-dashboard-metric-card,
+    .metric-card,
+    .employees-metric-card,
+    .admin-employer-metric-card,
+    .employer-users-metric-card,
+    .admin-module-kpi,
+    .operations-kpi-card,
+    .s4u-stat,
+    .admin-lms-stat-card,
+    .admin-lms-metric-card
+  ) strong,
+  .admin-employer-metric-value,
+  .s4u-stat-value {
+    font-size: 1.85rem;
+  }
+
+  /* KPI / metric labels */
+  :is(
+    .s4u-dashboard-metric-card,
+    .metric-card,
+    .employees-metric-card,
+    .admin-employer-metric-card,
+    .employer-users-metric-card,
+    .admin-module-kpi,
+    .operations-kpi-card,
+    .s4u-stat,
+    .admin-lms-stat-card,
+    .admin-lms-metric-card
+  ) > span:first-child,
+  .metric-label,
+  .admin-employer-metric-label,
+  .admin-module-kpi-label,
+  .operations-kpi-label,
+  .s4u-stat-label {
+    font-size: 0.72rem;
+  }
+
+  /* Tables */
+  :is(
+    .s4u-table,
+    .enterprise-table,
+    .admin-module-table,
+    .operations-table,
+    .admin-lms-table,
+    table
+  ) {
+    font-size: 0.78rem;
+  }
+
+  :is(
+    .s4u-table,
+    .enterprise-table,
+    .admin-module-table,
+    .operations-table,
+    .admin-lms-table,
+    table
+  ) th {
+    font-size: 0.72rem;
+  }
+
+  :is(
+    .s4u-table,
+    .enterprise-table,
+    .admin-module-table,
+    .operations-table,
+    .admin-lms-table,
+    table
+  ) td {
+    font-size: 0.78rem;
+  }
+
+  /* Form controls */
+  :is(
+    input,
+    select,
+    textarea
+  ) {
+    font-size: 0.9rem;
+  }
+}

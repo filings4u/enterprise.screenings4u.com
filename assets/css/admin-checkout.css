@@ -1,0 +1,107 @@
+/* ============================================================
+   SCREENINGS4U — ADMIN CHECKOUT TYPOGRAPHY
+   Match Admin Dashboard typography scale
+   ============================================================ */
+
+@media (min-width: 901px) {
+
+  /* Page title */
+  .page .heading h1 {
+    font-size: clamp(1.8rem, 3vw, 2.55rem);
+    line-height: 1.05;
+    font-weight: 900;
+    letter-spacing: -0.04em;
+  }
+
+  /* Page description */
+  .page .heading p {
+    font-size: 0.98rem;
+    line-height: 1.6;
+  }
+
+  /* Eyebrow / kicker */
+  .page .kicker {
+    font-size: 0.72rem;
+    font-weight: 900;
+    letter-spacing: 0.1em;
+  }
+
+  /* Buttons */
+  .page .btn {
+    font-family: inherit;
+    font-size: 0.9rem;
+    font-weight: 800;
+  }
+
+  /* Section headings */
+  .page .card h2 {
+    font-size: 1.05rem;
+    line-height: 1.25;
+    font-weight: 900;
+  }
+
+  .page .stripe-box h3 {
+    font-size: 1.05rem;
+    line-height: 1.25;
+    font-weight: 900;
+  }
+
+  /* Labels */
+  .page .field label,
+  .page .meta span {
+    font-size: 0.72rem;
+  }
+
+  /* Form controls */
+  .page input,
+  .page select,
+  .page textarea {
+    font-family: inherit;
+    font-size: 0.9rem;
+  }
+
+  /* Table */
+  .page .cart {
+    font-size: 0.78rem;
+  }
+
+  .page .cart th {
+    font-size: 0.72rem;
+  }
+
+  .page .cart td {
+    font-size: 0.78rem;
+  }
+
+  /* Summary rows */
+  .page .tot {
+    font-size: 0.78rem;
+  }
+
+  .page .tot.total {
+    font-size: 1.05rem;
+  }
+
+  /* Supporting copy */
+  .page .note,
+  .page .alert,
+  .page .stripe-error {
+    font-size: 0.78rem;
+    line-height: 1.5;
+  }
+
+  /* Order metadata */
+  .page .meta strong {
+    font-size: 0.9rem;
+  }
+}
+
+/* Use the same inherited portal font everywhere on the checkout page */
+.page,
+.page button,
+.page input,
+.page select,
+.page textarea,
+.page table {
+  font-family: inherit;
+}

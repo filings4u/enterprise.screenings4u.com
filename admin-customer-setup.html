@@ -1,0 +1,264 @@
+<!doctype html>
+<html class="s4u-auth-pending" lang="en">
+<head>
+  <style id="s4u-preauth-style">@keyframes s4uAuthSpin{to{transform:rotate(360deg)}}html.s4u-auth-pending body>:not(#s4u-auth-blocking-error):not(#s4u-auth-loading){visibility:hidden!important}html.s4u-auth-pending #s4u-auth-blocking-error,html.s4u-auth-pending #s4u-auth-loading{visibility:visible!important}</style>
+  <style id="s4u-auth-interaction-safety">
+    html.s4u-authenticated #s4u-auth-loading{display:none!important;visibility:hidden!important;pointer-events:none!important}
+  </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#24467f">
+  <title>Account & Order Creation | screenings4u Enterprise</title>
+  <link rel="icon" href="images/fav.png">
+  <link rel="stylesheet" href="assets/css/admin-lms.css">
+  <link rel="stylesheet" href="assets/css/enterprise-portal.css?v=20260925-account-order-console">
+  <link rel="stylesheet" href="assets/css/enterprise-control-plane.css?v=20260925-account-order-console">
+  <link rel="stylesheet" href="assets/css/brand-system.css?v=20260925-account-order-css-fix">
+  <link rel="stylesheet" href="assets/css/enterprise-management-system.css?v=20260925-account-order-css-fix">
+  <style>
+
+    /* Account & Order Creation — Enterprise design-system alignment */
+    .setup-page{width:100%;max-width:1580px;margin:0 auto;padding-bottom:40px}
+    .setup-head{display:flex;justify-content:space-between;align-items:flex-start;gap:14px;margin-bottom:16px}
+    .setup-head>div:first-child{min-width:0;flex:1}
+    .setup-head h1{margin:12px 0 5px;font-size:1.62rem;line-height:1.08;letter-spacing:-.035em;font-weight:850;color:#10264a}
+    .setup-head p{margin:0;max-width:900px;color:#71839d;font-size:.78rem;line-height:1.48}
+    .setup-actions{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end;align-items:center;padding-top:1px}
+    .setup-layout{display:grid;grid-template-columns:minmax(0,1fr);gap:14px}
+    .setup-card{background:#fff;border:1px solid #dbe5f0;border-radius:11px;box-shadow:0 8px 28px rgba(20,54,92,.07);overflow:hidden;min-width:0}
+    .setup-card-head{padding:14px 16px 12px;border-bottom:1px solid #edf2f7;display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
+    .setup-card-head h2{font-size:.96rem;line-height:1.25;letter-spacing:-.015em;margin:0;color:#10264a;font-weight:850}
+    .setup-card-head p{font-size:.72rem;color:#71839d;line-height:1.45;margin:4px 0 0;max-width:980px}
+    .setup-card-body{padding:16px}
+    .setup-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px 14px}
+    .setup-grid.three{grid-template-columns:repeat(3,minmax(0,1fr))}
+    .field{min-width:0}
+    .field.full{grid-column:1/-1}
+    .field label{display:block;font-size:.64rem;font-weight:800;color:#526985;margin-bottom:5px;letter-spacing:.01em}
+    .field input:not([type=checkbox]):not([type=radio]),.field select,.field textarea{width:100%;min-height:38px;border:1px solid #d3deeb;border-radius:8px;background:#fff;color:#253d5d;padding:8px 10px;font:inherit;font-size:.75rem;outline:none;box-sizing:border-box;box-shadow:none}
+    .field textarea{min-height:76px;resize:vertical;line-height:1.45}
+    .field input:focus,.field select:focus,.field textarea:focus{border-color:#9bb2cc;box-shadow:0 0 0 3px rgba(36,70,127,.07)}
+    .hint{font-size:.66rem;color:#71839d;line-height:1.4;margin-top:4px}
+    .inline-check{display:flex!important;align-items:flex-start!important;gap:8px;font-size:.72rem;color:#405a80;line-height:1.4;cursor:pointer;margin:0!important}
+    .inline-check input[type=checkbox]{appearance:auto!important;width:15px!important;height:15px!important;min-width:15px!important;min-height:15px!important;max-width:15px!important;max-height:15px!important;flex:0 0 15px!important;margin:2px 0 0!important;padding:0!important;box-shadow:none!important;accent-color:#24467f}
+    .customer-type{display:flex;gap:7px;flex-wrap:wrap}
+    .seg{min-height:34px;border:1px solid #cfdbe9;background:#fff;color:#31527e;border-radius:8px;padding:7px 11px;font-weight:800;font-size:.71rem;cursor:pointer}
+    .seg.active{background:#24467f;color:#fff;border-color:#24467f}
+    .business-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+    .business-card{border:1px solid #d5e0ec;border-radius:10px;background:#fbfdff;overflow:hidden;min-width:0;box-shadow:none}
+    .business-card.active{border-color:#8aa8ce;box-shadow:0 0 0 2px rgba(36,70,127,.07)}
+    .business-card-top{display:flex;gap:9px;align-items:flex-start;padding:11px 12px 10px;border-bottom:1px solid #edf2f7;background:#fff;min-height:68px;box-sizing:border-box}
+    .business-card-top input{appearance:auto!important;width:15px!important;height:15px!important;min-width:15px!important;min-height:15px!important;margin:2px 0 0!important;padding:0!important;accent-color:#24467f;box-shadow:none!important}
+    .business-card-top strong{display:block;color:#102f5a;font-size:.76rem;line-height:1.3}
+    .business-card-top span{display:block;color:#71839d;font-size:.64rem;margin-top:3px;line-height:1.38}
+    .business-config{padding:10px 12px 12px;display:grid;gap:9px}
+    .business-config[hidden]{display:none!important}
+    .business-config .field label{font-size:.61rem}
+    .catalog-toolbar{display:grid;grid-template-columns:minmax(260px,1fr) auto;gap:10px;align-items:center;margin-bottom:10px}
+    .catalog-tabs{display:flex;gap:5px;flex-wrap:wrap;justify-content:flex-end}
+    .catalog-tab{min-height:34px;border:1px solid #cfdbe9;background:#fff;color:#31527e;border-radius:8px;padding:7px 10px;font-weight:800;font-size:.68rem;cursor:pointer}
+    .catalog-tab.active{background:#24467f;border-color:#24467f;color:#fff}
+    .catalog-search{width:100%;height:38px;border:1px solid #d3deeb;border-radius:8px;padding:0 10px;font:inherit;font-size:.75rem;color:#253d5d;box-sizing:border-box}
+    .catalog-meta{display:flex;justify-content:space-between;gap:12px;align-items:center;margin:6px 0 9px;font-size:.66rem;color:#71839d}
+    .catalog-list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px;max-height:470px;overflow:auto;padding:1px 3px 4px 1px;scrollbar-gutter:stable}
+    .catalog-item{border:1px solid #dbe5f0;border-radius:9px;background:#fff;padding:11px;display:flex;flex-direction:column;gap:7px;min-width:0;box-shadow:none}
+    .catalog-item-head{display:flex;justify-content:space-between;gap:8px;align-items:flex-start}
+    .catalog-item h3{font-size:.74rem;line-height:1.35;margin:0;color:#102e58}
+    .catalog-item p{font-size:.64rem;color:#71839d;line-height:1.42;margin:0;min-height:2.8em}
+    .catalog-tags{display:flex;gap:5px;flex-wrap:wrap}
+    .tag{display:inline-flex;align-items:center;border-radius:999px;background:#edf3fb;color:#4d668d;padding:3px 7px;font-size:.59rem;font-weight:800;line-height:1.2}
+    .tag.price{background:#e9f8ee;color:#227246}.tag.quote{background:#fff3df;color:#8d5a09}
+    .catalog-add{margin-top:auto;display:flex;align-items:center;justify-content:space-between;gap:8px}
+    .catalog-add button{border:1px solid #24467f;background:#24467f;color:#fff;border-radius:7px;padding:6px 9px;font-size:.65rem;font-weight:800;cursor:pointer;min-height:31px}
+    .catalog-add button:disabled{opacity:.55;cursor:not-allowed}
+    .cart-wrap{margin-top:14px;border-top:1px solid #edf2f7;padding-top:12px}
+    .cart-head{display:flex;justify-content:space-between;gap:10px;align-items:center;margin-bottom:9px}
+    .cart-head h3{font-size:.8rem;color:#102f59;margin:0}.cart-count{font-size:.65rem;font-weight:800;color:#657a9e}
+    .cart-table-wrap{overflow-x:auto;border:1px solid #dbe5f0;border-radius:9px}
+    .cart-table{width:100%;border-collapse:collapse;min-width:1000px}
+    .cart-table th{background:#f5f8fc;color:#61748e;text-transform:uppercase;letter-spacing:.05em;font-size:.58rem;padding:8px 8px;text-align:left;border-bottom:1px solid #dbe5f0}
+    .cart-table td{font-size:.68rem;color:#263f68;padding:8px;border-bottom:1px solid #edf2f7;vertical-align:top}
+    .cart-table tr:last-child td{border-bottom:0}
+    .cart-table input[type=number],.cart-table input[type=text]{height:30px!important;min-height:30px!important;border:1px solid #d3deeb;border-radius:6px;padding:4px 6px;font:inherit;font-size:.66rem;box-sizing:border-box}
+    .cart-table .qty{width:68px}.cart-table .price-input{width:96px}.cart-table .reason{width:150px}
+    .cart-table input[type=checkbox]{appearance:auto!important;width:14px!important;height:14px!important;min-width:14px!important;min-height:14px!important;accent-color:#24467f;box-shadow:none!important}
+    .remove-line{border:0;background:#fff0f0;color:#a43737;border-radius:6px;padding:5px 7px;font-size:.63rem;font-weight:800;cursor:pointer}
+    .empty{padding:16px;border:1px dashed #cbd8e9;border-radius:9px;background:#fafcff;text-align:center;color:#71839d;font-size:.71rem}
+    .order-configs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+    .order-config{border:1px solid #dbe5f0;border-radius:9px;background:#fbfdff;padding:12px}
+    .order-config-title{display:flex;justify-content:space-between;gap:10px;align-items:center;margin-bottom:10px}
+    .order-config-title strong{font-size:.76rem;color:#102f59}.order-config-title span{font-size:.65rem;color:#5d7398;font-weight:800}
+    .order-config .setup-grid{gap:9px 11px}
+    .review-grid{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(270px,.65fr);gap:12px}
+    .review-box{border:1px solid #dbe5f0;background:#f8fbff;border-radius:9px;padding:12px}
+    .review-box h3{font-size:.78rem;margin:0 0 8px;color:#102f59}.review-lines{display:grid;gap:6px;font-size:.69rem;color:#405a80;line-height:1.4}.review-total{font-size:1.16rem;font-weight:900;color:#102e58}
+    .submit-row{display:flex;align-items:center;justify-content:flex-end;gap:8px;margin-top:12px}
+    .btn{min-height:34px;border:1px solid #cfdbe9;background:#fff;color:#24467f;border-radius:8px;padding:7px 11px;font-weight:800;font-size:.69rem;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:6px;box-shadow:none}
+    .btn.primary{background:#24467f;border-color:#24467f;color:#fff}.btn:disabled{opacity:.55;cursor:not-allowed}
+    .notice{padding:10px 12px;border-radius:8px;background:#eaf3ff;color:#234d80;border:1px solid #c9def7;font-size:.7rem;line-height:1.42;margin-bottom:11px}
+    .notice.error{background:#fff0f0;color:#8e3333;border-color:#f2caca}.notice.success{background:#edf8f0;color:#25623e;border-color:#cde8d4}
+    .result-panel{display:grid;gap:9px}.result-order{border:1px solid #dbe5f0;border-radius:9px;padding:11px;background:#fff}.result-order h3{margin:0 0 6px;font-size:.78rem;color:#102e58}.result-order p{margin:3px 0;font-size:.68rem;color:#536b91}.result-links{display:flex;gap:7px;flex-wrap:wrap;margin-top:8px}
+    .hidden{display:none!important}
+    @media(max-width:1250px){.business-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.catalog-list{grid-template-columns:repeat(2,minmax(0,1fr))}}
+    @media(max-width:980px){.setup-grid,.setup-grid.three,.order-configs,.review-grid{grid-template-columns:1fr 1fr}.business-grid{grid-template-columns:1fr 1fr}.field.full{grid-column:1/-1}.catalog-toolbar{grid-template-columns:1fr}.catalog-tabs{justify-content:flex-start}.catalog-list{grid-template-columns:1fr 1fr}}
+    @media(max-width:700px){.setup-page{padding-bottom:28px}.setup-head{display:block}.setup-actions{justify-content:flex-start;margin-top:11px}.setup-head h1{font-size:1.38rem}.setup-grid,.setup-grid.three,.order-configs,.review-grid,.business-grid,.catalog-list{grid-template-columns:1fr}.field.full{grid-column:auto}.setup-card-head,.setup-card-body{padding-left:12px;padding-right:12px}.submit-row{justify-content:stretch;flex-direction:column}.submit-row .btn{width:100%}.catalog-tabs{display:grid;grid-template-columns:1fr 1fr}.catalog-tab{width:100%}.catalog-meta{display:block}.catalog-meta span{display:block;margin-top:3px}}
+  </style>
+</head>
+<body data-s4u-portal="admin">
+<div id="s4u-auth-loading" role="status" aria-live="polite" style="position:fixed;inset:0;z-index:2147483000;display:grid;place-items:center;background:#f4f7fc;font-family:Inter,Arial,sans-serif;color:#24467f"><div style="text-align:center"><div style="width:34px;height:34px;margin:0 auto 14px;border:3px solid #dbe5f1;border-top-color:#24467f;border-radius:50%;animation:s4uAuthSpin .7s linear infinite"></div><strong style="font-size:14px">Loading secure workspace…</strong></div></div>
+<div class="admin-lms-app">
+  <div id="admin-lms-sidebar-target"></div>
+  <main class="admin-lms-main">
+    <header class="admin-lms-topbar"></header>
+    <section class="ecp-page setup-page">
+      <div class="setup-head">
+        <div>
+          <a class="btn" id="setupBackLink" href="admin-organizations.html">← Organizations & Accounts</a>
+          <h1 id="setupPageTitle">Account & Order Creation</h1>
+          <p id="setupPageSubtitle">Create or attach a customer organization, provision business access, build manual orders from the live Supabase catalog, generate tracking numbers or invoices, collect payment, and send account/order communications from one workspace.</p>
+        </div>
+        <div class="setup-actions"><button class="btn" id="refreshBtn" type="button">Refresh Live Catalog</button></div>
+      </div>
+      <div id="pageMessage"></div>
+
+      <form id="setupForm" novalidate>
+        <div class="setup-layout">
+          <section class="setup-card">
+            <div class="setup-card-head"><div><h2>1. Customer / Organization</h2><p>Create a new customer or attach orders and additional business access to an existing Enterprise organization.</p></div></div>
+            <div class="setup-card-body">
+              <div class="setup-grid three">
+                <div class="field full"><label>Existing organization</label><select id="existingOrg"><option value="">Create a new customer / organization</option></select><div class="hint">Choose an existing organization to create new orders, subscriptions, or additional business access without creating a duplicate customer.</div></div>
+                <div class="field full"><label>Customer type</label><div class="customer-type"><button class="seg active" type="button" data-customer-type="business">Business / Organization</button><button class="seg" type="button" data-customer-type="individual">Individual Customer</button></div><input id="customerType" type="hidden" value="business"></div>
+                <div class="field full"><label>Legal / customer name</label><input id="legalName" required autocomplete="organization"></div>
+                <div class="field"><label>DBA / display name</label><input id="dbaName"></div>
+                <div class="field"><label>EIN</label><input id="ein"></div>
+                <div class="field"><label>Business / billing email</label><input id="email" type="email" autocomplete="email"></div>
+                <div class="field"><label>Phone</label><input id="phone" autocomplete="tel"></div>
+                <div class="field"><label>Website</label><input id="website"></div>
+                <div class="field"><label>Industry</label><input id="industry"></div>
+                <div class="field"><label>Employee count</label><input id="employeeCount" type="number" min="0"></div>
+                <div class="field"><label>State</label><input id="state" maxlength="2"></div>
+                <div class="field"><label>USDOT number</label><input id="dotNumber"></div>
+                <div class="field"><label>MC number</label><input id="mcNumber"></div>
+                <div class="field full"><label>Address line 1</label><input id="address1" autocomplete="street-address"></div>
+                <div class="field full"><label>Address line 2</label><input id="address2"></div>
+                <div class="field"><label>City</label><input id="city"></div>
+                <div class="field"><label>ZIP / postal code</label><input id="zip"></div>
+                <div class="field"><label>Country</label><select id="country"><option value="US">United States</option></select></div>
+              </div>
+            </div>
+          </section>
+
+          <section class="setup-card">
+            <div class="setup-card-head"><div><h2>2. Business Accounts, Access & Subscriptions</h2><p>Select every screenings4u business this customer should have. Purchases added below automatically select the matching business.</p></div></div>
+            <div class="setup-card-body">
+              <div class="business-grid">
+                <article class="business-card" data-business-card="testing">
+                  <div class="business-card-top"><input type="checkbox" id="useTesting" data-use-business="testing"><div><strong>Testing</strong><span>Drug/alcohol testing, occupational services, background and other Testing storefront services.</span></div></div>
+                  <div class="business-config" data-business-config="testing" hidden>
+                    <div class="field"><label>Account type</label><select id="testingAccountType"><option value="employer">Testing Customer / Employer</option></select></div>
+                    <label class="inline-check"><input type="checkbox" id="testingPortal" checked><span>Enable customer / employer portal access</span></label>
+                  </div>
+                </article>
+                <article class="business-card" data-business-card="training">
+                  <div class="business-card-top"><input type="checkbox" id="useTraining" data-use-business="training"><div><strong>Training</strong><span>LMS courses, training products, employer seats, credits, certificates and course access.</span></div></div>
+                  <div class="business-config" data-business-config="training" hidden>
+                    <div class="field"><label>Account type</label><select id="trainingAccountType"><option value="customer">Training Customer / Organization</option></select></div>
+                    <label class="inline-check"><input type="checkbox" id="trainingPortal" checked><span>Enable customer / training access</span></label>
+                  </div>
+                </article>
+                <article class="business-card" data-business-card="workforce">
+                  <div class="business-card-top"><input type="checkbox" id="useWorkforce" data-use-business="workforce"><div><strong>NON-DOT Workforce</strong><span>NON-DOT employer/C/TPA compliance portal, testing programs, subscriptions and workforce services.</span></div></div>
+                  <div class="business-config" data-business-config="workforce" hidden>
+                    <div class="field"><label>Account type</label><select id="workforceAccountType"><option value="employer">Employer</option><option value="ctpa">C/TPA</option></select></div>
+                    <div class="field" id="workforceCtpaWrap"><label>Managed by C/TPA</label><select id="workforceCtpa"><option value="">Direct Employer</option></select></div>
+                    <div class="field"><label>Subscription plan</label><select id="workforcePlan"><option value="">No subscription</option></select></div>
+                    <div class="field"><label>Subscription activation</label><select id="workforceSubscriptionMode"><option value="activate">Activate / admin provision</option><option value="stripe">Send Stripe recurring checkout</option></select></div>
+                    <label class="inline-check"><input type="checkbox" id="workforcePortal" checked><span>Enable NON-DOT portal access</span></label>
+                    <label class="inline-check" id="workforceSubscriptionEmailWrap" hidden><input type="checkbox" id="workforceSubscriptionEmail" checked><span>Email subscription checkout link</span></label>
+                  </div>
+                </article>
+                <article class="business-card" data-business-card="dot">
+                  <div class="business-card-top"><input type="checkbox" id="useDot" data-use-business="dot"><div><strong>DOT</strong><span>DOT employer, C/TPA and owner-operator compliance portals, agency plans, testing and add-ons.</span></div></div>
+                  <div class="business-config" data-business-config="dot" hidden>
+                    <div class="field"><label>Account type</label><select id="dotAccountType"><option value="employer">Employer</option><option value="ctpa">C/TPA</option><option value="owner_operator">Owner-Operator</option></select></div>
+                    <div class="field" id="dotCtpaWrap"><label>Managed by C/TPA</label><select id="dotCtpa"><option value="">Direct Employer</option></select></div>
+                    <div class="field"><label>DOT agency</label><select id="dotAgency"><option value="FMCSA">FMCSA</option><option value="FAA">FAA</option><option value="FRA">FRA</option><option value="FTA">FTA</option><option value="PHMSA">PHMSA</option><option value="USCG">USCG</option></select></div>
+                    <div class="field"><label>Subscription plan</label><select id="dotPlan"><option value="">No subscription</option></select></div>
+                    <div class="field"><label>Subscription activation</label><select id="dotSubscriptionMode"><option value="activate">Activate / admin provision</option><option value="stripe">Send Stripe recurring checkout</option></select></div>
+                    <label class="inline-check"><input type="checkbox" id="dotPortal" checked><span>Enable DOT portal access</span></label>
+                    <label class="inline-check" id="dotSubscriptionEmailWrap" hidden><input type="checkbox" id="dotSubscriptionEmail" checked><span>Email subscription checkout link</span></label>
+                  </div>
+                </article>
+              </div>
+            </div>
+          </section>
+
+          <section class="setup-card">
+            <div class="setup-card-head"><div><h2>3. Purchases / Manual Order Builder</h2><p>Browse the live Supabase catalog across all four businesses. Add anything the customer is purchasing now; quote-priced items require an admin price override before submission.</p></div></div>
+            <div class="setup-card-body">
+              <div class="catalog-toolbar"><input id="catalogSearch" class="catalog-search" placeholder="Search services, tests, courses, plans, categories, descriptions…"><div class="catalog-tabs"><button type="button" class="catalog-tab active" data-catalog-tab="testing">Testing</button><button type="button" class="catalog-tab" data-catalog-tab="training">Training</button><button type="button" class="catalog-tab" data-catalog-tab="workforce">NON-DOT</button><button type="button" class="catalog-tab" data-catalog-tab="dot">DOT</button></div></div>
+              <div class="catalog-meta"><span id="catalogCaption">Loading live catalog…</span><span>Prices shown are current Supabase prices.</span></div>
+              <div id="catalogList" class="catalog-list"></div>
+              <div class="cart-wrap">
+                <div class="cart-head"><h3>Order Cart</h3><span class="cart-count" id="cartCount">0 items</span></div>
+                <div id="cartEmpty" class="empty">No purchases added yet. You can still create accounts and subscriptions without an order.</div>
+                <div id="cartTableWrap" class="cart-table-wrap" hidden>
+                  <table class="cart-table"><thead><tr><th>Business</th><th>Item</th><th>Qty</th><th>Unit price</th><th>Override</th><th>Override reason</th><th>Line total</th><th></th></tr></thead><tbody id="cartRows"></tbody></table>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="setup-card" id="orderSettingsCard" hidden>
+            <div class="setup-card-head"><div><h2>4. Orders, Payments, Invoices & Fulfillment</h2><p>Each business creates its own authoritative order and tracking number. Choose how each order is billed, paid, invoiced and communicated.</p></div></div>
+            <div class="setup-card-body"><div id="orderConfigs" class="order-configs"></div></div>
+          </section>
+
+          <section class="setup-card">
+            <div class="setup-card-head"><div><h2>5. Primary Portal User & Communications</h2><p>Create or connect the primary user identity, grant organization access, and send one account/password setup message. The same user can receive access to multiple selected businesses.</p></div></div>
+            <div class="setup-card-body">
+              <div class="setup-grid">
+                <div class="field"><label>First name</label><input id="firstName" autocomplete="given-name"></div>
+                <div class="field"><label>Last name</label><input id="lastName" autocomplete="family-name"></div>
+                <div class="field"><label>Portal / login email</label><input id="portalEmail" type="email" autocomplete="email"></div>
+                <div class="field"><label>Mobile</label><input id="portalPhone" autocomplete="tel"></div>
+                <div class="field"><label>Organization role</label><select id="roleCode"><option value="account_admin">Account Admin</option><option value="admin">Admin</option><option value="manager">Manager</option><option value="member">Member</option></select></div>
+                <div class="field"><label>Portal access</label><select id="portalAccess"><option value="true">Enable selected portal access</option><option value="false">Create account without portal login</option></select></div>
+                <div class="field full"><label class="inline-check"><input id="sendInvite" type="checkbox" checked><span>Send account invitation / password setup email now. Existing users receive a password/setup recovery email rather than a duplicate account.</span></label></div>
+              </div>
+            </div>
+          </section>
+
+          <section class="setup-card">
+            <div class="setup-card-head"><div><h2>6. Review & Create</h2><p>Review the complete customer, business-access, subscription and order bundle before creating records.</p></div></div>
+            <div class="setup-card-body">
+              <div class="review-grid">
+                <div class="review-box"><h3>Provisioning Summary</h3><div id="reviewLines" class="review-lines"></div></div>
+                <div class="review-box"><h3>Cart Subtotal</h3><div class="review-total" id="reviewTotal">$0.00</div><div class="hint">Final totals are recalculated from authoritative Supabase prices when the order is created. Manual overrides require a reason.</div></div>
+              </div>
+              <div class="submit-row"><button type="button" class="btn" id="clearBtn">Clear Form</button><button type="submit" class="btn primary" id="submitBtn">Create Account, Orders & Access</button></div>
+            </div>
+          </section>
+
+          <section class="setup-card" id="resultCard" hidden>
+            <div class="setup-card-head"><div><h2>Created Successfully</h2><p>Use these links for customer payment, invoice delivery, or follow-up. Email status below reflects the provider response; it is not assumed.</p></div></div>
+            <div class="setup-card-body"><div id="resultPanel" class="result-panel"></div></div>
+          </section>
+        </div>
+      </form>
+    </section>
+  </main>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="assets/js/supabase-config.js?v=20260925-fast-auth"></script>
+<script src="assets/js/core-auth.js?v=20260925-fast-auth"></script>
+<script src="assets/js/session-security.js?v=20260925-fast-auth"></script>
+<script src="assets/js/portal-auth-guard.js?v=20260925-fast-auth"></script>
+<script src="assets/js/admin-auth-guard.js?v=20260925-fast-auth"></script>
+<script src="assets/js/enterprise-management-system.js?v=20260925-account-order-console"></script>
+<script src="assets/js/ui.js"></script>
+<script src="assets/js/enterprise-portal.js?v=20260927-company-admin2"></script>
+<script src="assets/js/enterprise-customer-setup.js?v=20260927-business-scope2"></script>
+</body>
+</html>

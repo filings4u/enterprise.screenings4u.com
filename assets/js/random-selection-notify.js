@@ -1,0 +1,40 @@
+(() => {
+"use strict";
+let client, selectionId, selection, program, selectionRows=[], employers=[], employees=[];
+const $=id=>document.getElementById(id); const el={};
+
+document.addEventListener("DOMContentLoaded", init);
+async function init(){
+  cache(); bind();
+  selectionId=new URLSearchParams(location.search).get("selection");
+  if(!selectionId){show("Missing selection ID. Open this page from Random Selections.","error"); return;}
+  el.back.href=`admin-dot-selections.html?selection=${encodeURIComponent(selectionId)}`;
+  try{client=getClient(); await requireSession(); await load(); render();}catch(e){console.error(e);show(e.message||"Unable to load selection.","error");}
+}
+function cache(){["pageMessage","programName","period","selectedCount","selectionStatus","employerSelect","recipientEmployer","recipientEmail","notifyState","emailTo","emailSubject","emailMessage","notifyEmployerButton","backToSelection","printNotice","docTitle","docSubtitle","docEmployer","docProgram","docPeriod","docDate","docEmployees","docMessage"].forEach(id=>el[id==="backToSelection"?"back":id==="printNotice"?"print":id]=$(id));}
+function bind(){el.employerSelect.addEventListener("change",renderEmployer); el.emailMessage.addEventListener("input",()=>el.docMessage.textContent=el.emailMessage.value||defaultMessage()); el.notifyEmployerButton.addEventListener("click",sendNotice); el.print.addEventListener("click",()=>window.print());}
+function getClient(){if(window.supabaseClient?.from)return window.supabaseClient;if(window.supabase?.createClient&&window.SCREENINGS4U_SUPABASE_URL&&window.SCREENINGS4U_SUPABASE_ANON_KEY){window.supabaseClient=window.supabase.createClient(window.SCREENINGS4U_SUPABASE_URL,window.SCREENINGS4U_SUPABASE_ANON_KEY);return window.supabaseClient;}throw new Error("Supabase is not configured.");}
+async function requireSession(){if(window.S4UAuth?.requireSession){const s=await window.S4UAuth.requireSession("admin-login.html");if(!s)throw new Error("Authentication required.");return;}const {data,error}=await client.auth.getSession();if(error)throw error;if(!data?.session?.user){location.replace("admin-login.html");throw new Error("Authentication required.");}}
+async function load(){
+ const [s,r,p]=await Promise.all([
+  client.from("dot_random_selections").select("id,program_id,selection_period,selected_at,status,program_year").eq("id",selectionId).single(),
+  client.from("dot_random_selection_employees").select("id,selection_id,employer_id,employee_id,selection_type,status,notified_at,completed_at").eq("selection_id",selectionId),
+  client.from("dot_random_selections").select("program_id").eq("id",selectionId).single()
+ ]);
+ if(s.error)throw s.error;if(r.error)throw r.error;if(p.error)throw p.error;selection=s.data;selectionRows=r.data||[];
+ const employerIds=[...new Set(selectionRows.map(x=>x.employer_id))], employeeIds=[...new Set(selectionRows.map(x=>x.employee_id))];
+ const [pr,er,ee]=await Promise.all([
+  client.from("dot_random_programs").select("id,name,program_year,program_type,dot_agency,pool_type").eq("id",selection.program_id).single(),
+  client.from("employer_profiles").select("id,employer_name,legal_name,email,billing_email,phone,dot_number,city,state").in("id",employerIds),
+  client.from("employer_employees").select("id,employer_id,employee_number,first_name,last_name,email").in("id",employeeIds)
+ ]);
+ if(pr.error)throw pr.error;if(er.error)throw er.error;if(ee.error)throw ee.error;program=pr.data;employers=er.data||[];employees=ee.data||[];
+}
+function render(){el.programName.textContent=program?.name||"—";el.period.textContent=selection.selection_period||"—";el.selectedCount.textContent=selectionRows.length;el.selectionStatus.textContent=human(selection.status);el.employerSelect.innerHTML=employers.map(e=>`<option value="${esc(e.id)}">${esc(nameEmployer(e))}</option>`).join("")||'<option value="">No selected employers</option>';renderEmployer();}
+function renderEmployer(){const id=el.employerSelect.value;const employer=employers.find(x=>x.id===id);const rows=selectionRows.filter(x=>x.employer_id===id);const rowEmployees=rows.map(r=>({row:r,employee:employees.find(e=>e.id===r.employee_id)}));if(!employer){el.notifyEmployerButton.disabled=true;return;}const email=employer.email||employer.billing_email||"";el.recipientEmployer.textContent=nameEmployer(employer);el.recipientEmail.textContent=email||"No employer email on file";el.emailTo.value=email;el.emailSubject.value=`Random Selection Notification — ${program.name} — ${selection.selection_period} ${selection.program_year}`;if(!el.emailMessage.value)el.emailMessage.value=defaultMessage();const allNotified=rows.length&&rows.every(r=>r.notified_at);el.notifyState.textContent=allNotified?"Sent":"Not Sent";el.notifyState.className=`rsn-badge${allNotified?" sent":""}`;el.notifyEmployerButton.textContent=allNotified?"Send Again":"Notify Employer";el.notifyEmployerButton.disabled=!rows.length;el.docTitle.textContent="Random Testing Selection Notification";el.docSubtitle.textContent=`${selection.program_year} · ${selection.selection_period} · ${program.program_type==="NON_DOT"?"NON-DOT":[program.program_type,program.dot_agency].filter(Boolean).join(" / ")}`;el.docEmployer.textContent=nameEmployer(employer);el.docProgram.textContent=program.name;el.docPeriod.textContent=`${selection.selection_period} ${selection.program_year}`;el.docDate.textContent=dateTime(selection.selected_at);el.docEmployees.innerHTML=rowEmployees.map(({row,employee})=>`<tr><td>${esc(employeeName(employee))}</td><td>${esc(employee?.employee_number||"—")}</td><td>${esc(human(row.selection_type))}</td></tr>`).join("")||'<tr><td colspan="3">No selected employees.</td></tr>';el.docMessage.textContent=el.emailMessage.value||defaultMessage();}
+async function sendNotice(){const employerId=el.employerSelect.value;const to=el.emailTo.value.trim();if(!employerId)return show("Select an employer.","error");if(!to||!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(to))return show("Enter a valid employer email address.","error");const original=el.notifyEmployerButton.textContent;el.notifyEmployerButton.disabled=true;el.notifyEmployerButton.textContent="Sending...";try{const {data,error}=await client.functions.invoke("send-random-selection-notification",{body:{selection_id:selectionId,employer_id:employerId,to,subject:el.emailSubject.value.trim(),message:el.emailMessage.value.trim()}});if(error)throw error;if(data?.error)throw new Error(data.error);show(`Notification sent to ${to}.`,"ok");await load();render();el.employerSelect.value=employerId;renderEmployer();}catch(e){console.error(e);show(readSendError(e),"error");}finally{el.notifyEmployerButton.disabled=false;if(el.notifyEmployerButton.textContent==="Sending...")el.notifyEmployerButton.textContent=original;}}
+function defaultMessage(){return "Please notify the selected employee(s) according to your random testing procedures and arrange the required test promptly. Keep this selection confidential until the employee is notified.";}
+function readSendError(e){const m=String(e?.message||e||"");if(/Failed to send a request|FunctionsFetchError/i.test(m))return "The notification email function is not deployed yet. Deploy send-random-selection-notification in Supabase, then try again.";return m||"Unable to send employer notification.";}
+function show(text,type){el.pageMessage.textContent=text;el.pageMessage.className=`rsn-message show ${type}`;window.scrollTo({top:0,behavior:"smooth"});}
+function employeeName(e){return e?[e.first_name,e.last_name].filter(Boolean).join(" ")||e.employee_number||"Employee":"Employee"}function nameEmployer(e){return e?.employer_name||e?.legal_name||"Employer"}function human(v){return String(v||"—").replaceAll("_"," ").replace(/\b\w/g,c=>c.toUpperCase())}function dateTime(v){if(!v)return"—";const d=new Date(v);return Number.isNaN(d.getTime())?v:d.toLocaleString([], {dateStyle:"medium",timeStyle:"short"})}function esc(v){return String(v??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));}
+})();

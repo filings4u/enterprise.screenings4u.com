@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#24467f">
+  <title>Reschedule Appointment | screenings4u</title>
+<link href="images/fav.png" rel="icon" type="image/png"/>
+  <link rel="stylesheet" href="assets/css/reschedule-appointment.css">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/brand-system.css?v=20260918-brand-repair-v2">
+</head>
+<body>
+  <main class="reschedule-page">
+    <section class="reschedule-shell" aria-labelledby="pageTitle">
+      <header class="reschedule-header">
+        <div>
+          <p class="eyebrow">screenings4u Scheduling</p>
+          <h1 id="pageTitle">Reschedule your appointment</h1>
+          <p>Choose an existing appointment, select a new date and time, and confirm the change.</p>
+        </div>
+        <a class="portal-link" href="customer-dashboard.html">Back to Customer Portal</a>
+      </header>
+
+      <div id="pageMessage" class="message" hidden></div>
+      <div id="loading" class="loading">Loading your appointments…</div>
+
+      <form id="rescheduleForm" class="reschedule-card" hidden>
+        <div class="field full">
+          <label for="appointmentSelect">Appointment</label>
+          <select id="appointmentSelect" required><option value="">Select an appointment</option></select>
+        </div>
+
+        <section id="currentAppointment" class="current-appointment" hidden>
+          <div><span>Current appointment</span><strong id="currentTitle">—</strong></div>
+          <div><span>Date &amp; time</span><strong id="currentDateTime">—</strong></div>
+          <div><span>Status</span><strong id="currentStatus">—</strong></div>
+        </section>
+
+        <div class="field-grid">
+          <div class="field">
+            <label for="newDate">New date</label>
+            <input id="newDate" type="date" required>
+          </div>
+          <div class="field">
+            <label for="partySize">Party size</label>
+            <input id="partySize" type="number" min="1" value="1">
+          </div>
+        </div>
+
+        <div class="availability-head">
+          <div>
+            <h2>Available times</h2>
+            <p id="availabilityHint">Choose an appointment and a new date.</p>
+          </div>
+          <button id="refreshSlots" type="button" class="secondary-btn">Refresh times</button>
+        </div>
+        <div id="availableSlots" class="slot-grid"></div>
+
+        <div class="form-actions">
+          <a href="customer-dashboard.html" class="secondary-btn link-btn">Cancel</a>
+          <button id="submitBtn" class="primary-btn" type="submit" disabled>Confirm New Time</button>
+        </div>
+      </form>
+
+      <section id="emptyState" class="empty-state" hidden>
+        <h2>No appointments available to reschedule</h2>
+        <p>You do not currently have an active appointment that can be changed.</p>
+        <a href="customer-dashboard.html" class="primary-btn link-btn">Return to Customer Portal</a>
+      </section>
+
+      <section id="successState" class="success-state" hidden>
+        <div class="success-icon">✓</div>
+        <h2>Your appointment was rescheduled</h2>
+        <p id="successCopy">Your new appointment time has been saved.</p>
+        <a href="customer-dashboard.html" class="primary-btn link-btn">Return to Customer Portal</a>
+      </section>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="assets/js/supabase-config.js"></script>
+  <script src="assets/js/core-auth.js"></script>
+  <script src="assets/js/session-security.js"></script>
+  <script src="assets/js/portal-auth-guard.js"></script>
+  <script src="assets/js/reschedule-appointment.js"></script>
+</body>
+</html>

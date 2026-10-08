@@ -1,0 +1,709 @@
+:root {
+  --s4u-editor-blue: var(--admin-blue, #24467f);
+  --s4u-editor-blue-dark: var(--admin-blue-dark, #24467f);
+  --s4u-editor-orange: var(--admin-orange, #ff6b00);
+  --s4u-editor-orange-hover: var(--admin-orange-hover, #e66000);
+  --s4u-editor-bg: var(--admin-bg, #f5f7fa);
+  --s4u-editor-card: var(--admin-card, #ffffff);
+  --s4u-editor-border: var(--admin-border, #dfe5ec);
+  --s4u-editor-text: var(--admin-text, #172033);
+  --s4u-editor-muted: var(--admin-muted, #687386);
+
+  /* Compatibility with the existing Lesson Editor CSS */
+  --le-blue: var(--s4u-editor-blue);
+  --le-blue-dark: var(--s4u-editor-blue-dark);
+  --le-orange: var(--s4u-editor-orange);
+  --le-orange-hover: var(--s4u-editor-orange-hover);
+  --le-bg: var(--s4u-editor-bg);
+  --le-card: var(--s4u-editor-card);
+  --le-line: var(--s4u-editor-border);
+  --le-text: var(--s4u-editor-text);
+  --le-muted: var(--s4u-editor-muted);
+}
+
+.admin-lms-lesson-editor-page {
+  background: var(--le-bg);
+}
+
+.lesson-editor-shell {
+  width: 100%;
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 22px 26px 50px;
+}
+
+.lesson-breadcrumbs {
+  display: flex;
+  gap: 9px;
+  align-items: center;
+  margin-bottom: 8px;
+  font-size: 11px;
+}
+
+.lesson-breadcrumbs a {
+  color: var(--le-text);
+  text-decoration: none;
+}
+
+.lesson-breadcrumbs a:hover {
+  color: var(--le-orange);
+}
+
+.lesson-breadcrumbs span {
+  color: #96a3b4;
+}
+
+.lesson-editor-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 16px;
+}
+
+.lesson-title-row {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.lesson-title-row > a {
+  color: var(--le-blue);
+  font-size: 22px;
+  text-decoration: none;
+}
+
+.lesson-title-row > a:hover {
+  color: var(--le-orange);
+}
+
+.lesson-editor-header h1 {
+  margin: 0;
+  color: #08152d;
+  font-size: clamp(1.8rem, 3vw, 2.55rem);
+  line-height: 1.05;
+}
+
+.lesson-editor-actions {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.lesson-btn,
+.lesson-circle-btn {
+  border: 0;
+  font: inherit;
+  cursor: pointer;
+}
+
+.lesson-btn {
+  min-height: 40px;
+  padding: 0 20px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.lesson-btn.primary {
+  background: var(--le-orange);
+  color: #fff;
+  box-shadow: 0 8px 18px rgba(255, 107, 0, 0.18);
+}
+
+.lesson-btn.primary:hover {
+  background: var(--le-orange-hover);
+}
+
+.lesson-btn.secondary {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid var(--le-line);
+  background: #fff;
+  color: var(--le-blue);
+  text-decoration: none;
+}
+
+.lesson-btn.secondary:hover {
+  border-color: var(--le-blue);
+  color: var(--le-orange);
+}
+
+.lesson-circle-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--le-blue);
+  color: #fff;
+}
+
+.lesson-circle-btn:hover {
+  background: var(--le-blue-dark);
+}
+
+.lesson-editor-toast {
+  display: none;
+  margin-bottom: 12px;
+  padding: 11px 13px;
+  border-radius: 9px;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.lesson-editor-toast.show {
+  display: block;
+}
+
+.lesson-editor-toast.success {
+  border: 1px solid #bbf7d0;
+  background: #ecfdf3;
+  color: #166534;
+}
+
+.lesson-editor-toast.error {
+  border: 1px solid #fecdd3;
+  background: #fff1f2;
+  color: #991b1b;
+}
+
+.lesson-card {
+  margin-bottom: 16px;
+  overflow: hidden;
+  border: 1px solid var(--le-line);
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: 0 8px 24px rgba(23, 32, 51, 0.05);
+}
+
+.lesson-card > header {
+  min-height: 58px;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  border-bottom: 1px solid var(--le-line);
+}
+
+.lesson-card h2 {
+  margin: 0;
+  color: var(--le-blue-dark);
+  font-size: 15px;
+}
+
+.lesson-card-body {
+  padding: 20px;
+}
+
+.lesson-basic-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 300px;
+  gap: 18px;
+}
+
+.lesson-card label {
+  display: grid;
+  gap: 7px;
+}
+
+.lesson-card label > span {
+  color: #5f6d80;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.lesson-card input,
+.lesson-card select,
+.lesson-card textarea {
+  width: 100%;
+  border: 1px solid #cbd8e7;
+  border-radius: 9px;
+  background: #fff;
+  color: var(--le-text);
+  font: inherit;
+  font-size: 12px;
+  outline: none;
+}
+
+.lesson-card input,
+.lesson-card select {
+  height: 42px;
+  padding: 0 11px;
+}
+
+.lesson-card textarea {
+  padding: 12px;
+  line-height: 1.65;
+  resize: vertical;
+}
+
+.lesson-card input:focus,
+.lesson-card select:focus,
+.lesson-card textarea:focus {
+  border-color: var(--le-blue);
+  box-shadow: 0 0 0 3px rgba(50, 90, 163, 0.1);
+}
+
+.lesson-content-toolbar {
+  display: flex;
+  gap: 7px;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--le-line);
+}
+
+.lesson-content-toolbar button {
+  min-height: 34px;
+  padding: 0 11px;
+  border: 1px solid var(--le-line);
+  border-radius: 7px;
+  background: #fff;
+  color: #23324a;
+  font: inherit;
+  font-size: 10px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.lesson-content-toolbar button:hover {
+  border-color: var(--le-blue);
+  color: var(--le-orange);
+}
+
+.lesson-content-field {
+  margin-bottom: 16px;
+}
+
+.lesson-media-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 220px;
+  gap: 14px;
+}
+
+/* ============================================================
+   FULL EDITOR BRAND OVERRIDES
+   ============================================================ */
+
+.s4u-editor-section-head > div > span,
+.s4u-editor-header > div > span,
+.s4u-editor-tool strong,
+.s4u-editor-add-row span,
+.s4u-preview-media span,
+.s4u-modal-upload-icon,
+.s4u-editor-block-title em {
+  color: var(--s4u-editor-orange);
+}
+
+.s4u-editor-section-head h2,
+.s4u-editor-header h2,
+.s4u-editor-modal-head h2,
+.s4u-modal-upload strong {
+  color: var(--s4u-editor-blue-dark);
+}
+
+.s4u-editor-counter,
+.s4u-editor-block-icon {
+  color: var(--s4u-editor-blue);
+  background: rgba(50, 90, 163, 0.08);
+}
+
+.s4u-editor-tool:hover,
+.s4u-editor-more:hover,
+.s4u-editor-more:focus-visible,
+.s4u-editor-action-menu button:hover {
+  border-color: var(--s4u-editor-blue);
+}
+
+.s4u-editor-modal-head {
+  border-top-color: var(--s4u-editor-orange);
+}
+
+.s4u-editor-modal-primary,
+.s4u-editor-empty button {
+  border-color: var(--s4u-editor-orange);
+  background: var(--s4u-editor-orange);
+  color: #fff;
+}
+
+.s4u-editor-modal-primary:hover,
+.s4u-editor-empty button:hover {
+  background: var(--s4u-editor-orange-hover);
+}
+
+.s4u-editor-action-menu button.danger,
+.s4u-editor-modal-primary.danger {
+  color: #b42318;
+}
+
+/* ============================================================
+   QUIZ LIBRARY MODAL
+   Fixes generic modal grid squeezing the quiz picker.
+   ============================================================ */
+
+#s4uEditorModal .s4u-editor-modal-card:has(.s4u-quiz-library-field) {
+  width: min(980px, calc(100vw - 48px));
+  max-width: 980px;
+}
+
+#s4uEditorModal .s4u-editor-modal-body:has(.s4u-quiz-library-field) {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 18px;
+  padding: 22px 24px;
+}
+
+#s4uEditorModal .s4u-editor-modal-body:has(.s4u-quiz-library-field) > * {
+  min-width: 0;
+  grid-column: 1 / -1;
+}
+
+#s4uEditorModal .s4u-quiz-library-field {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+  min-width: 0;
+  grid-column: 1 / -1;
+}
+
+#s4uEditorModal .s4u-quiz-library-toolbar {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(240px, 320px);
+  align-items: end;
+  gap: 18px;
+  width: 100%;
+}
+
+#s4uEditorModal .s4u-quiz-library-toolbar > div {
+  min-width: 0;
+}
+
+#s4uEditorModal .s4u-quiz-library-toolbar strong {
+  display: block;
+  color: var(--s4u-editor-blue-dark);
+  font-size: 13px;
+  font-weight: 900;
+}
+
+#s4uEditorModal .s4u-quiz-library-toolbar small {
+  display: block;
+  margin-top: 4px;
+  color: var(--s4u-editor-muted);
+  font-size: 11px;
+  line-height: 1.45;
+}
+
+#s4uEditorModal .s4u-quiz-library-toolbar input[type="search"] {
+  width: 100%;
+  height: 42px;
+  padding: 0 13px;
+  border: 1px solid #cbd8e7;
+  border-radius: 9px;
+  background: #fff;
+  color: var(--s4u-editor-text);
+  font: inherit;
+  font-size: 12px;
+  outline: none;
+}
+
+#s4uEditorModal .s4u-quiz-library-toolbar input[type="search"]:focus {
+  border-color: var(--s4u-editor-blue);
+  box-shadow: 0 0 0 3px rgba(50, 90, 163, 0.1);
+}
+
+#s4uEditorModal .s4u-quiz-library-status {
+  color: var(--s4u-editor-muted);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+#s4uEditorModal .s4u-quiz-library-grid {
+  width: 100%;
+  max-height: 360px;
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 2px 3px 4px 2px;
+}
+
+#s4uEditorModal .s4u-quiz-library-card {
+  width: 100%;
+  min-width: 0;
+  min-height: 90px;
+  display: grid;
+  grid-template-columns: 42px minmax(0, 1fr) auto;
+  gap: 12px;
+  align-items: center;
+  padding: 13px 14px;
+  border: 1px solid var(--s4u-editor-border);
+  border-radius: 11px;
+  background: #fff;
+  color: var(--s4u-editor-text);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition:
+    border-color 0.15s ease,
+    box-shadow 0.15s ease,
+    background 0.15s ease,
+    transform 0.15s ease;
+}
+
+#s4uEditorModal .s4u-quiz-library-card:hover {
+  border-color: #aebfd5;
+  background: #fbfdff;
+  box-shadow: 0 5px 16px rgba(36, 70, 127, 0.06);
+  transform: translateY(-1px);
+}
+
+#s4uEditorModal .s4u-quiz-library-card.selected {
+  border-color: var(--s4u-editor-orange);
+  background: #fffaf6;
+  box-shadow: 0 0 0 2px rgba(255, 107, 0, 0.08);
+}
+
+#s4uEditorModal .s4u-quiz-library-icon {
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  border-radius: 10px;
+  background: rgba(50, 90, 163, 0.08);
+  color: var(--s4u-editor-blue);
+  font-size: 18px;
+  font-weight: 900;
+}
+
+#s4uEditorModal .s4u-quiz-library-copy {
+  min-width: 0;
+}
+
+#s4uEditorModal .s4u-quiz-library-copy strong,
+#s4uEditorModal .s4u-quiz-library-copy small,
+#s4uEditorModal .s4u-quiz-library-copy em {
+  display: block;
+  min-width: 0;
+}
+
+#s4uEditorModal .s4u-quiz-library-copy strong {
+  overflow: hidden;
+  color: var(--s4u-editor-blue-dark);
+  font-size: 12px;
+  font-weight: 900;
+  line-height: 1.4;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+#s4uEditorModal .s4u-quiz-library-copy small {
+  margin-top: 4px;
+  overflow: hidden;
+  color: var(--s4u-editor-muted);
+  font-size: 10px;
+  line-height: 1.4;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+#s4uEditorModal .s4u-quiz-library-copy em {
+  margin-top: 6px;
+  color: #7b8798;
+  font-size: 10px;
+  line-height: 1.35;
+  font-style: normal;
+}
+
+#s4uEditorModal .s4u-quiz-library-side {
+  min-width: 76px;
+  display: grid;
+  justify-items: end;
+  gap: 7px;
+}
+
+#s4uEditorModal .s4u-quiz-library-side small {
+  color: var(--s4u-editor-muted);
+  font-size: 9px;
+  font-weight: 800;
+  line-height: 1.2;
+  text-align: right;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+#s4uEditorModal .s4u-quiz-library-side b {
+  width: 27px;
+  height: 27px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: rgba(50, 90, 163, 0.08);
+  color: var(--s4u-editor-blue);
+  font-size: 13px;
+}
+
+#s4uEditorModal .s4u-quiz-library-card.selected .s4u-quiz-library-side b {
+  background: var(--s4u-editor-orange);
+  color: #fff;
+}
+
+#s4uEditorModal .s4u-quiz-library-empty {
+  grid-column: 1 / -1;
+  padding: 34px 16px;
+  border: 1px dashed var(--s4u-editor-border);
+  border-radius: 10px;
+  color: var(--s4u-editor-muted);
+  font-size: 12px;
+  text-align: center;
+}
+
+/* Required Quiz should be a normal row beneath the library. */
+#s4uEditorModal
+  .s4u-editor-modal-body:has(.s4u-quiz-library-field)
+  .s4u-modal-check {
+  min-height: 64px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 14px 16px;
+  border: 1px solid var(--s4u-editor-border);
+  border-radius: 10px;
+  background: #fbfcfe;
+}
+
+#s4uEditorModal
+  .s4u-editor-modal-body:has(.s4u-quiz-library-field)
+  .s4u-modal-check > span {
+  min-width: 0;
+  flex: 1 1 auto;
+}
+
+#s4uEditorModal
+  .s4u-editor-modal-body:has(.s4u-quiz-library-field)
+  .s4u-modal-check > span strong {
+  display: block;
+  color: var(--s4u-editor-blue-dark);
+  font-size: 12px;
+  font-weight: 900;
+}
+
+#s4uEditorModal
+  .s4u-editor-modal-body:has(.s4u-quiz-library-field)
+  .s4u-modal-check > span small {
+  display: block;
+  margin-top: 3px;
+  color: var(--s4u-editor-muted);
+  font-size: 10px;
+}
+
+#s4uEditorModal
+  .s4u-editor-modal-body:has(.s4u-quiz-library-field)
+  .s4u-modal-check input {
+  flex: 0 0 auto;
+}
+
+/* Keep the footer aligned with the rest of the modal. */
+#s4uEditorModal .s4u-editor-modal-card:has(.s4u-quiz-library-field) .s4u-editor-modal-actions {
+  padding: 16px 24px 18px;
+}
+
+/* ============================================================
+   DESKTOP FONT SIZES
+   ============================================================ */
+
+@media (min-width: 901px) {
+  .lesson-breadcrumbs {
+    font-size: 13px;
+  }
+
+  .lesson-btn {
+    font-size: 13px;
+  }
+
+  .lesson-editor-toast {
+    font-size: 13px;
+  }
+
+  .lesson-card h2 {
+    font-size: 18px;
+  }
+
+  .lesson-card label > span {
+    font-size: 12px;
+  }
+
+  .lesson-card input,
+  .lesson-card select {
+    font-size: 13px;
+  }
+
+  .lesson-card textarea {
+    font-size: 14px;
+    line-height: 1.7;
+  }
+
+  .lesson-content-toolbar button {
+    font-size: 12px;
+  }
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+
+@media (max-width: 800px) {
+  .lesson-editor-shell {
+    padding: 18px 16px 40px;
+  }
+
+  .lesson-editor-header {
+    flex-direction: column;
+  }
+
+  .lesson-basic-grid,
+  .lesson-media-grid {
+    grid-template-columns: 1fr;
+  }
+
+  #s4uEditorModal .s4u-editor-modal-card:has(.s4u-quiz-library-field) {
+    width: min(94vw, 720px);
+  }
+
+  #s4uEditorModal .s4u-quiz-library-toolbar {
+    grid-template-columns: 1fr;
+    align-items: stretch;
+  }
+
+  #s4uEditorModal .s4u-quiz-library-grid {
+    grid-template-columns: 1fr;
+  }
+
+  #s4uEditorModal .s4u-quiz-library-side {
+    min-width: 64px;
+  }
+}
+
+@media (max-width: 520px) {
+  #s4uEditorModal .s4u-editor-modal-body:has(.s4u-quiz-library-field) {
+    padding: 16px;
+  }
+
+  #s4uEditorModal .s4u-quiz-library-card {
+    grid-template-columns: 38px minmax(0, 1fr);
+  }
+
+  #s4uEditorModal .s4u-quiz-library-icon {
+    width: 38px;
+    height: 38px;
+  }
+
+  #s4uEditorModal .s4u-quiz-library-side {
+    grid-column: 1 / -1;
+    min-width: 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+}

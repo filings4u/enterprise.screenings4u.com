@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" class="s4u-auth-pending">
+<head><style id="s4u-preauth-style">html.s4u-auth-pending body{visibility:hidden!important}html.s4u-auth-pending #s4u-auth-blocking-error{visibility:visible!important}</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#24467f">
+
+  <title>Billing &amp; Receipts | screenings4u Customer Portal</title>
+<link href="images/fav.png" rel="icon" type="image/png"/>
+  <link rel="stylesheet" href="assets/css/customer-portal.css">
+  <link rel="stylesheet" href="assets/css/customer-billing.css?v=20260830-0720">
+  <style>
+    *{box-sizing:border-box}html,body{max-width:100%;overflow-x:hidden}
+    @media(max-width:767px){
+      html{font-size:16px}.customer-billing-content{width:100%;padding:20px 16px 40px}
+      .customer-billing-hero{display:flex;align-items:stretch;flex-direction:column;gap:16px;padding:22px 0}
+      .customer-billing-hero h1{font-size:30px;line-height:1.15}.customer-billing-hero p{font-size:15px;line-height:1.6}
+      .customer-billing-help-btn,.customer-billing-refresh{width:100%;min-height:46px;justify-content:center}
+      .customer-billing-summary{display:grid;grid-template-columns:1fr;gap:12px}.customer-billing-stat{width:100%;min-width:0;padding:18px}
+      .customer-billing-panel{padding:18px 14px}.customer-billing-panel-header{display:flex;align-items:stretch;flex-direction:column;gap:14px}
+      .customer-billing-panel-header h2{font-size:23px}.customer-billing-panel-header p{font-size:14px;line-height:1.55}
+      .customer-billing-filters{display:grid;grid-template-columns:1fr;gap:10px}.customer-billing-search,.customer-billing-search input,.customer-billing-filters select{width:100%;min-width:0}
+      .customer-billing-search input,.customer-billing-filters select{min-height:46px;font-size:16px}
+      .customer-billing-table-wrap{display:none!important}.customer-billing-mobile-list:not([hidden]){display:grid;grid-template-columns:1fr;gap:12px}
+      .customer-billing-mobile-list>*{width:100%;min-width:0}.customer-billing-loading{align-items:flex-start;padding:22px 14px}
+      .customer-billing-info{display:flex;align-items:flex-start;flex-direction:column;gap:12px;padding:18px}.customer-billing-info p{font-size:14px;line-height:1.55}
+    }
+  </style>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/lms-ui-modals.css?v=20260918-modal-fix-1">
+<link rel="stylesheet" href="assets/css/brand-system.css?v=20260918-brand-repair-v2">
+</head>
+<body class="customer-billing-page" data-page-title="Billing &amp; Receipts" data-page-subtitle="Review your purchases, payments, invoices, and downloadable receipts." data-s4u-portal="customer">
+<div id="customer-portal-sidebar"></div><main class="customer-portal-main"><div id="customer-portal-header"></div><div class="customer-billing-content">
+<section class="customer-billing-hero"><div><span class="customer-billing-eyebrow">ACCOUNT BILLING</span><h1>Billing &amp; Receipts</h1><p>Review purchases, invoices, payments, and download billing documents available to your account.</p></div><button type="button" class="customer-billing-help-btn" id="billing-help-btn"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M9.5 9a2.5 2.5 0 1 1 4.2 1.8c-1.2 1.1-1.7 1.6-1.7 3.2"></path><path d="M12 17h.01"></path></svg>Billing Help</button></section>
+<section class="customer-billing-summary"><article class="customer-billing-stat"><div class="customer-billing-stat-icon"><svg viewBox="0 0 24 24"><path d="M4 6h16v12H4z"></path><path d="M4 10h16"></path></svg></div><div><span>Total Paid</span><strong id="billing-total-paid">—</strong></div></article><article class="customer-billing-stat"><div class="customer-billing-stat-icon is-blue"><svg viewBox="0 0 24 24"><path d="M6 3h12v18H6z"></path><path d="M9 7h6"></path><path d="M9 11h6"></path></svg></div><div><span>Completed Purchases</span><strong id="billing-purchase-count">—</strong></div></article><article class="customer-billing-stat"><div class="customer-billing-stat-icon is-orange"><svg viewBox="0 0 24 24"><path d="M12 3v18"></path><path d="M16 7.5c0-1.7-1.8-3-4-3s-4 1.3-4 3 1.8 3 4 3 4 1.3 4 3-1.8 3-4 3-4-1.3-4-3"></path></svg></div><div><span>Invoices</span><strong id="billing-invoice-count">—</strong></div></article></section>
+<section class="customer-billing-panel"><div class="customer-billing-panel-header"><div><h2>Billing History</h2><p>Orders, payments, invoices, and available receipt downloads.</p></div><button type="button" class="customer-billing-refresh" id="billing-refresh"><svg viewBox="0 0 24 24"><path d="M20 11a8 8 0 1 0 2 5"></path><path d="M20 4v7h-7"></path></svg>Refresh</button></div><div class="customer-billing-filters"><div class="customer-billing-search"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6"></circle><path d="m16 16 4 4"></path></svg><input type="search" id="billing-search" placeholder="Search order, invoice or receipt..." autocomplete="off"></div><select id="billing-status-filter"><option value="all">All Payments</option><option value="completed">Completed / Paid</option><option value="pending">Pending</option><option value="refunded">Refunded</option></select></div><div class="customer-billing-loading" id="billing-loading"><div class="customer-billing-spinner"></div><div><strong>Loading billing history</strong><span>Retrieving your orders, invoices, and receipts.</span></div></div><div class="customer-billing-table-wrap" id="billing-table-wrap" hidden><table class="customer-billing-table"><thead><tr><th>Purchase / Invoice</th><th>Reference</th><th>Date</th><th>Amount</th><th>Status</th><th>Document</th></tr></thead><tbody id="billing-table-body"></tbody></table></div><div class="customer-billing-mobile-list" id="billing-mobile-list" hidden></div><div class="customer-billing-empty" id="billing-empty" hidden><div class="customer-billing-empty-icon"><svg viewBox="0 0 24 24"><path d="M6 3h12v18H6z"></path><path d="M9 7h6"></path><path d="M9 11h6"></path></svg></div><h3>No billing records found</h3><p id="billing-empty-text">Your purchases, invoices, and receipts will appear here.</p></div></section>
+<section class="customer-billing-info"><div class="customer-billing-info-icon"><svg viewBox="0 0 24 24"><path d="M12 21s7-3.5 7-10V5l-7-3-7 3v6c0 6.5 7 10 7 10z"></path><path d="m9 12 2 2 4-4"></path></svg></div><div><strong>Your payment information is secure</strong><p>Screenings4u does not display full payment card details inside your customer portal.</p></div></section></div></main>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="assets/js/ui.js?v=20260918-modal-fix-1"></script><script src="assets/js/customer-portal.js"></script><script src="assets/js/customer-billing.js?v=20260830-0720"></script>
+
+<!-- screenings4u universal portal security -->
+<script src="assets/js/supabase-config.js?v=20260925-lockdown"></script>
+<script src="assets/js/core-auth.js?v=20260925-lockdown"></script>
+<script src="assets/js/session-security.js?v=20260925-lockdown"></script>
+<script src="assets/js/portal-auth-guard.js?v=20260925-lockdown"></script>
+<script src="assets/js/customer-auth-guard.js?v=20260925-lockdown"></script>
+</body></html>

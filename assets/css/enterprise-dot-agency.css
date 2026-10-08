@@ -1,0 +1,15 @@
+
+.ep-agency-rule-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:14px}
+.ep-agency-rule{border:1px solid #dce5ef;border-radius:12px;padding:14px;background:#fff}
+.ep-agency-rule span{display:block;color:#6d7f92;font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.06em}
+.ep-agency-rule strong{display:block;color:#173d78;margin-top:6px;font-size:14px;line-height:1.4}
+.ep-agency-tabs{display:flex;gap:7px;flex-wrap:wrap;margin:16px 0}
+.ep-agency-tab{border:1px solid #d5e0ec;background:#fff;color:#24467f;border-radius:999px;padding:8px 12px;font-size:11px;font-weight:800;cursor:pointer}
+.ep-agency-tab.active{background:#24467f;color:#fff;border-color:#24467f}
+.ep-agency-panel{display:none}.ep-agency-panel.active{display:block}
+.ep-agency-note{padding:12px 14px;border-radius:10px;background:#f4f8fc;border:1px solid #dce6f0;color:#58708a;font-size:11px;line-height:1.55}
+.ep-agency-actions{display:flex;gap:8px;flex-wrap:wrap}
+.ep-agency-table td .sub{display:block;color:#708297;font-size:10px;margin-top:3px}
+.ep-agency-link{color:#24467f;font-weight:800}
+@media(max-width:1100px){.ep-agency-rule-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:680px){.ep-agency-rule-grid{grid-template-columns:1fr}.ep-agency-tabs{display:grid;grid-template-columns:1fr 1fr}.ep-agency-tab{border-radius:9px}}

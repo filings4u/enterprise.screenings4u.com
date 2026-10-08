@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en" class="s4u-auth-pending">
+<head><style id="s4u-preauth-style">html.s4u-auth-pending body{visibility:hidden!important}html.s4u-auth-pending #s4u-auth-blocking-error{visibility:visible!important}</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#24467f">
+
+  <title>My Account | screenings4u</title>
+<link href="images/fav.png" rel="icon" type="image/png"/>
+  <link rel="stylesheet" href="assets/css/employee-portal.css">
+  <link rel="stylesheet" href="assets/css/employee-account.css">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/lms-ui-modals.css?v=20260918-modal-fix-1">
+<link rel="stylesheet" href="assets/css/brand-system.css?v=20260918-brand-repair-v2">
+</head>
+
+<body class="employee-account-page"
+      data-page-title="My Account"
+      data-page-subtitle="Manage your personal account information and preferences." data-s4u-portal="employee">
+
+  <div id="employee-portal-sidebar"></div>
+
+  <main class="employee-portal-main">
+    <div id="employee-portal-header"></div>
+
+    <div class="employee-account-content">
+
+      <section class="employee-account-welcome-card">
+        <div>
+          <span class="employee-account-eyebrow">ACCOUNT SETTINGS</span>
+          <h1>My Account</h1>
+          <p>View and update your personal account information, security settings, and notification preferences.</p>
+        </div>
+      </section>
+
+      <div class="employee-account-layout">
+
+        <aside class="employee-account-nav">
+          <button class="employee-account-tab active" data-tab="profile" type="button">Profile Information</button>
+          <button class="employee-account-tab" data-tab="security" type="button">Security</button>
+          <button class="employee-account-tab" data-tab="preferences" type="button">Preferences</button>
+        </aside>
+
+        <div class="employee-account-panels">
+
+          <section class="employee-account-panel active" data-panel="profile">
+            <div class="employee-account-panel-heading">
+              <span>PERSONAL INFORMATION</span>
+              <h2>Profile Information</h2>
+              <p>Keep your personal account information current.</p>
+            </div>
+
+            <form id="profile-form" class="employee-account-form">
+              <div class="employee-account-form-grid">
+                <label>
+                  First Name
+                  <input id="first-name" type="text" autocomplete="given-name">
+                </label>
+
+                <label>
+                  Last Name
+                  <input id="last-name" type="text" autocomplete="family-name">
+                </label>
+
+                <label>
+                  Email Address
+                  <input id="email" type="email" autocomplete="email" readonly>
+                  <small>Email changes require additional account verification.</small>
+                </label>
+
+                <label>
+                  Phone Number
+                  <input id="phone" type="tel" autocomplete="tel">
+                </label>
+              </div>
+
+              <div class="employee-account-form-actions">
+                <button class="employee-account-primary-action" type="submit">Save Changes</button>
+              </div>
+            </form>
+          </section>
+
+          <section class="employee-account-panel" data-panel="security">
+            <div class="employee-account-panel-heading">
+              <span>ACCOUNT SECURITY</span>
+              <h2>Security</h2>
+              <p>Change your password to help keep your Screenings4u account secure.</p>
+            </div>
+
+            <form id="password-form" class="employee-account-form employee-account-form-narrow">
+              <label>
+                Current Password
+                <input id="current-password" type="password" autocomplete="current-password">
+              </label>
+
+              <label>
+                New Password
+                <input id="new-password" type="password" autocomplete="new-password">
+              </label>
+
+              <label>
+                Confirm New Password
+                <input id="confirm-password" type="password" autocomplete="new-password">
+              </label>
+
+              <div class="employee-account-note">
+                Your current password is verified before your password is changed.
+              </div>
+
+              <div class="employee-account-form-actions">
+                <button class="employee-account-primary-action" type="submit">Update Password</button>
+              </div>
+            </form>
+          </section>
+
+          <section class="employee-account-panel" data-panel="preferences">
+            <div class="employee-account-panel-heading">
+              <span>ACCOUNT PREFERENCES</span>
+              <h2>Preferences</h2>
+              <p>Choose how you receive employee account and training updates.</p>
+            </div>
+
+            <form id="preferences-form" class="employee-account-form employee-account-form-narrow">
+              <label class="employee-account-toggle-row">
+                <span>
+                  <strong>Training Updates</strong>
+                  <small>Receive updates related to assigned courses and training activity.</small>
+                </span>
+                <input id="pref-training" type="checkbox">
+                <i></i>
+              </label>
+
+              <label class="employee-account-toggle-row">
+                <span>
+                  <strong>Certificate Notifications</strong>
+                  <small>Receive a notification when a certificate becomes available.</small>
+                </span>
+                <input id="pref-certificates" type="checkbox">
+                <i></i>
+              </label>
+
+              <label class="employee-account-toggle-row">
+                <span>
+                  <strong>Account Notifications</strong>
+                  <small>Receive important employee account and security updates.</small>
+                </span>
+                <input id="pref-account" type="checkbox">
+                <i></i>
+              </label>
+
+              <div class="employee-account-form-actions">
+                <button class="employee-account-primary-action" type="submit">Save Preferences</button>
+              </div>
+            </form>
+          </section>
+
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <div class="employee-account-modal" id="account-modal" hidden>
+    <div class="employee-account-modal-backdrop"></div>
+    <div class="employee-account-modal-card">
+      <h2 id="modal-title"></h2>
+      <p id="modal-message"></p>
+      <button id="modal-close" class="employee-account-primary-action" type="button">Done</button>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  
+  
+  <script src="assets/js/ui.js?v=20260918-modal-fix-1"></script>
+  
+  
+
+  <script src="assets/js/employee-portal.js"></script>
+  <script src="assets/js/employee-account.js"></script>
+
+<!-- screenings4u universal portal security -->
+<script src="assets/js/supabase-config.js?v=20260925-lockdown"></script>
+<script src="assets/js/core-auth.js?v=20260925-lockdown"></script>
+<script src="assets/js/session-security.js?v=20260925-lockdown"></script>
+<script src="assets/js/portal-auth-guard.js?v=20260925-lockdown"></script>
+<script src="assets/js/employee-auth-guard.js?v=20260925-lockdown"></script>
+</body>
+</html>

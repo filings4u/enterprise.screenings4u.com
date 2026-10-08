@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en" class="s4u-auth-pending">
+<head><style id="s4u-preauth-style">html.s4u-auth-pending body{visibility:hidden!important}html.s4u-auth-pending #s4u-auth-blocking-error{visibility:visible!important}</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#24467f">
+
+
+  <title>My Account | screenings4u Customer Portal</title>
+
+<link href="images/fav.png" rel="icon" type="image/png"/>
+  <link rel="stylesheet" href="assets/css/customer-portal.css">
+  <link rel="stylesheet" href="assets/css/customer-account.css">
+  <style>
+    *{box-sizing:border-box}
+    html,body{max-width:100%;overflow-x:hidden}
+    @media(max-width:767px){
+      html{font-size:16px}
+      .customer-account-content{width:100%;padding:20px 16px 40px}
+      .customer-account-hero{display:block;padding:22px 0}
+      .customer-account-hero h1{font-size:30px;line-height:1.15}
+      .customer-account-hero p{font-size:15px;line-height:1.6}
+      .customer-account-layout{display:grid;grid-template-columns:1fr;gap:16px}
+      .customer-account-profile-card,.customer-account-panels,.customer-account-panel{width:100%;min-width:0}
+      .customer-account-profile-card,.customer-account-panel,.customer-account-danger-panel{padding:20px 16px}
+      .customer-account-form-grid{display:grid;grid-template-columns:1fr;gap:16px}
+      .customer-account-form label,.customer-account-form input{width:100%;min-width:0}
+      .customer-account-form input{min-height:46px;font-size:16px}
+      .customer-account-panel-header{display:flex;align-items:stretch;flex-direction:column;gap:14px}
+      .customer-account-edit-btn{width:100%;min-height:44px;justify-content:center}
+      .customer-account-form-actions{display:grid;grid-template-columns:1fr;gap:10px}
+      .customer-account-form-actions button{width:100%;min-height:46px}
+      .customer-account-security-row,.customer-account-toggle-row,.customer-account-danger-panel{display:flex;align-items:flex-start;flex-direction:column;gap:14px}
+      .customer-account-security-copy{width:100%}
+      .customer-account-secondary-btn,.customer-account-support-btn,.customer-account-notification-actions,.customer-account-notification-actions button{width:100%;min-height:46px}
+      .customer-account-switch{align-self:flex-start}
+      .customer-account-modal{padding:16px}
+      .customer-account-modal-card{width:100%;max-width:440px;padding:26px 20px}
+    }
+  </style>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/lms-ui-modals.css?v=20260918-modal-fix-1">
+<link rel="stylesheet" href="assets/css/brand-system.css?v=20260918-brand-repair-v2">
+</head>
+
+<body
+  class="customer-account-page"
+  data-page-title="My Account"
+  data-page-subtitle="Manage your personal information and account preferences."
+ data-s4u-portal="customer">
+
+  <div id="customer-portal-sidebar"></div>
+
+  <main class="customer-portal-main">
+    <div id="customer-portal-header"></div>
+
+    <div class="customer-account-content">
+
+      <section class="customer-account-hero">
+        <div>
+          <span class="customer-account-eyebrow">ACCOUNT SETTINGS</span>
+          <h1>My Account</h1>
+          <p>
+            Review and update the information associated with your Screenings4u account.
+          </p>
+        </div>
+      </section>
+
+
+      <div class="customer-account-layout">
+
+        <aside class="customer-account-profile-card">
+
+          <div class="customer-account-avatar-wrap">
+            <div
+              class="customer-account-avatar"
+              id="customer-account-avatar"
+            >
+              CU
+            </div>
+
+            <span
+              class="customer-account-status-dot"
+              aria-label="Account active"
+            ></span>
+          </div>
+
+          <h2 id="customer-account-name">
+            Your Name
+          </h2>
+
+          <p id="customer-account-email">
+            Loading account information...
+          </p>
+
+          <span class="customer-account-active">
+            Active Account
+          </span>
+
+          <div class="customer-account-profile-meta">
+
+            <div>
+              <span>Member Since</span>
+              <strong id="customer-member-since">—</strong>
+            </div>
+
+            <div>
+              <span>Account ID</span>
+              <strong id="customer-account-id">—</strong>
+            </div>
+
+          </div>
+
+        </aside>
+
+
+        <div class="customer-account-panels">
+
+          <section class="customer-account-panel">
+
+            <div class="customer-account-panel-header">
+              <div>
+                <h2>Personal Information</h2>
+                <p>
+                  Keep your contact information up to date.
+                </p>
+              </div>
+
+              <button
+                type="button"
+                class="customer-account-edit-btn"
+                id="customer-edit-profile-btn"
+              >
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="m4 20 4.5-1 10-10a2.1 2.1 0 0 0-3-3l-10 10z"></path>
+                  <path d="m13.5 7.5 3 3"></path>
+                </svg>
+                Edit
+              </button>
+            </div>
+
+
+            <form
+              id="customer-profile-form"
+              class="customer-account-form"
+            >
+
+              <div class="customer-account-form-grid">
+
+                <label>
+                  <span>First Name</span>
+                  <input
+                    type="text"
+                    id="customer-first-name"
+                    name="first_name"
+                    autocomplete="given-name"
+                    disabled
+                  >
+                </label>
+
+                <label>
+                  <span>Last Name</span>
+                  <input
+                    type="text"
+                    id="customer-last-name"
+                    name="last_name"
+                    autocomplete="family-name"
+                    disabled
+                  >
+                </label>
+
+              </div>
+
+
+              <div class="customer-account-form-grid">
+
+                <label>
+                  <span>Email Address</span>
+                  <input
+                    type="email"
+                    id="customer-email"
+                    name="email"
+                    autocomplete="email"
+                    disabled
+                  >
+                  <small>
+                    Your sign-in email is managed through your secure account.
+                  </small>
+                </label>
+
+                <label>
+                  <span>Phone Number</span>
+                  <input
+                    type="tel"
+                    id="customer-phone"
+                    name="phone"
+                    autocomplete="tel"
+                    disabled
+                  >
+                </label>
+
+              </div>
+
+
+              <div
+                class="customer-account-form-actions"
+                id="customer-profile-actions"
+                hidden
+              >
+                <button
+                  type="button"
+                  class="customer-account-cancel-btn"
+                  id="customer-cancel-profile-btn"
+                >
+                  Cancel
+                </button>
+
+                <button
+                  type="submit"
+                  class="customer-account-save-btn"
+                >
+                  Save Changes
+                </button>
+              </div>
+
+            </form>
+
+          </section>
+
+
+          <section class="customer-account-panel">
+
+            <div class="customer-account-panel-header">
+              <div>
+                <h2>Security</h2>
+                <p>
+                  Manage your account security and sign-in access.
+                </p>
+              </div>
+            </div>
+
+
+            <div class="customer-account-security-row">
+
+              <div class="customer-account-security-icon">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <rect x="5" y="10" width="14" height="10" rx="2"></rect>
+                  <path d="M8 10V7a4 4 0 0 1 8 0v3"></path>
+                </svg>
+              </div>
+
+              <div class="customer-account-security-copy">
+                <strong>Password</strong>
+                <span>
+                  Update your password to keep your account secure.
+                </span>
+              </div>
+
+              <button
+                type="button"
+                class="customer-account-secondary-btn"
+                id="customer-password-btn"
+              >
+                Change Password
+              </button>
+
+            </div>
+
+
+            <div class="customer-account-security-row">
+
+              <div class="customer-account-security-icon is-blue">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M12 21s7-3.5 7-10V5l-7-3-7 3v6c0 6.5 7 10 7 10z"></path>
+                  <path d="m9 12 2 2 4-4"></path>
+                </svg>
+              </div>
+
+              <div class="customer-account-security-copy">
+                <strong>Secure Account Access</strong>
+                <span>
+                  Your account is protected by secure authentication.
+                </span>
+              </div>
+
+              <span class="customer-account-security-status">
+                Protected
+              </span>
+
+            </div>
+
+          </section>
+
+
+          <section class="customer-account-panel">
+
+            <div class="customer-account-panel-header">
+              <div>
+                <h2>Notifications</h2>
+                <p>
+                  Choose how you would like to receive account updates.
+                </p>
+              </div>
+            </div>
+
+
+            <div class="customer-account-toggle-row">
+
+              <div>
+                <strong>Email Notifications</strong>
+                <span>
+                  Receive important updates about your orders and results.
+                </span>
+              </div>
+
+              <label class="customer-account-switch">
+                <input
+                  type="checkbox"
+                  id="customer-email-notifications"
+                  disabled
+                >
+                <span></span>
+              </label>
+
+            </div>
+
+
+            <div class="customer-account-toggle-row">
+
+              <div>
+                <strong>Service Updates</strong>
+                <span>
+                  Receive updates related to services you have purchased.
+                </span>
+              </div>
+
+              <label class="customer-account-switch">
+                <input
+                  type="checkbox"
+                  id="customer-service-notifications"
+                  disabled
+                >
+                <span></span>
+              </label>
+
+            </div>
+
+
+            <div
+              class="customer-account-notification-actions"
+              id="customer-notification-actions"
+              hidden
+            >
+              <button
+                type="button"
+                class="customer-account-save-btn"
+                id="customer-save-notifications"
+              >
+                Save Preferences
+              </button>
+            </div>
+
+          </section>
+
+
+          <section class="customer-account-danger-panel">
+
+            <div>
+              <h2>Need Help With Your Account?</h2>
+              <p>
+                Contact Screenings4u support if you need assistance with your account or services.
+              </p>
+            </div>
+
+            <button
+              type="button"
+              class="customer-account-support-btn"
+              id="customer-account-support-btn"
+            >
+              Contact Support
+            </button>
+
+          </section>
+
+        </div>
+
+      </div>
+
+    </div>
+  </main>
+
+
+  <div
+    class="customer-account-modal"
+    id="customer-password-modal"
+    hidden
+  >
+    <div class="customer-account-modal-backdrop"></div>
+
+    <div
+      class="customer-account-modal-card"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="customer-password-modal-title"
+    >
+
+      <button
+        type="button"
+        class="customer-account-modal-close"
+        id="customer-password-modal-close"
+        aria-label="Close"
+      >
+        ×
+      </button>
+
+      <div class="customer-account-modal-icon">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <rect x="5" y="10" width="14" height="10" rx="2"></rect>
+          <path d="M8 10V7a4 4 0 0 1 8 0v3"></path>
+        </svg>
+      </div>
+
+      <h2 id="customer-password-modal-title">
+        Change Password
+      </h2>
+
+      <p>
+        A secure password-reset link will be sent to your account email.
+      </p>
+
+      <button
+        type="button"
+        class="customer-account-save-btn"
+        id="customer-password-modal-done"
+      >
+        Got It
+      </button>
+
+    </div>
+  </div>
+
+
+ <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+
+
+<script src="assets/js/ui.js?v=20260918-modal-fix-1"></script>
+
+
+
+
+<script src="assets/js/customer-portal.js"></script>
+  <script src="assets/js/customer-account.js?v=20260830-0700"></script>
+
+
+<!-- screenings4u universal portal security -->
+<script src="assets/js/supabase-config.js?v=20260925-lockdown"></script>
+<script src="assets/js/core-auth.js?v=20260925-lockdown"></script>
+<script src="assets/js/session-security.js?v=20260925-lockdown"></script>
+<script src="assets/js/portal-auth-guard.js?v=20260925-lockdown"></script>
+<script src="assets/js/customer-auth-guard.js?v=20260925-lockdown"></script>
+</body>
+</html>
