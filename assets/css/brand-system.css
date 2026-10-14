@@ -205,3 +205,7 @@ img{max-width:100%;height:auto}
   border-color:#bfd0e2!important;
   color:inherit!important;
 }
+
+/* Mobile navigation and content safety */
+@media(max-width:900px){main,.content,.main-content,.container{max-width:100%;min-width:0}.table-wrap,.table-responsive{overflow-x:auto;-webkit-overflow-scrolling:touch}input,select,textarea{max-width:100%}}
+@media(max-width:640px){main,.main-content,.content{padding-left:14px;padding-right:14px}.grid,.card-grid,.form-grid{grid-template-columns:1fr!important}.toolbar,.topbar-actions,.filters,.actions{flex-wrap:wrap;gap:8px}.card,.panel{min-width:0;max-width:100%}input,select,button,textarea{font-size:16px}}
