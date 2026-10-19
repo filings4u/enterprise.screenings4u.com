@@ -106,9 +106,19 @@ function getAdminNavigationMarkup() {
             Orders
           </a>
 
+          <a
+            href="${prefix}admin-finance-ar.html"
+            data-nav-page="admin-finance-ar.html"
+          >
+            Billing
+          </a>
 
-
-
+          <a
+            href="${prefix}admin-proposals.html"
+            data-nav-page="admin-proposals.html"
+          >
+            Proposals
+          </a>
 
           <a
             href="${prefix}admin-documents.html"
@@ -119,22 +129,6 @@ function getAdminNavigationMarkup() {
         </div>
       </section>
 
-
-      <!-- SHARED SERVICES: common entry points across Testing, DOT and NON-DOT -->
-      <section class="admin-nav-group" data-nav-group="shared-services">
-        <button class="admin-nav-group-toggle" type="button" aria-expanded="false" aria-controls="admin-nav-shared-services">
-          <span class="admin-nav-group-title"><span class="admin-nav-group-icon">◇</span><span>Shared Services</span></span>
-          <span class="admin-nav-chevron" aria-hidden="true">⌄</span>
-        </button>
-        <div class="admin-nav-group-items" id="admin-nav-shared-services">
-          <a href="${prefix}admin-shared-results.html" data-nav-page="admin-shared-results.html">Results Management</a>
-          <a href="${prefix}admin-finance-invoices.html" data-nav-page="admin-finance-invoices.html">Invoices</a>
-          <a href="${prefix}admin-proposals.html" data-nav-page="admin-proposals.html">Proposals</a>
-          <a href="${prefix}admin-proposal-invoicing.html" data-nav-page="admin-proposal-invoicing.html">Accepted Proposal Invoicing</a>
-          <a href="${prefix}admin-billing-subscriptions.html" data-nav-page="admin-billing-subscriptions.html">Subscriptions</a>
-          <a href="${prefix}admin-finance-ar.html" data-nav-page="admin-finance-ar.html">Accounts Receivable</a>
-        </div>
-      </section>
 
       <!-- DOT COMPLIANCE -->
       <section
