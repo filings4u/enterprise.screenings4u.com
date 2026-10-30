@@ -303,3 +303,13 @@ body.ep-enterprise-shell{background:var(--ep-canvas)!important}
   .admin-lms-main{margin-left:0!important}
   body.ep-mobile-open .ep-overlay{display:block}
 }
+
+
+/* Enterprise navigation: reversible desktop collapse and mobile show/hide. */
+.ep-desktop-menu{display:grid;place-items:center;width:35px;height:35px;border:1px solid var(--ep-line);border-radius:8px;background:#fff;color:var(--ep-ink);cursor:pointer;flex-shrink:0}
+.ep-desktop-menu svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.8}
+@media(min-width:941px){
+ body.ep-enterprise-shell.ep-desktop-nav-hidden #admin-lms-sidebar-target{display:none!important}
+ body.ep-enterprise-shell.ep-desktop-nav-hidden .admin-lms-main{margin-left:0!important}
+}
+@media(max-width:940px){.ep-desktop-menu{display:none!important}}
