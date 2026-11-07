@@ -1,0 +1,37 @@
+/* Enterprise-only executive dashboard redesign (2026-11) */
+body[data-enterprise-page="dashboard"] .ep2-dashboard{max-width:1450px;margin:0 auto;padding:22px 24px 50px;display:block}
+body[data-enterprise-page="dashboard"] .ep2-hero{position:relative;min-height:245px;padding:35px 38px;background:linear-gradient(112deg,#fff 0%,#fff 61%,#eaf1fb 100%);border:1px solid #dbe5f2;border-radius:16px;display:flex;justify-content:space-between;align-items:center;gap:36px;overflow:hidden}
+body[data-enterprise-page="dashboard"] .ep2-hero h1{max-width:760px;font-size:clamp(28px,3vw,41px);line-height:1.16;letter-spacing:-.045em;color:#0d2c56;margin:10px 0 12px}
+body[data-enterprise-page="dashboard"] .ep2-hero p{max-width:670px;font-size:13px;line-height:1.65;color:#59708e}
+body[data-enterprise-page="dashboard"] .ep2-hero-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+body[data-enterprise-page="dashboard"] .ep2-health{flex:0 0 245px;max-width:260px}
+body[data-enterprise-page="dashboard"] .ep2-metrics{margin-top:14px;gap:12px}
+body[data-enterprise-page="dashboard"] .ep2-metrics article{min-height:102px;border-radius:12px;padding:16px 20px}
+body[data-enterprise-page="dashboard"] .ee-section-title{display:flex;justify-content:space-between;align-items:end;margin:30px 1px 16px}
+body[data-enterprise-page="dashboard"] .ee-section-title h2{font-size:21px;letter-spacing:-.035em;color:#0c2b54;margin:5px 0 3px}
+body[data-enterprise-page="dashboard"] .ee-section-title p{margin:0;color:#68809a;font-size:12px}
+body[data-enterprise-page="dashboard"] .ee-capabilities{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px}
+body[data-enterprise-page="dashboard"] .ee-capability{display:flex;flex-direction:column;align-items:flex-start;min-height:202px;border:1px solid #dce5f1;border-radius:13px;background:#fff;padding:21px 22px;color:#102f5c;text-decoration:none;transition:transform .15s,box-shadow .15s,border-color .15s}
+body[data-enterprise-page="dashboard"] .ee-capability:hover{border-color:#a8bfde;box-shadow:0 12px 30px rgba(20,49,84,.08);transform:translateY(-2px)}
+body[data-enterprise-page="dashboard"] .ee-capability.ee-featured{background:linear-gradient(140deg,#143e76,#0c2b55);border-color:#143e76;color:#fff}
+body[data-enterprise-page="dashboard"] .ee-symbol{display:grid;place-items:center;width:36px;height:36px;margin-bottom:10px;border-radius:9px;background:#edf3fb;color:#244b82;font-size:20px;font-weight:600}
+body[data-enterprise-page="dashboard"] .ee-featured .ee-symbol{background:rgba(255,255,255,.14);color:#fff}
+body[data-enterprise-page="dashboard"] .ee-category{color:#f46721;font-size:9px;font-weight:850;letter-spacing:.09em}
+body[data-enterprise-page="dashboard"] .ee-capability h3{font-size:15px;letter-spacing:-.02em;margin:6px 0 6px;color:inherit}
+body[data-enterprise-page="dashboard"] .ee-capability p{font-size:11.5px;line-height:1.6;color:#657b99;margin:0 0 17px}
+body[data-enterprise-page="dashboard"] .ee-featured p{color:#d1dff3}
+body[data-enterprise-page="dashboard"] .ee-action{margin-top:auto;font-size:11px;font-weight:800;color:#174b87}
+body[data-enterprise-page="dashboard"] .ee-featured .ee-action{color:#fff}
+body[data-enterprise-page="dashboard"] .ee-businesses{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+body[data-enterprise-page="dashboard"] .ee-businesses a{border:1px solid #dbe5f2;border-radius:12px;background:white;min-height:124px;display:flex;flex-direction:column;padding:17px;text-decoration:none;color:#153661;gap:6px}
+body[data-enterprise-page="dashboard"] .ee-businesses a:hover{border-color:#94b3d8;background:#fbfdff}
+body[data-enterprise-page="dashboard"] .ee-businesses strong{font-size:12px}
+body[data-enterprise-page="dashboard"] .ee-businesses small{font-size:10px;color:#758ba4;overflow-wrap:anywhere}
+body[data-enterprise-page="dashboard"] .ee-businesses a>span:last-child{margin-top:auto;font-size:10px;font-weight:750;color:#1c5899}
+body[data-enterprise-page="dashboard"] .ee-business-dot{display:block;width:24px;height:4px;border-radius:9px;background:#ff702b}.ee-business-dot.purple{background:#7960dd}.ee-business-dot.blue{background:#2865a5}.ee-business-dot.green{background:#1e9b68}
+body[data-enterprise-page="dashboard"] .ee-bottom{margin-top:22px}
+body[data-enterprise-page="dashboard"] .ee-small-links{display:flex;flex-wrap:wrap;gap:12px}
+body[data-enterprise-page="dashboard"] .ee-small-links a{color:#25578c;font-size:11px;font-weight:750;text-decoration:none}
+body[data-s4u-portal="admin"] .ep-business-tabs{justify-content:center}
+@media(max-width:1180px){body[data-enterprise-page="dashboard"] .ee-capabilities{grid-template-columns:repeat(2,minmax(0,1fr))}body[data-enterprise-page="dashboard"] .ee-businesses{grid-template-columns:repeat(2,minmax(0,1fr))}body[data-enterprise-page="dashboard"] .ep2-health{display:none}}
+@media(max-width:700px){body[data-enterprise-page="dashboard"] .ep2-dashboard{padding:14px}body[data-enterprise-page="dashboard"] .ep2-hero{padding:23px;min-height:0}body[data-enterprise-page="dashboard"] .ee-capabilities,body[data-enterprise-page="dashboard"] .ee-businesses{grid-template-columns:1fr}body[data-enterprise-page="dashboard"] .ep2-metrics{grid-template-columns:repeat(2,minmax(0,1fr))}}
